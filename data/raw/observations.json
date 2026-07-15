@@ -1,0 +1,11 @@
+{
+  "snapshot":"2026-07",
+  "collection_status":"illustrative_cached_fixture",
+  "countries": {
+    "brazil":{"scores":[67,71,76],"trend":"up","seed":5,"metrics":{"authors":"286 active authors","policy":"18 tracked initiatives","search":"+34% over 12 months","readiness":"3 of 5 criteria"}},
+    "germany":{"scores":[78,82,67],"trend":"flat","seed":11,"metrics":{"authors":"514 active authors","policy":"27 tracked initiatives","search":"+9% over 12 months","readiness":"4 of 5 criteria"}},
+    "india":{"scores":[74,69,81],"trend":"up","seed":17,"metrics":{"authors":"683 active authors","policy":"22 tracked initiatives","search":"+41% over 12 months","readiness":"3 of 5 criteria"}},
+    "kenya":{"scores":[45,52,64],"trend":"up","seed":23,"metrics":{"authors":"74 active authors","policy":"9 tracked initiatives","search":"+28% over 12 months","readiness":"2 of 5 criteria"}},
+    "mexico":{"scores":[55,48,59],"trend":"flat","seed":31,"metrics":{"authors":"143 active authors","policy":"11 tracked initiatives","search":"+12% over 12 months","readiness":"2 of 5 criteria"}}
+  }
+}

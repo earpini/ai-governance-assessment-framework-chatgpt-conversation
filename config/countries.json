@@ -1,0 +1,7 @@
+[
+  {"id":"brazil","name":"Brazil","code":"BRA","region":"Latin America","languages":["pt"],"queries":{"general_ai":"inteligência artificial","ai_regulation":"regulação da inteligência artificial","ai_risk":"riscos da IA"}},
+  {"id":"germany","name":"Germany","code":"DEU","region":"Europe","languages":["de"],"queries":{"general_ai":"künstliche Intelligenz","ai_regulation":"KI Regulierung","ai_risk":"Risiken künstliche Intelligenz"}},
+  {"id":"india","name":"India","code":"IND","region":"South Asia","languages":["en","hi"],"queries":{"general_ai":"artificial intelligence","ai_regulation":"AI regulation","ai_risk":"AI risks"}},
+  {"id":"kenya","name":"Kenya","code":"KEN","region":"East Africa","languages":["en","sw"],"queries":{"general_ai":"artificial intelligence","ai_regulation":"AI regulation","ai_risk":"AI risks"}},
+  {"id":"mexico","name":"Mexico","code":"MEX","region":"Latin America","languages":["es"],"queries":{"general_ai":"inteligencia artificial","ai_regulation":"regulación de inteligencia artificial","ai_risk":"riesgos de la IA"}}
+]

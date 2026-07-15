@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "weights": {"field_capacity": 0.25, "political_receptivity": 0.25, "public_momentum": 0.25, "policy_readiness": 0.25},
+  "stage_thresholds": {"low": 40, "strong": 65, "open": 70},
+  "normalization": "pilot_min_max",
+  "missing_data_policy": "flag_and_reweight_observed_components",
+  "query_topics": ["general_ai", "ai_regulation", "ai_risk", "jobs", "deepfakes", "copyright", "sovereignty"]
+}
