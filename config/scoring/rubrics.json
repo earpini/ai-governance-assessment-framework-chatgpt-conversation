@@ -1,0 +1,22 @@
+{
+  "version": "2026-07-pilot-v1",
+  "score_status": "experimental_pilot_methodology",
+  "component_scale": {
+    "0": "No credible evidence or no usable data",
+    "1": "Limited evidence",
+    "2": "Developing evidence",
+    "3": "Established evidence",
+    "4": "Strong evidence"
+  },
+  "policy_readiness_scale": {
+    "0": "No credible evidence",
+    "1": "Partial, early, or weak evidence",
+    "2": "Clear and current evidence"
+  },
+  "policy_readiness_criteria": ["concrete_proposal", "credible_champion", "institutional_route", "supporting_coalition", "domestic_evidence_base"],
+  "pillar_conversion": "sum_observed_component_ratings / maximum_observed_component_total * 100",
+  "overall_index": false,
+  "stage_automation": true,
+  "stage_output_label": "automated proxy",
+  "missing_data_policy": "flag_and_do_not_impute"
+}

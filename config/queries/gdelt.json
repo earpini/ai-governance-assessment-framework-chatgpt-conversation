@@ -1,0 +1,10 @@
+{
+  "version": "2026-07-pilot-v1",
+  "valid_from": "2026-07-01",
+  "valid_to": null,
+  "source": "gdelt",
+  "lookback_months": 36,
+  "deduplication": "canonical_url_then_title_domain_day",
+  "query_baskets": ["general_ai", "governance", "safety", "rights", "jobs", "copyright", "elections", "deepfakes", "procurement", "sovereignty", "data_centres"],
+  "aggregation": ["article_count", "share_of_sampled_coverage", "distinct_outlets", "outlet_hhi", "issue_breadth", "three_month_change", "twelve_month_change", "persistence"]
+}

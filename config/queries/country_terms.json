@@ -1,0 +1,11 @@
+{
+  "version": "2026-07-pilot-v1",
+  "status": "draft_requires_language_review",
+  "countries": {
+    "brazil": {"language":"pt","ai":["inteligência artificial","IA","modelo de linguagem","IA generativa"],"governance":["regulação","governança","lei","política pública","supervisão","responsabilidade","segurança de IA"],"issues":["trabalho","direitos autorais","eleições","deepfake","compras públicas","soberania","centro de dados"]},
+    "germany": {"language":"de","ai":["künstliche Intelligenz","KI","Sprachmodell","generative KI"],"governance":["Regulierung","Governance","Gesetz","Politik","Aufsicht","Rechenschaft","KI-Sicherheit"],"issues":["Arbeit","Urheberrecht","Wahlen","Deepfake","öffentliche Beschaffung","Souveränität","Rechenzentrum"]},
+    "india": {"language":"en-hi","ai":["artificial intelligence","AI","कृत्रिम बुद्धिमत्ता","generative AI"],"governance":["regulation","governance","law","policy","oversight","accountability","AI safety","विनियमन"],"issues":["jobs","copyright","elections","deepfake","public procurement","sovereignty","data centre"]},
+    "kenya": {"language":"en-sw","ai":["artificial intelligence","AI","akili bandia","generative AI"],"governance":["regulation","governance","law","policy","oversight","accountability","AI safety","udhibiti"],"issues":["jobs","copyright","elections","deepfake","public procurement","sovereignty","data centre"]},
+    "mexico": {"language":"es","ai":["inteligencia artificial","IA","modelo de lenguaje","IA generativa"],"governance":["regulación","gobernanza","ley","política pública","supervisión","rendición de cuentas","seguridad de IA"],"issues":["trabajo","derechos de autor","elecciones","deepfake","contratación pública","soberanía","centro de datos"]}
+  }
+}

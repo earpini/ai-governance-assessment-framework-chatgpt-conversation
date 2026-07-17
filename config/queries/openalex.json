@@ -1,0 +1,17 @@
+{
+  "version": "2026-07-pilot-v1",
+  "valid_from": "2026-07-01",
+  "valid_to": null,
+  "source": "openalex",
+  "lookback_months": 36,
+  "inclusion_rule": "A work must match at least one AI term and one governance or issue-pathway term in its title or abstract.",
+  "ai_terms": ["artificial intelligence", "AI", "machine learning", "foundation model", "generative AI", "large language model"],
+  "governance_topics": {
+    "governance": ["governance", "regulation", "law", "policy", "oversight", "accountability"],
+    "safety": ["AI safety", "risk", "evaluation", "audit", "assurance"],
+    "rights": ["discrimination", "bias", "privacy", "human rights", "transparency"],
+    "political_economy": ["labor", "labour", "copyright", "competition", "procurement", "sovereignty"],
+    "public_interest": ["election", "deepfake", "public sector", "education", "data centre", "data center", "energy"]
+  },
+  "languages": ["en", "pt", "de", "hi", "sw", "es"]
+}
