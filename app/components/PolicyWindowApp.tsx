@@ -121,10 +121,10 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
         <section className="method-page">
           <span className="eyebrow">Methodology · validation pilot {dataset.methodologyVersion}</span>
           <h1>What the tool measures—<br/><em>and what it cannot.</em></h1>
-          <p className="method-lead">This pilot asks whether a country is prepared to use a policy opportunity when it appears. It generates reproducible proxies from public data and web-accessible official records. The result is a machine-generated diagnosis to investigate, not a definitive ranking.</p>
-          <div className="method-callout"><strong>Publication rule:</strong><p>This build contains no synthetic observations. Automated proxies may publish with incomplete coverage, but missing sources lower confidence and remain visible.</p></div>
+          <p className="method-lead">This proof of concept asks a practical fieldbuilding question: where might additional people, institutions, evidence, or policy capacity make the greatest difference when an AI-governance opportunity emerges? It is an invitation to test a small, reproducible set of signals—not a country ranking.</p>
+          <div className="method-callout"><strong>Feedback requested:</strong><p>What are the few parameters that genuinely matter for fieldbuilding and policy-capacity investment? Which open sources could track each one reliably, and what decisions should this evidence actually inform? <a href="https://www.admonymous.co/arpini" target="_blank" rel="noreferrer">Share feedback anonymously ↗</a></p></div>
 
-          <div className="method-section-heading"><span className="eyebrow">01 · The assessment</span><h2>Four separate questions</h2><p>No overall country score is published. Each pillar remains visible so a strong signal cannot hide a weak one.</p></div>
+          <div className="method-section-heading"><span className="eyebrow">01 · The assessment</span><h2>Four hypotheses to challenge</h2><p>These are candidate parameters, not settled ones. No overall country score is published.</p></div>
           <div className="method-grid">
             {dataset.countries[0].pillars.map((p, i) => <article key={p.id}><span>0{i+1}</span><h2>{p.name}</h2><p>{p.question}</p></article>)}
           </div>
@@ -135,7 +135,7 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
             <li><strong>Check</strong><span>Failed sources keep the last valid snapshot. Missing data are flagged; they are never converted to zero.</span></li>
             <li><strong>Normalize</strong><span>Publish raw, population-adjusted and within-country trend values. Five-country min–max normalization is not used as the primary result.</span></li>
             <li><strong>Score</strong><span>Transparent 0–4 component rubrics may be converted to experimental 0–100 pillar scores for interface testing. No overall index is calculated.</span></li>
-            <li><strong>Diagnose</strong><span>Explicit rules generate a provisional window stage. Optional expert review can add context or override it without blocking automated publication.</span></li>
+            <li><strong>Interpret</strong><span>The evidence should inform fieldbuilding choices: build a community, fund policy design, support a champion, strengthen implementation capacity, or wait for better signals. It should not claim to predict politics.</span></li>
           </ol>
 
           <div className="method-section-heading"><span className="eyebrow">03 · Data sources</span><h2>What each source contributes</h2><p>Source coverage is deliberately mixed: no single dataset can show whether a policy community is ready to act.</p></div>
@@ -144,7 +144,7 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
             {sourceLedger.map(source => <div className="source-row" role="row" key={source.name}><a href={source.url} target="_blank" rel="noreferrer">{source.name} ↗</a><strong>{source.role}</strong><p>{source.measures}</p><p>{source.caveat}</p></div>)}
           </div>
 
-          <div className="method-section-heading"><span className="eyebrow">04 · Window stage</span><h2>An explicit automated proxy</h2></div>
+          <div className="method-section-heading"><span className="eyebrow">04 · Proposed interpretation</span><h2>A hypothesis, not a verdict</h2></div>
           <div className="stage-rules">
             <div><StagePill stage="Closed"/><p>Political receptivity and public momentum are both low.</p></div>
             <div><StagePill stage="Latent"/><p>Capacity or policy readiness exists, but attention remains low.</p></div>
@@ -163,11 +163,11 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
       ) : (
         <>
           <section className="hero">
-            <div><span className="eyebrow">AI governance policy-window monitor · open-data validation pilot</span><h1>Where is the next<br/>window <em>opening?</em></h1></div>
-            <p>Five countries. Four evidence profiles. One test: can open data support a useful policy-window diagnosis?</p>
+            <div><span className="eyebrow">AI governance fieldbuilding · open-data proof of concept</span><h1>Where could capacity<br/>make the <em>difference?</em></h1></div>
+            <p>Five countries. A deliberately small set of candidate signals. One question: where should AI-governance fieldbuilding and policy-capacity efforts concentrate?</p>
           </section>
 
-          <div className="prototype-strip"><strong>{dataset.status === "collection_pending" ? "Collection pending" : "First empirical pass"}</strong><span>No synthetic country findings are displayed. Available official records are shown now; missing sources, scores and country stages remain visibly pending.</span><button onClick={() => setView("method")}>See validation method →</button></div>
+          <div className="prototype-strip"><strong>Feedback sought</strong><span>This is a proof of concept, not a country ranking. Help identify the few parameters worth tracking, the best open-data sources, and how the evidence should guide fieldbuilding choices.</span><a href="https://www.admonymous.co/arpini" target="_blank" rel="noreferrer">Give feedback ↗</a></div>
 
           <section className="country-strip" aria-label="Country comparison">
             {dataset.countries.map(c => (
@@ -182,7 +182,7 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
           <section className="profile" key={country.id}>
             <div className="profile-heading">
               <div><span className="eyebrow">{country.region} · {country.code}</span><h2>{country.name}</h2></div>
-              <div className="stage-summary"><span>Policy window proxy</span><StagePill stage={country.stage} /><small>{country.stageConfidence}</small></div>
+              <div className="stage-summary"><span>Provisional capacity signal</span><StagePill stage={country.stage} /><small>{country.stageConfidence}</small></div>
             </div>
             {country.lowDataWarning && <div className="data-warning">△ {country.lowDataWarning}</div>}
             <div className="diagnosis-grid">
@@ -203,7 +203,7 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
         </>
       )}
 
-      <footer className="site-footer">{variant === "brand" ? <a className="ea-wordmark" href="https://ettorearpini.com/" aria-label="Ettore Arpini, home">Ettore Arpini<span className="ea-logo-arrow">↗</span></a> : <div className="brand"><span>W/</span> WINDOW</div>}<p>Designed and researched by <a href="https://ettorearpini.com/" target="_blank" rel="noreferrer">Ettore Arpini ↗</a></p><div className="footer-links"><button onClick={() => setView("method")}>Methodology</button><a href="https://www.admonymous.co/arpini" target="_blank" rel="noreferrer">Leave feedback ↗</a></div></footer>
+      <footer className="site-footer">{variant === "brand" ? <a className="ea-wordmark" href="https://ettorearpini.com/" aria-label="Ettore Arpini, home">Ettore Arpini<span className="ea-logo-arrow">↗</span></a> : <div className="brand"><span>W/</span> WINDOW</div>}<p>A proof of concept by <a href="https://ettorearpini.com/" target="_blank" rel="noreferrer">Ettore Arpini ↗</a></p><div className="footer-links"><button onClick={() => setView("method")}>Methodology</button><a href="https://www.admonymous.co/arpini" target="_blank" rel="noreferrer">Help shape the parameters ↗</a></div></footer>
       <EvidenceDrawer evidence={evidence} onClose={() => setEvidence(null)} />
     </main>
   );
