@@ -121,8 +121,8 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
         <section className="method-page">
           <span className="eyebrow">Methodology · validation pilot {dataset.methodologyVersion}</span>
           <h1>What the tool measures—<br/><em>and what it cannot.</em></h1>
-          <p className="method-lead">This proof of concept asks a practical fieldbuilding question: where might additional people, institutions, evidence, or policy capacity make the greatest difference when an AI-governance opportunity emerges? It is an invitation to test a small, reproducible set of signals—not a country ranking.</p>
-          <div className="method-callout"><strong>Feedback requested:</strong><p>What are the few parameters that genuinely matter for fieldbuilding and policy-capacity investment? Which open sources could track each one reliably, and what decisions should this evidence actually inform? <a href="https://www.admonymous.co/arpini" target="_blank" rel="noreferrer">Share feedback anonymously ↗</a></p></div>
+          <p className="method-lead">AI Policy Windows Explorer is a proof of concept to validate a practical fieldbuilding question: where might additional people, institutions, evidence, or policy capacity make the greatest difference when an AI-governance opportunity emerges? It is an invitation to test a small, reproducible set of signals—not a country ranking.</p>
+          <div className="method-callout"><strong>Proof of concept:</strong><p>The end goal is a tool that helps policy entrepreneurs and grantmakers prioritize where to create a talent pipeline, build policymakers’ capacity, and create media momentum. What are the few parameters that genuinely matter? Which open sources could track each one reliably, and what decisions should this evidence actually inform? <a href="https://www.admonymous.co/arpini" target="_blank" rel="noreferrer">Share feedback anonymously ↗</a></p></div>
 
           <div className="method-section-heading"><span className="eyebrow">01 · The assessment</span><h2>Four hypotheses to challenge</h2><p>These are candidate parameters, not settled ones. No overall country score is published.</p></div>
           <div className="method-grid">
@@ -163,11 +163,11 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
       ) : (
         <>
           <section className="hero">
-            <div><span className="eyebrow">AI governance fieldbuilding · open-data proof of concept</span><h1>Where could capacity<br/>make the <em>difference?</em></h1></div>
-            <p>Five countries. A deliberately small set of candidate signals. One question: where should AI-governance fieldbuilding and policy-capacity efforts concentrate?</p>
+            <div><span className="eyebrow">AI Policy Windows Explorer · open-data proof of concept</span><h1>Where could capacity<br/>make the <em>difference?</em></h1></div>
+            <p>A proof of concept for prioritizing talent pipelines, policymaker capacity, and media momentum when an AI-policy window may emerge.</p>
           </section>
 
-          <div className="prototype-strip"><strong>Feedback sought</strong><span>This is a proof of concept, not a country ranking. Help identify the few parameters worth tracking, the best open-data sources, and how the evidence should guide fieldbuilding choices.</span><a href="https://www.admonymous.co/arpini" target="_blank" rel="noreferrer">Give feedback ↗</a></div>
+          <div className="prototype-strip"><strong>Proof of concept · feedback sought</strong><span>The end goal is to help policy entrepreneurs and grantmakers prioritize where to create talent pipelines, build policymaker capacity, and create media momentum. Help identify the few parameters worth tracking and the best ways to measure them.</span><a href="https://www.admonymous.co/arpini" target="_blank" rel="noreferrer">Give feedback ↗</a></div>
 
           <section className="country-strip" aria-label="Country comparison">
             {dataset.countries.map(c => (
