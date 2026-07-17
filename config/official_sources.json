@@ -1,0 +1,11 @@
+{
+  "version": "2026-07-pilot-v1",
+  "sources": [
+    {"id":"camara_open_data","country":"brazil","url":"https://dadosabertos.camara.leg.br/api/v2/","format":"json","access":"api"},
+    {"id":"bundestag_open_data","country":"germany","url":"https://www.bundestag.de/services/opendata/","format":"xml_json","access":"bulk_and_api"},
+    {"id":"digital_sansad","country":"india","url":"https://sansad.in/ls/debates/digitized","format":"html_pdf","access":"semi_automated"},
+    {"id":"kenya_parliament","country":"kenya","url":"https://www.parliament.go.ke/the-national-assembly/house-business/hansard","format":"pdf","access":"semi_automated"},
+    {"id":"kenya_law","country":"kenya","url":"https://new.kenyalaw.org/","format":"akn_html","access":"web"},
+    {"id":"gaceta_parlamentaria","country":"mexico","url":"https://gaceta.diputados.gob.mx/","format":"html_pdf","access":"semi_automated"}
+  ]
+}

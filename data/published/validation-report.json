@@ -1,0 +1,89 @@
+{
+  "countries": [
+    {
+      "country": "brazil",
+      "evidenceCount": 7,
+      "momentumPointCount": 12,
+      "reviewed": true,
+      "stagePublished": true,
+      "status": "partially_reviewed",
+      "traceableEvidenceCount": 7
+    },
+    {
+      "country": "germany",
+      "evidenceCount": 1,
+      "momentumPointCount": 12,
+      "reviewed": true,
+      "stagePublished": true,
+      "status": "partially_reviewed",
+      "traceableEvidenceCount": 1
+    },
+    {
+      "country": "india",
+      "evidenceCount": 8,
+      "momentumPointCount": 12,
+      "reviewed": true,
+      "stagePublished": true,
+      "status": "partially_reviewed",
+      "traceableEvidenceCount": 8
+    },
+    {
+      "country": "kenya",
+      "evidenceCount": 8,
+      "momentumPointCount": 12,
+      "reviewed": true,
+      "stagePublished": true,
+      "status": "partially_reviewed",
+      "traceableEvidenceCount": 8
+    },
+    {
+      "country": "mexico",
+      "evidenceCount": 1,
+      "momentumPointCount": 12,
+      "reviewed": true,
+      "stagePublished": true,
+      "status": "partially_reviewed",
+      "traceableEvidenceCount": 1
+    }
+  ],
+  "failures": [
+    {
+      "country": "brazil",
+      "reason": "Remote end closed connection without response",
+      "recordedAt": "2026-07-17T14:26:46+00:00",
+      "retryable": true,
+      "source": "Presid\u00eancia da Rep\u00fablica"
+    },
+    {
+      "country": "germany",
+      "reason": "HTTP Error 400: Bad Request",
+      "recordedAt": "2026-07-17T14:26:49+00:00",
+      "retryable": true,
+      "source": "Deutscher Bundestag"
+    },
+    {
+      "country": "mexico",
+      "reason": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>",
+      "recordedAt": "2026-07-17T14:27:09+00:00",
+      "retryable": true,
+      "source": "C\u00e1mara de Diputados"
+    },
+    {
+      "country": "mexico",
+      "reason": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>",
+      "recordedAt": "2026-07-17T14:27:22+00:00",
+      "retryable": true,
+      "source": "Gaceta Parlamentaria"
+    }
+  ],
+  "gates": {
+    "allClaimsTraceable": true,
+    "syntheticDataAbsent": true
+  },
+  "methodologyVersion": "2026-07-proxy-v1",
+  "reproducibility": {
+    "configurationCommit": "035df794e5a5fbe708501785733bafef0bd908bc",
+    "manifestPresent": true
+  },
+  "snapshot": "2026-07-proxy"
+}

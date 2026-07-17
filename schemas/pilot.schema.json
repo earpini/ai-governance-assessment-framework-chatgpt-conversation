@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ettorearpini.com/schemas/ai-governance-pilot.json",
+  "title": "AI Governance Policy-Window Validation Pilot",
+  "$defs": {
+    "status": {"enum": ["collection_pending", "empirical", "partially_reviewed", "illustrative"]},
+    "querySpec": {
+      "type": "object",
+      "required": ["id", "source", "language", "geography", "query", "topic", "version", "validFrom"],
+      "properties": {
+        "id": {"type": "string"}, "source": {"type": "string"}, "language": {"type": "string"},
+        "geography": {"type": "string"}, "query": {"type": "string"}, "topic": {"type": "string"},
+        "version": {"type": "string"}, "validFrom": {"type": "string", "format": "date"},
+        "validTo": {"type": ["string", "null"], "format": "date"}
+      }, "additionalProperties": false
+    },
+    "rawObservation": {
+      "type": "object",
+      "required": ["id", "sourceRecordId", "source", "country", "timestamp", "value", "retrievalParameters", "collectedAt", "license", "cachePath", "checksum", "status"],
+      "properties": {
+        "id": {"type": "string"}, "sourceRecordId": {"type": "string"}, "source": {"type": "string"},
+        "country": {"type": "string"}, "timestamp": {"type": "string"}, "value": {},
+        "retrievalParameters": {"type": "object"}, "collectedAt": {"type": "string"},
+        "license": {"type": "string"}, "cachePath": {"type": "string"},
+        "checksum": {"type": "string", "pattern": "^sha256:"}, "status": {"$ref": "#/$defs/status"}
+      }, "additionalProperties": false
+    },
+    "normalizedObservation": {
+      "type": "object",
+      "required": ["id", "country", "indicator", "period", "transformation", "formulaVersion", "inputObservationIds", "rawValue", "normalizedValue", "missingData", "status"],
+      "properties": {
+        "id": {"type": "string"}, "country": {"type": "string"}, "indicator": {"type": "string"},
+        "period": {"type": "string"}, "transformation": {"type": "string"}, "formulaVersion": {"type": "string"},
+        "inputObservationIds": {"type": "array", "items": {"type": "string"}},
+        "rawValue": {"type": ["number", "null"]}, "normalizedValue": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "missingData": {"type": "boolean"}, "status": {"$ref": "#/$defs/status"}
+      }, "additionalProperties": false
+    },
+    "sourceManifest": {
+      "type": "object",
+      "required": ["snapshot", "createdAt", "methodologyVersion", "configurationCommit", "environment", "adapters", "requests", "files", "failures"],
+      "properties": {
+        "snapshot": {"type": "string"}, "createdAt": {"type": "string"}, "methodologyVersion": {"type": "string"},
+        "configurationCommit": {"type": "string"}, "environment": {"type": "object"},
+        "adapters": {"type": "array", "items": {"type": "object"}}, "requests": {"type": "array", "items": {"type": "object"}},
+        "files": {"type": "array", "items": {"type": "object"}}, "failures": {"type": "array", "items": {"type": "object"}}
+      }, "additionalProperties": false
+    },
+    "reviewAssessment": {
+      "type": "object",
+      "required": ["country", "status", "criteria", "reviewer", "reviewDate", "disagreementStatus", "adjudication", "stage"],
+      "properties": {
+        "country": {"type": "string"}, "status": {"$ref": "#/$defs/status"},
+        "criteria": {"type": "array", "items": {"type": "object", "required": ["id", "rating", "rationale", "citations"], "properties": {"id":{"type":"string"},"rating":{"type":["integer","null"],"minimum":0,"maximum":2},"rationale":{"type":"string"},"citations":{"type":"array","items":{"type":"string"}}}}},
+        "reviewer": {"type": ["string", "null"]}, "reviewDate": {"type": ["string", "null"]},
+        "secondaryReviewer": {"type": ["string", "null"]}, "secondaryReviewDate": {"type": ["string", "null"]},
+        "secondaryCriteria": {"type": "array", "items": {"type": "object"}},
+        "agreement": {"type": ["number", "null"], "minimum": -1, "maximum": 1},
+        "disagreementStatus": {"enum": ["not_reviewed", "none", "open", "adjudicated"]},
+        "adjudication": {"type": ["string", "null"]}, "stage": {"type": ["string", "null"], "enum": [null, "Closed", "Latent", "Opening", "Open", "Closing"]}
+      }, "additionalProperties": false
+    },
+    "momentumPoint": {
+      "type": "object",
+      "required": ["month", "seriesType", "rawMeasure", "indexedValue", "coverageWarning", "provenanceReferences", "status"],
+      "properties": {
+        "month": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$"},
+        "seriesType": {"enum": ["media_attention", "political_attention", "google_trends_context"]},
+        "rawMeasure": {"type": ["number", "null"]}, "indexedValue": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "coverageWarning": {"type": ["string", "null"]}, "provenanceReferences": {"type": "array", "items": {"type": "string"}},
+        "status": {"$ref": "#/$defs/status"}
+      }, "additionalProperties": false
+    }
+  }
+}

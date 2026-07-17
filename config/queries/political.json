@@ -1,0 +1,16 @@
+{
+  "version": "2026-07-pilot-v1",
+  "valid_from": "2026-07-01",
+  "valid_to": null,
+  "source": "official_parliamentary_and_government_sources",
+  "lookback_months": 36,
+  "pipeline_stages": ["recognition", "agenda_entry", "formulation", "authorization", "implementation"],
+  "document_types": ["debate", "question", "bill", "consultation", "strategy", "regulation", "law", "committee_report", "implementation_update"],
+  "country_sources": {
+    "brazil": ["camara_open_data", "senado", "official_gazette", "executive_consultations"],
+    "germany": ["bundestag_dip", "federal_ministries", "regulators", "consultations"],
+    "india": ["digital_sansad", "parliament_digital_library", "ministries", "committee_reports"],
+    "kenya": ["parliament_hansard", "kenya_law", "ministries", "committee_records"],
+    "mexico": ["gaceta_parlamentaria", "camara", "senado", "diario_oficial", "executive_consultations"]
+  }
+}

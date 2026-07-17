@@ -1,1639 +1,1572 @@
 {
-  "version": "2026.07",
-  "publishedAt": "12 Jul 2026",
-  "methodologyNote": "Illustrative pilot data generated from cached fixtures and structured review.",
   "countries": [
     {
-      "id": "brazil",
-      "name": "Brazil",
       "code": "BRA",
-      "region": "Latin America",
+      "expertReview": "Machine-generated; not expert reviewed",
+      "id": "brazil",
       "languages": [
         "pt"
       ],
-      "queries": {
-        "general_ai": "intelig\u00eancia artificial",
-        "ai_regulation": "regula\u00e7\u00e3o da intelig\u00eancia artificial",
-        "ai_risk": "riscos da IA"
-      },
-      "stage": "Opening",
-      "stageConfidence": "High",
-      "summary": "A real policy window is taking shape: political attention is high and the field is capable, but the coalition behind implementable proposals remains fragmented.",
-      "signal": "Whether legislative attention converts into an institutionally owned implementation pathway.",
-      "missingIngredients": [
-        "Cross-sector implementation coalition",
-        "Dedicated enforcement capacity",
-        "Shared advanced-AI proposal"
-      ],
-      "lastUpdated": "2026-07-12",
-      "expertReview": "Prototype research review \u00b7 illustrative",
+      "lastUpdated": "2026-07-17T14:46:13+00:00",
       "lowDataWarning": null,
-      "pillars": [
-        {
-          "id": "field_capacity",
-          "name": "Field capacity",
-          "question": "Are capable and connected people present?",
-          "score": 67,
-          "confidence": "High",
-          "trend": "up",
-          "note": "Research activity is combined with institutional diversity and recent growth; headcount alone does not determine capacity.",
-          "evidence": [
-            {
-              "label": "Active research community",
-              "value": "286 active authors",
-              "definition": "Unique authors with recent AI-governance-related work and a domestic affiliation.",
-              "source": "OpenAlex",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "High"
-            },
-            {
-              "label": "Institutional diversity",
-              "value": "10 institutions",
-              "definition": "Organizations represented among the active research and practitioner sample.",
-              "source": "OpenAlex + desk review",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "High"
-            }
-          ]
-        },
-        {
-          "id": "political_receptivity",
-          "name": "Political receptivity",
-          "question": "Are policymakers aware and engaged?",
-          "score": 71,
-          "confidence": "High",
-          "trend": "up",
-          "note": "Initiatives are weighted by their movement from recognition toward authorization and implementation.",
-          "evidence": [
-            {
-              "label": "Policy activity",
-              "value": "18 tracked initiatives",
-              "definition": "Strategies, laws, consultations, institutions, and implementation actions tracked in the snapshot.",
-              "source": "OECD.AI Policy Navigator",
-              "sourceUrl": "https://oecd.ai/en/dashboards/overview",
-              "period": "2024\u20132026",
-              "confidence": "High"
-            },
-            {
-              "label": "Institutional commitment",
-              "value": "4 of 5 signals",
-              "definition": "Presence of a mandate, responsible institution, budget, timeline, and implementation evidence.",
-              "source": "Official sources + review",
-              "sourceUrl": "https://oecd.ai/",
-              "period": "2025\u20132026",
-              "confidence": "High"
-            }
-          ]
-        },
-        {
-          "id": "public_momentum",
-          "name": "Public momentum",
-          "question": "Is attention rising and becoming durable?",
-          "score": 76,
-          "confidence": "High",
-          "trend": "up",
-          "note": "Search and media signals are indexed within country, emphasizing acceleration and persistence rather than raw volume.",
-          "evidence": [
-            {
-              "label": "Search acceleration",
-              "value": "+34% over 12 months",
-              "definition": "Change in governance-relevant search interest against the prior twelve-month baseline.",
-              "source": "Google Trends",
-              "sourceUrl": "https://trends.google.com/trends/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "High"
-            },
-            {
-              "label": "Media breadth",
-              "value": "15 outlets",
-              "definition": "Distinct outlets in the illustrative governance-related media sample.",
-              "source": "GDELT",
-              "sourceUrl": "https://www.gdeltproject.org/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "High"
-            }
-          ]
-        },
-        {
-          "id": "policy_readiness",
-          "name": "Policy readiness",
-          "question": "Are credible ideas and routes ready to use?",
-          "score": 64,
-          "confidence": "High",
-          "trend": "up",
-          "note": "Structured review checks for a proposal, champion, institutional route, supporting coalition, and domestic evidence base.",
-          "evidence": [
-            {
-              "label": "Readiness criteria",
-              "value": "3 of 5 criteria",
-              "definition": "Number of five structured readiness criteria supported by current evidence.",
-              "source": "Structured expert review",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "Reviewed 12 Jul 2026",
-              "confidence": "High"
-            },
-            {
-              "label": "Stage review",
-              "value": "Approved",
-              "definition": "A reviewer must approve any published change to the headline policy-window stage.",
-              "source": "MVP review protocol",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "12 Jul 2026",
-              "confidence": "High"
-            }
-          ]
-        }
+      "missingIngredients": [
+        "Observable field capacity"
       ],
       "momentum": [
         {
-          "month": "2023-08",
-          "search": 63,
-          "media": 48
-        },
-        {
-          "month": "2023-09",
-          "search": 63,
-          "media": 49
-        },
-        {
-          "month": "2023-10",
-          "search": 63,
-          "media": 50
-        },
-        {
-          "month": "2023-11",
-          "search": 63,
-          "media": 51
-        },
-        {
-          "month": "2023-12",
-          "search": 61,
-          "media": 53
-        },
-        {
-          "month": "2024-01",
-          "search": 60,
-          "media": 54
-        },
-        {
-          "month": "2024-02",
-          "search": 59,
-          "media": 56
-        },
-        {
-          "month": "2024-03",
-          "search": 58,
-          "media": 58
-        },
-        {
-          "month": "2024-04",
-          "search": 57,
-          "media": 59
-        },
-        {
-          "month": "2024-05",
-          "search": 57,
-          "media": 60
-        },
-        {
-          "month": "2024-06",
-          "search": 57,
-          "media": 61
-        },
-        {
-          "month": "2024-07",
-          "search": 58,
-          "media": 62
-        },
-        {
-          "month": "2024-08",
-          "search": 60,
-          "media": 62
-        },
-        {
-          "month": "2024-09",
-          "search": 62,
-          "media": 62
-        },
-        {
-          "month": "2024-10",
-          "search": 65,
-          "media": 62
-        },
-        {
-          "month": "2024-11",
-          "search": 68,
-          "media": 61
-        },
-        {
-          "month": "2024-12",
-          "search": 71,
-          "media": 61
-        },
-        {
-          "month": "2025-01",
-          "search": 74,
-          "media": 61
-        },
-        {
-          "month": "2025-02",
-          "search": 76,
-          "media": 61
-        },
-        {
-          "month": "2025-03",
-          "search": 78,
-          "media": 61
-        },
-        {
-          "month": "2025-04",
-          "search": 79,
-          "media": 61
-        },
-        {
-          "month": "2025-05",
-          "search": 80,
-          "media": 62
-        },
-        {
-          "month": "2025-06",
-          "search": 79,
-          "media": 63
-        },
-        {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 72.75,
           "month": "2025-07",
-          "search": 93,
-          "media": 74
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 12307,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 83.31,
           "month": "2025-08",
-          "search": 78,
-          "media": 66
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 14093,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 100.0,
           "month": "2025-09",
-          "search": 76,
-          "media": 68
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 16917,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 99.28,
           "month": "2025-10",
-          "search": 75,
-          "media": 69
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 16796,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 84.96,
           "month": "2025-11",
-          "search": 74,
-          "media": 71
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 14373,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 63.59,
           "month": "2025-12",
-          "search": 73,
-          "media": 72
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 10758,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 74.14,
           "month": "2026-01",
-          "search": 73,
-          "media": 74
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 12542,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 70.85,
           "month": "2026-02",
-          "search": 73,
-          "media": 75
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 11985,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 84.29,
           "month": "2026-03",
-          "search": 74,
-          "media": 75
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 14260,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 71.88,
           "month": "2026-04",
-          "search": 76,
-          "media": 75
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 12160,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 79.1,
           "month": "2026-05",
-          "search": 92,
-          "media": 85
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 13381,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 66.31,
           "month": "2026-06",
-          "search": 81,
-          "media": 75
+          "provenanceReferences": [
+            "wikimedia:brazil:sha256:0d075"
+          ],
+          "rawMeasure": 11218,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
+        }
+      ],
+      "name": "Brazil",
+      "pillars": [
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "observable_field_capacity",
+          "missingData": true,
+          "name": "Observable field capacity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "What research and institutional capacity can be observed in open records?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
         },
         {
-          "month": "2026-07",
-          "search": 84,
-          "media": 75
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Primary source archived; classification requires second review",
+              "definition": "Official consultation coded as agenda entry.",
+              "id": "political-brazil-mjsp-consulta-guia-2026",
+              "label": "Consulta pública sobre Guia de Uso Ético de Inteligência Artificial",
+              "period": "2026-03",
+              "provenanceReferences": [
+                "official:brazil:mjsp-consulta-guia-2026:sha256:6ecd7"
+              ],
+              "source": "Ministério da Justiça e Segurança Pública",
+              "sourceUrl": "https://www.gov.br/mj/pt-br/assuntos/noticias/mjsp-abre-consulta-publica-sobre-guia-de-uso-etico-de-inteligencia-artificial/",
+              "status": "partially_reviewed",
+              "value": "Agenda Entry"
+            }
+          ],
+          "id": "political_receptivity",
+          "missingData": false,
+          "name": "Political receptivity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are policymakers paying attention and moving from discussion to action?",
+          "rubricMaximum": 4,
+          "rubricTotal": 2,
+          "score": 50,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Empirical but indirect proxy",
+              "definition": "General public-attention context from the principal local-language AI article.",
+              "id": "media-brazil-wikimedia-current",
+              "label": "Current public attention proxy",
+              "period": "2026-06",
+              "provenanceReferences": [
+                "wikimedia:brazil:sha256:0d075"
+              ],
+              "source": "Wikimedia Pageviews API",
+              "sourceUrl": "https://pt.wikipedia.org/wiki/Inteligência_artificial",
+              "status": "empirical",
+              "value": "11,218 Wikipedia views"
+            }
+          ],
+          "id": "public_momentum",
+          "missingData": false,
+          "name": "Public and media momentum",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Is governance-related attention broadening and persisting?",
+          "rubricMaximum": 4,
+          "rubricTotal": 3,
+          "score": 75,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-brazil-concrete_proposal",
+              "label": "Concrete Proposal",
+              "period": "2026-03",
+              "provenanceReferences": [
+                "official:brazil:mjsp-consulta-guia-2026:sha256:6ecd7"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.gov.br/mj/pt-br/assuntos/noticias/mjsp-abre-consulta-publica-sobre-guia-de-uso-etico-de-inteligencia-artificial/",
+              "status": "empirical",
+              "value": "2/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-brazil-credible_champion",
+              "label": "Credible Champion",
+              "period": "2026-03",
+              "provenanceReferences": [
+                "official:brazil:mjsp-consulta-guia-2026:sha256:6ecd7"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.gov.br/mj/pt-br/assuntos/noticias/mjsp-abre-consulta-publica-sobre-guia-de-uso-etico-de-inteligencia-artificial/",
+              "status": "empirical",
+              "value": "3/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-brazil-institutional_route",
+              "label": "Institutional Route",
+              "period": "2026-03",
+              "provenanceReferences": [
+                "official:brazil:mjsp-consulta-guia-2026:sha256:6ecd7"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.gov.br/mj/pt-br/assuntos/noticias/mjsp-abre-consulta-publica-sobre-guia-de-uso-etico-de-inteligencia-artificial/",
+              "status": "empirical",
+              "value": "2/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-brazil-supporting_coalition",
+              "label": "Supporting Coalition",
+              "period": "2026-03",
+              "provenanceReferences": [
+                "official:brazil:mjsp-consulta-guia-2026:sha256:6ecd7"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.gov.br/mj/pt-br/assuntos/noticias/mjsp-abre-consulta-publica-sobre-guia-de-uso-etico-de-inteligencia-artificial/",
+              "status": "empirical",
+              "value": "3/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-brazil-domestic_evidence_base",
+              "label": "Domestic Evidence Base",
+              "period": "2026-03",
+              "provenanceReferences": [
+                "official:brazil:mjsp-consulta-guia-2026:sha256:6ecd7"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.gov.br/mj/pt-br/assuntos/noticias/mjsp-abre-consulta-publica-sobre-guia-de-uso-etico-de-inteligencia-artificial/",
+              "status": "empirical",
+              "value": "1/4 automated proxy"
+            }
+          ],
+          "id": "policy_readiness",
+          "missingData": false,
+          "name": "Policy readiness",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are credible ideas, champions, coalitions and implementation routes ready?",
+          "rubricMaximum": 20,
+          "rubricTotal": 11,
+          "score": 55,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
         }
-      ]
+      ],
+      "queries": {
+        "ai_regulation": "regulação da inteligência artificial",
+        "ai_risk": "riscos da IA",
+        "general_ai": "inteligência artificial"
+      },
+      "region": "Latin America",
+      "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
+      "stage": "Opening",
+      "stageConfidence": "Medium · automated proxy",
+      "status": "partially_reviewed",
+      "summary": "Automated proxy: opening policy window based on 3 of four currently measurable pillars. Missing coverage lowers confidence."
     },
     {
-      "id": "germany",
-      "name": "Germany",
       "code": "DEU",
-      "region": "Europe",
+      "expertReview": "Machine-generated; not expert reviewed",
+      "id": "germany",
       "languages": [
         "de"
       ],
-      "queries": {
-        "general_ai": "k\u00fcnstliche Intelligenz",
-        "ai_regulation": "KI Regulierung",
-        "ai_risk": "Risiken k\u00fcnstliche Intelligenz"
-      },
-      "stage": "Open",
-      "stageConfidence": "High",
-      "summary": "Dense expertise and strong institutions make the window actionable, although attention is increasingly shaped by implementation questions rather than agenda setting.",
-      "signal": "How national implementation choices translate European rules into durable oversight capacity.",
-      "missingIngredients": [
-        "Faster regulator coordination",
-        "Independent technical capacity",
-        "Broader public narrative"
-      ],
-      "lastUpdated": "2026-07-12",
-      "expertReview": "Prototype research review \u00b7 illustrative",
+      "lastUpdated": "2026-07-17T14:46:13+00:00",
       "lowDataWarning": null,
-      "pillars": [
-        {
-          "id": "field_capacity",
-          "name": "Field capacity",
-          "question": "Are capable and connected people present?",
-          "score": 78,
-          "confidence": "High",
-          "trend": "up",
-          "note": "Research activity is combined with institutional diversity and recent growth; headcount alone does not determine capacity.",
-          "evidence": [
-            {
-              "label": "Active research community",
-              "value": "514 active authors",
-              "definition": "Unique authors with recent AI-governance-related work and a domestic affiliation.",
-              "source": "OpenAlex",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "High"
-            },
-            {
-              "label": "Institutional diversity",
-              "value": "11 institutions",
-              "definition": "Organizations represented among the active research and practitioner sample.",
-              "source": "OpenAlex + desk review",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "High"
-            }
-          ]
-        },
-        {
-          "id": "political_receptivity",
-          "name": "Political receptivity",
-          "question": "Are policymakers aware and engaged?",
-          "score": 82,
-          "confidence": "High",
-          "trend": "flat",
-          "note": "Initiatives are weighted by their movement from recognition toward authorization and implementation.",
-          "evidence": [
-            {
-              "label": "Policy activity",
-              "value": "27 tracked initiatives",
-              "definition": "Strategies, laws, consultations, institutions, and implementation actions tracked in the snapshot.",
-              "source": "OECD.AI Policy Navigator",
-              "sourceUrl": "https://oecd.ai/en/dashboards/overview",
-              "period": "2024\u20132026",
-              "confidence": "High"
-            },
-            {
-              "label": "Institutional commitment",
-              "value": "4 of 5 signals",
-              "definition": "Presence of a mandate, responsible institution, budget, timeline, and implementation evidence.",
-              "source": "Official sources + review",
-              "sourceUrl": "https://oecd.ai/",
-              "period": "2025\u20132026",
-              "confidence": "High"
-            }
-          ]
-        },
-        {
-          "id": "public_momentum",
-          "name": "Public momentum",
-          "question": "Is attention rising and becoming durable?",
-          "score": 67,
-          "confidence": "High",
-          "trend": "flat",
-          "note": "Search and media signals are indexed within country, emphasizing acceleration and persistence rather than raw volume.",
-          "evidence": [
-            {
-              "label": "Search acceleration",
-              "value": "+9% over 12 months",
-              "definition": "Change in governance-relevant search interest against the prior twelve-month baseline.",
-              "source": "Google Trends",
-              "sourceUrl": "https://trends.google.com/trends/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "High"
-            },
-            {
-              "label": "Media breadth",
-              "value": "13 outlets",
-              "definition": "Distinct outlets in the illustrative governance-related media sample.",
-              "source": "GDELT",
-              "sourceUrl": "https://www.gdeltproject.org/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "High"
-            }
-          ]
-        },
-        {
-          "id": "policy_readiness",
-          "name": "Policy readiness",
-          "question": "Are credible ideas and routes ready to use?",
-          "score": 79,
-          "confidence": "High",
-          "trend": "up",
-          "note": "Structured review checks for a proposal, champion, institutional route, supporting coalition, and domestic evidence base.",
-          "evidence": [
-            {
-              "label": "Readiness criteria",
-              "value": "4 of 5 criteria",
-              "definition": "Number of five structured readiness criteria supported by current evidence.",
-              "source": "Structured expert review",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "Reviewed 12 Jul 2026",
-              "confidence": "High"
-            },
-            {
-              "label": "Stage review",
-              "value": "Approved",
-              "definition": "A reviewer must approve any published change to the headline policy-window stage.",
-              "source": "MVP review protocol",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "12 Jul 2026",
-              "confidence": "High"
-            }
-          ]
-        }
+      "missingIngredients": [
+        "Observable field capacity",
+        "Political receptivity",
+        "Policy readiness"
       ],
       "momentum": [
         {
-          "month": "2023-08",
-          "search": 45,
-          "media": 43
-        },
-        {
-          "month": "2023-09",
-          "search": 43,
-          "media": 44
-        },
-        {
-          "month": "2023-10",
-          "search": 42,
-          "media": 45
-        },
-        {
-          "month": "2023-11",
-          "search": 41,
-          "media": 45
-        },
-        {
-          "month": "2023-12",
-          "search": 41,
-          "media": 46
-        },
-        {
-          "month": "2024-01",
-          "search": 41,
-          "media": 46
-        },
-        {
-          "month": "2024-02",
-          "search": 42,
-          "media": 46
-        },
-        {
-          "month": "2024-03",
-          "search": 44,
-          "media": 45
-        },
-        {
-          "month": "2024-04",
-          "search": 46,
-          "media": 44
-        },
-        {
-          "month": "2024-05",
-          "search": 48,
-          "media": 43
-        },
-        {
-          "month": "2024-06",
-          "search": 51,
-          "media": 43
-        },
-        {
-          "month": "2024-07",
-          "search": 53,
-          "media": 42
-        },
-        {
-          "month": "2024-08",
-          "search": 55,
-          "media": 41
-        },
-        {
-          "month": "2024-09",
-          "search": 56,
-          "media": 41
-        },
-        {
-          "month": "2024-10",
-          "search": 57,
-          "media": 41
-        },
-        {
-          "month": "2024-11",
-          "search": 56,
-          "media": 41
-        },
-        {
-          "month": "2024-12",
-          "search": 56,
-          "media": 42
-        },
-        {
-          "month": "2025-01",
-          "search": 54,
-          "media": 43
-        },
-        {
-          "month": "2025-02",
-          "search": 53,
-          "media": 44
-        },
-        {
-          "month": "2025-03",
-          "search": 51,
-          "media": 45
-        },
-        {
-          "month": "2025-04",
-          "search": 49,
-          "media": 46
-        },
-        {
-          "month": "2025-05",
-          "search": 47,
-          "media": 47
-        },
-        {
-          "month": "2025-06",
-          "search": 46,
-          "media": 48
-        },
-        {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 74.85,
           "month": "2025-07",
-          "search": 45,
-          "media": 48
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 25394,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 76.37,
           "month": "2025-08",
-          "search": 44,
-          "media": 49
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 25910,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 82.19,
           "month": "2025-09",
-          "search": 59,
-          "media": 59
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 27883,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 96.42,
           "month": "2025-10",
-          "search": 46,
-          "media": 49
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 32711,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 97.7,
           "month": "2025-11",
-          "search": 47,
-          "media": 48
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 33145,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 81.32,
           "month": "2025-12",
-          "search": 49,
-          "media": 47
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 27588,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 100.0,
           "month": "2026-01",
-          "search": 52,
-          "media": 47
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 33925,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 96.34,
           "month": "2026-02",
-          "search": 54,
-          "media": 46
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 32685,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 94.42,
           "month": "2026-03",
-          "search": 56,
-          "media": 45
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 32033,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 86.46,
           "month": "2026-04",
-          "search": 58,
-          "media": 44
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 29333,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 95.07,
           "month": "2026-05",
-          "search": 73,
-          "media": 54
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 32254,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 92.75,
           "month": "2026-06",
-          "search": 60,
-          "media": 44
+          "provenanceReferences": [
+            "wikimedia:germany:sha256:b45bd"
+          ],
+          "rawMeasure": 31465,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
+        }
+      ],
+      "name": "Germany",
+      "pillars": [
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "observable_field_capacity",
+          "missingData": true,
+          "name": "Observable field capacity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "What research and institutional capacity can be observed in open records?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
         },
         {
-          "month": "2026-07",
-          "search": 60,
-          "media": 44
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "political_receptivity",
+          "missingData": true,
+          "name": "Political receptivity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are policymakers paying attention and moving from discussion to action?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Empirical but indirect proxy",
+              "definition": "General public-attention context from the principal local-language AI article.",
+              "id": "media-germany-wikimedia-current",
+              "label": "Current public attention proxy",
+              "period": "2026-06",
+              "provenanceReferences": [
+                "wikimedia:germany:sha256:b45bd"
+              ],
+              "source": "Wikimedia Pageviews API",
+              "sourceUrl": "https://de.wikipedia.org/wiki/Künstliche Intelligenz",
+              "status": "empirical",
+              "value": "31,465 Wikipedia views"
+            }
+          ],
+          "id": "public_momentum",
+          "missingData": false,
+          "name": "Public and media momentum",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Is governance-related attention broadening and persisting?",
+          "rubricMaximum": 4,
+          "rubricTotal": 4,
+          "score": 100,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "policy_readiness",
+          "missingData": true,
+          "name": "Policy readiness",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are credible ideas, champions, coalitions and implementation routes ready?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
         }
-      ]
+      ],
+      "queries": {
+        "ai_regulation": "KI Regulierung",
+        "ai_risk": "Risiken künstliche Intelligenz",
+        "general_ai": "künstliche Intelligenz"
+      },
+      "region": "Europe",
+      "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
+      "stage": "Latent",
+      "stageConfidence": "Low · automated proxy",
+      "status": "partially_reviewed",
+      "summary": "Automated proxy: latent policy window based on 1 of four currently measurable pillars. Missing coverage lowers confidence."
     },
     {
-      "id": "india",
-      "name": "India",
       "code": "IND",
-      "region": "South Asia",
+      "expertReview": "Machine-generated; not expert reviewed",
+      "id": "india",
       "languages": [
         "en",
         "hi"
       ],
-      "queries": {
-        "general_ai": "artificial intelligence",
-        "ai_regulation": "AI regulation",
-        "ai_risk": "AI risks"
-      },
-      "stage": "Opening",
-      "stageConfidence": "Medium",
-      "summary": "AI attention is accelerating and the expert base is substantial, but governance proposals compete with a powerful innovation and adoption agenda.",
-      "signal": "Whether public-interest actors can attach concrete safeguards to the country\u2019s fast-moving AI agenda.",
-      "missingIngredients": [
-        "Civil-society access",
-        "Concrete accountability mechanism",
-        "Subnational implementation route"
-      ],
-      "lastUpdated": "2026-07-12",
-      "expertReview": "Prototype research review \u00b7 illustrative",
+      "lastUpdated": "2026-07-17T14:46:13+00:00",
       "lowDataWarning": null,
-      "pillars": [
-        {
-          "id": "field_capacity",
-          "name": "Field capacity",
-          "question": "Are capable and connected people present?",
-          "score": 74,
-          "confidence": "Medium",
-          "trend": "up",
-          "note": "Research activity is combined with institutional diversity and recent growth; headcount alone does not determine capacity.",
-          "evidence": [
-            {
-              "label": "Active research community",
-              "value": "683 active authors",
-              "definition": "Unique authors with recent AI-governance-related work and a domestic affiliation.",
-              "source": "OpenAlex",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "Medium"
-            },
-            {
-              "label": "Institutional diversity",
-              "value": "11 institutions",
-              "definition": "Organizations represented among the active research and practitioner sample.",
-              "source": "OpenAlex + desk review",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "Medium"
-            }
-          ]
-        },
-        {
-          "id": "political_receptivity",
-          "name": "Political receptivity",
-          "question": "Are policymakers aware and engaged?",
-          "score": 69,
-          "confidence": "Medium",
-          "trend": "up",
-          "note": "Initiatives are weighted by their movement from recognition toward authorization and implementation.",
-          "evidence": [
-            {
-              "label": "Policy activity",
-              "value": "22 tracked initiatives",
-              "definition": "Strategies, laws, consultations, institutions, and implementation actions tracked in the snapshot.",
-              "source": "OECD.AI Policy Navigator",
-              "sourceUrl": "https://oecd.ai/en/dashboards/overview",
-              "period": "2024\u20132026",
-              "confidence": "Medium"
-            },
-            {
-              "label": "Institutional commitment",
-              "value": "3 of 5 signals",
-              "definition": "Presence of a mandate, responsible institution, budget, timeline, and implementation evidence.",
-              "source": "Official sources + review",
-              "sourceUrl": "https://oecd.ai/",
-              "period": "2025\u20132026",
-              "confidence": "Medium"
-            }
-          ]
-        },
-        {
-          "id": "public_momentum",
-          "name": "Public momentum",
-          "question": "Is attention rising and becoming durable?",
-          "score": 81,
-          "confidence": "Medium",
-          "trend": "up",
-          "note": "Search and media signals are indexed within country, emphasizing acceleration and persistence rather than raw volume.",
-          "evidence": [
-            {
-              "label": "Search acceleration",
-              "value": "+41% over 12 months",
-              "definition": "Change in governance-relevant search interest against the prior twelve-month baseline.",
-              "source": "Google Trends",
-              "sourceUrl": "https://trends.google.com/trends/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "Medium"
-            },
-            {
-              "label": "Media breadth",
-              "value": "16 outlets",
-              "definition": "Distinct outlets in the illustrative governance-related media sample.",
-              "source": "GDELT",
-              "sourceUrl": "https://www.gdeltproject.org/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "Medium"
-            }
-          ]
-        },
-        {
-          "id": "policy_readiness",
-          "name": "Policy readiness",
-          "question": "Are credible ideas and routes ready to use?",
-          "score": 62,
-          "confidence": "Medium",
-          "trend": "up",
-          "note": "Structured review checks for a proposal, champion, institutional route, supporting coalition, and domestic evidence base.",
-          "evidence": [
-            {
-              "label": "Readiness criteria",
-              "value": "3 of 5 criteria",
-              "definition": "Number of five structured readiness criteria supported by current evidence.",
-              "source": "Structured expert review",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "Reviewed 12 Jul 2026",
-              "confidence": "Medium"
-            },
-            {
-              "label": "Stage review",
-              "value": "Approved",
-              "definition": "A reviewer must approve any published change to the headline policy-window stage.",
-              "source": "MVP review protocol",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "12 Jul 2026",
-              "confidence": "Medium"
-            }
-          ]
-        }
+      "missingIngredients": [
+        "Observable field capacity"
       ],
       "momentum": [
         {
-          "month": "2023-08",
-          "search": 55,
-          "media": 59
-        },
-        {
-          "month": "2023-09",
-          "search": 58,
-          "media": 59
-        },
-        {
-          "month": "2023-10",
-          "search": 60,
-          "media": 58
-        },
-        {
-          "month": "2023-11",
-          "search": 63,
-          "media": 58
-        },
-        {
-          "month": "2023-12",
-          "search": 66,
-          "media": 58
-        },
-        {
-          "month": "2024-01",
-          "search": 69,
-          "media": 58
-        },
-        {
-          "month": "2024-02",
-          "search": 71,
-          "media": 58
-        },
-        {
-          "month": "2024-03",
-          "search": 73,
-          "media": 58
-        },
-        {
-          "month": "2024-04",
-          "search": 74,
-          "media": 58
-        },
-        {
-          "month": "2024-05",
-          "search": 75,
-          "media": 59
-        },
-        {
-          "month": "2024-06",
-          "search": 75,
-          "media": 60
-        },
-        {
-          "month": "2024-07",
-          "search": 74,
-          "media": 62
-        },
-        {
-          "month": "2024-08",
-          "search": 73,
-          "media": 63
-        },
-        {
-          "month": "2024-09",
-          "search": 72,
-          "media": 65
-        },
-        {
-          "month": "2024-10",
-          "search": 70,
-          "media": 66
-        },
-        {
-          "month": "2024-11",
-          "search": 69,
-          "media": 68
-        },
-        {
-          "month": "2024-12",
-          "search": 68,
-          "media": 69
-        },
-        {
-          "month": "2025-01",
-          "search": 68,
-          "media": 70
-        },
-        {
-          "month": "2025-02",
-          "search": 68,
-          "media": 71
-        },
-        {
-          "month": "2025-03",
-          "search": 69,
-          "media": 72
-        },
-        {
-          "month": "2025-04",
-          "search": 71,
-          "media": 72
-        },
-        {
-          "month": "2025-05",
-          "search": 73,
-          "media": 72
-        },
-        {
-          "month": "2025-06",
-          "search": 76,
-          "media": 72
-        },
-        {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 24.77,
           "month": "2025-07",
-          "search": 93,
-          "media": 82
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 27,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 63.3,
           "month": "2025-08",
-          "search": 82,
-          "media": 72
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 69,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 100.0,
           "month": "2025-09",
-          "search": 85,
-          "media": 71
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 109,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 59.63,
           "month": "2025-10",
-          "search": 87,
-          "media": 71
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 65,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 25.69,
           "month": "2025-11",
-          "search": 89,
-          "media": 71
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 28,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 98.17,
           "month": "2025-12",
-          "search": 90,
-          "media": 72
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 107,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 58.72,
           "month": "2026-01",
-          "search": 91,
-          "media": 73
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 64,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 26.61,
           "month": "2026-02",
-          "search": 91,
-          "media": 74
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 29,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 45.87,
           "month": "2026-03",
-          "search": 90,
-          "media": 75
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 50,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 25.69,
           "month": "2026-04",
-          "search": 89,
-          "media": 77
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 28,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 46.79,
           "month": "2026-05",
-          "search": 100,
-          "media": 88
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 51,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 26.61,
           "month": "2026-06",
-          "search": 87,
-          "media": 80
+          "provenanceReferences": [
+            "wikimedia:india:sha256:a2c13"
+          ],
+          "rawMeasure": 29,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
+        }
+      ],
+      "name": "India",
+      "pillars": [
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "observable_field_capacity",
+          "missingData": true,
+          "name": "Observable field capacity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "What research and institutional capacity can be observed in open records?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
         },
         {
-          "month": "2026-07",
-          "search": 85,
-          "media": 81
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Primary source archived; classification requires second review",
+              "definition": "Official institution announcement coded as implementation.",
+              "id": "political-india-meity-tpec-2026",
+              "label": "Technology and Policy Expert Committee for India’s AI Governance Architecture",
+              "period": "2026-04",
+              "provenanceReferences": [
+                "official:india:meity-tpec-2026:sha256:16c4c"
+              ],
+              "source": "Press Information Bureau / MeitY",
+              "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253322&lang=1&reg=3",
+              "status": "partially_reviewed",
+              "value": "Implementation"
+            },
+            {
+              "confidence": "Primary source archived; classification requires second review",
+              "definition": "Official guidelines coded as authorization.",
+              "id": "political-india-india-ai-governance-guidelines-2026",
+              "label": "India AI Governance Guidelines",
+              "period": "2026-02",
+              "provenanceReferences": [
+                "official:india:india-ai-governance-guidelines-2026:sha256:f8809"
+              ],
+              "source": "Press Information Bureau / MeitY",
+              "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2228315&lang=2&reg=48",
+              "status": "partially_reviewed",
+              "value": "Authorization"
+            }
+          ],
+          "id": "political_receptivity",
+          "missingData": false,
+          "name": "Political receptivity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are policymakers paying attention and moving from discussion to action?",
+          "rubricMaximum": 8,
+          "rubricTotal": 8,
+          "score": 100,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Empirical but indirect proxy",
+              "definition": "General public-attention context from the principal local-language AI article.",
+              "id": "media-india-wikimedia-current",
+              "label": "Current public attention proxy",
+              "period": "2026-06",
+              "provenanceReferences": [
+                "wikimedia:india:sha256:a2c13"
+              ],
+              "source": "Wikimedia Pageviews API",
+              "sourceUrl": "https://hi.wikipedia.org/wiki/कृत्रिम_बुद्धिमत्ता",
+              "status": "empirical",
+              "value": "29 Wikipedia views"
+            }
+          ],
+          "id": "public_momentum",
+          "missingData": false,
+          "name": "Public and media momentum",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Is governance-related attention broadening and persisting?",
+          "rubricMaximum": 4,
+          "rubricTotal": 1,
+          "score": 25,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-india-concrete_proposal",
+              "label": "Concrete Proposal",
+              "period": "2026-04",
+              "provenanceReferences": [
+                "official:india:meity-tpec-2026:sha256:16c4c",
+                "official:india:india-ai-governance-guidelines-2026:sha256:f8809"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253322&lang=1&reg=3",
+              "status": "empirical",
+              "value": "4/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-india-credible_champion",
+              "label": "Credible Champion",
+              "period": "2026-04",
+              "provenanceReferences": [
+                "official:india:meity-tpec-2026:sha256:16c4c",
+                "official:india:india-ai-governance-guidelines-2026:sha256:f8809"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253322&lang=1&reg=3",
+              "status": "empirical",
+              "value": "3/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-india-institutional_route",
+              "label": "Institutional Route",
+              "period": "2026-04",
+              "provenanceReferences": [
+                "official:india:meity-tpec-2026:sha256:16c4c",
+                "official:india:india-ai-governance-guidelines-2026:sha256:f8809"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253322&lang=1&reg=3",
+              "status": "empirical",
+              "value": "4/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-india-supporting_coalition",
+              "label": "Supporting Coalition",
+              "period": "2026-04",
+              "provenanceReferences": [
+                "official:india:meity-tpec-2026:sha256:16c4c",
+                "official:india:india-ai-governance-guidelines-2026:sha256:f8809"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253322&lang=1&reg=3",
+              "status": "empirical",
+              "value": "3/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-india-domestic_evidence_base",
+              "label": "Domestic Evidence Base",
+              "period": "2026-04",
+              "provenanceReferences": [
+                "official:india:meity-tpec-2026:sha256:16c4c",
+                "official:india:india-ai-governance-guidelines-2026:sha256:f8809"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253322&lang=1&reg=3",
+              "status": "empirical",
+              "value": "3/4 automated proxy"
+            }
+          ],
+          "id": "policy_readiness",
+          "missingData": false,
+          "name": "Policy readiness",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are credible ideas, champions, coalitions and implementation routes ready?",
+          "rubricMaximum": 20,
+          "rubricTotal": 17,
+          "score": 85,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
         }
-      ]
+      ],
+      "queries": {
+        "ai_regulation": "AI regulation",
+        "ai_risk": "AI risks",
+        "general_ai": "artificial intelligence"
+      },
+      "region": "South Asia",
+      "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
+      "stage": "Opening",
+      "stageConfidence": "Medium · automated proxy",
+      "status": "partially_reviewed",
+      "summary": "Automated proxy: opening policy window based on 3 of four currently measurable pillars. Missing coverage lowers confidence."
     },
     {
-      "id": "kenya",
-      "name": "Kenya",
       "code": "KEN",
-      "region": "East Africa",
+      "expertReview": "Machine-generated; not expert reviewed",
+      "id": "kenya",
       "languages": [
         "en",
         "sw"
       ],
-      "queries": {
-        "general_ai": "artificial intelligence",
-        "ai_regulation": "AI regulation",
-        "ai_risk": "AI risks"
-      },
-      "stage": "Latent",
-      "stageConfidence": "Low",
-      "summary": "A visible community and rising public attention create potential, but limited institutional depth makes the emerging window vulnerable to external agendas.",
-      "signal": "Whether local experts gain a formal route into strategy design and implementation.",
+      "lastUpdated": "2026-07-17T14:46:13+00:00",
+      "lowDataWarning": null,
       "missingIngredients": [
-        "Durable local funding",
-        "Government technical unit",
-        "Locally grounded proposal"
-      ],
-      "lastUpdated": "2026-07-12",
-      "expertReview": "Prototype research review \u00b7 illustrative",
-      "lowDataWarning": "Sparse local-language media and practitioner data; confidence is reduced.",
-      "pillars": [
-        {
-          "id": "field_capacity",
-          "name": "Field capacity",
-          "question": "Are capable and connected people present?",
-          "score": 45,
-          "confidence": "Low",
-          "trend": "flat",
-          "note": "Research activity is combined with institutional diversity and recent growth; headcount alone does not determine capacity.",
-          "evidence": [
-            {
-              "label": "Active research community",
-              "value": "74 active authors",
-              "definition": "Unique authors with recent AI-governance-related work and a domestic affiliation.",
-              "source": "OpenAlex",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "Low"
-            },
-            {
-              "label": "Institutional diversity",
-              "value": "6 institutions",
-              "definition": "Organizations represented among the active research and practitioner sample.",
-              "source": "OpenAlex + desk review",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "Low"
-            }
-          ]
-        },
-        {
-          "id": "political_receptivity",
-          "name": "Political receptivity",
-          "question": "Are policymakers aware and engaged?",
-          "score": 52,
-          "confidence": "Low",
-          "trend": "up",
-          "note": "Initiatives are weighted by their movement from recognition toward authorization and implementation.",
-          "evidence": [
-            {
-              "label": "Policy activity",
-              "value": "9 tracked initiatives",
-              "definition": "Strategies, laws, consultations, institutions, and implementation actions tracked in the snapshot.",
-              "source": "OECD.AI Policy Navigator",
-              "sourceUrl": "https://oecd.ai/en/dashboards/overview",
-              "period": "2024\u20132026",
-              "confidence": "Low"
-            },
-            {
-              "label": "Institutional commitment",
-              "value": "3 of 5 signals",
-              "definition": "Presence of a mandate, responsible institution, budget, timeline, and implementation evidence.",
-              "source": "Official sources + review",
-              "sourceUrl": "https://oecd.ai/",
-              "period": "2025\u20132026",
-              "confidence": "Low"
-            }
-          ]
-        },
-        {
-          "id": "public_momentum",
-          "name": "Public momentum",
-          "question": "Is attention rising and becoming durable?",
-          "score": 64,
-          "confidence": "Low",
-          "trend": "up",
-          "note": "Search and media signals are indexed within country, emphasizing acceleration and persistence rather than raw volume.",
-          "evidence": [
-            {
-              "label": "Search acceleration",
-              "value": "+28% over 12 months",
-              "definition": "Change in governance-relevant search interest against the prior twelve-month baseline.",
-              "source": "Google Trends",
-              "sourceUrl": "https://trends.google.com/trends/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "Low"
-            },
-            {
-              "label": "Media breadth",
-              "value": "13 outlets",
-              "definition": "Distinct outlets in the illustrative governance-related media sample.",
-              "source": "GDELT",
-              "sourceUrl": "https://www.gdeltproject.org/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "Low"
-            }
-          ]
-        },
-        {
-          "id": "policy_readiness",
-          "name": "Policy readiness",
-          "question": "Are credible ideas and routes ready to use?",
-          "score": 47,
-          "confidence": "Low",
-          "trend": "flat",
-          "note": "Structured review checks for a proposal, champion, institutional route, supporting coalition, and domestic evidence base.",
-          "evidence": [
-            {
-              "label": "Readiness criteria",
-              "value": "2 of 5 criteria",
-              "definition": "Number of five structured readiness criteria supported by current evidence.",
-              "source": "Structured expert review",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "Reviewed 12 Jul 2026",
-              "confidence": "Low"
-            },
-            {
-              "label": "Stage review",
-              "value": "Approved",
-              "definition": "A reviewer must approve any published change to the headline policy-window stage.",
-              "source": "MVP review protocol",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "12 Jul 2026",
-              "confidence": "Low"
-            }
-          ]
-        }
+        "Observable field capacity"
       ],
       "momentum": [
         {
-          "month": "2023-08",
-          "search": 50,
-          "media": 37
-        },
-        {
-          "month": "2023-09",
-          "search": 51,
-          "media": 37
-        },
-        {
-          "month": "2023-10",
-          "search": 53,
-          "media": 37
-        },
-        {
-          "month": "2023-11",
-          "search": 53,
-          "media": 38
-        },
-        {
-          "month": "2023-12",
-          "search": 53,
-          "media": 39
-        },
-        {
-          "month": "2024-01",
-          "search": 52,
-          "media": 40
-        },
-        {
-          "month": "2024-02",
-          "search": 51,
-          "media": 42
-        },
-        {
-          "month": "2024-03",
-          "search": 50,
-          "media": 44
-        },
-        {
-          "month": "2024-04",
-          "search": 49,
-          "media": 45
-        },
-        {
-          "month": "2024-05",
-          "search": 47,
-          "media": 47
-        },
-        {
-          "month": "2024-06",
-          "search": 47,
-          "media": 48
-        },
-        {
-          "month": "2024-07",
-          "search": 46,
-          "media": 49
-        },
-        {
-          "month": "2024-08",
-          "search": 47,
-          "media": 50
-        },
-        {
-          "month": "2024-09",
-          "search": 48,
-          "media": 51
-        },
-        {
-          "month": "2024-10",
-          "search": 49,
-          "media": 51
-        },
-        {
-          "month": "2024-11",
-          "search": 52,
-          "media": 51
-        },
-        {
-          "month": "2024-12",
-          "search": 54,
-          "media": 51
-        },
-        {
-          "month": "2025-01",
-          "search": 57,
-          "media": 51
-        },
-        {
-          "month": "2025-02",
-          "search": 60,
-          "media": 50
-        },
-        {
-          "month": "2025-03",
-          "search": 63,
-          "media": 50
-        },
-        {
-          "month": "2025-04",
-          "search": 65,
-          "media": 50
-        },
-        {
-          "month": "2025-05",
-          "search": 67,
-          "media": 50
-        },
-        {
-          "month": "2025-06",
-          "search": 69,
-          "media": 51
-        },
-        {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 77.98,
           "month": "2025-07",
-          "search": 69,
-          "media": 52
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 288589,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 80.14,
           "month": "2025-08",
-          "search": 69,
-          "media": 53
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 296561,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 90.31,
           "month": "2025-09",
-          "search": 83,
-          "media": 64
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 334185,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 94.34,
           "month": "2025-10",
-          "search": 67,
-          "media": 55
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 349106,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 87.3,
           "month": "2025-11",
-          "search": 66,
-          "media": 57
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 323056,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 87.94,
           "month": "2025-12",
-          "search": 65,
-          "media": 59
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 325445,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 93.0,
           "month": "2026-01",
-          "search": 64,
-          "media": 60
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 344166,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 93.28,
           "month": "2026-02",
-          "search": 63,
-          "media": 62
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 345208,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 100.0,
           "month": "2026-03",
-          "search": 62,
-          "media": 63
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 370062,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 82.85,
           "month": "2026-04",
-          "search": 63,
-          "media": 64
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 306610,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 92.11,
           "month": "2026-05",
-          "search": 78,
-          "media": 74
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 340860,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 82.21,
           "month": "2026-06",
-          "search": 65,
-          "media": 65
+          "provenanceReferences": [
+            "wikimedia:kenya:sha256:ba72d"
+          ],
+          "rawMeasure": 304218,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
+        }
+      ],
+      "name": "Kenya",
+      "pillars": [
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "observable_field_capacity",
+          "missingData": true,
+          "name": "Observable field capacity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "What research and institutional capacity can be observed in open records?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
         },
         {
-          "month": "2026-07",
-          "search": 67,
-          "media": 65
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Primary source archived; classification requires second review",
+              "definition": "Official strategy coded as authorization.",
+              "id": "political-kenya-kenya-ai-strategy-2025",
+              "label": "Kenya AI Strategy 2025–2030",
+              "period": "2025-03",
+              "provenanceReferences": [
+                "official:kenya:kenya-ai-strategy-2025:sha256:14ca7"
+              ],
+              "source": "Ministry of Information, Communications and the Digital Economy",
+              "sourceUrl": "https://ict.go.ke/node/641",
+              "status": "partially_reviewed",
+              "value": "Authorization"
+            },
+            {
+              "confidence": "Primary source archived; classification requires second review",
+              "definition": "Official implementation roadmap coded as implementation.",
+              "id": "political-kenya-kenya-ai-roadmap-2025",
+              "label": "Kenya National AI Strategy 2025–2030 Implementation Roadmap",
+              "period": "2025-12",
+              "provenanceReferences": [
+                "official:kenya:kenya-ai-roadmap-2025:sha256:6da09"
+              ],
+              "source": "Ministry of Information, Communications and the Digital Economy",
+              "sourceUrl": "https://www.ict.go.ke/sites/default/files/2025-12/Kenya%20National%20AI%20Strategy%202025-2030%20Implementation%20Roadmap.pdf",
+              "status": "partially_reviewed",
+              "value": "Implementation"
+            }
+          ],
+          "id": "political_receptivity",
+          "missingData": false,
+          "name": "Political receptivity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are policymakers paying attention and moving from discussion to action?",
+          "rubricMaximum": 8,
+          "rubricTotal": 8,
+          "score": 100,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Empirical but indirect proxy",
+              "definition": "General public-attention context from the principal local-language AI article.",
+              "id": "media-kenya-wikimedia-current",
+              "label": "Current public attention proxy",
+              "period": "2026-06",
+              "provenanceReferences": [
+                "wikimedia:kenya:sha256:ba72d"
+              ],
+              "source": "Wikimedia Pageviews API",
+              "sourceUrl": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+              "status": "empirical",
+              "value": "304,218 Wikipedia views"
+            }
+          ],
+          "id": "public_momentum",
+          "missingData": false,
+          "name": "Public and media momentum",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Is governance-related attention broadening and persisting?",
+          "rubricMaximum": 4,
+          "rubricTotal": 4,
+          "score": 100,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-kenya-concrete_proposal",
+              "label": "Concrete Proposal",
+              "period": "2025-12",
+              "provenanceReferences": [
+                "official:kenya:kenya-ai-strategy-2025:sha256:14ca7",
+                "official:kenya:kenya-ai-roadmap-2025:sha256:6da09"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://ict.go.ke/node/641",
+              "status": "empirical",
+              "value": "4/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-kenya-credible_champion",
+              "label": "Credible Champion",
+              "period": "2025-12",
+              "provenanceReferences": [
+                "official:kenya:kenya-ai-strategy-2025:sha256:14ca7",
+                "official:kenya:kenya-ai-roadmap-2025:sha256:6da09"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://ict.go.ke/node/641",
+              "status": "empirical",
+              "value": "3/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-kenya-institutional_route",
+              "label": "Institutional Route",
+              "period": "2025-12",
+              "provenanceReferences": [
+                "official:kenya:kenya-ai-strategy-2025:sha256:14ca7",
+                "official:kenya:kenya-ai-roadmap-2025:sha256:6da09"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://ict.go.ke/node/641",
+              "status": "empirical",
+              "value": "4/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-kenya-supporting_coalition",
+              "label": "Supporting Coalition",
+              "period": "2025-12",
+              "provenanceReferences": [
+                "official:kenya:kenya-ai-strategy-2025:sha256:14ca7",
+                "official:kenya:kenya-ai-roadmap-2025:sha256:6da09"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://ict.go.ke/node/641",
+              "status": "empirical",
+              "value": "3/4 automated proxy"
+            },
+            {
+              "confidence": "Automated proxy; confidence limited by source coverage",
+              "definition": "Machine-inferred policy-readiness component. It is not an expert judgment.",
+              "id": "readiness-kenya-domestic_evidence_base",
+              "label": "Domestic Evidence Base",
+              "period": "2025-12",
+              "provenanceReferences": [
+                "official:kenya:kenya-ai-strategy-2025:sha256:14ca7",
+                "official:kenya:kenya-ai-roadmap-2025:sha256:6da09"
+              ],
+              "source": "Automated extraction from archived official records",
+              "sourceUrl": "https://ict.go.ke/node/641",
+              "status": "empirical",
+              "value": "3/4 automated proxy"
+            }
+          ],
+          "id": "policy_readiness",
+          "missingData": false,
+          "name": "Policy readiness",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are credible ideas, champions, coalitions and implementation routes ready?",
+          "rubricMaximum": 20,
+          "rubricTotal": 17,
+          "score": 85,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
         }
-      ]
+      ],
+      "queries": {
+        "ai_regulation": "AI regulation",
+        "ai_risk": "AI risks",
+        "general_ai": "artificial intelligence"
+      },
+      "region": "East Africa",
+      "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
+      "stage": "Opening",
+      "stageConfidence": "Medium · automated proxy",
+      "status": "partially_reviewed",
+      "summary": "Automated proxy: opening policy window based on 3 of four currently measurable pillars. Missing coverage lowers confidence."
     },
     {
-      "id": "mexico",
-      "name": "Mexico",
       "code": "MEX",
-      "region": "Latin America",
+      "expertReview": "Machine-generated; not expert reviewed",
+      "id": "mexico",
       "languages": [
         "es"
       ],
-      "queries": {
-        "general_ai": "inteligencia artificial",
-        "ai_regulation": "regulaci\u00f3n de inteligencia artificial",
-        "ai_risk": "riesgos de la IA"
-      },
-      "stage": "Latent",
-      "stageConfidence": "Medium",
-      "summary": "Relevant expertise exists, but political attention is intermittent and few actors connect technical knowledge to a credible federal policy route.",
-      "signal": "Whether a policy champion and cross-party institutional home emerge around a concrete issue.",
-      "missingIngredients": [
-        "Government champion",
-        "Sustained media attention",
-        "Policy-ready coalition"
-      ],
-      "lastUpdated": "2026-07-12",
-      "expertReview": "Prototype research review \u00b7 illustrative",
+      "lastUpdated": "2026-07-17T14:46:13+00:00",
       "lowDataWarning": null,
-      "pillars": [
-        {
-          "id": "field_capacity",
-          "name": "Field capacity",
-          "question": "Are capable and connected people present?",
-          "score": 55,
-          "confidence": "Medium",
-          "trend": "flat",
-          "note": "Research activity is combined with institutional diversity and recent growth; headcount alone does not determine capacity.",
-          "evidence": [
-            {
-              "label": "Active research community",
-              "value": "143 active authors",
-              "definition": "Unique authors with recent AI-governance-related work and a domestic affiliation.",
-              "source": "OpenAlex",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "Medium"
-            },
-            {
-              "label": "Institutional diversity",
-              "value": "8 institutions",
-              "definition": "Organizations represented among the active research and practitioner sample.",
-              "source": "OpenAlex + desk review",
-              "sourceUrl": "https://openalex.org/",
-              "period": "2025\u20132026",
-              "confidence": "Medium"
-            }
-          ]
-        },
-        {
-          "id": "political_receptivity",
-          "name": "Political receptivity",
-          "question": "Are policymakers aware and engaged?",
-          "score": 48,
-          "confidence": "Medium",
-          "trend": "flat",
-          "note": "Initiatives are weighted by their movement from recognition toward authorization and implementation.",
-          "evidence": [
-            {
-              "label": "Policy activity",
-              "value": "11 tracked initiatives",
-              "definition": "Strategies, laws, consultations, institutions, and implementation actions tracked in the snapshot.",
-              "source": "OECD.AI Policy Navigator",
-              "sourceUrl": "https://oecd.ai/en/dashboards/overview",
-              "period": "2024\u20132026",
-              "confidence": "Medium"
-            },
-            {
-              "label": "Institutional commitment",
-              "value": "2 of 5 signals",
-              "definition": "Presence of a mandate, responsible institution, budget, timeline, and implementation evidence.",
-              "source": "Official sources + review",
-              "sourceUrl": "https://oecd.ai/",
-              "period": "2025\u20132026",
-              "confidence": "Medium"
-            }
-          ]
-        },
-        {
-          "id": "public_momentum",
-          "name": "Public momentum",
-          "question": "Is attention rising and becoming durable?",
-          "score": 59,
-          "confidence": "Medium",
-          "trend": "flat",
-          "note": "Search and media signals are indexed within country, emphasizing acceleration and persistence rather than raw volume.",
-          "evidence": [
-            {
-              "label": "Search acceleration",
-              "value": "+12% over 12 months",
-              "definition": "Change in governance-relevant search interest against the prior twelve-month baseline.",
-              "source": "Google Trends",
-              "sourceUrl": "https://trends.google.com/trends/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "Medium"
-            },
-            {
-              "label": "Media breadth",
-              "value": "12 outlets",
-              "definition": "Distinct outlets in the illustrative governance-related media sample.",
-              "source": "GDELT",
-              "sourceUrl": "https://www.gdeltproject.org/",
-              "period": "Jul 2025\u2013Jun 2026",
-              "confidence": "Medium"
-            }
-          ]
-        },
-        {
-          "id": "policy_readiness",
-          "name": "Policy readiness",
-          "question": "Are credible ideas and routes ready to use?",
-          "score": 49,
-          "confidence": "Medium",
-          "trend": "flat",
-          "note": "Structured review checks for a proposal, champion, institutional route, supporting coalition, and domestic evidence base.",
-          "evidence": [
-            {
-              "label": "Readiness criteria",
-              "value": "2 of 5 criteria",
-              "definition": "Number of five structured readiness criteria supported by current evidence.",
-              "source": "Structured expert review",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "Reviewed 12 Jul 2026",
-              "confidence": "Medium"
-            },
-            {
-              "label": "Stage review",
-              "value": "Approved",
-              "definition": "A reviewer must approve any published change to the headline policy-window stage.",
-              "source": "MVP review protocol",
-              "sourceUrl": "https://oecd.ai/en/ai-principles",
-              "period": "12 Jul 2026",
-              "confidence": "Medium"
-            }
-          ]
-        }
+      "missingIngredients": [
+        "Observable field capacity",
+        "Political receptivity",
+        "Policy readiness"
       ],
       "momentum": [
         {
-          "month": "2023-08",
-          "search": 37,
-          "media": 35
-        },
-        {
-          "month": "2023-09",
-          "search": 35,
-          "media": 36
-        },
-        {
-          "month": "2023-10",
-          "search": 34,
-          "media": 37
-        },
-        {
-          "month": "2023-11",
-          "search": 33,
-          "media": 37
-        },
-        {
-          "month": "2023-12",
-          "search": 33,
-          "media": 38
-        },
-        {
-          "month": "2024-01",
-          "search": 33,
-          "media": 38
-        },
-        {
-          "month": "2024-02",
-          "search": 34,
-          "media": 38
-        },
-        {
-          "month": "2024-03",
-          "search": 36,
-          "media": 37
-        },
-        {
-          "month": "2024-04",
-          "search": 38,
-          "media": 36
-        },
-        {
-          "month": "2024-05",
-          "search": 40,
-          "media": 36
-        },
-        {
-          "month": "2024-06",
-          "search": 43,
-          "media": 35
-        },
-        {
-          "month": "2024-07",
-          "search": 45,
-          "media": 34
-        },
-        {
-          "month": "2024-08",
-          "search": 47,
-          "media": 33
-        },
-        {
-          "month": "2024-09",
-          "search": 48,
-          "media": 33
-        },
-        {
-          "month": "2024-10",
-          "search": 49,
-          "media": 33
-        },
-        {
-          "month": "2024-11",
-          "search": 49,
-          "media": 33
-        },
-        {
-          "month": "2024-12",
-          "search": 48,
-          "media": 34
-        },
-        {
-          "month": "2025-01",
-          "search": 47,
-          "media": 35
-        },
-        {
-          "month": "2025-02",
-          "search": 45,
-          "media": 36
-        },
-        {
-          "month": "2025-03",
-          "search": 43,
-          "media": 37
-        },
-        {
-          "month": "2025-04",
-          "search": 41,
-          "media": 38
-        },
-        {
-          "month": "2025-05",
-          "search": 39,
-          "media": 39
-        },
-        {
-          "month": "2025-06",
-          "search": 38,
-          "media": 40
-        },
-        {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 66.49,
           "month": "2025-07",
-          "search": 37,
-          "media": 40
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 51235,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 75.69,
           "month": "2025-08",
-          "search": 36,
-          "media": 41
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 58322,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 85.97,
           "month": "2025-09",
-          "search": 51,
-          "media": 51
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 66247,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 100.0,
           "month": "2025-10",
-          "search": 38,
-          "media": 41
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 77054,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 76.81,
           "month": "2025-11",
-          "search": 39,
-          "media": 40
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 59185,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 42.46,
           "month": "2025-12",
-          "search": 41,
-          "media": 40
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 32718,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 54.53,
           "month": "2026-01",
-          "search": 44,
-          "media": 39
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 42017,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 57.04,
           "month": "2026-02",
-          "search": 46,
-          "media": 38
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 43949,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 60.02,
           "month": "2026-03",
-          "search": 48,
-          "media": 37
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 46246,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 59.76,
           "month": "2026-04",
-          "search": 64,
-          "media": 46
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 46046,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 63.93,
           "month": "2026-05",
-          "search": 51,
-          "media": 36
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 49258,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
         },
         {
+          "coverageWarning": "General AI attention, not specifically support for AI regulation.",
+          "indexedValue": 55.78,
           "month": "2026-06",
-          "search": 52,
-          "media": 36
+          "provenanceReferences": [
+            "wikimedia:mexico:sha256:5a02e"
+          ],
+          "rawMeasure": 42983,
+          "seriesType": "wikimedia_attention",
+          "status": "empirical"
+        }
+      ],
+      "name": "Mexico",
+      "pillars": [
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "observable_field_capacity",
+          "missingData": true,
+          "name": "Observable field capacity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "What research and institutional capacity can be observed in open records?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
         },
         {
-          "month": "2026-07",
-          "search": 52,
-          "media": 36
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "political_receptivity",
+          "missingData": true,
+          "name": "Political receptivity",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are policymakers paying attention and moving from discussion to action?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Partial",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [
+            {
+              "confidence": "Empirical but indirect proxy",
+              "definition": "General public-attention context from the principal local-language AI article.",
+              "id": "media-mexico-wikimedia-current",
+              "label": "Current public attention proxy",
+              "period": "2026-06",
+              "provenanceReferences": [
+                "wikimedia:mexico:sha256:5a02e"
+              ],
+              "source": "Wikimedia Pageviews API",
+              "sourceUrl": "https://es.wikipedia.org/wiki/Inteligencia_artificial",
+              "status": "empirical",
+              "value": "42,983 Wikipedia views"
+            }
+          ],
+          "id": "public_momentum",
+          "missingData": false,
+          "name": "Public and media momentum",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Is governance-related attention broadening and persisting?",
+          "rubricMaximum": 4,
+          "rubricTotal": 2,
+          "score": 50,
+          "scoreLabel": "Experimental pilot methodology",
+          "status": "partially_reviewed",
+          "trend": null
+        },
+        {
+          "confidence": {
+            "classificationQuality": "First-pass review",
+            "dataCoverage": "Pending",
+            "expertAgreement": "Pending"
+          },
+          "evidence": [],
+          "id": "policy_readiness",
+          "missingData": true,
+          "name": "Policy readiness",
+          "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
+          "question": "Are credible ideas, champions, coalitions and implementation routes ready?",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
+          "trend": null
         }
-      ]
+      ],
+      "queries": {
+        "ai_regulation": "regulación de inteligencia artificial",
+        "ai_risk": "riesgos de la IA",
+        "general_ai": "inteligencia artificial"
+      },
+      "region": "Latin America",
+      "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
+      "stage": "Latent",
+      "stageConfidence": "Low · automated proxy",
+      "status": "partially_reviewed",
+      "summary": "Automated proxy: latent policy window based on 1 of four currently measurable pillars. Missing coverage lowers confidence."
     }
-  ]
+  ],
+  "manifest": "data/manifests/2026-07-proxy.json",
+  "methodologyNote": "Open-data validation pilot. Synthetic observations are prohibited from publication.",
+  "methodologyVersion": "2026-07-proxy-v1",
+  "publishedAt": "2026-07-17",
+  "status": "partially_reviewed",
+  "version": "2026-07-proxy"
 }

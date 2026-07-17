@@ -1,98 +1,82 @@
-# vinext-starter
+# AI Governance Policy-Window Validation Pilot
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+An open-data proof of concept for assessing whether Brazil, Germany, India, Kenya, and Mexico have the observable capacity, political attention, public momentum, and policy preparation needed to use an AI-governance policy window.
 
-## Prerequisites
+## Publication status
 
-- Node.js `>=22.13.0`
+The checked-in public snapshot contains **no synthetic country observations**. Every country remains `collection_pending`, with no score or stage, until empirical source records and a structured review satisfy the publication gates.
 
-## Quick Start
+The interface is available in two visual versions:
+
+- `index.html`: original Window design.
+- `brand.html`: Ettore Arpini style-guide design.
+
+## Method
+
+- **Observable field capacity:** OpenAlex works, authors, institutions, collaboration and concentration. This does not claim to count all practitioners.
+- **Political receptivity and attention:** official parliamentary and government documents. OECD.AI is discovery-only; scored records require primary-source verification.
+- **Public and media momentum:** archived GDELT article records. Google Trends is optional, contextual and unscored.
+- **Policy readiness:** five criteria rated 0–2 by a country reviewer and a central second coder. Stages are never assigned automatically.
+
+Raw counts, adjusted measures, within-country trends and component rubrics remain separate. The tool does not calculate an overall index.
+
+## Reproducible workflow
+
+1. Review and freeze `config/queries/`, `config/scoring/`, and `config/official_sources.json`.
+2. Configure `OPENALEX_API_KEY` for live OpenAlex collection.
+3. Add manually verified official documents to `data/inputs/political_documents.json`.
+4. Run collectors without publishing:
+
+   ```bash
+   python3 -m pipeline.run_collection \
+     --snapshot 2026-08 \
+     --start 2026-07-01 \
+     --end 2026-07-31 \
+     --sources openalex,gdelt,political
+   ```
+
+5. Classify cached records and manually review the required samples described in `data/reviewed/samples/README.md`.
+6. Write normalized observations with raw IDs, formulas, missing-data flags and provenance references.
+7. Complete primary and secondary readiness reviews, record disagreements, and adjudicate them.
+8. Build with publication gates enabled:
+
+   ```bash
+   python3 pipeline/build_snapshot.py --snapshot 2026-07 --publication-mode
+   python3 -m pipeline.validate.pilot --snapshot 2026-07
+   ```
+
+9. Re-run the build from cached inputs and compare the resulting `data/published/snapshot.json` byte-for-byte.
+
+Live collection never publishes automatically. If collection fails, the previous valid published snapshot remains untouched.
+
+## Automated proxy refresh
+
+The monthly workflow collects credential-free Wikimedia attention data and official-source records, then generates explicitly labelled automated readiness and window-stage proxies. If `OPENALEX_API_KEY` is configured as a repository secret, research-capacity collection is added automatically. The workflow opens a pull request so source failures and coverage warnings remain visible before deployment.
+
+Run the same workflow locally with:
 
 ```bash
-npm install
-npm run dev
-npm run build
+python3 -m pipeline.monthly_refresh
 ```
 
-This starter does not use `wrangler.jsonc`.
+## Data contract
 
-## Included Shape
+`schemas/pilot.schema.json` defines:
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+- `QuerySpec`
+- `RawObservation`
+- `NormalizedObservation`
+- `SourceManifest`
+- `ReviewAssessment`
+- `MomentumPoint`
 
-## Workspace Auth Headers
+Every published evidence item and chart point must reference archived raw observation IDs. Missing observations remain missing and are never scored as zero.
 
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
+## Tests and builds
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
+```bash
+python3 -m unittest tests/pipeline_test.py
+pnpm run build:pages
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Useful Commands
-
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+The production Pages build is written to `docs/`.

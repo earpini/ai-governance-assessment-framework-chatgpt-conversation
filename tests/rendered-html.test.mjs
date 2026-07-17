@@ -19,5 +19,9 @@ test("server-renders the policy-window explorer", async () => {
   assert.match(html, /Where is the next/);
   assert.match(html, /Brazil/);
   assert.match(html, /Four signals, no false precision/);
+  assert.match(html, /open-data validation pilot/i);
+  assert.match(html, /No synthetic country findings/i);
+  assert.match(html, /(Stage not assessed|Evidence available|Collection pending)/i);
+  assert.doesNotMatch(html, /Search interest/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });

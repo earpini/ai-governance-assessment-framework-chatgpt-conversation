@@ -1,0 +1,13 @@
+{
+  "version": "2026-07-proxy-v1",
+  "source": "wikimedia_pageviews",
+  "metric": "monthly pageviews for the principal local-language artificial-intelligence article",
+  "scored_as": "public attention context",
+  "countries": {
+    "brazil": {"project": "pt.wikipedia.org", "article": "Inteligência_artificial"},
+    "germany": {"project": "de.wikipedia.org", "article": "Künstliche Intelligenz"},
+    "india": {"project": "hi.wikipedia.org", "article": "कृत्रिम_बुद्धिमत्ता"},
+    "kenya": {"project": "en.wikipedia.org", "article": "Artificial_intelligence"},
+    "mexico": {"project": "es.wikipedia.org", "article": "Inteligencia_artificial"}
+  }
+}

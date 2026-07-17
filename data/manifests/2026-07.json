@@ -1,0 +1,19 @@
+{
+  "snapshot": "2026-07",
+  "createdAt": "2026-07-17T00:00:00+00:00",
+  "methodologyVersion": "2026-07-pilot-v1",
+  "configurationCommit": "working-tree-pilot",
+  "environment": {"mode":"cached_validation_build"},
+  "adapters": [
+    {"id":"openalex","version":"2026-07-pilot-v1","status":"awaiting_api_key"},
+    {"id":"gdelt","version":"2026-07-pilot-v1","status":"ready"},
+    {"id":"official_political_sources","version":"2026-07-pilot-v1","status":"awaiting_curated_documents"}
+  ],
+  "requests": [],
+  "files": [],
+  "failures": [
+    {"source":"openalex","country":null,"reason":"OPENALEX_API_KEY is not configured for the checked-in pilot snapshot","retryable":false,"recordedAt":"2026-07-17T00:00:00+00:00"},
+    {"source":"gdelt","country":null,"reason":"No empirical media collection has been approved for publication","retryable":false,"recordedAt":"2026-07-17T00:00:00+00:00"},
+    {"source":"official_political_sources","country":null,"reason":"Country official-document corpora are awaiting manual verification","retryable":false,"recordedAt":"2026-07-17T00:00:00+00:00"}
+  ]
+}
