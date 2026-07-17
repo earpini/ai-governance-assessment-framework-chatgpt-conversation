@@ -116,7 +116,7 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
   return (
     <main>
       <header className="site-header">
-        {variant === "brand" ? <a className="ea-wordmark" href="https://ettorearpini.com/" aria-label="Ettore Arpini, home">Ettore Arpini<span className="ea-logo-arrow">↗</span></a> : <button className="brand" onClick={() => setView("explore")}><span>W/</span> WINDOW</button>}
+        {variant === "brand" ? <div className="header-brand"><a className="ea-wordmark" href="https://ettorearpini.com/" aria-label="Ettore Arpini, home">Ettore Arpini<span className="ea-logo-arrow">↗</span></a><span className="header-tool-title">|&nbsp; AI Policy Windows Explorer</span></div> : <button className="brand" onClick={() => setView("explore")}><span>W/</span> WINDOW</button>}
         <nav aria-label="Primary"><button className={view === "explore" ? "active" : ""} onClick={() => setView("explore")}>Explore</button><button className={view === "method" ? "active" : ""} onClick={() => setView("method")}>Methodology</button></nav>
         <div className="status-dot"><i /> Pilot snapshot {dataset.publishedAt}</div>
       </header>
