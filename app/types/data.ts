@@ -17,6 +17,10 @@ export interface Evidence {
   sourceUrl: string;
   period: string;
   confidence: string;
+  rawValue?: number | string | null;
+  normalizedValue?: number | null;
+  transformation?: string;
+  coverageWarning?: string | null;
   provenanceReferences: string[];
   status: EvidenceStatus;
 }

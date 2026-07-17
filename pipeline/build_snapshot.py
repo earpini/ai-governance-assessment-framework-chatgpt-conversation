@@ -37,6 +37,9 @@ def evidence_from_observation(item: dict) -> dict:
         "value": item.get("displayValue", "Data available"), "definition": item.get("definition", item["transformation"]),
         "source": item.get("source", "Open-data observation"), "sourceUrl": item.get("sourceUrl", ""),
         "period": item["period"], "confidence": item.get("confidence", "Pending"),
+        "rawValue": item.get("rawValue"), "normalizedValue": item.get("normalizedValue"),
+        "transformation": item.get("transformation", "No transformation recorded."),
+        "coverageWarning": item.get("coverageWarning"),
         "provenanceReferences": item["inputObservationIds"], "status": item["status"],
     }
 

@@ -76,10 +76,13 @@ function EvidenceDrawer({ evidence, onClose }: { evidence: Evidence | null; onCl
         <div className="evidence-value">{evidence.value}</div>
         <p>{evidence.definition}</p>
         <dl>
+          <div><dt>Absolute data</dt><dd>{evidence.rawValue ?? "Not available"}</dd></div>
+          {evidence.normalizedValue !== null && evidence.normalizedValue !== undefined && <div><dt>Indexed value</dt><dd>{evidence.normalizedValue}</dd></div>}
           <div><dt>Source</dt><dd><a href={evidence.sourceUrl} target="_blank" rel="noreferrer">{evidence.source} ↗</a></dd></div>
           <div><dt>Period</dt><dd>{evidence.period}</dd></div>
           <div><dt>Confidence</dt><dd>{evidence.confidence}</dd></div>
         </dl>
+        {evidence.coverageWarning && <p className="drawer-note">Coverage warning: {evidence.coverageWarning}</p>}
         <p className="drawer-note">Every indicator keeps its source, period, and confidence attached. Missing observations are flagged and never scored as zero.</p>
       </aside>
     </div>
@@ -95,7 +98,8 @@ function PillarCard({ pillar, number, onEvidence }: { pillar: Pillar; number: nu
       <div className="confidence"><span>{pillar.scoreLabel}</span><span className={`trend ${pillar.trend ?? "pending"}`}>{pillar.trend === "up" ? "↗ Rising" : pillar.trend === "down" ? "↘ Falling" : pillar.trend === "flat" ? "→ Stable" : "Review pending"}</span></div>
       <p className="pillar-note">{pillar.note}</p>
       <div className="evidence-list">
-        {pillar.evidence.slice(0, 2).map((e) => <button key={e.label} onClick={() => onEvidence(e)}><span>{e.label}</span><strong>{e.value}</strong><i>→</i></button>)}
+        {pillar.evidence.length > 0 && <p className="absolute-label">Absolute data inputs</p>}
+        {pillar.evidence.map((e) => <button key={e.label} onClick={() => onEvidence(e)}><span>{e.label}<small>Raw: {e.rawValue ?? "not available"} · {e.period}</small></span><strong>{e.value}</strong><i>→</i></button>)}
         {!pillar.evidence.length && <div className="evidence-empty">No approved observations yet</div>}
       </div>
     </article>
