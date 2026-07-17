@@ -10,7 +10,8 @@
       "lastUpdated": "2026-07-17T14:46:13+00:00",
       "lowDataWarning": null,
       "missingIngredients": [
-        "Observable field capacity"
+        "Observable field capacity",
+        "Public and media momentum"
       ],
       "momentum": [
         {
@@ -208,39 +209,20 @@
         {
           "confidence": {
             "classificationQuality": "First-pass review",
-            "dataCoverage": "Partial",
+            "dataCoverage": "Pending",
             "expertAgreement": "Pending"
           },
-          "evidence": [
-            {
-              "confidence": "Empirical but indirect proxy",
-              "coverageWarning": "Not a media-volume or governance-specific measure.",
-              "definition": "General public-attention context from the principal local-language AI article.",
-              "id": "media-brazil-wikimedia-current",
-              "label": "Current public attention proxy",
-              "normalizedValue": 66.31,
-              "period": "2026-06",
-              "provenanceReferences": [
-                "wikimedia:brazil:sha256:0d075"
-              ],
-              "rawValue": 11218,
-              "source": "Wikimedia Pageviews API",
-              "sourceUrl": "https://pt.wikipedia.org/wiki/Inteligência_artificial",
-              "status": "empirical",
-              "transformation": "Latest month as a percentage of the country-series peak; mapped to the 0–4 pilot rubric.",
-              "value": "11,218 Wikipedia views"
-            }
-          ],
+          "evidence": [],
           "id": "public_momentum",
-          "missingData": false,
+          "missingData": true,
           "name": "Public and media momentum",
           "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
           "question": "Is governance-related attention broadening and persisting?",
-          "rubricMaximum": 4,
-          "rubricTotal": 3,
-          "score": 75,
-          "scoreLabel": "Experimental pilot methodology",
-          "status": "partially_reviewed",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
           "trend": null
         },
         {
@@ -362,9 +344,9 @@
       "region": "Latin America",
       "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
       "stage": "Opening",
-      "stageConfidence": "Medium · automated proxy",
+      "stageConfidence": "Low · automated proxy",
       "status": "partially_reviewed",
-      "summary": "Automated proxy: opening policy window based on 3 of four currently measurable pillars. Missing coverage lowers confidence."
+      "summary": "Automated proxy: opening policy window based on 2 of four currently measurable pillars. Missing coverage lowers confidence."
     },
     {
       "code": "DEU",
@@ -378,6 +360,7 @@
       "missingIngredients": [
         "Observable field capacity",
         "Political receptivity",
+        "Public and media momentum",
         "Policy readiness"
       ],
       "momentum": [
@@ -557,39 +540,20 @@
         {
           "confidence": {
             "classificationQuality": "First-pass review",
-            "dataCoverage": "Partial",
+            "dataCoverage": "Pending",
             "expertAgreement": "Pending"
           },
-          "evidence": [
-            {
-              "confidence": "Empirical but indirect proxy",
-              "coverageWarning": "Not a media-volume or governance-specific measure.",
-              "definition": "General public-attention context from the principal local-language AI article.",
-              "id": "media-germany-wikimedia-current",
-              "label": "Current public attention proxy",
-              "normalizedValue": 92.75,
-              "period": "2026-06",
-              "provenanceReferences": [
-                "wikimedia:germany:sha256:b45bd"
-              ],
-              "rawValue": 31465,
-              "source": "Wikimedia Pageviews API",
-              "sourceUrl": "https://de.wikipedia.org/wiki/Künstliche Intelligenz",
-              "status": "empirical",
-              "transformation": "Latest month as a percentage of the country-series peak; mapped to the 0–4 pilot rubric.",
-              "value": "31,465 Wikipedia views"
-            }
-          ],
+          "evidence": [],
           "id": "public_momentum",
-          "missingData": false,
+          "missingData": true,
           "name": "Public and media momentum",
           "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
           "question": "Is governance-related attention broadening and persisting?",
-          "rubricMaximum": 4,
-          "rubricTotal": 4,
-          "score": 100,
-          "scoreLabel": "Experimental pilot methodology",
-          "status": "partially_reviewed",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
           "trend": null
         },
         {
@@ -619,10 +583,10 @@
       },
       "region": "Europe",
       "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
-      "stage": "Latent",
+      "stage": "Closed",
       "stageConfidence": "Low · automated proxy",
       "status": "partially_reviewed",
-      "summary": "Automated proxy: latent policy window based on 1 of four currently measurable pillars. Missing coverage lowers confidence."
+      "summary": "Automated proxy: closed policy window based on 0 of four currently measurable pillars. Missing coverage lowers confidence."
     },
     {
       "code": "IND",
@@ -635,7 +599,8 @@
       "lastUpdated": "2026-07-17T14:46:13+00:00",
       "lowDataWarning": null,
       "missingIngredients": [
-        "Observable field capacity"
+        "Observable field capacity",
+        "Public and media momentum"
       ],
       "momentum": [
         {
@@ -851,39 +816,20 @@
         {
           "confidence": {
             "classificationQuality": "First-pass review",
-            "dataCoverage": "Partial",
+            "dataCoverage": "Pending",
             "expertAgreement": "Pending"
           },
-          "evidence": [
-            {
-              "confidence": "Empirical but indirect proxy",
-              "coverageWarning": "Not a media-volume or governance-specific measure.",
-              "definition": "General public-attention context from the principal local-language AI article.",
-              "id": "media-india-wikimedia-current",
-              "label": "Current public attention proxy",
-              "normalizedValue": 26.61,
-              "period": "2026-06",
-              "provenanceReferences": [
-                "wikimedia:india:sha256:a2c13"
-              ],
-              "rawValue": 29,
-              "source": "Wikimedia Pageviews API",
-              "sourceUrl": "https://hi.wikipedia.org/wiki/कृत्रिम_बुद्धिमत्ता",
-              "status": "empirical",
-              "transformation": "Latest month as a percentage of the country-series peak; mapped to the 0–4 pilot rubric.",
-              "value": "29 Wikipedia views"
-            }
-          ],
+          "evidence": [],
           "id": "public_momentum",
-          "missingData": false,
+          "missingData": true,
           "name": "Public and media momentum",
           "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
           "question": "Is governance-related attention broadening and persisting?",
-          "rubricMaximum": 4,
-          "rubricTotal": 1,
-          "score": 25,
-          "scoreLabel": "Experimental pilot methodology",
-          "status": "partially_reviewed",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
           "trend": null
         },
         {
@@ -1010,9 +956,9 @@
       "region": "South Asia",
       "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
       "stage": "Opening",
-      "stageConfidence": "Medium · automated proxy",
+      "stageConfidence": "Low · automated proxy",
       "status": "partially_reviewed",
-      "summary": "Automated proxy: opening policy window based on 3 of four currently measurable pillars. Missing coverage lowers confidence."
+      "summary": "Automated proxy: opening policy window based on 2 of four currently measurable pillars. Missing coverage lowers confidence."
     },
     {
       "code": "KEN",
@@ -1025,7 +971,8 @@
       "lastUpdated": "2026-07-17T14:46:13+00:00",
       "lowDataWarning": null,
       "missingIngredients": [
-        "Observable field capacity"
+        "Observable field capacity",
+        "Public and media momentum"
       ],
       "momentum": [
         {
@@ -1241,39 +1188,20 @@
         {
           "confidence": {
             "classificationQuality": "First-pass review",
-            "dataCoverage": "Partial",
+            "dataCoverage": "Pending",
             "expertAgreement": "Pending"
           },
-          "evidence": [
-            {
-              "confidence": "Empirical but indirect proxy",
-              "coverageWarning": "Not a media-volume or governance-specific measure.",
-              "definition": "General public-attention context from the principal local-language AI article.",
-              "id": "media-kenya-wikimedia-current",
-              "label": "Current public attention proxy",
-              "normalizedValue": 82.21,
-              "period": "2026-06",
-              "provenanceReferences": [
-                "wikimedia:kenya:sha256:ba72d"
-              ],
-              "rawValue": 304218,
-              "source": "Wikimedia Pageviews API",
-              "sourceUrl": "https://en.wikipedia.org/wiki/Artificial_intelligence",
-              "status": "empirical",
-              "transformation": "Latest month as a percentage of the country-series peak; mapped to the 0–4 pilot rubric.",
-              "value": "304,218 Wikipedia views"
-            }
-          ],
+          "evidence": [],
           "id": "public_momentum",
-          "missingData": false,
+          "missingData": true,
           "name": "Public and media momentum",
           "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
           "question": "Is governance-related attention broadening and persisting?",
-          "rubricMaximum": 4,
-          "rubricTotal": 4,
-          "score": 100,
-          "scoreLabel": "Experimental pilot methodology",
-          "status": "partially_reviewed",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
           "trend": null
         },
         {
@@ -1400,9 +1328,9 @@
       "region": "East Africa",
       "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
       "stage": "Opening",
-      "stageConfidence": "Medium · automated proxy",
+      "stageConfidence": "Low · automated proxy",
       "status": "partially_reviewed",
-      "summary": "Automated proxy: opening policy window based on 3 of four currently measurable pillars. Missing coverage lowers confidence."
+      "summary": "Automated proxy: opening policy window based on 2 of four currently measurable pillars. Missing coverage lowers confidence."
     },
     {
       "code": "MEX",
@@ -1416,6 +1344,7 @@
       "missingIngredients": [
         "Observable field capacity",
         "Political receptivity",
+        "Public and media momentum",
         "Policy readiness"
       ],
       "momentum": [
@@ -1595,39 +1524,20 @@
         {
           "confidence": {
             "classificationQuality": "First-pass review",
-            "dataCoverage": "Partial",
+            "dataCoverage": "Pending",
             "expertAgreement": "Pending"
           },
-          "evidence": [
-            {
-              "confidence": "Empirical but indirect proxy",
-              "coverageWarning": "Not a media-volume or governance-specific measure.",
-              "definition": "General public-attention context from the principal local-language AI article.",
-              "id": "media-mexico-wikimedia-current",
-              "label": "Current public attention proxy",
-              "normalizedValue": 55.78,
-              "period": "2026-06",
-              "provenanceReferences": [
-                "wikimedia:mexico:sha256:5a02e"
-              ],
-              "rawValue": 42983,
-              "source": "Wikimedia Pageviews API",
-              "sourceUrl": "https://es.wikipedia.org/wiki/Inteligencia_artificial",
-              "status": "empirical",
-              "transformation": "Latest month as a percentage of the country-series peak; mapped to the 0–4 pilot rubric.",
-              "value": "42,983 Wikipedia views"
-            }
-          ],
+          "evidence": [],
           "id": "public_momentum",
-          "missingData": false,
+          "missingData": true,
           "name": "Public and media momentum",
           "note": "No observation is replaced with zero. This pillar is published only when its inputs are traceable.",
           "question": "Is governance-related attention broadening and persisting?",
-          "rubricMaximum": 4,
-          "rubricTotal": 2,
-          "score": 50,
-          "scoreLabel": "Experimental pilot methodology",
-          "status": "partially_reviewed",
+          "rubricMaximum": 0,
+          "rubricTotal": 0,
+          "score": null,
+          "scoreLabel": "Not scored",
+          "status": "collection_pending",
           "trend": null
         },
         {
@@ -1657,10 +1567,10 @@
       },
       "region": "Latin America",
       "signal": "Watch for changes in political activity and public attention as new monthly evidence is collected.",
-      "stage": "Latent",
+      "stage": "Closed",
       "stageConfidence": "Low · automated proxy",
       "status": "partially_reviewed",
-      "summary": "Automated proxy: latent policy window based on 1 of four currently measurable pillars. Missing coverage lowers confidence."
+      "summary": "Automated proxy: closed policy window based on 0 of four currently measurable pillars. Missing coverage lowers confidence."
     }
   ],
   "manifest": "data/manifests/2026-07-proxy.json",

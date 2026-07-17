@@ -1,0 +1,15 @@
+{
+  "version": "2026-07-pilot-v1",
+  "source": "Google Trends public export or approved API response",
+  "series": "monthly indexed interest, collected separately for each country",
+  "scoring_rule": "Use within-country acceleration and persistence only. Do not compare the 0–100 values across separately run country queries.",
+  "primary_concept": "AI risk concern",
+  "companion_concept": "AI regulation / policy attention",
+  "countries": {
+    "brazil": {"geo":"BR","language":"pt-BR","risk_query":"riscos da inteligência artificial","policy_query":"regulação da inteligência artificial"},
+    "germany": {"geo":"DE","language":"de-DE","risk_query":"Risiken künstlicher Intelligenz","policy_query":"Regulierung künstlicher Intelligenz"},
+    "india": {"geo":"IN","language":"en-IN","risk_query":"AI risks","policy_query":"AI regulation"},
+    "kenya": {"geo":"KE","language":"en-KE","risk_query":"AI risks","policy_query":"AI regulation"},
+    "mexico": {"geo":"MX","language":"es-MX","risk_query":"riesgos de la inteligencia artificial","policy_query":"regulación de inteligencia artificial"}
+  }
+}

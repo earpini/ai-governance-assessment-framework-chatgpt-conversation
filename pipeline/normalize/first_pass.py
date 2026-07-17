@@ -121,12 +121,12 @@ def build(snapshot: str) -> dict:
         latest_index = round(latest["views"] / maximum * 100, 2) if maximum else 0
         rating = 4 if latest_index >= 80 else 3 if latest_index >= 60 else 2 if latest_index >= 40 else 1
         observations.append({
-            "id": f"media-{country}-wikimedia-current", "country": country, "indicator": "media_wikimedia_attention_current", "label": "Current public attention proxy",
+            "id": f"context-{country}-wikimedia-current", "country": country, "indicator": "context_wikimedia_attention_current", "label": "Contextual AI-interest signal",
             "period": f"{latest['timestamp'][:4]}-{latest['timestamp'][4:6]}", "rawValue": latest["views"], "normalizedValue": latest_index,
             "displayValue": f"{latest['views']:,} Wikipedia views", "transformation": "Latest month as a percentage of the country-series peak; mapped to the 0–4 pilot rubric.",
-            "definition": "General public-attention context from the principal local-language AI article.", "source": "Wikimedia Pageviews API",
+            "definition": "General AI-interest context from the principal local-language AI article. It is not the public-attention score.", "source": "Wikimedia Pageviews API",
             "sourceUrl": f"https://{latest['project']}/wiki/{latest['article']}", "inputObservationIds": [f"wikimedia:{country}:{latest['checksum'][:12]}"],
-            "rubricRating": rating, "missingData": False, "confidence": "Empirical but indirect proxy", "coverageWarning": "Not a media-volume or governance-specific measure.", "status": "empirical"
+            "rubricRating": None, "missingData": False, "confidence": "Empirical but indirect context", "coverageWarning": "Not a media-volume, geography-specific, or governance-specific measure; not used for the public-attention score.", "status": "empirical"
         })
     return {"snapshot": snapshot, "methodologyVersion": manifest["methodologyVersion"], "status": "partially_reviewed" if observations else "collection_pending", "observations": observations}
 

@@ -97,7 +97,7 @@ def build(snapshot: str = "2026-07", publication_mode: bool = False, write: bool
 
         momentum = []
         for item in all_obs:
-            if item["indicator"] not in {"media_attention", "political_attention", "wikimedia_attention"}:
+            if item["indicator"] not in {"media_attention", "political_attention", "wikimedia_attention", "google_trends_context"}:
                 continue
             momentum.append({
                 "month": item["period"], "seriesType": item["indicator"], "rawMeasure": item["rawValue"],
@@ -151,7 +151,7 @@ def validate(snapshot: dict, publication_mode: bool = False) -> None:
                 assert item["sourceUrl"].startswith("https://")
                 assert item["status"] != "illustrative" if publication_mode else True
         for point in country["momentum"]:
-            assert point["seriesType"] in {"media_attention", "political_attention", "wikimedia_attention"}
+            assert point["seriesType"] in {"media_attention", "political_attention", "wikimedia_attention", "google_trends_context"}
             assert point["provenanceReferences"]
             assert point["indexedValue"] is None or 0 <= point["indexedValue"] <= 100
             assert point["status"] != "illustrative" if publication_mode else True

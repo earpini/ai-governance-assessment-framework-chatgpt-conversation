@@ -8,7 +8,8 @@ const sourceLedger = [
   { name: "OECD.AI + official sources", role: "Political activity", measures: "Strategies, laws, consultations, institutions, mandates and evidence of implementation.", caveat: "An initiative is coded by what it does, not counted as equally important by default.", url: "https://oecd.ai/en/dashboards/overview" },
   { name: "Official parliamentary sources", role: "Political attention", measures: "Mentions, questions, bills, consultations, debates and implementation records.", caveat: "Access differs by country; PDF and OCR extraction is reported as semi-automated.", url: "https://www.bundestag.de/services/opendata/" },
   { name: "GDELT", role: "Media attention", measures: "Monthly article share, growth, outlet breadth and governance-related issue frames.", caveat: "Coverage differs by language and media system; raw records and exact queries must be archived.", url: "https://www.gdeltproject.org/" },
-  { name: "Google Trends", role: "Optional context only", measures: "General-AI, governance and issue-specific searches when an approved export or official API response is available.", caveat: "It does not affect scores or stages in the validation pilot.", url: "https://developers.google.com/search/apis/trends" },
+  { name: "Google Trends", role: "Public attention", measures: "Monthly interest in the local equivalents of ‘AI risks’ and ‘AI regulation’. The risk term is primary; the regulation term is a companion policy-attention signal.", caveat: "Values are indexed within each country query. We use change and persistence within a country, never cross-country search-volume comparisons. An archived export or approved API response is required before scoring.", url: "https://developers.google.com/search/apis/trends" },
+  { name: "Wikimedia Pageviews", role: "Unscored context", measures: "Monthly views of a local-language AI article, retained only as an auditable general-interest context series.", caveat: "Language-edition traffic is not geography-specific and is not used to score public attention.", url: "https://wikimedia.org/api/rest_v1/" },
   { name: "Document-feature classifier", role: "Policy readiness proxy", measures: "Signals of a proposal, named institution, institutional route, coalition and domestic evidence base in archived records.", caveat: "This is an automated proxy. Optional expert review may later override it.", url: "https://github.com/earpini/ai-governance-assessment-framework-chatgpt-conversation" },
 ];
 
@@ -28,7 +29,7 @@ function ScoreRing({ value }: { value: number | null }) {
 function Sparkline({ country }: { country: CountryProfile }) {
   const byMonth = new Map<string, number[]>();
   country.momentum.forEach(point => {
-    if (point.indexedValue === null || point.seriesType === "google_trends_context") return;
+    if (point.indexedValue === null || point.seriesType === "wikimedia_attention") return;
     byMonth.set(point.month, [...(byMonth.get(point.month) ?? []), point.indexedValue]);
   });
   const values = [...byMonth.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([, points]) => points.reduce((a, b) => a + b, 0) / points.length);
@@ -42,7 +43,7 @@ function Sparkline({ country }: { country: CountryProfile }) {
 }
 
 function MomentumChart({ country, range }: { country: CountryProfile; range: 12 | 36 }) {
-  const months = [...new Set(country.momentum.map(point => point.month))].sort().slice(-range);
+  const months = [...new Set(country.momentum.filter(point => point.seriesType !== "wikimedia_attention").map(point => point.month))].sort().slice(-range);
   const data = months.map(month => ({ month, points: country.momentum.filter(point => point.month === month) }));
   const width = 720, height = 220, pad = 20;
   const path = (seriesType: MomentumPoint["seriesType"]) => data.flatMap((d, i) => {
@@ -52,13 +53,13 @@ function MomentumChart({ country, range }: { country: CountryProfile; range: 12 
     const y = height - pad - (point.indexedValue / 100) * (height - pad * 2);
     return [`${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`];
   }).join(" ");
-  if (!data.length) return <div className="momentum-empty"><strong>No empirical attention series published</strong><p>The chart will appear after GDELT records and official political documents pass provenance and classification checks.</p></div>;
+  if (!data.length) return <div className="momentum-empty"><strong>No scored public-attention series published</strong><p>The chart will appear after archived Google Trends exports for local AI-risk and AI-regulation queries are collected.</p></div>;
   return (
     <div className="chart-wrap">
       <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`${range}-month political and media attention`}>
         {[25, 50, 75].map(v => <line key={v} x1={pad} x2={width-pad} y1={height-pad-(v/100)*(height-pad*2)} y2={height-pad-(v/100)*(height-pad*2)} className="gridline" />)}
         <path d={path("media_attention")} className="chart-media" />
-        <path d={path("political_attention") || path("wikimedia_attention")} className="chart-search" />
+        <path d={path("google_trends_context") || path("political_attention")} className="chart-search" />
       </svg>
       <div className="chart-labels"><span>{data[0]?.month}</span><span>{data.at(-1)?.month}</span></div>
     </div>
@@ -147,6 +148,7 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
             <div className="source-row source-head" role="row"><span>Source</span><span>Signal</span><span>What enters the assessment</span><span>Known limitation</span></div>
             {sourceLedger.map(source => <div className="source-row" role="row" key={source.name}><a href={source.url} target="_blank" rel="noreferrer">{source.name} ↗</a><strong>{source.role}</strong><p>{source.measures}</p><p>{source.caveat}</p></div>)}
           </div>
+          <div className="method-callout"><strong>Public attention:</strong><p>The scored public-attention series is Google Trends: local-language searches for AI risks, with AI regulation as a companion policy-attention signal. Each country’s series is interpreted only against its own past level—through acceleration, persistence, and post-spike decline. It is not a measure of absolute search volume, and Wikimedia traffic remains unscored context.</p></div>
 
           <div className="method-section-heading"><span className="eyebrow">04 · Proposed interpretation</span><h2>A hypothesis, not a verdict</h2></div>
           <div className="stage-rules">
@@ -201,7 +203,7 @@ export default function PolicyWindowApp({ dataset, variant = "window" }: { datas
             <div className="momentum-section">
               <div className="momentum-head"><div><span className="eyebrow">Attention over time</span><h2>Is attention becoming durable?</h2></div><div className="range-toggle"><button className={range === 12 ? "active" : ""} onClick={() => setRange(12)}>12 months</button><button className={range === 36 ? "active" : ""} onClick={() => setRange(36)}>36 months</button></div></div>
               <MomentumChart country={country} range={range} />
-              <div className="legend"><span><i className="search-dot"/>Political / Wikimedia attention</span><span><i className="media-dot"/>Media attention</span><small>Indexed within country · raw measures retained</small></div>
+              <div className="legend"><span><i className="search-dot"/>Google Trends: AI risks / regulation</span><span><i className="media-dot"/>Media attention</span><small>Google Trends is indexed within country · raw exports retained</small></div>
             </div>
           </section>
         </>

@@ -15,7 +15,8 @@ The interface is available in two visual versions:
 
 - **Observable field capacity:** OpenAlex works, authors, institutions, collaboration and concentration. This does not claim to count all practitioners.
 - **Political receptivity and attention:** official parliamentary and government documents. OECD.AI is discovery-only; scored records require primary-source verification.
-- **Public and media momentum:** archived GDELT article records. Google Trends is optional, contextual and unscored.
+- **Public attention:** Google Trends monthly interest for the local equivalents of **“AI risks”** (primary) and **“AI regulation”** (companion). It is interpreted within country through acceleration and persistence, not compared as absolute search volume across countries. A public-interface export or approved API response must be archived before it affects a score.
+- **Media momentum:** archived GDELT article records. Wikimedia pageviews are retained only as unscored, non-geographic general-interest context.
 - **Policy readiness:** five criteria rated 0–2 by a country reviewer and a central second coder. Stages are never assigned automatically.
 
 Raw counts, adjusted measures, within-country trends and component rubrics remain separate. The tool does not calculate an overall index.
