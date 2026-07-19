@@ -1,0 +1,949 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" />
+
+
+      <script src="js/jquery.min.js" type="text/javascript"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" /><link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet" />
+
+      <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  // Get the IDs from the current page's URL
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+
+            });
+      </script>
+      <style type="text/css">
+            .table-responsive {
+                  width: 100%;
+                  overflow-x: auto;
+            }
+
+            .banner {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  background-color: #000;
+                  color: #fff;
+                  padding: 20px;
+            }
+
+            full-width {
+                  width: 100%;
+            }
+
+            .logo-left, .logo-center, .countdown {
+                  display: flex;
+                  align-items: center;
+            }
+
+                  .logo-left img, .logo-center img {
+                        height: 70px;
+                  }
+
+            .countdown {
+                  text-align: center;
+                  background-color: #444;
+                  border-radius: 10px;
+                  padding: 10px;
+                  border: 2px solid grey;
+            }
+
+            .firstnumber {
+                  color: #000000;
+                  position: absolute;
+                  top: 50px;
+                  right: 90px;
+                  font-size: 30px;
+            }
+
+            .secondnumber {
+                  position: absolute;
+                  color: #000000;
+                  right: 45px;
+                  top: 50px;
+                  font-size: 30px;
+            }
+
+            .countdown .days {
+                  font-size: 35px;
+                  color: gold;
+            }
+
+            .countdown p {
+                  margin: 0;
+            }
+
+            .countdown .text {
+                  font-size: 16px;
+            }
+
+            a {
+                  word-break: break-all;
+            }
+
+            iframe, img {
+                  max-width: 100%;
+            }
+
+            @media(max-width:1199px) {
+                  .firstnumber {
+                        top: 40px;
+                        right: 72px;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 35px;
+                        top: 40px;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:990px) {
+                  .firstnumber {
+                        top: 25px;
+                        right: 54px;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 25px;
+                        top: 25px;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:768px) {
+                  .countdown, .days {
+                        font-size: 12px !important;
+                  }
+
+
+                  .firstnumber {
+                        top: 25%;
+                        right: 8%;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 4.5%;
+                        top: 25%;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:475px) {
+                  .countdown, .days {
+                        font-size: 10px !important;
+                        top: 20%;
+                  }
+
+                  .bannerimgdiv {
+                        padding: 0 !important;
+                  }
+
+                  .bannerimg {
+                        width: 108% !important;
+                  }
+            }
+      </style>
+      <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+      </script>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112591026-1"></script>
+      <script>
+
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() { dataLayer.push(arguments); }
+
+            gtag('js', new Date());
+
+
+
+            gtag('config', 'UA-112591026-1');
+
+      </script>
+
+<meta property="og:title" content="Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture" /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2253322" /><meta property="og:description" content="The Ministry of Electronics and Information Technology (MeitY), Government of India, has constituted" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="rldtujax37j2a2s2osra-f-0d029b523-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":0,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"d416158","ak.r":53253,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":45738,"ak.gh":"23.222.12.147","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1784312994","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==xZGOaLb1YOXAe+x5PrLrb1/nWJCrhZ5t1jluIkam+ot2qT2P7n3r9b8TMJXYNlG8V7vHLOxNf+c0JlOkDNVYUHhOMWm6+svjq/ANnUgK33dacMeNCZ5pKwWvHJj7G1nUVG6vZM7Y7DGsq0NHLC7qL9H9Z85BJhCtNloYv58x09s7p5mEdFa2AYw+dRx6gp/qxvdd6QjV1vEphwLIYxVVuzXlNcM4KIZuEEUO2y0kUmCCl6PLgG1IPywPGA28qTd4TW2cZBWDpr1DlLav3TSOGGwyVFRbxsgbTtcnE9wCWeQxhrWFQOCbtmwPxYHBVe/GAhqYMYTqWbYFMgV3ZWc2qq+wejf/ugiDqfe+FXAPBpqJokn7ccmHxG6D/5vZCTxN2E0wBOg5cLsqO4cRzpgLTvPcWHDY/pYKVbeA9Jw/ybM=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+      <form method="post" action="./PressReleasePage.aspx?PRID=2253322&amp;lang=1&amp;reg=3" id="form1">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+
+<script src="/ScriptResource.axd?d=YwOa_0w_u3oCLFqmIIOf-XEz4GWZ1DuyQIpxIA4LVkywj39sZSps12NbK5wNl5XN9JF3m7d-ey7BFDgj6i0380qRQ5IMWCL54sYNVU1IjMmiOWpp0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a720a52bf%3af9cec9bc%3a589eaa30%3aa67c2700%3aab09e3fe%3a87104b7c%3a8613aea7%3a3202a5a2%3abe6fb298" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="w7JFsMgRWEY9XFo4jXwomEtzBbtTwZlaqggqfPZ29xz/IJcWeCXy0kxrSVqXpRwm55OQs+ymq30yWsTxNVVJx2DdzsxMDAE3ykwK+buYtX0+UTjf/77s4owIMp6bw0i+01aG822WNR7xKQ7V38JzNtbk5tAd0OS4We+VYlcGE+M+pnVc69oe6Fb1Lt9+38MZ/DkQP7BrzK+BDpMzVDXKjD9hROZJNtstQEPjE3PWN6UeIqXYOtMizu6rz+jzYw6eRh3lqqj1MEfDZxG7GkwR/OjvBO//mjkzl8EUhYCXkH7W/QHG" />
+                              
+            <div id="templateCss"></div>
+            
+            <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+            <div class="container" style='margin-bottom: 50px;'>
+                  <div id="accessories">
+
+                        
+                        <div class="pull-right" style="display: flex">
+                              <div id="voll"></div>
+                              <div id="vollDT"></div>
+                              
+                              
+<div class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</div>
+                        </div>
+                  </div>
+                  <input type="hidden" name="hydpermid" id="hydpermid" value="2253322" />
+                  
+
+
+
+                  <div class="innner-page-main-about-us-content-right-part">
+
+                        <div id="MinistryName" class="MinistryNameSubhead text-center">
+                              Ministry of Electronics & IT
+                        </div>
+                        
+                        <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2021/aug/ph202183101.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+
+
+
+
+                        <div class="text-center event-heading-background">
+                              
+                              <h2 id="Titleh2">
+                                    Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture
+                              </h2>
+                              <h3 id="Subtitleh3">
+                                    <span id="ltrSubtitle">&#160;<br/>Standing Committee of Technical, Legal and Policy Experts to Inform AI Governance decisions and advise the newly constituted AIGEG</span>
+                              </h3>
+                        </div>
+
+                        <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                              Posted On:
+                18 APR 2026 5:40PM by PIB Delhi
+                        </div>
+                        
+                        <div class='pt20'>
+                        </div>
+                        <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                        
+                        <p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">The Ministry of Electronics and Information Technology (MeitY), Government of India, has constituted the Technology and Policy Expert Committee (TPEC), a standing expert advisory body tasked with providing specialised technical, policy and strategic expertise to support the functioning of the recently constituted AI Governance and Economic Group (AIGEG).</span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">As an advisory body for the AIGEG, it will provide the Group with expert inputs necessary to make well-informed decisions on policy design, regulatory measures and India&rsquo;s engagements in AI governance across international forums.</span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">The TPEC, chaired </span>by the Secretary<span style="color:black">, Ministry of Electronics &amp; Information Technology, brings together a carefully selected group of experts spanning academic research, the technology industry and digital policy. The AI Governance Guidelines task the Committee with ensuring that the AIGEG&rsquo;s governance deliberations are supported by a contemporary and nuanced understanding of technological developments, policy approaches, regulatory design and global practices, while remaining responsive to India&rsquo;s unique social, economic and strategic context.</span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">Within India&rsquo;s newly created AI governance architecture, the AIGEG will set the strategic direction and coordinate policy across government, while the TPEC will provide subject matter guidance by translating technical and policy issues into actionable insights. </span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">This institutional framework has been designed to enable a dynamic, adaptive and future-forward approach to AI governance and to ensure strategic, technical and policy coherence in governance decisions.</span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">For details of composition of the TPEC and Terms of Reference, please refer: <a href="https://d12aarmt01l54a.cloudfront.net/cms/files/constitution-of-tpec/1776447206.pdf" target="_blank"><span style="color:#1155cc">https://d12aarmt01l54a.cloudfront.net/cms/files/constitution-of-tpec/1776447206.pdf</span></a></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">****</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">MSZ</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
+
+
+                        
+                        <div id="reel_pic">
+                        </div>
+
+
+
+                        
+                        <br />
+                        <span id="ReleaseId">(Release ID: 2253322)</span>
+                        <span id="lblViews">Visitor Counter : 1950</span>
+                        <div>
+                              
+                        </div>
+                        
+
+                        <span id="lblRefPhoto"></span>
+
+                        <div class="BackgroundRelease">
+                              
+                        </div>
+                        <div>
+                              
+                        </div>
+                        <div class="ReleaseLang">Read this release in: 
+                        
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2253357' target="_blank">
+                                          Urdu </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2253374' target="_blank">
+                                          हिन्दी </a>
+                              
+                        </div>
+
+                        <div class="RelTag">
+                              <ul>
+                                    
+                              </ul>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div id="RelLink" class="RelLink">
+                              <ul>
+                                    
+                                    
+                              </ul>
+                        </div>
+                        <center>
+                              
+                        </center>
+                  </div>
+
+                  <div id="update12">
+	
+                              
+                              <input type="hidden" name="Hidden" id="Hidden" />
+                              <div id="P_CategoryManagement" class="ModalWindow" style="display: none">
+		
+                                    <div>
+                                          <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                                    </div>
+                                    <div id="description">
+                                    </div>
+                                    <div class="text-center">
+                                          <h2>
+                                                
+                                                <br>
+                                                
+                                          </h2>
+                                    </div>
+                                    <br />
+                                    <div class="clear">
+                                    </div>
+                                    
+                              
+	</div>
+                        
+</div>
+            </div>
+            
+            <div id="PdfDiv" style="display: none;">
+                  <table width="100%">
+                        <tr>
+                              <td style="font-weight: 200; text-align: center">
+                                    Ministry of Electronics & IT
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                                          Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                                          &#160;<div style='height:30px;width:100%;'></div>Standing Committee of Technical, Legal and Policy Experts to Inform AI Governance decisions and advise the newly constituted AIGEG
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="text-align: center; font-size: 14px;">
+                                          Posted On:
+                        18 APR 2026 5:40PM by PIB Delhi
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                                          <p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">The Ministry of Electronics and Information Technology (MeitY), Government of India, has constituted the Technology and Policy Expert Committee (TPEC), a standing expert advisory body tasked with providing specialised technical, policy and strategic expertise to support the functioning of the recently constituted AI Governance and Economic Group (AIGEG).</span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">As an advisory body for the AIGEG, it will provide the Group with expert inputs necessary to make well-informed decisions on policy design, regulatory measures and India&rsquo;s engagements in AI governance across international forums.</span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">The TPEC, chaired </span>by the Secretary<span style="color:black">, Ministry of Electronics &amp; Information Technology, brings together a carefully selected group of experts spanning academic research, the technology industry and digital policy. The AI Governance Guidelines task the Committee with ensuring that the AIGEG&rsquo;s governance deliberations are supported by a contemporary and nuanced understanding of technological developments, policy approaches, regulatory design and global practices, while remaining responsive to India&rsquo;s unique social, economic and strategic context.</span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">Within India&rsquo;s newly created AI governance architecture, the AIGEG will set the strategic direction and coordinate policy across government, while the TPEC will provide subject matter guidance by translating technical and policy issues into actionable insights. </span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">This institutional framework has been designed to enable a dynamic, adaptive and future-forward approach to AI governance and to ensure strategic, technical and policy coherence in governance decisions.</span></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">For details of composition of the TPEC and Terms of Reference, please refer: <a href="https://d12aarmt01l54a.cloudfront.net/cms/files/constitution-of-tpec/1776447206.pdf" target="_blank"><span style="color:#1155cc">https://d12aarmt01l54a.cloudfront.net/cms/files/constitution-of-tpec/1776447206.pdf</span></a></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">****</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">MSZ</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
+
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                                          (Release ID: 2253322)
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                              </td>
+                        </tr>
+                        <tr>
+                              <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                        </tr>
+                  </table>
+            </div>
+            <div class="clearfix">
+            </div>
+
+            
+
+            <div class="section1">
+                  <div id="frst_t">
+                        <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322' target='_blank'><li class='fb_b'   ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/facebook.jpg' alt='Share on facebook'  width='40' /></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322&text=Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture' target='_blank'><li class='twitter_r'  ><img  src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2023/aug/ph2023818240601.jpg' alt='Share on twitter' width='40' /> </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322' target='_blank'><li class='whatsapp_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/whatsapp1.png' alt='Share on whatsapp' width='40' /></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/email1.png' alt='Share on email'  width='40' /></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322&title=Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/linkedin.png' alt='Share on linkedin' width='40' /></li></a></ul></div></div>
+                  </div>
+                  <div id="second_t">
+                        <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322' target='_blank'><li class='fb_b'   ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/facebook.jpg' alt='Share on facebook'  width='35' /></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322&text=Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture' target='_blank'><li class='twitter_r'  ><img  src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2023/aug/ph2023818240601.jpg' alt='Share on twitter' width='35' /> </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322' target='_blank'><li class='whatsapp_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/whatsapp1.png' alt='Share on whatsapp' width='35' /></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/email1.png' alt='Share on email'  width='35' /></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2253322&title=Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ><img  src='https://static.pib.gov.in/WriteReadData/userfiles/socialmedianew/linkedin.png' alt='Share on linkedin' width='35' /></li></a></ul></div></div>
+                  </div>
+            </div>
+            <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="Government Constitutes Technology and Policy Expert Committee (TPEC) to Provide Expert Advisory Support to India’s AI Governance Architecture" />
+            <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" value="&amp;#160;&lt;br/>Standing Committee of Technical, Legal and Policy Experts to Inform AI Governance decisions and advise the newly constituted AIGEG" />
+            <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>The Ministry of Electronics and Information Technology (MeitY), Government of India, has constituted the Technology and Policy Expert Committee (TPEC), a standing expert advisory body tasked with providing specialised technical, policy and strategic expertise to support the functioning of the recently constituted AI Governance and Economic Group (AIGEG).&lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>As an advisory body for the AIGEG, it will provide the Group with expert inputs necessary to make well-informed decisions on policy design, regulatory measures and India&amp;rsquo;s engagements in AI governance across international forums.&lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>The TPEC, chaired &lt;/span>by the Secretary&lt;span style=&quot;color:black&quot;>, Ministry of Electronics &amp;amp; Information Technology, brings together a carefully selected group of experts spanning academic research, the technology industry and digital policy. The AI Governance Guidelines task the Committee with ensuring that the AIGEG&amp;rsquo;s governance deliberations are supported by a contemporary and nuanced understanding of technological developments, policy approaches, regulatory design and global practices, while remaining responsive to India&amp;rsquo;s unique social, economic and strategic context.&lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>Within India&amp;rsquo;s newly created AI governance architecture, the AIGEG will set the strategic direction and coordinate policy across government, while the TPEC will provide subject matter guidance by translating technical and policy issues into actionable insights. &lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>This institutional framework has been designed to enable a dynamic, adaptive and future-forward approach to AI governance and to ensure strategic, technical and policy coherence in governance decisions.&lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>For details of composition of the TPEC and Terms of Reference, please refer: &lt;a href=&quot;https://d12aarmt01l54a.cloudfront.net/cms/files/constitution-of-tpec/1776447206.pdf&quot; target=&quot;_blank&quot;>&lt;span style=&quot;color:#1155cc&quot;>https://d12aarmt01l54a.cloudfront.net/cms/files/constitution-of-tpec/1776447206.pdf&lt;/span>&lt;/a>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>****&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>MSZ&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&amp;nbsp;&lt;/p>
+" />
+            <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+                  //function HandleAudio() {
+                  //    if (isPlaying == true) {
+                  //        //Playing already Pause it
+                  //        pauseAudio();
+                  //    } else {
+                  //        //Play the music
+                  //        playAudio();
+                  //    }
+                  //}
+            </script>
+            <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+            
+                  function CleanHtml(html) {
+
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+            </script>
+            <script type="text/javascript">
+                  $(document).ready(function () {
+                        //for responsive tables
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+
+                              // Extra Small Device
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                              // Small Device
+
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Medium Device
+
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Large Device
+
+                        }
+                  });
+            </script>
+            <script type="text/javascript">
+                  $(document).ready(function () {
+                        var width = $(window).width();
+                        if (width < 768) {
+
+                              // Extra Small Device
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                              // Small Device
+
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Medium Device
+
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Large Device
+
+                        }
+                  });
+            </script>
+            
+            <style type="text/css">
+                  @media print {
+                        .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                              display: none !important;
+                        }
+                  }
+
+                  .f_vl {
+                        padding-right: 30px;
+                        font-size: 17px;
+                        cursor: pointer;
+                  }
+
+                  .log_oo {
+                        // width: 20%;
+                        display: flex;
+                        justify-content: space-between;
+                  }
+
+                        .log_oo img {
+                              width: 150px;
+                              /*width: 100%;
+                    height: auto;*/
+                        }
+
+                  .sticky-social_mb {
+                        position: fixed;
+                        bottom: 0px;
+                        padding: 0px;
+                        margin: 0px;
+                        width: 100%;
+                  }
+
+                  .social_mb {
+                        list-style: none;
+                        display: flex;
+                        width: 100%;
+                        margin-bottom: -8px;
+                  }
+
+                        .social_mb a {
+                              padding: 8px 0px;
+                              font-size: 30px;
+                              transition: all 0.8s ease-in-out;
+                              width: 20% !important;
+                              text-align: center;
+                        }
+            </style>
+            <style type="text/css">
+                  .section1 {
+                        position: relative;
+                        padding: 10px 0px;
+                        width: 100%;
+                  }
+
+
+
+                  .sticky-social {
+                        position: fixed;
+                        top: 20px;
+                        left: 0px;
+                        padding: 0px;
+                        margin: 0px;
+                  }
+
+                  .social {
+                        list-style: none;
+                  }
+
+                        .social a li {
+                              padding: 8px 12px;
+                              font-size: 25px;
+                              transition: all 0.8s ease-in-out;
+                        }
+
+                              .social a li:hover {
+                                    margin-right: -30px;
+                                    box-shadow: 2px 5px 10px grey;
+                              }
+
+                                    .social a li:hover .fa {
+                                          margin-left: 20px;
+                                    }
+
+                  .fb_b {
+                        /* background-color: rgb(59, 89, 152);*/
+                        background-color: rgba(65,103,178,255);
+                  }
+
+                  .twitter_r {
+                        /* background-color: rgb(29, 161, 242);*/
+                        background-color: #000000;
+                  }
+
+                  .whatsapp_r {
+                        /* background-color: rgb(77, 194, 71);*/
+                        background-color: rgba(13,191,67,255);
+                  }
+
+                  .fa-envelope_r {
+                        /* background-color: rgb(219, 68, 55);*/
+                        background-color: #e2123d;
+                  }
+
+                  .fa-linkedin_r {
+                        background-color: rgb(0, 119, 181);
+                  }
+            </style>
+            <style type="text/css">
+                  @media only screen and (max-device-width: 767px) {
+                        p span img {
+                              max-width: 90% !important;
+                              height: auto !important;
+                        }
+
+                        p img {
+                              max-width: 90% !important;
+                              height: auto !important;
+                        }
+
+                        h2 {
+                              font-size: 20px !important;
+                              font-weight: 600 !important;
+                        }
+
+                        h3 {
+                              font-size: 18px !important;
+                              font-weight: 600 !important;
+                        }
+                  }
+            </style>
+            <style type="text/css">
+                  /* === Film Roll Badge Styling(IFFI2025 countdown) === */
+                  .film-roll-badge {
+                        position: absolute;
+                        top:82%;
+                        right: 20px;
+                        width: 230px;
+                        height: 70px;
+                        background: repeating-linear-gradient( to right, #9a2375 0px, #9a2375 18px, #6e2b8b 18px, #6e2b8b 36px );
+                        border-top: 8px solid #9a2375;
+                        border-bottom: 8px solid #9a2375;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                        animation: moveFilm 8s linear infinite;
+                        z-index: 10;
+                  }
+
+                        /* film sprocket holes */
+                        .film-roll-badge::before,
+                        .film-roll-badge::after {
+                              content: "";
+                              position: absolute;
+                              width: 100%;
+                              height: 10px;
+                              background: repeating-linear-gradient( to right, #9a2375 0px, #9a2375 10px, #fff 10px, #fff 20px );
+                              left: 0;
+                              z-index: 2;
+                        }
+
+                        .film-roll-badge::before {
+                              top: -4px;
+                        }
+
+                        .film-roll-badge::after {
+                              bottom: -4px;
+                        }
+
+                  .film-roll-inner {
+                        position: relative;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: flicker 2s infinite ease-in-out;
+                  }
+
+                  .countdown-text {
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        color: #fff;
+                        text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                        white-space: nowrap;
+                  }
+
+                  /* === Animations === */
+                  @keyframes moveFilm {
+                        0% {
+                              background-position: 0 0;
+                        }
+
+                        100% {
+                              background-position: 120px 0;
+                        }
+                  }
+
+                  @keyframes flicker {
+                        0%, 100% {
+                              opacity: 1;
+                        }
+
+                        50% {
+                              opacity: 0.9;
+                        }
+
+                        25% {
+                              opacity: 0.95;
+                        }
+
+                        75% {
+                              opacity: 0.85;
+                        }
+                  }
+
+                  /* === Responsive Adjustments === */
+                  @media (max-width: 1500px) {
+                        .film-roll-badge {
+                              top: 68%;
+                              right: 18px;
+                              /* width: 220px; */
+                              height: 65px;
+                              font-size: 0.85rem;
+                        }
+
+                        .press-section {
+                              margin-top: 35px;
+                        }
+                  }
+
+                  @media (max-width: 992px) {
+                        .film-roll-badge {
+                              top: 52%;
+                              right: 10px;
+                               width: 200px; 
+                              height: 60px;
+                        }
+                  }
+
+                  @media (max-width: 768px) {
+                        .film-roll-badge {
+                              top: 56%;
+                              right: 10px;
+                               width: 124px; 
+                              height: 55px;
+                        }
+
+                        .countdown-text {
+                              font-size: 0.9rem;
+                        }
+                  }
+
+                  @media (max-width: 576px) {
+                        .film-roll-badge {
+                              top: 59%;
+                              right: 5px;
+                              /* width: 160px; */
+                              height: 50px;
+                        }
+
+                        .countdown-text {
+                              font-size: 0.85rem;
+                        }
+                  }
+            </style>
+          <script type="text/javascript">
+                const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+
+                const countdownElement = document.getElementById("countdown");
+
+                const interval = setInterval(() => {
+                      const now = new Date().getTime();
+
+                      // BEFORE FESTIVAL — show days + hours left
+                      if (now < festivalStart) {
+                            const diff = festivalStart - now;
+                            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                            countdownElement.innerHTML = `
+              ${days} Day${days !== 1 ? 's' : ''} 
+              ${hours} Hour${hours !== 1 ? 's' : ''} to go
+          `;
+
+                      }
+
+                      // DURING FESTIVAL — show 56th IFFI - Day X
+                      else if (now >= festivalStart && now <= festivalEnd) {
+                            const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                            countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                      }
+
+                      // AFTER FESTIVAL — new message
+                      else {
+                            countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+
+                            // Width change logic
+                            const elements = document.querySelectorAll('.film-roll-badge');
+                            elements.forEach(el => el.style.width = "350px");
+
+                            clearInterval(interval);
+                      }
+
+                }, 1000);
+          </script>
+ <script type="text/javascript">
+
+               const miffStart = new Date("2026-06-15T00:00:00").getTime();
+               const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+
+               const miffElement = document.getElementById("miff");
+
+               if (miffElement) {
+
+                   const miffInterval = setInterval(() => {
+
+                       const now = new Date().getTime();
+
+                       // Before MIFF
+                       if (now < miffStart) {
+
+                           const diff = miffStart - now;
+                           const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                           const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+        
+
+                   /*  miffElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to MIFF`;*/
+                           miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+
+
+                     }
+
+                       // During MIFF
+                       else if (now >= miffStart && now <= miffEnd) {
+
+                           const dayNumber =
+                               Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+
+                           miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                       }
+
+                       // After MIFF
+                       else {
+
+                           miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+
+                           document.querySelectorAll('.film-roll-badge')
+                               .forEach(el => el.style.width = "350px");
+
+                           clearInterval(miffInterval);
+                       }
+
+                   }, 1000);
+               }
+
+</script>
+
+      
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="X4ERAJo9eh2LOBm8O-WTFH9mF1qbg7E95837mXdJY7J6f2V3wHIEhejWMAUtGRzrjd7hPCH46pJQd-Ut0i2o57XQLMh99F2B"/></form>
+</body>
+</html>
+

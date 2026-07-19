@@ -1,0 +1,10 @@
+{
+  "source": "GDELT 2.1 Global Knowledge Graph",
+  "status": "empirical",
+  "retrievedAt": "2026-07-17T23:30:00Z",
+  "sourceUrl": "http://data.gdeltproject.org/gdeltv2/20260717233000.gkg.csv.zip",
+  "file": "20260717233000.gkg.csv.zip",
+  "checksum": "sha256:6bacaa56e48c2b5aef98ebbadd7bdd6fbb5bfa3f43a1052ed898132e433b6ac5",
+  "coverage": "One 15-minute global feed interval; not a country-month indicator and not used in published scores.",
+  "retrievalNote": "The GDELT DOC query API returned HTTP 429 for a small test query on 2026-07-17. This direct downloadable feed remains available as a fallback acquisition route."
+}
