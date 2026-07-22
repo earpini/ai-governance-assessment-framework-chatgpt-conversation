@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/ai-governance-assessment-framework-chatgpt-conversation/",
+  base: "/AI-Policy-Windows-Explorer/",
   build: {
     outDir: "docs",
     emptyOutDir: true,
