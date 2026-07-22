@@ -20,6 +20,7 @@ import urllib.parse
 from common import archive, config, fetch_json
 
 SLEEP = 30  # seconds between requests - do not lower; GDELT will 429
+MAX_RUNTIME_S = 40 * 60  # hard budget: archive whatever we have and exit
 
 
 def build_query(lang_cfg: dict, fips: str, track: str) -> str:
@@ -38,7 +39,7 @@ def fetch_timeline(query: str, months: int):
         + urllib.parse.quote(query)
         + f"&mode=timelinevol&timespan={months}months&format=json"
     )
-    d = fetch_json(url, tries=5, base_wait=30)
+    d = fetch_json(url, tries=3, base_wait=20)
     series = d.get("timeline", [{}])
     data = series[0].get("data", []) if series else []
     return url, data
@@ -46,8 +47,9 @@ def fetch_timeline(query: str, months: int):
 
 def main(snapshot: str, months: int = 24) -> None:
     cfg = config()
-    out = {"months": months, "countries": {}}
+    out = {"months": months, "countries": {}, "budget_exhausted": False}
     failures = []
+    started = time.monotonic()
 
     for c in cfg["countries"]:
         iso, fips = c["iso2"], c["gdelt_fips"]
@@ -56,6 +58,10 @@ def main(snapshot: str, months: int = 24) -> None:
             lang = lang_cfg["code"]
             for track in ("mainstream", "frontier"):
                 if track == "frontier" and not lang_cfg["frontier_terms"]:
+                    continue
+                if time.monotonic() - started > MAX_RUNTIME_S:
+                    out["budget_exhausted"] = True
+                    failures.append(f"{iso}/{lang}/{track}: skipped, time budget exhausted")
                     continue
                 query = build_query(lang_cfg, fips, track)
                 print(f"  {iso}/{lang}/{track}: {query}")
@@ -69,6 +75,8 @@ def main(snapshot: str, months: int = 24) -> None:
                     failures.append(f"{iso}/{lang}/{track}: {e}")
                     print(f"    FAILED: {e}")
                 time.sleep(SLEEP)
+        # archive incrementally so a killed step still leaves partial data
+        archive(snapshot, "gdelt_a1", "multiple (see per-entry urls)", out)
 
     ref = archive(snapshot, "gdelt_a1", "multiple (see per-entry urls)", out)
     print(f"  archived {ref}")
