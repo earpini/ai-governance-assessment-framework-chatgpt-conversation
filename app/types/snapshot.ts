@@ -11,8 +11,11 @@ export interface TalentMainstream {
   insufficient_data: boolean;
 }
 
+export interface WorkSample { title: string | null; year: number | null; link: string | null }
+
 export interface TalentFrontier {
   t2_works: number | null;
+  t2_sample?: WorkSample[];
   t3_orgs: number;
   t3_university_groups: number;
   t3_capped: boolean;

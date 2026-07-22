@@ -122,6 +122,7 @@ def main(snapshot):
         "ai": load(f"{rawdir}/openalex_t1_ai_works.json"),
         "total": load(f"{rawdir}/openalex_t1_total_works.json"),
         "t2": load(f"{rawdir}/openalex_t2_frontier_works.json"),
+        "t2s": load(f"{rawdir}/openalex_t2_samples.json"),
         "wiki": load(f"{rawdir}/wikimedia_a3.json"),
         "gdelt": load(f"{rawdir}/gdelt_a1.json"),
     }
@@ -169,6 +170,8 @@ def main(snapshot):
             },
             "frontier": {
                 "t2_works": t2.get(iso, 0) if t2 else None,
+                "t2_sample": (raw["t2s"]["payload"]["countries"].get(iso, {}).get("works", [])
+                              if raw["t2s"] else []),
                 "t3_orgs": t3rec["count_orgs"],
                 "t3_university_groups": t3rec["count_university_groups"],
                 "t3_capped": t3rec["capped"],

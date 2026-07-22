@@ -47,3 +47,58 @@
   .constraint-headline { font-size: 17px; }
   .stage-summary small { max-width: none; }
 }
+
+.fact-items { margin-top: 14px; }
+.fact-items ul { list-style: none; margin: 6px 0 0; padding: 0; }
+.fact-items li { padding: 9px 0; border-top: 1px solid rgba(128, 128, 128, 0.16); font-size: 14.5px; line-height: 1.45; }
+.fact-items li small { display: block; opacity: 0.62; font-size: 12.5px; margin-top: 2px; }
+.fact-items li.item-yes { border-left: 3px solid #2f6e7b; padding-left: 10px; }
+.fact-items li.item-no { border-left: 3px solid #c0512e; padding-left: 10px; opacity: 0.85; }
+.brand-version .fact-items li { border-top-color: var(--ea-line); }
+.brand-version .fact-items li.item-yes { border-left-color: var(--ea-slate); }
+.brand-version .fact-items li.item-no { border-left-color: var(--ea-clay); }
+.drawer { overflow-y: auto; }
+
+.compare-page, .map-page { max-width: 1120px; margin: 0 auto; padding: 56px 40px 40px; }
+.cmp-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin: 22px 0 18px; }
+.cmp-sort select { font: inherit; padding: 6px 10px; }
+.cmp-table-wrap { overflow-x: auto; border: 1px solid rgba(128,128,128,0.25); border-radius: 7px; }
+.cmp-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.cmp-table th { text-align: left; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.65; padding: 10px 14px; border-bottom: 2px solid rgba(128,128,128,0.4); }
+.cmp-table td { padding: 9px 14px; border-bottom: 1px solid rgba(128,128,128,0.16); }
+.cmp-country button { font: inherit; font-weight: 700; background: none; border: 0; cursor: pointer; padding: 0; color: inherit; }
+.cmp-country button i { font-style: normal; opacity: 0; transition: opacity 120ms; }
+.cmp-country button:hover i { opacity: 0.7; }
+.cmp-cell { white-space: nowrap; }
+.cmp-cell .mini-tier { margin-right: 7px; }
+.tier-cell-nascent { background: rgba(192,81,46,0.07); }
+.tier-cell-emerging { background: rgba(226,163,60,0.09); }
+.tier-cell-established { background: rgba(47,110,123,0.07); }
+.tier-cell-pending { opacity: 0.6; font-size: 13px; }
+.cmp-metric { min-width: 240px; }
+.cmp-metric-inner { display: flex; align-items: center; gap: 10px; }
+.cmp-val { flex: 0 0 64px; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cmp-bar-track { flex: 1; height: 10px; }
+.cmp-bar { display: block; height: 10px; border-radius: 0 4px 4px 0; background: #2F6E7B; opacity: 0.78; }
+.cmp-metric-head { min-width: 220px; }
+.cmp-note { font-size: 13px; opacity: 0.75; margin-top: 14px; }
+.cmp-note .mini-tier { vertical-align: middle; margin: 0 2px; }
+
+.map-wrap { position: relative; border: 1px solid rgba(128,128,128,0.25); border-radius: 9px; overflow: hidden; background: #f7f6f3; }
+.map-wrap svg { display: block; width: 100%; height: auto; }
+.map-g20 { cursor: pointer; transition: opacity 120ms; }
+.map-g20:hover { opacity: 0.82; }
+.map-tip { position: absolute; transform: translate(14px, -50%); background: #191919; color: #fff; padding: 9px 12px; border-radius: 6px; pointer-events: none; z-index: 5; max-width: 240px; }
+.map-tip strong { display: block; font-size: 14px; }
+.map-tip span { display: block; font-size: 12.5px; opacity: 0.85; }
+.map-tip small { display: block; font-size: 11px; opacity: 0.6; margin-top: 3px; }
+.map-legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 14px; font-size: 13px; }
+.map-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.map-legend .legend-pending { background: #b8b3ab; }
+.map-legend .legend-out { background: #eceae5; border: 1px solid rgba(128,128,128,0.3); }
+
+.brand-version .cmp-table-wrap, .brand-version .map-wrap { border-color: var(--ea-line); }
+.brand-version .cmp-table th { border-bottom-color: var(--ea-ink); }
+.brand-version .cmp-table td { border-bottom-color: var(--ea-line); }
+.brand-version .compare-page .section-title, .brand-version .map-page .section-title { padding-top: 24px; }
+@media (max-width: 640px) { .compare-page, .map-page { padding: 32px 24px; } }

@@ -1,0 +1,1 @@
+import{a as e,i as t,n,o as r,r as i,t as a}from"./explorer-C1WtG-eF.js";var o=r(e(),1),s=t(),c=i();document.body.classList.add(`brand-version`),(0,s.createRoot)(document.getElementById(`root`)).render((0,c.jsx)(o.StrictMode,{children:(0,c.jsx)(n,{dataset:a,variant:`brand`})}));

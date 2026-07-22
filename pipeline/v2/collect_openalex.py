@@ -26,7 +26,7 @@ def group_by_country(filter_expr: str) -> str:
 
 def main(snapshot: str) -> None:
     cfg = config()
-    oa = cfg["openalex"]
+    oa = cfg["openalex"]  # noqa: used below for samples too
 
     calls = {
         "openalex_t1_ai_works": group_by_country(
@@ -48,6 +48,33 @@ def main(snapshot: str) -> None:
         ref = archive(snapshot, name, url, payload)
         n = len(payload.get("group_by", []))
         print(f"    archived {ref} ({n} country groups)")
+
+    # T2 samples: recent frontier works per country, with titles and DOIs,
+    # so the explorer can show the actual papers behind the count.
+    import time
+    samples = {"countries": {}}
+    for c in cfg["countries"]:
+        iso = c["iso2"]
+        url = (
+            "https://api.openalex.org/works?filter="
+            "title_and_abstract.search:" + urllib.parse.quote(oa["t2_search"])
+            + f",from_publication_date:{oa['t2_from']},authorships.countries:{iso}"
+            + "&per-page=10&sort=publication_date:desc"
+            + "&select=id,title,publication_year,doi&mailto=" + MAILTO
+        )
+        payload = fetch_json(url)
+        samples["countries"][iso] = {
+            "url": url,
+            "works": [
+                {"title": w.get("title"), "year": w.get("publication_year"),
+                 "link": w.get("doi") or w.get("id")}
+                for w in payload.get("results", [])
+            ],
+        }
+        print(f"  t2 sample {iso}: {len(samples['countries'][iso]['works'])} works")
+        time.sleep(1)
+    ref = archive(snapshot, "openalex_t2_samples", "multiple (see per-country urls)", samples)
+    print(f"    archived {ref}")
 
     print("openalex: done")
 

@@ -2,6 +2,17 @@
 
 import { useMemo, useState } from "react";
 import type { CountrySnapshot, DimensionId, SnapshotV2, Tier } from "../types/snapshot";
+import fieldBuilding from "../../data/curated/field_building.json";
+import frontierChecklist from "../../data/curated/frontier_checklist.json";
+import policyActivity from "../../data/curated/policy_activity.json";
+import { CompareView, MapView } from "./CompareMap";
+
+const FB = fieldBuilding as any, FC = frontierChecklist as any, PA = policyActivity as any;
+
+const T2_SEARCH = '"AI safety" OR "AI alignment" OR "existential risk from artificial intelligence" OR "frontier model safety" OR "catastrophic AI risk"';
+const oaBrowseT1 = (iso: string) => `https://openalex.org/works?filter=${encodeURIComponent(`primary_topic.subfield.id:subfields/1702,from_publication_date:2023-01-01,authorships.countries:${iso}`)}`;
+const oaBrowseT2 = (iso: string) => `https://openalex.org/works?filter=${encodeURIComponent(`title_and_abstract.search:${T2_SEARCH},from_publication_date:2022-01-01,authorships.countries:${iso}`)}`;
+const P2_ORDER = ["national_strategy", "frontier_risk_language", "bletchley_or_successor", "safety_institute", "binding_law"];
 
 const REPO = "https://github.com/earpini/AI-Policy-Windows-Explorer";
 
@@ -43,7 +54,8 @@ function TrackRow({ label, tier, children }: { label: string; tier: Tier | null;
   );
 }
 
-interface Fact { label: string; value: string; detail: string; sourceLabel: string; sourceUrl: string }
+interface FactItem { label: string; sub?: string; url?: string; ok?: boolean }
+interface Fact { label: string; value: string; detail: string; sourceLabel: string; sourceUrl: string; items?: FactItem[]; itemsTitle?: string }
 
 function FactButton({ fact, onOpen }: { fact: Fact; onOpen: (f: Fact) => void }) {
   return (
@@ -63,6 +75,19 @@ function FactDrawer({ fact, provenance, onClose }: { fact: Fact | null; provenan
         <h2 id="fact-title">{fact.label}</h2>
         <div className="evidence-value">{fact.value}</div>
         <p>{fact.detail}</p>
+        {fact.items && fact.items.length > 0 && (
+          <div className="fact-items">
+            {fact.itemsTitle && <p className="absolute-label">{fact.itemsTitle}</p>}
+            <ul>
+              {fact.items.map((it, i) => (
+                <li key={i} className={it.ok === undefined ? "" : it.ok ? "item-yes" : "item-no"}>
+                  {it.url ? <a href={it.url} target="_blank" rel="noreferrer">{it.label} ↗</a> : <span>{it.label}</span>}
+                  {it.sub && <small>{it.sub}</small>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <dl>
           <div><dt>Source</dt><dd><a href={fact.sourceUrl} target="_blank" rel="noreferrer">{fact.sourceLabel} ↗</a></dd></div>
           <div><dt>Archived inputs</dt><dd>{provenance.map(p => <a key={p} className="prov-link" href={`${REPO}/blob/main/${p}`} target="_blank" rel="noreferrer">{p.split("/").pop()} ↗</a>)}</dd></div>
@@ -102,25 +127,39 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
   const codes = useMemo(() => Object.keys(dataset.countries).sort((a, b) => dataset.countries[a].name.localeCompare(dataset.countries[b].name)), [dataset]);
   const [selected, setSelected] = useState(codes[0]);
   const [fact, setFact] = useState<Fact | null>(null);
-  const [view, setView] = useState<"explore" | "method">("explore");
+  const [view, setView] = useState<"explore" | "compare" | "map" | "method">("explore");
   const country = dataset.countries[selected];
 
   const facts = useMemo(() => {
     const c = country;
     const tm = c.talent.mainstream, tf = c.talent.frontier, pm = c.policy.mainstream, pf = c.policy.frontier;
+    const fbc = FB.countries[selected], fcc = FC.countries[selected], pac = PA.countries[selected];
     const f: Record<string, Fact[]> = {
       talent: [
-        { label: "AI share of research output (T1)", value: pct(tm.t1_ai_share), detail: `${tm.t1_ai_works?.toLocaleString() ?? "—"} AI works of ${tm.t1_total_works?.toLocaleString() ?? "—"} total works since 2023 (OpenAlex, by authorship country). Compared against a frozen G20 reference share of ${pct(tm.g20_median_share)}. Shares, never raw counts: raw counts mostly measure country size and indexing volume.`, sourceLabel: "OpenAlex", sourceUrl: "https://openalex.org/" },
-        { label: "Frontier-safety works (T2)", value: tf.t2_works?.toLocaleString() ?? "—", detail: "Works since 2022 matching the pinned safety search (AI safety, AI alignment, existential risk, frontier models, catastrophic risk) in title or abstract. Small numbers are the finding: this maps where the field does not yet exist.", sourceLabel: "OpenAlex", sourceUrl: "https://openalex.org/" },
-        { label: "Field-building entities (T3)", value: `${tf.t3_orgs + tf.t3_university_groups}${tf.t3_capped ? "+" : ""}`, detail: `${tf.t3_orgs} organization(s) and ${tf.t3_university_groups} university group(s) verified active, from public directories with per-entity activity signals and sources.${tf.t3_capped ? " Enumeration capped; the true total is higher." : ""}`, sourceLabel: "Curated dataset (field_building.json)", sourceUrl: `${REPO}/blob/main/data/curated/field_building.json` },
+        { label: "AI share of research output (T1)", value: pct(tm.t1_ai_share), detail: `${tm.t1_ai_works?.toLocaleString() ?? "—"} AI works of ${tm.t1_total_works?.toLocaleString() ?? "—"} total works since 2023 (OpenAlex, by authorship country). Compared against a frozen G20 reference share of ${pct(tm.g20_median_share)}. Shares, never raw counts: raw counts mostly measure country size and indexing volume.`, sourceLabel: "OpenAlex", sourceUrl: "https://openalex.org/", itemsTitle: "Browse the underlying papers", items: [
+          { label: `All ${tm.t1_ai_works?.toLocaleString() ?? ""} AI works from ${c.name} — live, filterable list`, url: oaBrowseT1(selected) },
+          { label: "The denominator: every indexed work since 2023", url: `https://openalex.org/works?filter=${encodeURIComponent(`from_publication_date:2023-01-01,authorships.countries:${selected}`)}` },
+        ] },
+        { label: "Frontier-safety works (T2)", value: tf.t2_works?.toLocaleString() ?? "—", detail: "Works since 2022 matching the pinned safety search (AI safety, AI alignment, existential risk, frontier models, catastrophic risk) in title or abstract. Small numbers are the finding: this maps where the field does not yet exist.", sourceLabel: "OpenAlex", sourceUrl: "https://openalex.org/", itemsTitle: (tf.t2_sample && tf.t2_sample.length) ? "Most recent frontier papers" : "Browse the papers", items: [
+          ...(tf.t2_sample ?? []).map(w => ({ label: w.title ?? "Untitled", sub: w.year ? String(w.year) : undefined, url: w.link ?? undefined })),
+          { label: `Browse all ${tf.t2_works ?? ""} frontier works from ${c.name} on OpenAlex — live, filterable`, url: oaBrowseT2(selected) },
+        ] },
+        { label: "Field-building entities (T3)", value: `${tf.t3_orgs + tf.t3_university_groups}${tf.t3_capped ? "+" : ""}`, detail: `${tf.t3_orgs} organization(s) and ${tf.t3_university_groups} university group(s) verified active, from public directories with per-entity activity signals and sources.${tf.t3_capped ? " Enumeration capped; the true total is higher." : ""}`, sourceLabel: "Curated dataset (field_building.json)", sourceUrl: `${REPO}/blob/main/data/curated/field_building.json`, itemsTitle: "The organizations and groups", items: (fbc?.entities ?? []).map((e: any) => ({ label: e.name, sub: `${e.type === "university_group" ? "University group" : "Organization"} · ${e.city_or_university} · ${e.active_signal}`, url: e.source })) },
       ],
       attention: [
         ...(c.attention.mainstream.a1_trend_ratio != null ? [{ label: "Media coverage trend (A1)", value: `×${c.attention.mainstream.a1_trend_ratio}`, detail: "Mean of the last 12 months of AI-governance media coverage (as % of the country's monitored articles, GDELT) over the mean of the prior 12. Within-country comparison only.", sourceLabel: "GDELT", sourceUrl: "https://www.gdeltproject.org/" }] : []),
         { label: "Frontier article in principal language", value: c.attention.frontier.alignment_article_exists_in_principal_language === null || c.attention.frontier.alignment_article_exists_in_principal_language === undefined ? "—" : c.attention.frontier.alignment_article_exists_in_principal_language ? "Exists" : "Missing", detail: "Whether the AI-alignment article exists in the country's principal-language Wikipedia, resolved via interlanguage links. Absence is a verified frontier-attention finding, not a data gap.", sourceLabel: "Wikimedia", sourceUrl: "https://wikimedia.org/api/rest_v1/" },
       ],
       policy: [
-        { label: "Policy initiatives (P1)", value: pm.p1_oecd_initiative_count === null ? "n/a" : String(pm.p1_oecd_initiative_count), detail: `OECD.AI-listed national AI policy initiatives, coded '${pm.p1_activity_level}' activity overall. Latest significant action: ${pm.p1_latest_initiative.name} (${pm.p1_latest_initiative.year}).`, sourceLabel: "Curated dataset (policy_activity.json)", sourceUrl: `${REPO}/blob/main/data/curated/policy_activity.json` },
-        { label: "Frontier commitments (P2)", value: `${pf.p2_score}/5`, detail: Object.entries(pf.p2_items).map(([k, v]) => `${v ? "✓" : "✗"} ${P2_LABELS[k] ?? k}`).join("  ·  "), sourceLabel: "Curated dataset (frontier_checklist.json)", sourceUrl: `${REPO}/blob/main/data/curated/frontier_checklist.json` },
+        { label: "Policy initiatives (P1)", value: pm.p1_oecd_initiative_count === null ? "n/a" : String(pm.p1_oecd_initiative_count), detail: `OECD.AI-listed national AI policy initiatives, coded '${pm.p1_activity_level}' activity overall. Latest significant action: ${pm.p1_latest_initiative.name} (${pm.p1_latest_initiative.year}).`, sourceLabel: "Curated dataset (policy_activity.json)", sourceUrl: `${REPO}/blob/main/data/curated/policy_activity.json`, itemsTitle: "The initiatives and bodies", items: [
+          { label: `Latest: ${pm.p1_latest_initiative.name} (${pm.p1_latest_initiative.year})`, url: pm.p1_latest_initiative.source },
+          ...(pac?.governance_bodies ?? []).map((b: any) => ({ label: b.name, url: b.source })),
+          { label: `All ${pm.p1_oecd_initiative_count ?? ""} initiatives on the OECD.AI Policy Navigator`, url: pac?.oecd_source },
+        ].filter((it: any) => it.url) },
+        { label: "Frontier commitments (P2)", value: `${pf.p2_score}/5`, detail: "Five binary items, hand-coded from primary documents. Each item links to the source it was verified on.", sourceLabel: "Curated dataset (frontier_checklist.json)", sourceUrl: `${REPO}/blob/main/data/curated/frontier_checklist.json`, itemsTitle: "The five commitments", items: P2_ORDER.map(k => {
+          const item = fcc?.items?.[k];
+          return { label: `${pf.p2_items[k] ? "✓" : "✗"} ${P2_LABELS[k] ?? k}`, sub: item?.note, url: item?.source, ok: pf.p2_items[k] };
+        }) },
       ],
     };
     return f;
@@ -132,11 +171,15 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
     <main>
       <header className="site-header">
         {variant === "brand" ? <div className="header-brand"><a className="ea-wordmark" href="https://ettorearpini.com/" aria-label="Ettore Arpini, home">Ettore Arpini<span className="ea-logo-arrow">↗</span></a><span className="header-tool-title">|&nbsp; AI Policy Windows Explorer</span></div> : <button className="brand" onClick={() => setView("explore")}><span>W/</span> WINDOW</button>}
-        <nav aria-label="Primary"><button className={view === "explore" ? "active" : ""} onClick={() => setView("explore")}>Explore</button><button className={view === "method" ? "active" : ""} onClick={() => setView("method")}>Methodology</button></nav>
+        <nav aria-label="Primary"><button className={view === "explore" ? "active" : ""} onClick={() => setView("explore")}>Explore</button><button className={view === "compare" ? "active" : ""} onClick={() => setView("compare")}>Compare</button><button className={view === "map" ? "active" : ""} onClick={() => setView("map")}>Map</button><button className={view === "method" ? "active" : ""} onClick={() => setView("method")}>Methodology</button></nav>
         <div className="status-dot"><i /> Snapshot {dataset.snapshot}{dataset.provisional_thresholds ? " · provisional tiers" : ""}</div>
       </header>
 
-      {view === "method" ? (
+      {view === "compare" ? (
+        <CompareView dataset={dataset} onCountry={(iso) => { setSelected(iso); setView("explore"); }} />
+      ) : view === "map" ? (
+        <MapView dataset={dataset} onCountry={(iso) => { setSelected(iso); setView("explore"); }} />
+      ) : view === "method" ? (
         <section className="method-page">
           <span className="eyebrow">Methodology · G20 edition · snapshot {dataset.snapshot}</span>
           <h1>Three dimensions, two tracks—<br /><em>and no composite index.</em></h1>

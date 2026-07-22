@@ -551,7 +551,7 @@
   "meta": {
    "cost_usd": 0.0001,
    "count": 9557,
-   "db_response_time_ms": 100,
+   "db_response_time_ms": 70,
    "groups_count": 109,
    "page": 1,
    "per_page": 200,
