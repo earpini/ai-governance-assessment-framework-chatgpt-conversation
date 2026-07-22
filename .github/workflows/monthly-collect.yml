@@ -42,38 +42,4 @@ jobs:
 
       - name: Collect Wikimedia (A3)
         working-directory: pipeline/v2
-        run: python3 collect_wikimedia.py "${{ steps.dates.outputs.snapshot }}" "${{ steps.dates.outputs.start }}" "${{ steps.dates.outputs.end }}"
-
-      - name: Collect GDELT (A1)
-        id: gdelt
-        working-directory: pipeline/v2
-        run: python3 collect_gdelt.py "${{ steps.dates.outputs.snapshot }}" 24
-        continue-on-error: true   # partial GDELT data is archived; reviewer decides on the PR
-
-      - name: Build snapshot
-        working-directory: pipeline/v2
-        run: python3 build.py "${{ steps.dates.outputs.snapshot }}"
-
-      - name: Open pull request with new snapshot
-        uses: peter-evans/create-pull-request@v6
-        with:
-          branch: data/${{ steps.dates.outputs.snapshot }}
-          commit-message: "data: ${{ steps.dates.outputs.snapshot }} snapshot (automated collection)"
-          title: "Monthly data snapshot ${{ steps.dates.outputs.snapshot }}"
-          body: |
-            Automated monthly collection (v2 pipeline).
-
-            - GDELT step outcome: ${{ steps.gdelt.outcome }} (if `failure`, some
-              query sets 429'd or returned empty - check the run log; affected
-              countries carry `insufficient_data` in the snapshot rather than zeros)
-            - Raw responses archived under `data/raw/${{ steps.dates.outputs.snapshot }}/`
-            - Built `data/published/snapshot_v2.json`
-
-            Review checklist before merging:
-            - [ ] Collector logs show no unexplained gaps
-            - [ ] Spot-check 2-3 countries' numbers against the raw archives
-            - [ ] Tier changes vs previous snapshot are explainable
-
-          add-paths: |
-            data/raw/**
-            data/published/**
+        run: python3 collect_wikimedia.py "${{ steps.dates.outputs.snapshot }}" "${{ steps.dates.outputs.start }}" "${{
