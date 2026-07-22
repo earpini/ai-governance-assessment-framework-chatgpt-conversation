@@ -1,0 +1,49 @@
+/* Styles for the v2 explorer (three dimensions x two tracks).
+   Additive only: base look comes from globals.css; brand-version overrides
+   from brand.css remain untouched. Tier colors reuse the existing palette:
+   Nascent = clay, Emerging = gold, Established = slate. */
+
+.stage.tier-nascent { background: rgba(192, 81, 46, 0.12); color: #a23f1f; }
+.stage.tier-emerging { background: rgba(226, 163, 60, 0.16); color: #8a5f10; }
+.stage.tier-established { background: rgba(47, 110, 123, 0.12); color: #245863; }
+.stage.tier-pending { background: rgba(108, 103, 96, 0.10); color: #6c6760; }
+.stage.tier-nascent i { background: #c0512e; }
+.stage.tier-emerging i { background: #e2a33c; }
+.stage.tier-established i { background: #2f6e7b; }
+.stage.tier-pending i { background: #9b968e; }
+
+.track-row { border-top: 1px solid rgba(128, 128, 128, 0.18); padding: 10px 0; }
+.track-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.track-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.65; }
+
+.mini-tiers { display: flex; align-items: center; gap: 6px; margin-top: 10px; }
+.mini-tiers small { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; margin-left: 4px; }
+.mini-tier { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
+.tier-dot-nascent { background: #c0512e; }
+.tier-dot-emerging { background: #e2a33c; }
+.tier-dot-established { background: #2f6e7b; }
+.tier-dot-pending { background: transparent; border: 1.5px dashed #9b968e; }
+
+.constraint-headline { font-weight: 800; font-size: 20px; display: block; }
+.stage-summary small { display: block; max-width: 300px; }
+
+.data-warning.opportunity { border-left: 4px solid #e2a33c; background: rgba(226, 163, 60, 0.10); }
+
+.fact { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left; padding: 10px 0; border: 0; border-top: 1px solid rgba(128, 128, 128, 0.18); background: transparent; cursor: pointer; font: inherit; color: inherit; }
+.fact:first-of-type { border-top: 0; }
+.fact span { font-size: 14px; opacity: 0.85; }
+.fact strong { margin-left: auto; font-weight: 800; white-space: nowrap; }
+.fact i { font-style: normal; opacity: 0.5; }
+.fact:hover strong { color: #a23f1f; }
+
+.prov-link { display: block; font-size: 13px; margin: 2px 0; }
+
+.brand-version .constraint-headline { font-family: var(--ea-font-display); color: var(--ea-clay-ink); }
+.brand-version .fact:hover strong { color: var(--ea-clay); }
+.brand-version .track-row, .brand-version .fact { border-color: var(--ea-line); }
+.brand-version .data-warning.opportunity { border-left-color: var(--ea-gold); background: var(--ea-gold-soft); }
+
+@media (max-width: 640px) {
+  .constraint-headline { font-size: 17px; }
+  .stage-summary small { max-width: none; }
+}
