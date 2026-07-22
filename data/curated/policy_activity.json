@@ -1,0 +1,172 @@
+{
+  "indicator": "P1",
+  "name": "AI governance policy activity",
+  "track": "mainstream",
+  "description": "Per-country count and recency of national AI policy initiatives, anchored on the OECD.AI Policy Navigator with tracker/news complements, plus a qualitative activity_level coding (low/medium/high) combining volume, binding instruments/dedicated bodies, and 2025-26 recency.",
+  "methodology_ref": "methodology/METHODOLOGY.md",
+  "collection_method": "OECD.AI Policy Navigator queried via server-rendered list filtered by countryIds on 2026-07-22 (country dashboards are JS-heavy); complemented by IAPP, White & Case, regulations.ai trackers and news",
+  "as_of": "2026-07-22",
+  "countries": {
+    "AR": {
+      "oecd_initiative_count": 20,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=5",
+      "latest_initiative": {"name": "Milei government announcement of a deregulation-first legal framework to attract AI investment (incl. proposed AI-operated company category); most recent OECD-listed item is Agent MIA public-sector AI assistant (2025)", "year": 2026, "source": "https://www.infobae.com/politica/2026/06/04/milei-defendio-en-el-financial-times-el-desarrollo-de-la-ia-sin-la-mano-mortal-de-una-regulacion-prematura/"},
+      "governance_bodies": [{"name": "Agencia de Acceso a la Informacion Publica (AAIP) - runs the National Programme for Transparency and Personal Data Protection in AI Use; no dedicated AI regulator exists", "source": "https://oecd.ai/en/dashboards/national/argentina"}],
+      "activity_level": "low",
+      "justification": "Moderate OECD count (20) but mostly soft/programmatic items; government explicitly pursuing a no-regulation approach in 2026, no AI law or dedicated agency."
+    },
+    "AU": {
+      "oecd_initiative_count": 51,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=9",
+      "latest_initiative": {"name": "National AI Plan (dropped proposed mandatory guardrails in favour of existing-law approach)", "year": 2025, "source": "https://montrealethics.ai/ai-policy-corner-from-proposed-mandatory-guardrails-to-the-national-ai-plan-ai-governance-in-australia/"},
+      "governance_bodies": [{"name": "National AI Centre (Department of Industry, Science and Resources)", "source": "https://www.industry.gov.au/science-technology-and-innovation/technology/national-artificial-intelligence-centre"}],
+      "activity_level": "medium",
+      "justification": "High initiative count (51) and a fresh National AI Plan (Dec 2025), but binding AI-specific regulation was shelved; governance relies on voluntary standards and existing regulators."
+    },
+    "BR": {
+      "oecd_initiative_count": 20,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=26",
+      "latest_initiative": {"name": "AI for the Good of All: Brazilian Artificial Intelligence Plan (PBIA) and ANPD AI Regulatory Sandbox; comprehensive AI bill PL 2338/2023 passed Senate Dec 2024, still pending in Chamber of Deputies", "year": 2025, "source": "https://oecd.ai/en/dashboards/national/brazil"},
+      "governance_bodies": [{"name": "ANPD (Autoridade Nacional de Protecao de Dados) - designated coordinator of the planned SIA (AI governance system) under PL 2338; running AI regulatory sandbox", "source": "https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-brazil"}],
+      "activity_level": "medium",
+      "justification": "Sustained pipeline (national AI plan 2024-28, sandbox 2025, Senate-passed AI bill) but the flagship law remained unenacted in the Chamber as of mid-2026."
+    },
+    "CA": {
+      "oecd_initiative_count": 18,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=32",
+      "latest_initiative": {"name": "AI for All: Canada's national AI strategy (launched by PM Carney after AIDA died with prorogation in Jan 2025)", "year": 2026, "source": "https://www.pm.gc.ca/en/news/news-releases/2026/06/04/prime-minister-carney-launches-ai-all-canadas-new-national-artificial"},
+      "governance_bodies": [{"name": "Canadian AI Safety Institute (CAISI)", "source": "https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute"}, {"name": "Minister of Artificial Intelligence and Digital Innovation (appointed 2025)", "source": "https://www.cbc.ca/news/politics/ai-strategy-pillars-evan-solomon-9.7180418"}],
+      "activity_level": "medium",
+      "justification": "Modest OECD count (18) and its AI bill (AIDA) lapsed in 2025, but strong 2025-26 recency: dedicated AI minister, safety institute, and a new national strategy launched June 2026."
+    },
+    "CN": {
+      "oecd_initiative_count": 20,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=35",
+      "latest_initiative": {"name": "State Council 'AI Plus' Action plan plus mandatory AI-generated content labeling measures (in force Sept 2025) and Global AI Governance Action Plan", "year": 2025, "source": "https://iapp.org/news/a/china-releases-ai-plus-plan-rolls-out-ai-labeling-law"},
+      "governance_bodies": [{"name": "Cyberspace Administration of China (CAC) - lead regulator for generative AI measures, algorithm registry and AIGC labeling", "source": "https://iapp.org/resources/article/global-ai-governance-china"}],
+      "activity_level": "high",
+      "justification": "Dense binding rulebook (generative AI measures, labeling rules, deep synthesis, ethics reviews) with major 2025 additions; low OECD count reflects coverage gaps, not low activity."
+    },
+    "FR": {
+      "oecd_initiative_count": 84,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=62",
+      "latest_initiative": {"name": "Creation of INESIA (National Institute for AI Evaluation and Security), which published its 2026-2027 roadmap; France also hosted the AI Action Summit (Feb 2025)", "year": 2025, "source": "https://www.campusfrance.org/en/actu/creation-d-un-institut-national-pour-l-evaluation-et-la-securite-de-l-ia"},
+      "governance_bodies": [{"name": "INESIA - Institut national pour l'evaluation et la securite de l'IA", "source": "https://www.inria.fr/en/ai-security-and-sovereignty-inesia-unveils-its-roadmap-2026-2027"}, {"name": "CNIL (AI department, EU AI Act-related supervision for data/AI)", "source": "https://www.cnil.fr/en/ai-how-sheets"}],
+      "activity_level": "high",
+      "justification": "84 OECD-listed initiatives, EU AI Act obligations phasing in, a new national AI safety/evaluation institute (2025) and continued strategy investment."
+    },
+    "DE": {
+      "oecd_initiative_count": 108,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=66",
+      "latest_initiative": {"name": "KI-MIG (AI Act Implementation Act) federal draft bill designating national supervisory authorities for the EU AI Act", "year": 2026, "source": "https://www.gleisslutz.com/en/know-how/federal-government-draft-bill-implement-eu-artificial-intelligence-act"},
+      "governance_bodies": [{"name": "Bundesnetzagentur (Federal Network Agency) - designated national AI market surveillance authority under draft KI-MIG", "source": "https://www.activemind.legal/guides/ki-mig/"}],
+      "activity_level": "high",
+      "justification": "Highest OECD count of the 19 (108), EU AI Act applying, and an active 2026 national implementation law designating an AI enforcer."
+    },
+    "IN": {
+      "oecd_initiative_count": 37,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=79",
+      "latest_initiative": {"name": "India AI Governance Guidelines released by MeitY", "year": 2025, "source": "https://babl.ai/india-releases-landmark-ai-governance-guidelines-emphasizing-safety-accountability-and-inclusion/"},
+      "governance_bodies": [{"name": "IndiaAI Mission (MeitY) incl. IndiaAI Safety Institute", "source": "https://indiaai.gov.in/"}],
+      "activity_level": "medium",
+      "justification": "Large mission-driven programme (37 initiatives), 2025 governance guidelines and a safety institute, but a deliberately light-touch approach with no AI statute."
+    },
+    "ID": {
+      "oecd_initiative_count": 5,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=80",
+      "latest_initiative": {"name": "White Paper on the National AI Roadmap (public consultation, with ethical guidelines concept); binding AI regulation (planned Presidential Regulation) deferred to 2026", "year": 2025, "source": "https://oecd.ai/en/dashboards/national/indonesia"},
+      "governance_bodies": [{"name": "Ministry of Communication and Digital Affairs (Komdigi) - lead AI policy body; no dedicated AI regulator yet", "source": "https://www.hsfkramer.com/insights/reports/ai-tracker/indonesia"}],
+      "activity_level": "low",
+      "justification": "Only 5 OECD-listed initiatives; governance still at roadmap/consultation stage with the AI regulation repeatedly postponed to 2026."
+    },
+    "IT": {
+      "oecd_initiative_count": 39,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=85",
+      "latest_initiative": {"name": "Law No. 132/2025 - first comprehensive national AI law in the EU (in force Oct 2025), with implementing decrees following", "year": 2025, "source": "https://www.clearygottlieb.com/news-and-insights/publication-listing/italy-adopts-the-first-national-ai-law-in-europe-complementing-the-eu-ai-act"},
+      "governance_bodies": [{"name": "AgID (Agency for Digital Italy) - designated national AI authority under Law 132/2025", "source": "https://www.agid.gov.it/en/intervention-areas/artificial-intelligence"}, {"name": "ACN (National Cybersecurity Agency) - designated national AI authority under Law 132/2025", "source": "https://www.clearygottlieb.com/news-and-insights/publication-listing/italy-adopts-the-first-national-ai-law-in-europe-complementing-the-eu-ai-act"}],
+      "activity_level": "high",
+      "justification": "Enacted the EU's first national AI law (2025), designated two AI authorities, plus EU AI Act obligations and 39 OECD-listed initiatives."
+    },
+    "JP": {
+      "oecd_initiative_count": 36,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=87",
+      "latest_initiative": {"name": "First AI Basic Plan adopted (and revised in 2026) under the 2025 AI Promotion Act; AI Guidelines for Business Ver1.2 also issued 2026", "year": 2026, "source": "https://oecd.ai/en/dashboards/policy-initiatives/ai-basic-plan"},
+      "governance_bodies": [{"name": "AI Strategy Headquarters (Cabinet-level, established under the AI Promotion Act)", "source": "https://fpf.org/blog/understanding-japans-ai-promotion-act-an-innovation-first-blueprint-for-ai-regulation/"}, {"name": "Japan AI Safety Institute (AISI)", "source": "https://aisi.go.jp/"}],
+      "activity_level": "high",
+      "justification": "First AI framework law (2025), cabinet AI Strategy HQ, AI Safety Institute, and a 2026 AI Basic Plan already revised - strong volume (36) and recency."
+    },
+    "MX": {
+      "oecd_initiative_count": 21,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=113",
+      "latest_initiative": {"name": "Constitutional reform initiative to give Congress AI-legislation powers plus a wave of federal AI bills (none enacted); AI-related labor/copyright reforms advancing 2026", "year": 2025, "source": "https://www.globalpolicywatch.com/2025/03/new-artificial-intelligence-legislation-in-mexico/"},
+      "governance_bodies": [{"name": "Agencia de Transformacion Digital y Telecomunicaciones (ATDT) - digital agency leading AI/digital strategy; no AI-specific regulator", "source": "https://oecd.ai/en/dashboards/national/mexico"}],
+      "activity_level": "low",
+      "justification": "21 OECD-listed items but no enacted AI law, no in-force national AI strategy, and governance activity remains at bill/proposal stage."
+    },
+    "RU": {
+      "oecd_initiative_count": 0,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=144",
+      "latest_initiative": {"name": "Framework law on AI development and regulation of large foundation models approved by Federation Council (effective Sept 1, 2026 pending signature)", "year": 2026, "source": "https://tass.com/politics/2161507"},
+      "governance_bodies": [{"name": "Ministry of Digital Development (Mintsifry) - lead body for the National AI Development Strategy to 2030 (updated by presidential decree 2024)", "source": "https://tadviser.com/index.php/Article:National_Strategy_for_the_Development_of_Artificial_Intelligence"}],
+      "activity_level": "medium",
+      "justification": "OECD.AI lists zero Russian initiatives (coverage gap, not absence); trackers/news show an updated 2024 strategy, values-alignment rules, and a 2026 framework AI law - recent but low-volume and opaque."
+    },
+    "SA": {
+      "oecd_initiative_count": 65,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=152",
+      "latest_initiative": {"name": "Draft Global AI Hub Law (public consultation via Communications, Space and Technology Commission)", "year": 2025, "source": "https://dgagroup.com/insight/saudi-arabia-introduces-a-draft-global-ai-hub-law/"},
+      "governance_bodies": [{"name": "SDAIA - Saudi Data and Artificial Intelligence Authority (dedicated national AI/data authority since 2019)", "source": "https://sdaia.gov.sa/en/default.aspx"}, {"name": "Communications, Space and Technology Commission (CST) - consulting on the Global AI Hub Law", "source": "https://regulations.ai/regulations/RAI-SA-NA-DGAHPXX-2025"}],
+      "activity_level": "high",
+      "justification": "65 OECD-listed initiatives, one of the world's few dedicated AI authorities (SDAIA), active guidelines regime and a novel 2025 draft AI hub law."
+    },
+    "ZA": {
+      "oecd_initiative_count": 9,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=162",
+      "latest_initiative": {"name": "Draft National AI Policy gazetted for public consultation (April 2026), subsequently withdrawn for revision", "year": 2026, "source": "https://www.gov.za/sites/default/files/gcis_document/202604/54477gen3880.pdf"},
+      "governance_bodies": [{"name": "AI Institute of South Africa and AI Hubs (DCDT-backed, launched 2022)", "source": "https://oecd.ai/en/dashboards/national/south-africa"}],
+      "activity_level": "low",
+      "justification": "Only 9 OECD-listed initiatives; the 2024 policy framework's successor draft policy was published then withdrawn in 2026, leaving governance pre-regulatory."
+    },
+    "KR": {
+      "oecd_initiative_count": 27,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=92",
+      "latest_initiative": {"name": "AI Basic Act (Framework Act on the Development of AI and Establishment of Trust) entered into force with enforcement decree on 22 January 2026", "year": 2026, "source": "https://www.trade.gov/market-intelligence/south-korea-ai-basic-act"},
+      "governance_bodies": [{"name": "Ministry of Science and ICT (MSIT) - lead enforcement authority under the AI Basic Act, with a presidential National AI Strategy Committee", "source": "https://www.cooley.com/news/insight/2026/2026-01-27-south-koreas-ai-basic-acts-overview-and-key-takeaways"}, {"name": "AI Safety Institute (Korea, established 2024)", "source": "https://www.trade.gov/market-intelligence/south-korea-ai-basic-act"}],
+      "activity_level": "high",
+      "justification": "Comprehensive AI framework law in force since Jan 2026, dedicated safety institute, presidential AI committee and 27 OECD-listed initiatives including 2025-26 compute programmes."
+    },
+    "TR": {
+      "oecd_initiative_count": 39,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=179",
+      "latest_initiative": {"name": "Draft law amending certain laws regarding artificial intelligence submitted to the Grand National Assembly (following the 2024 draft AI bill and AI-generated content proposals)", "year": 2025, "source": "https://www.mondaq.com/turkey/new-technology/1723028/draft-law-proposing-amendments-to-certain-laws-regarding-artificial-intelligence-submitted-to-the-turkish-grand-national-assembly"},
+      "governance_bodies": [{"name": "Digital Transformation Office of the Presidency (leads National AI Strategy 2021-2025 with TUBITAK AI Institute)", "source": "https://www.legal500.com/guides/chapter/turkiye-artificial-intelligence/"}],
+      "activity_level": "medium",
+      "justification": "Solid initiative volume (39) anchored in the national strategy and development plans, with AI bills pending in parliament but no enacted AI law or dedicated regulator."
+    },
+    "GB": {
+      "oecd_initiative_count": 78,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=184",
+      "latest_initiative": {"name": "AI Opportunities Action Plan (Jan 2025); AI Safety Institute renamed AI Security Institute (Feb 2025); frontier-AI legislation still pending, with an AI Regulation Bill debated in the Lords June 2026", "year": 2025, "source": "https://www.gov.uk/government/publications/ai-opportunities-action-plan"},
+      "governance_bodies": [{"name": "AI Security Institute (AISI, formerly AI Safety Institute, under DSIT)", "source": "https://www.aisi.gov.uk/"}],
+      "activity_level": "high",
+      "justification": "78 OECD-listed initiatives, a world-leading safety/security institute and an ambitious 2025 action plan, though the promised binding AI bill had not passed by mid-2026."
+    },
+    "US": {
+      "oecd_initiative_count": 91,
+      "oecd_source": "https://oecd.ai/en/dashboards/policy-initiatives?countryIds=185",
+      "latest_initiative": {"name": "Executive Order 14365 'Ensuring a National Policy Framework for Artificial Intelligence' (state-law preemption push, Dec 2025), following America's AI Action Plan and Genesis Mission EO (2025); further AI EO on cybersecurity/federal oversight in June 2026", "year": 2025, "source": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/"},
+      "governance_bodies": [{"name": "Center for AI Standards and Innovation (CAISI, NIST; formerly US AI Safety Institute)", "source": "https://www.nist.gov/caisi"}, {"name": "White House OSTP / AI and Crypto Czar (leads America's AI Action Plan)", "source": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/"}],
+      "activity_level": "high",
+      "justification": "91 OECD-listed initiatives and rapid-fire executive activity through 2025-2026 (action plan, multiple EOs, preemption framework), albeit deregulatory in direction with no federal AI statute."
+    }
+  },
+  "caveats": [
+    "OECD.AI country dashboard pages are JavaScript-heavy; counts were instead obtained on 2026-07-22 from the server-rendered Policy Navigator list filtered by countryIds (e.g. https://oecd.ai/en/dashboards/policy-initiatives?countryIds=26), which reliably returned per-country totals.",
+    "OECD.AI counts include all initiative types (strategies, regulations, programmes, governance bodies, public-sector AI use cases), so they measure reported policy activity breadth, not binding regulation; they also reflect uneven reporting coverage.",
+    "Russia returns zero initiatives on OECD.AI ('There are no results for your search') - a coverage gap since OECD data collection excludes Russia, not evidence of zero activity; Russia's rating is based on trackers and news (2024 strategy update, 2026 framework AI law).",
+    "China's (20) and Indonesia's (5) OECD counts likely substantially undercount actual activity due to limited OECD reporting from those governments; China's rating relies on IAPP and law-firm trackers documenting its dense binding rulebook.",
+    "Several 2026 items (Canada's AI for All strategy, Japan's AI Basic Plan revision, Russia's framework law, South Africa's draft policy withdrawal, US June 2026 EO) were verified only via the cited web sources; exact legal texts were not reviewed.",
+    "For Turkiye the parliamentary submission date of the latest draft AI law could not be pinned to an exact month; year given as 2025 per the cited report.",
+    "activity_level is a qualitative coding combining OECD count, presence of binding instruments/dedicated bodies, and 2025-26 recency; EU members (FR, DE, IT) additionally benefit from the EU AI Act, which is not counted as a national initiative."
+  ]
+}

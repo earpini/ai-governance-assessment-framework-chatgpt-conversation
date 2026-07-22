@@ -1,0 +1,184 @@
+{
+  "description": "Country and query configuration for the Plures AI Ecosystem Explorer v2. Frozen per snapshot; a snapshot references the commit of this file it was built from.",
+  "notes": {
+    "gdelt_fips": "GDELT sourcecountry uses FIPS 10-4 codes, NOT ISO 3166 (Germany=GM, Japan=JA, South Korea=KS, South Africa=SF, Russia=RS, Turkiye=TU, Australia=AS, China=CH, United Kingdom=UK).",
+    "oecd_country_id": "Numeric id used by https://oecd.ai/en/dashboards/policy-initiatives?countryIds=N (server-rendered counts).",
+    "languages": "Principal media language(s). ai_term / governance_terms / frontier_terms are the pinned local-language GDELT query components. Collector composes: mainstream = \"{ai_term}\" (gov1 OR gov2 ...), frontier = (\"f1\" OR \"f2\" ...)."
+  },
+  "wikipedia_articles_en": [
+    "Artificial intelligence",
+    "AI safety",
+    "AI alignment",
+    "Existential risk from artificial general intelligence",
+    "Regulation of artificial intelligence"
+  ],
+  "openalex": {
+    "ai_subfield": "subfields/1702",
+    "t1_from": "2023-01-01",
+    "t2_from": "2022-01-01",
+    "t2_search": "\"AI safety\" OR \"AI alignment\" OR \"existential risk from artificial intelligence\" OR \"frontier model safety\" OR \"catastrophic AI risk\""
+  },
+  "countries": [
+    {
+      "iso2": "AR", "name": "Argentina", "oecd_country_id": 5, "gdelt_fips": "AR",
+      "languages": [
+        {"code": "es", "wiki": "es.wikipedia", "ai_term": "inteligencia artificial",
+         "governance_terms": ["regulación", "gobernanza", "ley"],
+         "frontier_terms": ["seguridad de la inteligencia artificial", "riesgos de la inteligencia artificial"]}
+      ]
+    },
+    {
+      "iso2": "AU", "name": "Australia", "oecd_country_id": 9, "gdelt_fips": "AS",
+      "languages": [
+        {"code": "en", "wiki": "en.wikipedia", "ai_term": "artificial intelligence",
+         "governance_terms": ["regulation", "governance", "law"],
+         "frontier_terms": ["AI safety", "AI risk", "existential risk"]}
+      ]
+    },
+    {
+      "iso2": "BR", "name": "Brazil", "oecd_country_id": 26, "gdelt_fips": "BR",
+      "languages": [
+        {"code": "pt", "wiki": "pt.wikipedia", "ai_term": "inteligência artificial",
+         "governance_terms": ["regulação", "governança", "lei"],
+         "frontier_terms": ["segurança da inteligência artificial", "riscos da inteligência artificial"]}
+      ]
+    },
+    {
+      "iso2": "CA", "name": "Canada", "oecd_country_id": 32, "gdelt_fips": "CA",
+      "languages": [
+        {"code": "en", "wiki": "en.wikipedia", "ai_term": "artificial intelligence",
+         "governance_terms": ["regulation", "governance", "law"],
+         "frontier_terms": ["AI safety", "AI risk", "existential risk"]},
+        {"code": "fr", "wiki": "fr.wikipedia", "ai_term": "intelligence artificielle",
+         "governance_terms": ["réglementation", "gouvernance", "loi"],
+         "frontier_terms": ["sécurité de l'intelligence artificielle", "risques de l'intelligence artificielle"]}
+      ]
+    },
+    {
+      "iso2": "CN", "name": "China", "oecd_country_id": 35, "gdelt_fips": "CH",
+      "languages": [
+        {"code": "zh", "wiki": "zh.wikipedia", "ai_term": "人工智能",
+         "governance_terms": ["监管", "治理", "法规"],
+         "frontier_terms": ["人工智能安全", "AI安全"]}
+      ]
+    },
+    {
+      "iso2": "FR", "name": "France", "oecd_country_id": 62, "gdelt_fips": "FR",
+      "languages": [
+        {"code": "fr", "wiki": "fr.wikipedia", "ai_term": "intelligence artificielle",
+         "governance_terms": ["réglementation", "gouvernance", "loi"],
+         "frontier_terms": ["sécurité de l'intelligence artificielle", "risques de l'intelligence artificielle"]}
+      ]
+    },
+    {
+      "iso2": "DE", "name": "Germany", "oecd_country_id": 66, "gdelt_fips": "GM",
+      "languages": [
+        {"code": "de", "wiki": "de.wikipedia", "ai_term": "künstliche Intelligenz",
+         "governance_terms": ["Regulierung", "Gesetz", "Governance"],
+         "frontier_terms": ["KI-Sicherheit", "Risiken künstlicher Intelligenz"]}
+      ]
+    },
+    {
+      "iso2": "IN", "name": "India", "oecd_country_id": 79, "gdelt_fips": "IN",
+      "languages": [
+        {"code": "en", "wiki": "en.wikipedia", "ai_term": "artificial intelligence",
+         "governance_terms": ["regulation", "governance", "law"],
+         "frontier_terms": ["AI safety", "AI risk", "existential risk"]},
+        {"code": "hi", "wiki": "hi.wikipedia", "ai_term": "कृत्रिम बुद्धिमत्ता",
+         "governance_terms": ["विनियमन", "कानून"],
+         "frontier_terms": ["एआई सुरक्षा"]}
+      ]
+    },
+    {
+      "iso2": "ID", "name": "Indonesia", "oecd_country_id": 80, "gdelt_fips": "ID",
+      "languages": [
+        {"code": "id", "wiki": "id.wikipedia", "ai_term": "kecerdasan buatan",
+         "governance_terms": ["regulasi", "tata kelola", "undang-undang"],
+         "frontier_terms": ["keamanan kecerdasan buatan", "risiko kecerdasan buatan"]}
+      ]
+    },
+    {
+      "iso2": "IT", "name": "Italy", "oecd_country_id": 85, "gdelt_fips": "IT",
+      "languages": [
+        {"code": "it", "wiki": "it.wikipedia", "ai_term": "intelligenza artificiale",
+         "governance_terms": ["regolamentazione", "governance", "legge"],
+         "frontier_terms": ["sicurezza dell'intelligenza artificiale", "rischi dell'intelligenza artificiale"]}
+      ]
+    },
+    {
+      "iso2": "JP", "name": "Japan", "oecd_country_id": 87, "gdelt_fips": "JA",
+      "languages": [
+        {"code": "ja", "wiki": "ja.wikipedia", "ai_term": "人工知能",
+         "governance_terms": ["規制", "ガバナンス", "法律"],
+         "frontier_terms": ["AIの安全性", "AI安全"]}
+      ]
+    },
+    {
+      "iso2": "MX", "name": "Mexico", "oecd_country_id": 113, "gdelt_fips": "MX",
+      "languages": [
+        {"code": "es", "wiki": "es.wikipedia", "ai_term": "inteligencia artificial",
+         "governance_terms": ["regulación", "gobernanza", "ley"],
+         "frontier_terms": ["seguridad de la inteligencia artificial", "riesgos de la inteligencia artificial"]}
+      ]
+    },
+    {
+      "iso2": "RU", "name": "Russia", "oecd_country_id": 144, "gdelt_fips": "RS",
+      "languages": [
+        {"code": "ru", "wiki": "ru.wikipedia", "ai_term": "искусственный интеллект",
+         "governance_terms": ["регулирование", "закон", "управление"],
+         "frontier_terms": ["безопасность искусственного интеллекта"]}
+      ]
+    },
+    {
+      "iso2": "SA", "name": "Saudi Arabia", "oecd_country_id": 152, "gdelt_fips": "SA",
+      "languages": [
+        {"code": "ar", "wiki": "ar.wikipedia", "ai_term": "الذكاء الاصطناعي",
+         "governance_terms": ["تنظيم", "حوكمة", "قانون"],
+         "frontier_terms": ["سلامة الذكاء الاصطناعي", "مخاطر الذكاء الاصطناعي"]}
+      ]
+    },
+    {
+      "iso2": "ZA", "name": "South Africa", "oecd_country_id": 162, "gdelt_fips": "SF",
+      "languages": [
+        {"code": "en", "wiki": "en.wikipedia", "ai_term": "artificial intelligence",
+         "governance_terms": ["regulation", "governance", "law"],
+         "frontier_terms": ["AI safety", "AI risk", "existential risk"]},
+        {"code": "zu", "wiki": "zu.wikipedia", "ai_term": "ubuhlakani bokwenziwa",
+         "governance_terms": ["umthetho"],
+         "frontier_terms": []}
+      ]
+    },
+    {
+      "iso2": "KR", "name": "South Korea", "oecd_country_id": 92, "gdelt_fips": "KS",
+      "languages": [
+        {"code": "ko", "wiki": "ko.wikipedia", "ai_term": "인공지능",
+         "governance_terms": ["규제", "거버넌스", "법"],
+         "frontier_terms": ["인공지능 안전", "AI 안전"]}
+      ]
+    },
+    {
+      "iso2": "TR", "name": "Türkiye", "oecd_country_id": 179, "gdelt_fips": "TU",
+      "languages": [
+        {"code": "tr", "wiki": "tr.wikipedia", "ai_term": "yapay zeka",
+         "governance_terms": ["düzenleme", "yönetişim", "yasa"],
+         "frontier_terms": ["yapay zeka güvenliği", "yapay zeka riskleri"]}
+      ]
+    },
+    {
+      "iso2": "GB", "name": "United Kingdom", "oecd_country_id": 184, "gdelt_fips": "UK",
+      "languages": [
+        {"code": "en", "wiki": "en.wikipedia", "ai_term": "artificial intelligence",
+         "governance_terms": ["regulation", "governance", "law"],
+         "frontier_terms": ["AI safety", "AI risk", "existential risk"]}
+      ]
+    },
+    {
+      "iso2": "US", "name": "United States", "oecd_country_id": 185, "gdelt_fips": "US",
+      "languages": [
+        {"code": "en", "wiki": "en.wikipedia", "ai_term": "artificial intelligence",
+         "governance_terms": ["regulation", "governance", "law"],
+         "frontier_terms": ["AI safety", "AI risk", "existential risk"]}
+      ]
+    }
+  ]
+}

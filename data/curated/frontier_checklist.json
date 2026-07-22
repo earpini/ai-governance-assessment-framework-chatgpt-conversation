@@ -1,0 +1,215 @@
+{
+  "indicator": "P2",
+  "name": "Frontier-safety commitments checklist",
+  "track": "frontier",
+  "description": "Five binary items per country, hand-coded from primary documents and reputable trackers: national AI strategy exists; official frontier/catastrophic/systemic-risk language; Bletchley or successor declaration; AI safety institute or International Network membership; binding AI law in force or advanced passage. Score = count of true items (0-5).",
+  "methodology_ref": "methodology/METHODOLOGY.md",
+  "collection_method": "web research with per-item source URLs, assembled 2026-07-22",
+  "as_of": "2026-07-22",
+  "countries": {
+    "AR": {
+      "items": {
+        "national_strategy": {"value": true, "note": "Plan Nacional de Inteligencia Artificial 'ArgenIA' (2019); Milei government has taken a deregulatory, promotion-focused approach since 2024 with no formal replacement strategy", "source": "https://regulations.ai/regulations/RAI-AR-NA-PNDIAXX-2019"},
+        "frontier_risk_language": {"value": false, "note": "No official documents with frontier/catastrophic/systemic-risk-of-advanced-models framing; government rhetoric emphasizes 'unregulated AI' as an attraction strategy", "source": "https://www.batimes.com.ar/news/argentina/milei-promises-tech-firms-new-laws-and-unregulated-ai-in-argentina.phtml"},
+        "bletchley_or_successor": {"value": false, "note": "Not a Bletchley signatory; did not sign Seoul 2024 or the Paris 2025 Statement on Inclusive and Sustainable AI", "source": "https://onu.delegfrance.org/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and"},
+        "safety_institute": {"value": false, "note": "No AI safety institute; not in the International Network of AI Safety Institutes", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": false, "note": "No AI-specific law in force or in advanced passage; only scattered bills and non-binding guidance", "source": "https://regulations.ai/regulations/argentina-summary"}
+      },
+      "score": 1
+    },
+    "AU": {
+      "items": {
+        "national_strategy": {"value": true, "note": "National AI Plan released December 2025 (superseding the 2021 AI Action Plan)", "source": "https://www.industry.gov.au/publications/national-ai-plan"},
+        "frontier_risk_language": {"value": true, "note": "Safe and Responsible AI agenda and mandatory-guardrails proposals paper address frontier/general-purpose AI models; new AI Safety Institute mandate covers advanced AI risks", "source": "https://www.industry.gov.au/science-technology-and-innovation/technology/artificial-intelligence/ai-safety-institute"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; Seoul Declaration signatory; signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "Australian AI Safety Institute established (announced with National AI Plan, Dec 2025); Australia also a founding member of the International Network of AI Safety Institutes", "source": "https://www.minister.industry.gov.au/ministers/timayres/media-releases/establishment-australian-ai-safety-institute"},
+        "binding_law": {"value": false, "note": "No AI-specific act; proposed mandatory guardrails for high-risk AI not yet legislated as of mid-2026", "source": "https://www.twobirds.com/en/capabilities/artificial-intelligence/ai-legal-services/ai-regulatory-horizon-tracker/australia"}
+      },
+      "score": 4
+    },
+    "BR": {
+      "items": {
+        "national_strategy": {"value": true, "note": "EBIA (2021) plus Plano Brasileiro de Inteligencia Artificial PBIA 2024-2028", "source": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/transformacaodigital/inteligencia-artificial"},
+        "frontier_risk_language": {"value": true, "note": "Senate-approved PL 2338/2023 legislative text introduces 'risco sistemico' (systemic risk) category for general-purpose and generative AI systems", "source": "https://cesconbarrieu.com.br/senado-aprova-o-marco-legal-da-ia-2-2/"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; also signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": false, "note": "No AI safety institute; not in the International Network (ANPD designated as AI regulator under pending bill, not a safety institute)", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": true, "note": "PL 2338/2023 approved by Senate 10 Dec 2024, in special committee of Chamber of Deputies since March 2025 (advanced passage, not yet enacted as of July 2026)", "source": "https://www.deep-lex.com/ai-regulation-tracker/brazil"}
+      },
+      "score": 4
+    },
+    "CA": {
+      "items": {
+        "national_strategy": {"value": true, "note": "Pan-Canadian AI Strategy (2017, renewed 2022); 'AI for All' national strategy launched June 2026", "source": "https://ised-isde.canada.ca/site/ai-strategy/en"},
+        "frontier_risk_language": {"value": true, "note": "Voluntary Code of Conduct on Advanced Generative AI Systems (ISED 2023) and CAISI research agenda use advanced-systems risk framing; Canada co-signed the International Network mission statement addressing advanced AI risks", "source": "https://ised-isde.canada.ca/site/ised/en/voluntary-code-conduct-responsible-development-and-management-advanced-generative-ai-systems"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; Seoul Declaration signatory; signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "Canadian AI Safety Institute (CAISI) launched Nov 2024; founding member of the International Network of AI Safety Institutes", "source": "https://ised-isde.canada.ca/site/ised/en/international-network-ai-safety-institutes-mission-statement"},
+        "binding_law": {"value": false, "note": "AIDA (Bill C-27) died with prorogation of Parliament Jan 2025; no replacement AI bill enacted or in advanced passage as of mid-2026", "source": "https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-canada"}
+      },
+      "score": 4
+    },
+    "CN": {
+      "items": {
+        "national_strategy": {"value": true, "note": "New Generation AI Development Plan (State Council, 2017) plus subsequent AI+ initiatives", "source": "https://www.gov.cn/zhengce/content/2017-07/20/content_5211996.htm"},
+        "frontier_risk_language": {"value": true, "note": "AI Safety Governance Framework 2.0 (CAC/TC260, Sept 2025) explicitly addresses loss-of-control and other frontier risks of advanced AI", "source": "https://www.geopolitechs.org/p/china-releases-upgraded-ai-safety"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; also signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "China AI Safety and Development Association (CnAISDA, unveiled Feb 2025) is China's AISI-equivalent; not a member of the International Network - coding judgment flagged in caveats", "source": "https://carnegieendowment.org/research/2025/10/how-china-views-ai-risks-and-what-to-do-about-them"},
+        "binding_law": {"value": true, "note": "Binding AI-specific rules in force: Interim Measures for Generative AI Services (Aug 2023), deep synthesis provisions (2023), AI content labeling measures (Sept 2025)", "source": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm"}
+      },
+      "score": 5
+    },
+    "FR": {
+      "items": {
+        "national_strategy": {"value": true, "note": "Strategie nationale pour l'intelligence artificielle (2018, extended under France 2030)", "source": "https://oecd.ai/en/dashboards/countries/France"},
+        "frontier_risk_language": {"value": true, "note": "INESIA's official mandate includes analysing systemic risks and evaluating the security of advanced AI models; EU AI Act GPAI systemic-risk regime also applies", "source": "https://www.economie.gouv.fr/actualites/la-france-se-dote-dun-institut-national-pour-levaluation-et-la-securite-de-lintelligence"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; Seoul Declaration signatory; hosted and signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "INESIA (Institut national pour l'evaluation et la securite de l'intelligence artificielle), created Jan/Feb 2025 under SGDSN and DGE; France also in the International Network", "source": "https://www.sgdsn.gouv.fr/nos-missions/anticiper-et-prevenir/evaluer-et-securiser-lia"},
+        "binding_law": {"value": true, "note": "EU AI Act (Regulation 2024/1689) in force and directly applicable; GPAI obligations applied from Aug 2025", "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"}
+      },
+      "score": 5
+    },
+    "DE": {
+      "items": {
+        "national_strategy": {"value": true, "note": "Nationale KI-Strategie (2018, updated 2020)", "source": "https://www.ki-strategie-deutschland.de/"},
+        "frontier_risk_language": {"value": true, "note": "EU AI Act, directly applicable law in Germany, contains a dedicated regime for general-purpose AI models with systemic risk (Arts. 51-55); no strong Germany-specific frontier document - flagged in caveats", "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; Seoul Declaration signatory; signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": false, "note": "No national AI safety institute; the EU (AI Office) participates in the International Network, but Germany hosts no institute of its own", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": true, "note": "EU AI Act (Regulation 2024/1689) in force and directly applicable in Germany; national implementation act (KI-MIG) in preparation", "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"}
+      },
+      "score": 4
+    },
+    "IN": {
+      "items": {
+        "national_strategy": {"value": true, "note": "NITI Aayog National Strategy for AI (2018) plus IndiaAI Mission (2024)", "source": "https://www.niti.gov.in/sites/default/files/2023-03/National-Strategy-for-Artificial-Intelligence.pdf"},
+        "frontier_risk_language": {"value": true, "note": "India AI Governance Guidelines (MeitY, Nov 2025) explicitly address 'loss of control over AI systems', mandate loss-of-control safeguards, and cite systemic risks; terms 'frontier/catastrophic' not used - flagged in caveats", "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2228315&reg=3&lang=2"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; also signed Paris 2025 statement; hosting the 2026 AI Impact Summit", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "IndiaAI Safety Institute announced Jan 2025 under the IndiaAI Mission; tasked in the 2025 AI Governance Guidelines with standards, testing and evaluation", "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2228315&reg=3&lang=2"},
+        "binding_law": {"value": false, "note": "No AI-specific legislation; governance via IT Act rules, advisories and non-binding guidelines", "source": "https://www.prashantmali.com/cyber-law-blog-india/ai-laws-and-regulations-in-india-as-of-2026"}
+      },
+      "score": 4
+    },
+    "ID": {
+      "items": {
+        "national_strategy": {"value": true, "note": "Stranas KA 2020-2045 plus National AI Roadmap White Paper (Komdigi, Aug 2025)", "source": "https://regulations.ai/regulations/indonesia-2025-8-buku-putih-peta-jalan-ai-national"},
+        "frontier_risk_language": {"value": false, "note": "Official documents (ethics circular, roadmap white paper, draft perpres) use general trustworthy-AI framing, not frontier/catastrophic/systemic-risk-of-advanced-models framing", "source": "https://regulations.ai/regulations/indonesia-summary"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; also signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": false, "note": "No AI safety institute; not in the International Network", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": false, "note": "Draft Presidential Regulation (Perpres) on AI in consultation; minister says AI regulation is a 2026 priority - nothing enacted or past a chamber", "source": "https://regulations.ai/regulations/RAI-ID-NA-RPPTKXX-2025"}
+      },
+      "score": 2
+    },
+    "IT": {
+      "items": {
+        "national_strategy": {"value": true, "note": "Italian Strategy for Artificial Intelligence 2024-2026 (AgID/Department for Digital Transformation)", "source": "https://oecd.ai/en/dashboards/countries/Italy"},
+        "frontier_risk_language": {"value": true, "note": "EU AI Act GPAI systemic-risk regime is in-force law in Italy; national Law 132/2025 operates within that framework - Italy-specific frontier framing thin, flagged in caveats", "source": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; Seoul Declaration signatory; signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": false, "note": "No national AI safety institute (AgID/ACN designated as AI Act authorities; EU AI Office covers network participation)", "source": "https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-italy"},
+        "binding_law": {"value": true, "note": "Law No. 132/2025 (in force 10 Oct 2025), first national AI law in the EU, plus directly applicable EU AI Act", "source": "https://www.clearygottlieb.com/news-and-insights/publication-listing/italy-adopts-the-first-national-ai-law-in-europe-complementing-the-eu-ai-act"}
+      },
+      "score": 4
+    },
+    "JP": {
+      "items": {
+        "national_strategy": {"value": true, "note": "AI Strategy (2019/2022) succeeded by the AI Basic Plan adopted under the AI Promotion Act (2026)", "source": "https://oecd.ai/en/dashboards/policy-initiatives/ai-basic-plan"},
+        "frontier_risk_language": {"value": true, "note": "J-AISI official materials and evaluation guides target safety of advanced AI models; Japan-led Hiroshima Process guiding principles address 'the most advanced AI systems' and serious risks", "source": "https://aisi.go.jp/assets/pdf/j-aisi_factsheet_2025_en.pdf"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; Seoul Declaration signatory; signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "Japan AI Safety Institute (J-AISI, est. Feb 2024); founding member of the International Network", "source": "https://aisi.go.jp/"},
+        "binding_law": {"value": true, "note": "Act on Promotion of Research, Development and Utilization of AI-Related Technologies (AI Promotion Act) enacted May 2025, in full effect Sept 2025 - promotion-oriented, no penalties", "source": "https://www.whitecase.com/insight-alert/japans-first-ai-legislation-becomes-law-focus-promoting-research-and-development-no"}
+      },
+      "score": 5
+    },
+    "MX": {
+      "items": {
+        "national_strategy": {"value": true, "note": "2018 ENIA lapsed; Sheinbaum government relaunched an AI strategy agenda in 2025 (national AI lab, 'Mexico, pais de innovacion'); status contested - flagged in caveats", "source": "https://digital.nemko.com/regulations/mexico-ai-regulation"},
+        "frontier_risk_language": {"value": false, "note": "No official frontier/catastrophic/systemic-risk-of-advanced-models framing found in Mexican government documents", "source": "https://www.legal500.com/guides/chapter/mexico-artificial-intelligence/"},
+        "bletchley_or_successor": {"value": true, "note": "Not a Bletchley signatory, but signed the Paris 2025 Statement on Inclusive and Sustainable AI", "source": "https://onu.delegfrance.org/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and"},
+        "safety_institute": {"value": false, "note": "No AI safety institute; not in the International Network", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": false, "note": "Federal AI law proposal still in Senate committee review as of late 2025; not passed a chamber", "source": "https://digital.nemko.com/regulations/mexico-ai-regulation"}
+      },
+      "score": 2
+    },
+    "RU": {
+      "items": {
+        "national_strategy": {"value": true, "note": "National Strategy for the Development of AI to 2030 (Decree 490/2019), updated by Presidential Decree No. 124 (Feb 2024)", "source": "https://digitalpolicyalert.org/event/17715-adopted-amendments-to-the-national-strategy-for-the-development-of-artificial-intelligence-in-russia-until-2030"},
+        "frontier_risk_language": {"value": false, "note": "Updated strategy references 'strong AI' development goals but does not frame frontier/catastrophic risk of advanced models in the required sense", "source": "https://regulations.ai/regulations/RAI-RU-NA-UNSDAXX-2024"},
+        "bletchley_or_successor": {"value": false, "note": "Not a signatory of Bletchley, Seoul, or Paris declarations", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": false, "note": "No AI safety institute; not in the International Network", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": false, "note": "No comprehensive AI law as of the 2026-07-22 coding; framework law on AI/foundation models approved by Federation Council with effect from Sept 2026 pending signature - see policy_activity.json; narrow instruments exist (Moscow experimental regime 123-FZ/2020)", "source": "https://regulations.ai/regulations/russia-summary"}
+      },
+      "score": 1
+    },
+    "SA": {
+      "items": {
+        "national_strategy": {"value": true, "note": "National Strategy for Data & AI (NSDAI, 2020, SDAIA)", "source": "https://sdaia.gov.sa/en/SDAIA/SdaiaStrategies/Pages/NationalStrategyForDataAndAI.aspx"},
+        "frontier_risk_language": {"value": false, "note": "SDAIA AI Ethics Principles and generative AI guidelines use general responsible-AI framing, not frontier/catastrophic/systemic-risk framing", "source": "https://digital.nemko.com/regulations/ai-regulation-in-saudi-arabia"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory (Kingdom of Saudi Arabia); did not sign Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": false, "note": "No AI safety institute (SDAIA is a data/AI authority, not a safety institute); not in the International Network", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": false, "note": "No binding AI-specific law; draft Global AI Hub Law (CST, 2025) still at consultation stage; AI governance otherwise via non-binding SDAIA guidance and PDPL", "source": "https://regulations.ai/regulations/RAI-SA-NA-DGAHPXX-2025"}
+      },
+      "score": 2
+    },
+    "ZA": {
+      "items": {
+        "national_strategy": {"value": true, "note": "National AI Policy Framework adopted by DCDT (2024); fuller draft National AI Policy withdrawn May 2026 for revision - flagged in caveats", "source": "https://oecd.ai/en/dashboards/policy-initiatives/south-africa-national-artificial-intelligence-policy-framework"},
+        "frontier_risk_language": {"value": false, "note": "2024 Policy Framework addresses general AI risks/ethics, not frontier/catastrophic/advanced-model systemic-risk framing", "source": "https://www.ellipsis.co.za/artificial-intelligence-regulation-in-south-africa/"},
+        "bletchley_or_successor": {"value": true, "note": "Not a Bletchley signatory, but signed the Paris 2025 Statement on Inclusive and Sustainable AI", "source": "https://onu.delegfrance.org/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and"},
+        "safety_institute": {"value": false, "note": "No AI safety institute; not in the International Network", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": false, "note": "No AI-specific legislation in force or in advanced passage; policy still at framework/draft-policy stage", "source": "https://www.ellipsis.co.za/artificial-intelligence-regulation-in-south-africa/"}
+      },
+      "score": 2
+    },
+    "KR": {
+      "items": {
+        "national_strategy": {"value": true, "note": "National Strategy for AI (2019); AI Basic Act mandates a new national AI Basic Plan (2026)", "source": "https://oecd.ai/en/dashboards/countries/Korea"},
+        "frontier_risk_language": {"value": true, "note": "AI Basic Act imposes special safety obligations on high-performance AI above a compute threshold (10^26 FLOPS by decree) plus 'high-impact AI' regime - advanced-model risk framing in binding law", "source": "https://fpf.org/blog/south-koreas-new-ai-framework-act-a-balancing-act-between-innovation-and-regulation/"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; co-hosted and signed Seoul Declaration 2024; signed Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "AI Safety Institute (AISI Korea, under ETRI, est. Nov 2024); founding member of the International Network", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": true, "note": "Framework (Basic) Act on AI Development and Trust passed Dec 2024, in force 22 Jan 2026 with implementing decrees", "source": "https://www.loc.gov/item/global-legal-monitor/2026-02-20/south-korea-comprehensive-ai-legal-framework-takes-effect"}
+      },
+      "score": 5
+    },
+    "TR": {
+      "items": {
+        "national_strategy": {"value": true, "note": "National AI Strategy 2021-2025 (CBDDO) with 2024-2025 Action Plan", "source": "https://regulations.ai/regulations/RAI-TR-NA-NAIS2XX-2024"},
+        "frontier_risk_language": {"value": false, "note": "Strategy and pending bills use general trustworthy/ethical-AI framing, not frontier/catastrophic/advanced-model systemic-risk framing", "source": "https://cms.law/en/int/expert-guides/ai-regulation-scanner/tuerkiye"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory (Turkiye); did not sign Paris 2025 statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": false, "note": "No AI safety institute; not in the International Network", "source": "https://www.nist.gov/news-events/news/2024/11/fact-sheet-us-department-commerce-us-department-state-launch-international"},
+        "binding_law": {"value": false, "note": "AI bills in TBMM (2/2234 of 2024; amendments bill 2/3358 submitted Sept 2025) remain in committee - not passed a chamber", "source": "https://regulations.ai/regulations/RAI-TR-NA-ACLRAXX-2025"}
+      },
+      "score": 2
+    },
+    "GB": {
+      "items": {
+        "national_strategy": {"value": true, "note": "National AI Strategy (2021) plus AI Opportunities Action Plan (Jan 2025)", "source": "https://www.gov.uk/government/publications/national-ai-strategy"},
+        "frontier_risk_language": {"value": true, "note": "Official publications explicitly use frontier-AI and catastrophic-risk framing ('Frontier AI: capabilities and risks' paper; AI Security Institute remit on most advanced models)", "source": "https://www.gov.uk/government/publications/frontier-ai-capabilities-and-risks-discussion-paper"},
+        "bletchley_or_successor": {"value": true, "note": "Hosted and signed Bletchley; Seoul Declaration co-host/signatory; attended Paris 2025 but declined to sign the statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "AI Safety Institute (Nov 2023), renamed AI Security Institute in Feb 2025; International Network founding member", "source": "https://questions-statements.parliament.uk/written-statements/detail/2025-02-24/hlws454"},
+        "binding_law": {"value": false, "note": "No AI-specific act; government's promised frontier-AI legislation not yet introduced as binding law as of mid-2026", "source": "https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-united-kingdom"}
+      },
+      "score": 4
+    },
+    "US": {
+      "items": {
+        "national_strategy": {"value": true, "note": "America's AI Action Plan 'Winning the Race' (July 2025), successor to prior national AI strategy documents", "source": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf"},
+        "frontier_risk_language": {"value": true, "note": "AI Action Plan directs evaluation of frontier models for national-security risks incl. biosecurity/cyber; CAISI mandate covers frontier model security evaluations", "source": "https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf"},
+        "bletchley_or_successor": {"value": true, "note": "Bletchley signatory; Seoul Declaration signatory; attended Paris 2025 but declined to sign the statement", "source": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"},
+        "safety_institute": {"value": true, "note": "US AI Safety Institute (NIST, 2023) renamed Center for AI Standards and Innovation (CAISI) in June 2025; launched the International Network", "source": "https://www.commerce.gov/news/press-releases/2025/06/statement-us-secretary-commerce-howard-lutnick-transforming-us-ai"},
+        "binding_law": {"value": false, "note": "No comprehensive federal AI legislation; governance via executive orders (Biden EO 14110 revoked Jan 2025); narrow TAKE IT DOWN Act (2025) covers AI deepfake NCII only; state laws out of scope", "source": "https://www.whitecase.com/insight-our-thinking/ai-watch-global-regulatory-tracker-united-states"}
+      },
+      "score": 4
+    }
+  },
+  "caveats": [
+    "China safety_institute=true rests on CnAISDA (Feb 2025), widely treated as China's AISI counterpart but not a formal member of the International Network of AI Safety Institutes; coders preferring formal-network membership should set this to false (score 4).",
+    "Mexico national_strategy is contested: the 2018 ENIA lapsed, the 2024-2030 National AI Agenda was a proposal, and the Sheinbaum-era 2025 strategy/lab initiatives are reported by trackers (Nemko) rather than a single canonical official strategy document.",
+    "Germany and Italy frontier_risk_language=true is derived from the EU AI Act's GPAI systemic-risk provisions being directly applicable in-force law, not from country-specific frontier documents; a stricter national-documents-only coding would set both to false.",
+    "India frontier_risk_language=true is based on explicit 'loss of control over AI systems' and systemic-risk language in the Nov 2025 India AI Governance Guidelines; the terms 'frontier' or 'catastrophic' are not used.",
+    "Canada frontier_risk_language=true rests on the Voluntary Code of Conduct for Advanced Generative AI Systems and CAISI's advanced-AI research mandate; framing is advanced-systems rather than explicitly catastrophic.",
+    "Brazil binding_law=true reflects 'advanced legislative passage' (PL 2338/2023 passed the Senate Dec 2024, pending in a Chamber of Deputies special committee as of July 2026), not law in force.",
+    "US binding_law=false despite the narrow TAKE IT DOWN Act (2025) and state-level AI laws; no comprehensive federal AI statute exists.",
+    "Russia binding_law=false as of coding date; a framework AI law approved by the Federation Council takes effect Sept 2026 pending signature and should flip this item at the next quarterly review.",
+    "South Africa's fuller draft National AI Policy was reportedly withdrawn in May 2026 for revision; national_strategy=true rests on the 2024 National AI Policy Framework remaining the official policy document.",
+    "UK and US bletchley_or_successor=true via Bletchley and Seoul; both declined to sign the Paris 2025 statement.",
+    "Seoul Declaration signatory detail: the narrower leaders' declaration covered AU, CA, EU, FR, DE, IT, JP, KR, SG, UK, US; the ministerial statement had broader adherence.",
+    "Australia's AI Safety Institute was announced Dec 2025 alongside the National AI Plan; operational build-out was still under way in 2026."
+  ]
+}

@@ -1,0 +1,78 @@
+# Monthly data collection for the Plures AI Ecosystem Explorer (v2 pipeline).
+# Collects from GitHub's runners (open internet - the APIs are unreachable or
+# throttled from other environments), rebuilds the snapshot, and opens a PR.
+# NEVER publishes directly: a human reviews source failures and anomalies
+# before anything reaches the live site.
+name: monthly-collect
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"   # 06:00 UTC on the 1st of each month
+  workflow_dispatch: {}    # manual runs from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collect-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90    # GDELT pacing alone takes ~25 min
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compute snapshot id and date range
+        id: dates
+        run: |
+          echo "snapshot=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+          echo "start=$(date -u -d '24 months ago' +%Y-%m-01)" >> "$GITHUB_OUTPUT"
+          echo "end=$(date -u +%Y-%m-01)" >> "$GITHUB_OUTPUT"
+
+      - name: Source health check
+        run: python3 verify_sources.py
+        continue-on-error: true   # GDELT flakiness must not kill the run; failures resurface below
+
+      - name: Collect OpenAlex (T1, T2)
+        working-directory: pipeline/v2
+        run: python3 collect_openalex.py "${{ steps.dates.outputs.snapshot }}"
+
+      - name: Collect Wikimedia (A3)
+        working-directory: pipeline/v2
+        run: python3 collect_wikimedia.py "${{ steps.dates.outputs.snapshot }}" "${{ steps.dates.outputs.start }}" "${{ steps.dates.outputs.end }}"
+
+      - name: Collect GDELT (A1)
+        id: gdelt
+        working-directory: pipeline/v2
+        run: python3 collect_gdelt.py "${{ steps.dates.outputs.snapshot }}" 24
+        continue-on-error: true   # partial GDELT data is archived; reviewer decides on the PR
+
+      - name: Build snapshot
+        working-directory: pipeline/v2
+        run: python3 build.py "${{ steps.dates.outputs.snapshot }}"
+
+      - name: Open pull request with new snapshot
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data/${{ steps.dates.outputs.snapshot }}
+          commit-message: "data: ${{ steps.dates.outputs.snapshot }} snapshot (automated collection)"
+          title: "Monthly data snapshot ${{ steps.dates.outputs.snapshot }}"
+          body: |
+            Automated monthly collection (v2 pipeline).
+
+            - GDELT step outcome: ${{ steps.gdelt.outcome }} (if `failure`, some
+              query sets 429'd or returned empty - check the run log; affected
+              countries carry `insufficient_data` in the snapshot rather than zeros)
+            - Raw responses archived under `data/raw/${{ steps.dates.outputs.snapshot }}/`
+            - Built `data/published/snapshot_v2.json`
+
+            Review checklist before merging:
+            - [ ] Collector logs show no unexplained gaps
+            - [ ] Spot-check 2-3 countries' numbers against the raw archives
+            - [ ] Tier changes vs previous snapshot are explainable
+          add-paths: |
+            data/raw/**
+            data/published/**

@@ -1,0 +1,40 @@
+{
+  "description": "Tier rules for the Plures AI Ecosystem Explorer. Tiers: Nascent < Emerging < Established, per dimension and per track. PROVISIONAL until calibrated once on the first full data pull; each threshold then gets a written justification here and freezes until a versioned methodology revision.",
+  "calibrated": false,
+  "calibration_note": "Initial values are informed guesses seeded by the 2026-07-22 verification pull (see CONTEXT.md). Do not cite tiers publicly while calibrated=false.",
+  "talent": {
+    "mainstream": {
+      "comment": "t1_share = AI works / total works, rolling 3y, compared to the G20 median share computed within the same snapshot.",
+      "established_min_share_of_median": 1.0,
+      "nascent_max_share_of_median": 0.6
+    },
+    "frontier": {
+      "comment": "t2 = frontier works since t2_from; t3 = curated orgs + university groups.",
+      "established": {"t2_min": 100, "t3_min": 5},
+      "nascent": {"t2_max": 20, "t3_max": 1}
+    }
+  },
+  "attention": {
+    "comment": "Within-country only (GDELT timelinevol is % of the country's monitored coverage; cross-country level comparison is unsound). ratio = mean of last 12 monthly values / mean of prior 12. If A1 data is absent the tier is null with insufficient_data=true - missing is never zero.",
+    "mainstream": {
+      "established_min_ratio": 1.2,
+      "nascent_max_ratio": 0.9
+    },
+    "frontier": {
+      "established_min_ratio": 1.2,
+      "nascent_if_negligible_coverage_below_pct": 0.0005,
+      "alignment_article_required_for_established": true
+    }
+  },
+  "policy": {
+    "mainstream": {
+      "comment": "From curated P1 activity_level.",
+      "map": {"low": "Nascent", "medium": "Emerging", "high": "Established"}
+    },
+    "frontier": {
+      "comment": "From curated P2 checklist score (0-5).",
+      "nascent_max": 1,
+      "emerging_max": 3
+    }
+  }
+}

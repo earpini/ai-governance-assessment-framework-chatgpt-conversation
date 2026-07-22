@@ -1,0 +1,211 @@
+{
+  "indicator": "T3",
+  "name": "AI safety field-building infrastructure",
+  "track": "frontier",
+  "description": "Count of active AI-safety-focused organizations and university groups per country (nonprofit/civil-society orgs and student groups; government institutes and frontier labs excluded). Each entity carries an activity signal and source URL. Counts are a good-faith floor, not a census.",
+  "methodology_ref": "methodology/METHODOLOGY.md",
+  "collection_method": "web research against aisafety.com directories (communities + map, which flag inactive groups), PauseAI chapter lists, EA Forum, and org websites; assembled 2026-07-22",
+  "as_of": "2026-07-22",
+  "countries": {
+    "AR": {
+      "entities": [
+        {"name": "Buenos Aires AI Safety Hub (BAISH)", "type": "university_group", "city_or_university": "Universidad de Buenos Aires, Buenos Aires", "active_signal": "Technical AI Safety Course running April-June 2026 with open applications; featured by UBA Computer Science dept", "source": "https://www.baish.com.ar/en"},
+        {"name": "AI Safety Argentina", "type": "org", "city_or_university": "Buenos Aires", "active_signal": "Listed as active community in aisafety.com directory (maintained; inactive groups flagged), July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Frontier AI Safety Research (FAIR)", "type": "org", "city_or_university": "Argentina (national)", "active_signal": "Listed as active Argentine nonprofit on aisafety.com landscape map, 2026", "source": "https://www.aisafety.com/map"}
+      ],
+      "count_orgs": 2, "count_university_groups": 1, "capped": false
+    },
+    "AU": {
+      "entities": [
+        {"name": "Good Ancestors (incl. Australians for AI Safety)", "type": "org", "city_or_university": "Canberra/national", "active_signal": "Recruiting founding team for an Australian AI Safety Institute and publishing expert surveys, 2025-2026", "source": "https://www.goodancestors.org.au/aisi-founders"},
+        {"name": "Harmony Intelligence", "type": "org", "city_or_university": "Sydney", "active_signal": "Active AI evals/security company listed on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Gradient Institute", "type": "org", "city_or_university": "Sydney", "active_signal": "Published 2025 Impact Report on safe and responsible AI work", "source": "https://www.gradientinstitute.org/impact/2025"},
+        {"name": "AI Safety ANZ", "type": "org", "city_or_university": "Australia/NZ regional", "active_signal": "Active website and regional programming, 2025-2026", "source": "https://www.aisafetyanz.com.au/"},
+        {"name": "SafeAI-Aus", "type": "org", "city_or_university": "national", "active_signal": "Maintains up-to-date Australian AI safety community resource pages, 2026", "source": "https://safeaiaus.org/resources/australian-ai-community/"},
+        {"name": "Sydney AI Safety Space", "type": "org", "city_or_university": "Sydney", "active_signal": "Coworking space listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Sydney (AISS)", "type": "org", "city_or_university": "Sydney", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Melbourne (AISM)", "type": "org", "city_or_university": "Melbourne", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Brisbane", "type": "org", "city_or_university": "Brisbane", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Queensland AI Safety Initiative (QuASI)", "type": "university_group", "city_or_university": "University of Queensland, Brisbane", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Canberra", "type": "org", "city_or_university": "Canberra", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Hobart", "type": "org", "city_or_university": "Hobart, Tasmania", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "PauseAI Australia", "type": "org", "city_or_university": "national", "active_signal": "Listed as national chapter on PauseAI communities page, 2026", "source": "https://pauseai.info/australia"}
+      ],
+      "count_orgs": 12, "count_university_groups": 1, "capped": false
+    },
+    "BR": {
+      "entities": [
+        {"name": "AI Safety Brazil (AI Safety Brasil)", "type": "org", "city_or_university": "national", "active_signal": "Active website with ongoing education/community programs, 2025-2026", "source": "https://aisafetybrazil.org/"},
+        {"name": "Condor Initiative", "type": "org", "city_or_university": "national (Sao Paulo-founded)", "active_signal": "Running Condor Camps incl. an AI safety camp expansion funded via Manifund for 2025-2026", "source": "https://www.condorinitiative.org/"},
+        {"name": "impactRIO", "type": "university_group", "city_or_university": "Rio de Janeiro (university/coworking community)", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 2, "count_university_groups": 1, "capped": false
+    },
+    "CA": {
+      "entities": [
+        {"name": "AI Governance & Safety Canada (AIGS)", "type": "org", "city_or_university": "national", "active_signal": "Active nonpartisan nonprofit listed on aisafety.com map and communities directory, 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Trajectory Labs", "type": "org", "city_or_university": "Toronto", "active_signal": "AI safety coworking/field-building space listed active on aisafety.com, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Toronto AI Safety", "type": "org", "city_or_university": "Toronto", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Montreal AI Safety, Governance, and Ethics", "type": "org", "city_or_university": "Montreal", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Omega Labs", "type": "org", "city_or_university": "Montreal (coworking)", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "McGill AI Alignment (AIAM)", "type": "university_group", "city_or_university": "McGill University, Montreal", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Toronto AI Safety Initiative", "type": "university_group", "city_or_university": "University of Toronto, Toronto", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "UBC AI Safety", "type": "university_group", "city_or_university": "University of British Columbia, Vancouver", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "UVic AI", "type": "university_group", "city_or_university": "University of Victoria, Victoria BC", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "PauseAI Canada", "type": "org", "city_or_university": "national", "active_signal": "Active national chapter site linked from PauseAI communities page, 2026", "source": "https://pauseai.ca/en/"}
+      ],
+      "count_orgs": 6, "count_university_groups": 4, "capped": false
+    },
+    "CN": {
+      "entities": [
+        {"name": "Concordia AI (Anyuan AI)", "type": "org", "city_or_university": "Beijing", "active_signal": "2025 Mid-Year Impact Report; 'AI Safety in China' newsletter publishing through 2026; hosted Frontier AI Safety and Governance Forum at WAIC", "source": "https://aisafetychina.substack.com/p/concordia-ai-2025-mid-year-impact"},
+        {"name": "China AI Development and Safety Network (CnAIDS)", "type": "org", "city_or_university": "multi-city network (Beijing/Shanghai)", "active_signal": "Active institutes directory and network site, 2025-2026", "source": "https://ai-development-and-safety-network.cn/institutes"},
+        {"name": "Open Community for AI Safety China", "type": "org", "city_or_university": "China-wide (online)", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 3, "count_university_groups": 0, "capped": false
+    },
+    "FR": {
+      "entities": [
+        {"name": "Centre pour la Securite de l'IA (CeSIA)", "type": "org", "city_or_university": "Paris", "active_signal": "Ongoing publications 2025-2026 (e.g., AI Action Summit commentary); recognized by UNESCO as civil society org", "source": "https://www.cesia.org/en/qui-sommes-nous"},
+        {"name": "EffiSciences", "type": "org", "city_or_university": "Paris (ENS)", "active_signal": "Runs ML4Good bootcamps with 2026 cohorts advertised", "source": "https://ml4good.org/"},
+        {"name": "SaferAI", "type": "org", "city_or_university": "Paris", "active_signal": "Active AI risk-management nonprofit; contributor to FLI AI Safety Index 2025-2026", "source": "https://www.aisafety.com/map"},
+        {"name": "PauseIA (PauseAI France)", "type": "org", "city_or_university": "national", "active_signal": "Active French chapter site linked from PauseAI communities page, 2026", "source": "https://pauseia.fr"},
+        {"name": "PRISM Eval", "type": "org", "city_or_university": "Paris", "active_signal": "Active French AI evals startup within the Paris AI safety ecosystem, 2025-2026", "source": "https://www.aisafety.com/map"},
+        {"name": "AI Safety Paris / Securite de l'IA community", "type": "org", "city_or_university": "Paris", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 6, "count_university_groups": 0, "capped": false
+    },
+    "DE": {
+      "entities": [
+        {"name": "Safe AI Germany (SAIGE)", "type": "org", "city_or_university": "national network", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "KIRA Center for AI Risks & Impacts", "type": "org", "city_or_university": "Berlin", "active_signal": "Active website and programs; tracked in grantmaking.ai database, 2025-2026", "source": "https://kira.eu/"},
+        {"name": "PauseAI Germany", "type": "org", "city_or_university": "national", "active_signal": "Active German chapter site linked from PauseAI communities page, 2026", "source": "https://pause-ai.de/"},
+        {"name": "Berlin AI Safety", "type": "org", "city_or_university": "Berlin", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Frankfurt AI Safety (FAS)", "type": "org", "city_or_university": "Frankfurt", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Aachen", "type": "university_group", "city_or_university": "RWTH Aachen", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Freiburg", "type": "university_group", "city_or_university": "University of Freiburg", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Saarland", "type": "university_group", "city_or_university": "Saarland University, Saarbruecken", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Tuebingen", "type": "university_group", "city_or_university": "University of Tuebingen", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 5, "count_university_groups": 4, "capped": false
+    },
+    "IN": {
+      "entities": [
+        {"name": "AI Safety India", "type": "org", "city_or_university": "national (online)", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Safety & Alignment Research India (SAAR)", "type": "org", "city_or_university": "national", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Impact Academy", "type": "org", "city_or_university": "Bangalore (global programs)", "active_signal": "Ran Global AI Safety Fellowship 2025 and AI Safety Careers Course India; active application cycles", "source": "https://forum.effectivealtruism.org/posts/jnkDBDDDPu7chz694/launching-applications-for-the-global-ai-safety-fellowship"},
+        {"name": "AI Safety Initiative at BITS Pilani", "type": "university_group", "city_or_university": "BITS Pilani", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety NIT Agartala", "type": "university_group", "city_or_university": "NIT Agartala", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 3, "count_university_groups": 2, "capped": false
+    },
+    "ID": {
+      "entities": [
+        {"name": "AI Safety Indonesia", "type": "org", "city_or_university": "Jakarta/national", "active_signal": "Active website with AI Safety Professional Training Program, Substack, and 2025-2026 webinars on Luma", "source": "https://aisafety.id/"}
+      ],
+      "count_orgs": 1, "count_university_groups": 0, "capped": false
+    },
+    "IT": {
+      "entities": [
+        {"name": "AI Safety Roundtable", "type": "org", "city_or_university": "Trieste", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Via Lattea", "type": "org", "city_or_university": "Rome", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "PauseAI Italy", "type": "org", "city_or_university": "national (WhatsApp community)", "active_signal": "Listed on PauseAI communities page as active national community, 2026", "source": "https://pauseai.info/communities"}
+      ],
+      "count_orgs": 3, "count_university_groups": 0, "capped": false
+    },
+    "JP": {
+      "entities": [
+        {"name": "AI Safety Tokyo", "type": "org", "city_or_university": "Tokyo", "active_signal": "Runs Technical AI Safety Conference series (TAIS); Tokyo AI Safety 2025 call for papers", "source": "https://aisafety.tokyo/about"},
+        {"name": "AI Alignment Network (ALIGN)", "type": "org", "city_or_university": "Japan-wide", "active_signal": "Listed active on aisafety.com communities directory; ongoing research/field-building grants, 2025-2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 2, "count_university_groups": 0, "capped": false
+    },
+    "MX": {
+      "entities": [
+        {"name": "AI Safety Mexico", "type": "org", "city_or_university": "national", "active_signal": "Active website (research, education, governance programs); listed active on aisafety.com directory, 2026", "source": "https://www.aismx.org/en/"}
+      ],
+      "count_orgs": 1, "count_university_groups": 0, "capped": false
+    },
+    "RU": {
+      "entities": [
+        {"name": "Monoid AI Safety Hub", "type": "org", "city_or_university": "Moscow (now online-only)", "active_signal": "Safety Evals 2026 course listed; active Telegram channel; physical Moscow space closed", "source": "https://monoid.ru"},
+        {"name": "Start in AI Safety (Russian-language community)", "type": "org", "city_or_university": "Russia/online", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 2, "count_university_groups": 0, "capped": false
+    },
+    "SA": {
+      "entities": [],
+      "count_orgs": 0, "count_university_groups": 0, "capped": false
+    },
+    "ZA": {
+      "entities": [
+        {"name": "AI Safety South Africa (AISSA)", "type": "org", "city_or_university": "Cape Town", "active_signal": "Cooperative AI Research Fellowship Jan-Apr 2026; AISSA 2026 kickoff event (80 attendees); 98 events to date", "source": "https://www.aisafetysa.com/"},
+        {"name": "Stellies AI Safety", "type": "university_group", "city_or_university": "Stellenbosch University", "active_signal": "AI Safety Research Workshop at Stellenbosch March 2026; volunteer chapter under AISSA", "source": "https://www.aisafetysa.com/"}
+      ],
+      "count_orgs": 1, "count_university_groups": 1, "capped": false
+    },
+    "KR": {
+      "entities": [],
+      "count_orgs": 0, "count_university_groups": 0, "capped": false
+    },
+    "TR": {
+      "entities": [
+        {"name": "AI Safety Turkiye", "type": "org", "city_or_university": "national (Istanbul/Ankara)", "active_signal": "Active website with events (AI Tomorrow Summit), policy blog posts on Turkiye's AI bill, active LinkedIn, 2025-2026", "source": "https://aisafetyturkiye.org/en/"}
+      ],
+      "count_orgs": 1, "count_university_groups": 0, "capped": false
+    },
+    "GB": {
+      "entities": [
+        {"name": "Centre for the Governance of AI (GovAI)", "type": "org", "city_or_university": "Oxford", "active_signal": "Active research and fellowship programs, listed active on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Centre for the Study of Existential Risk (CSER)", "type": "org", "city_or_university": "University of Cambridge", "active_signal": "Active university research centre, listed active on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Centre for Long-Term Resilience (CLTR)", "type": "org", "city_or_university": "London", "active_signal": "Active think tank, listed active on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Center on Long-Term Risk (CLR)", "type": "org", "city_or_university": "London", "active_signal": "Active research org, listed active on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Apollo Research", "type": "org", "city_or_university": "London", "active_signal": "Ongoing scheming/deception evals research publications 2025-2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Conjecture", "type": "org", "city_or_university": "London", "active_signal": "Active cognitive emulation research company, listed on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "BlueDot Impact", "type": "org", "city_or_university": "London", "active_signal": "Running AI safety courses and evals reading groups through 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Arcadia Impact", "type": "org", "city_or_university": "London", "active_signal": "Active field-building org, listed on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "London Initiative for Safe AI (LISA)", "type": "org", "city_or_university": "London", "active_signal": "Active coworking/research hub, listed active on aisafety.com 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "ControlAI", "type": "org", "city_or_university": "London", "active_signal": "Active advocacy campaigns, listed on aisafety.com communities 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "PauseAI UK", "type": "org", "city_or_university": "national", "active_signal": "Active national chapter site linked from PauseAI communities page, 2026", "source": "https://pauseai.uk/"},
+        {"name": "ERA (Existential Risk Alliance) Cambridge", "type": "org", "city_or_university": "Cambridge", "active_signal": "Runs annual summer research fellowships incl. AI safety track, 2025-2026 cohorts", "source": "https://www.aisafety.com/map"},
+        {"name": "Oxford AI Safety Initiative (OAISI)", "type": "university_group", "city_or_university": "University of Oxford", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Cambridge AI Safety Hub (CAISH)", "type": "university_group", "city_or_university": "University of Cambridge", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Hub Edinburgh (AISHED)", "type": "university_group", "city_or_university": "University of Edinburgh", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 12, "count_university_groups": 3, "capped": true
+    },
+    "US": {
+      "entities": [
+        {"name": "Center for AI Safety (CAIS)", "type": "org", "city_or_university": "San Francisco", "active_signal": "Active research and field-building programs, listed on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Machine Intelligence Research Institute (MIRI)", "type": "org", "city_or_university": "Berkeley", "active_signal": "Active technical/comms work, listed on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Redwood Research", "type": "org", "city_or_university": "Berkeley", "active_signal": "Ongoing AI control and alignment-faking research 2025-2026", "source": "https://www.aisafety.com/map"},
+        {"name": "METR", "type": "org", "city_or_university": "Berkeley", "active_signal": "Active frontier model evaluations through 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Alignment Research Center (ARC)", "type": "org", "city_or_university": "Berkeley", "active_signal": "Active mechanistic explanations research, listed on aisafety.com map 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "FAR.AI", "type": "org", "city_or_university": "Berkeley", "active_signal": "Runs FAR.Labs coworking and research events, active 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Center for Human-Compatible AI (CHAI)", "type": "org", "city_or_university": "UC Berkeley", "active_signal": "Active research center and internship program, 2025-2026", "source": "https://www.aisafety.com/map"},
+        {"name": "MATS Research", "type": "org", "city_or_university": "Berkeley", "active_signal": "Running alignment research scholar cohorts through 2026", "source": "https://www.aisafety.com/map"},
+        {"name": "Future of Life Institute (FLI)", "type": "org", "city_or_university": "Campbell, CA / national", "active_signal": "Published AI Safety Index Summer 2026", "source": "https://futureoflife.org/ai-safety-index-summer-2026/"},
+        {"name": "PauseAI US", "type": "org", "city_or_university": "national with local groups", "active_signal": "Active local-groups network listed 2026", "source": "https://www.pauseai-us.org/local-groups/"},
+        {"name": "MIT AI Alignment (MAIA)", "type": "university_group", "city_or_university": "MIT, Cambridge MA", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Harvard AI Safety Student Team (AISST)", "type": "university_group", "city_or_university": "Harvard University", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Stanford AI Alignment (SAIA)", "type": "university_group", "city_or_university": "Stanford University", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "Wisconsin AI Safety Initiative (WAISI)", "type": "university_group", "city_or_university": "UW-Madison", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"},
+        {"name": "AI Safety Initiative at Georgia Tech", "type": "university_group", "city_or_university": "Georgia Tech, Atlanta", "active_signal": "Listed active on aisafety.com communities directory, July 2026", "source": "https://www.aisafety.com/communities"}
+      ],
+      "count_orgs": 10, "count_university_groups": 5, "capped": true
+    }
+  },
+  "caveats": [
+    "US and GB are capped at 15 named entities each (capped=true); true totals are far higher - aisafety.com lists ~50 active US university groups alone and its map lists 321 active orgs globally, the majority US/UK-based. Counts for capped countries reflect named entries only.",
+    "Government AI safety institutes (UK AISI, US CAISI, Japan AISI, Korea AISI at ETRI, Canadian AISI, Beijing-AISI, EU AI Office) and frontier labs are excluded - the dataset covers nonprofit/civil-society orgs and student groups. Including government institutes would add 1 entity each to GB, US, JP, KR, CA, CN, IN.",
+    "City-level community groups (e.g. AI Safety Melbourne, Toronto AI Safety) are typed 'org' since the schema has no 'community' type; groups anchored at a single university are typed 'university_group'.",
+    "Primary evidence base: aisafety.com/communities and aisafety.com/map (actively maintained in 2026 and explicitly flags inactive groups - inactive-flagged entries like Waterloo AIST, Munich MAIA, AI Safety Wuerzburg, LANAIS, and Mexico's AI Futures Fellowship at ITAM were excluded), cross-checked with org websites, EA Forum, PauseAI directory, and country-specific searches.",
+    "South Korea: zero non-governmental entities found despite searches for 'AI Safety Korea', 'PauseAI Korea', KAIST/Seoul student alignment groups, and EA Korea AIS programming; Korea's AI safety activity is concentrated in the government AI Safety Institute (ETRI) and academic labs, not field-building orgs.",
+    "Saudi Arabia: zero entities found despite searches for AI safety/alignment/existential-risk groups in Riyadh and nationally; activity is governmental (SDAIA participation in the International AI Safety Report) or commercial (Humain), neither of which qualifies.",
+    "Russia: entities are informal - Monoid is now online-only after closing its Moscow space, and 'Start in AI Safety' is a Russian-language online community without legal registration; several other Russian-language Telegram/reading communities exist but were not counted as distinct organizations.",
+    "China: Concordia AI is the clearest independent field-building org; CnAIDS Network is a state-endorsed academic network counted as one entity rather than its many member university institutes.",
+    "Brazil's CEGIA and academic efforts (AKCIT/UFG, CEBRI/ITS-Rio) appear in a June 2024 LatAm mapping but could not be verified as active AIS field-building entities in 2025-2026 and were excluded.",
+    "EA national groups were only counted where AI-safety-specific programming was verifiable; some borderline for-profit entities with safety missions (Harmony Intelligence, PRISM Eval, Gradient Institute) are included as orgs.",
+    "Counts are a good-faith floor, not a census: groups active only on Discord/WhatsApp with no public activity trail may be undercounted, especially outside English/Spanish/Portuguese-language ecosystems."
+  ]
+}
