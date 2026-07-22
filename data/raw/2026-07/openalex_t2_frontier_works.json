@@ -1,0 +1,609 @@
+{
+ "fetched_url": "https://api.openalex.org/works?filter=title_and_abstract.search:%22AI%20safety%22%20OR%20%22AI%20alignment%22%20OR%20%22existential%20risk%20from%20artificial%20intelligence%22%20OR%20%22frontier%20model%20safety%22%20OR%20%22catastrophic%20AI%20risk%22,from_publication_date:2022-01-01&group_by=authorships.countries&mailto=ettore.arpini@gmail.com",
+ "payload": {
+  "group_by": [
+   {
+    "count": 1498,
+    "key": "https://openalex.org/countries/US",
+    "key_display_name": "United States"
+   },
+   {
+    "count": 403,
+    "key": "https://openalex.org/countries/GB",
+    "key_display_name": "United Kingdom"
+   },
+   {
+    "count": 224,
+    "key": "https://openalex.org/countries/CA",
+    "key_display_name": "Canada"
+   },
+   {
+    "count": 159,
+    "key": "https://openalex.org/countries/DE",
+    "key_display_name": "Germany"
+   },
+   {
+    "count": 151,
+    "key": "https://openalex.org/countries/CN",
+    "key_display_name": "China"
+   },
+   {
+    "count": 116,
+    "key": "https://openalex.org/countries/IN",
+    "key_display_name": "India"
+   },
+   {
+    "count": 86,
+    "key": "https://openalex.org/countries/JP",
+    "key_display_name": "Japan"
+   },
+   {
+    "count": 84,
+    "key": "https://openalex.org/countries/FR",
+    "key_display_name": "France"
+   },
+   {
+    "count": 70,
+    "key": "https://openalex.org/countries/AU",
+    "key_display_name": "Australia"
+   },
+   {
+    "count": 66,
+    "key": "https://openalex.org/countries/CZ",
+    "key_display_name": "Czechia"
+   },
+   {
+    "count": 61,
+    "key": "https://openalex.org/countries/NL",
+    "key_display_name": "Netherlands"
+   },
+   {
+    "count": 57,
+    "key": "https://openalex.org/countries/CH",
+    "key_display_name": "Switzerland"
+   },
+   {
+    "count": 53,
+    "key": "https://openalex.org/countries/IT",
+    "key_display_name": "Italy"
+   },
+   {
+    "count": 52,
+    "key": "https://openalex.org/countries/NO",
+    "key_display_name": "Norway"
+   },
+   {
+    "count": 49,
+    "key": "https://openalex.org/countries/ES",
+    "key_display_name": "Spain"
+   },
+   {
+    "count": 46,
+    "key": "https://openalex.org/countries/KR",
+    "key_display_name": "South Korea"
+   },
+   {
+    "count": 43,
+    "key": "https://openalex.org/countries/IL",
+    "key_display_name": "Israel"
+   },
+   {
+    "count": 37,
+    "key": "https://openalex.org/countries/BR",
+    "key_display_name": "Brazil"
+   },
+   {
+    "count": 36,
+    "key": "https://openalex.org/countries/AT",
+    "key_display_name": "Austria"
+   },
+   {
+    "count": 31,
+    "key": "https://openalex.org/countries/BE",
+    "key_display_name": "Belgium"
+   },
+   {
+    "count": 31,
+    "key": "https://openalex.org/countries/ID",
+    "key_display_name": "Indonesia"
+   },
+   {
+    "count": 29,
+    "key": "https://openalex.org/countries/SG",
+    "key_display_name": "Singapore"
+   },
+   {
+    "count": 29,
+    "key": "https://openalex.org/countries/TW",
+    "key_display_name": "Taiwan"
+   },
+   {
+    "count": 28,
+    "key": "https://openalex.org/countries/IE",
+    "key_display_name": "Ireland"
+   },
+   {
+    "count": 28,
+    "key": "https://openalex.org/countries/RU",
+    "key_display_name": "Russia"
+   },
+   {
+    "count": 21,
+    "key": "https://openalex.org/countries/HK",
+    "key_display_name": "Hong Kong"
+   },
+   {
+    "count": 21,
+    "key": "https://openalex.org/countries/PL",
+    "key_display_name": "Poland"
+   },
+   {
+    "count": 20,
+    "key": "https://openalex.org/countries/EG",
+    "key_display_name": "Egypt"
+   },
+   {
+    "count": 19,
+    "key": "https://openalex.org/countries/ZA",
+    "key_display_name": "South Africa"
+   },
+   {
+    "count": 18,
+    "key": "https://openalex.org/countries/UA",
+    "key_display_name": "Ukraine"
+   },
+   {
+    "count": 17,
+    "key": "https://openalex.org/countries/AE",
+    "key_display_name": "United Arab Emirates"
+   },
+   {
+    "count": 17,
+    "key": "https://openalex.org/countries/DZ",
+    "key_display_name": "Algeria"
+   },
+   {
+    "count": 17,
+    "key": "https://openalex.org/countries/PH",
+    "key_display_name": "Philippines"
+   },
+   {
+    "count": 16,
+    "key": "https://openalex.org/countries/KE",
+    "key_display_name": "Kenya"
+   },
+   {
+    "count": 16,
+    "key": "https://openalex.org/countries/SE",
+    "key_display_name": "Sweden"
+   },
+   {
+    "count": 16,
+    "key": "https://openalex.org/countries/TR",
+    "key_display_name": "Turkey"
+   },
+   {
+    "count": 14,
+    "key": "https://openalex.org/countries/MY",
+    "key_display_name": "Malaysia"
+   },
+   {
+    "count": 14,
+    "key": "https://openalex.org/countries/PK",
+    "key_display_name": "Pakistan"
+   },
+   {
+    "count": 13,
+    "key": "https://openalex.org/countries/BD",
+    "key_display_name": "Bangladesh"
+   },
+   {
+    "count": 13,
+    "key": "https://openalex.org/countries/FI",
+    "key_display_name": "Finland"
+   },
+   {
+    "count": 13,
+    "key": "https://openalex.org/countries/TN",
+    "key_display_name": "Tunisia"
+   },
+   {
+    "count": 12,
+    "key": "https://openalex.org/countries/DK",
+    "key_display_name": "Denmark"
+   },
+   {
+    "count": 12,
+    "key": "https://openalex.org/countries/SI",
+    "key_display_name": "Slovenia"
+   },
+   {
+    "count": 12,
+    "key": "https://openalex.org/countries/UZ",
+    "key_display_name": "Uzbekistan"
+   },
+   {
+    "count": 11,
+    "key": "https://openalex.org/countries/MX",
+    "key_display_name": "Mexico"
+   },
+   {
+    "count": 10,
+    "key": "https://openalex.org/countries/CY",
+    "key_display_name": "Cyprus"
+   },
+   {
+    "count": 10,
+    "key": "https://openalex.org/countries/NG",
+    "key_display_name": "Nigeria"
+   },
+   {
+    "count": 9,
+    "key": "https://openalex.org/countries/BG",
+    "key_display_name": "Bulgaria"
+   },
+   {
+    "count": 9,
+    "key": "https://openalex.org/countries/GR",
+    "key_display_name": "Greece"
+   },
+   {
+    "count": 9,
+    "key": "https://openalex.org/countries/PT",
+    "key_display_name": "Portugal"
+   },
+   {
+    "count": 8,
+    "key": "https://openalex.org/countries/IQ",
+    "key_display_name": "Iraq"
+   },
+   {
+    "count": 8,
+    "key": "https://openalex.org/countries/IR",
+    "key_display_name": "Iran"
+   },
+   {
+    "count": 8,
+    "key": "https://openalex.org/countries/NZ",
+    "key_display_name": "New Zealand"
+   },
+   {
+    "count": 8,
+    "key": "https://openalex.org/countries/VN",
+    "key_display_name": "Vietnam"
+   },
+   {
+    "count": 7,
+    "key": "https://openalex.org/countries/HR",
+    "key_display_name": "Croatia"
+   },
+   {
+    "count": 6,
+    "key": "https://openalex.org/countries/CL",
+    "key_display_name": "Chile"
+   },
+   {
+    "count": 6,
+    "key": "https://openalex.org/countries/HU",
+    "key_display_name": "Hungary"
+   },
+   {
+    "count": 6,
+    "key": "https://openalex.org/countries/LS",
+    "key_display_name": "Lesotho"
+   },
+   {
+    "count": 6,
+    "key": "https://openalex.org/countries/RS",
+    "key_display_name": "Serbia"
+   },
+   {
+    "count": 5,
+    "key": "https://openalex.org/countries/CR",
+    "key_display_name": "Costa Rica"
+   },
+   {
+    "count": 5,
+    "key": "https://openalex.org/countries/GE",
+    "key_display_name": "Georgia"
+   },
+   {
+    "count": 5,
+    "key": "https://openalex.org/countries/TH",
+    "key_display_name": "Thailand"
+   },
+   {
+    "count": 4,
+    "key": "https://openalex.org/countries/CO",
+    "key_display_name": "Colombia"
+   },
+   {
+    "count": 4,
+    "key": "https://openalex.org/countries/GW",
+    "key_display_name": "Guinea-Bissau"
+   },
+   {
+    "count": 3,
+    "key": "https://openalex.org/countries/AZ",
+    "key_display_name": "Azerbaijan"
+   },
+   {
+    "count": 3,
+    "key": "https://openalex.org/countries/BO",
+    "key_display_name": "Bolivia"
+   },
+   {
+    "count": 3,
+    "key": "https://openalex.org/countries/MK",
+    "key_display_name": "North Macedonia"
+   },
+   {
+    "count": 3,
+    "key": "https://openalex.org/countries/PA",
+    "key_display_name": "Panama"
+   },
+   {
+    "count": 3,
+    "key": "https://openalex.org/countries/RO",
+    "key_display_name": "Romania"
+   },
+   {
+    "count": 3,
+    "key": "https://openalex.org/countries/SK",
+    "key_display_name": "Slovakia"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/CM",
+    "key_display_name": "Cameroon"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/EE",
+    "key_display_name": "Estonia"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/ET",
+    "key_display_name": "Ethiopia"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/GH",
+    "key_display_name": "Ghana"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/JO",
+    "key_display_name": "Jordan"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/KH",
+    "key_display_name": "Cambodia"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/KZ",
+    "key_display_name": "Kazakhstan"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/LT",
+    "key_display_name": "Lithuania"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/MD",
+    "key_display_name": "Moldova"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/NP",
+    "key_display_name": "Nepal"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/OM",
+    "key_display_name": "Oman"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/QA",
+    "key_display_name": "Qatar"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/SA",
+    "key_display_name": "Saudi Arabia"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/SO",
+    "key_display_name": "Somalia"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/TJ",
+    "key_display_name": "Tajikistan"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/TZ",
+    "key_display_name": "Tanzania"
+   },
+   {
+    "count": 2,
+    "key": "https://openalex.org/countries/YE",
+    "key_display_name": "Yemen"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/AG",
+    "key_display_name": "Antigua and Barbuda"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/AR",
+    "key_display_name": "Argentina"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/BA",
+    "key_display_name": "Bosnia & Herzegovina"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/BJ",
+    "key_display_name": "Benin"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/BY",
+    "key_display_name": "Belarus"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/CU",
+    "key_display_name": "Cuba"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/DO",
+    "key_display_name": "Dominican Rep."
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/EC",
+    "key_display_name": "Ecuador"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/JM",
+    "key_display_name": "Jamaica"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/LB",
+    "key_display_name": "Lebanon"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/LU",
+    "key_display_name": "Luxembourg"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/LV",
+    "key_display_name": "Latvia"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/MA",
+    "key_display_name": "Morocco"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/MM",
+    "key_display_name": "Myanmar"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/MN",
+    "key_display_name": "Mongolia"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/MO",
+    "key_display_name": "Macao"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/MT",
+    "key_display_name": "Malta"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/NE",
+    "key_display_name": "Niger"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/PG",
+    "key_display_name": "Papua New Guinea"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/SN",
+    "key_display_name": "Senegal"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/UG",
+    "key_display_name": "Uganda"
+   },
+   {
+    "count": 1,
+    "key": "https://openalex.org/countries/UY",
+    "key_display_name": "Uruguay"
+   }
+  ],
+  "meta": {
+   "cost_usd": 0.0001,
+   "count": 9557,
+   "db_response_time_ms": 100,
+   "groups_count": 109,
+   "page": 1,
+   "per_page": 200,
+   "x_query": {
+    "oql": "works where date >= (2022-01-01)\n  and title/abstract has (\n    stemmed \"AI alignment\"\n    or stemmed \"AI safety\"\n    or stemmed \"catastrophic AI risk\"\n    or stemmed \"existential risk from artificial intelligence\"\n    or stemmed \"frontier model safety\"\n  )\ngroup by country",
+    "oqo": {
+     "filter_rows": [
+      {
+       "column_id": "from_publication_date",
+       "value": "2022-01-01"
+      },
+      {
+       "filters": [
+        {
+         "column_id": "title_and_abstract.search",
+         "operator": "has",
+         "value": "\"AI alignment\""
+        },
+        {
+         "column_id": "title_and_abstract.search",
+         "operator": "has",
+         "value": "\"AI safety\""
+        },
+        {
+         "column_id": "title_and_abstract.search",
+         "operator": "has",
+         "value": "\"catastrophic AI risk\""
+        },
+        {
+         "column_id": "title_and_abstract.search",
+         "operator": "has",
+         "value": "\"existential risk from artificial intelligence\""
+        },
+        {
+         "column_id": "title_and_abstract.search",
+         "operator": "has",
+         "value": "\"frontier model safety\""
+        }
+       ],
+       "join": "or"
+      }
+     ],
+     "get_rows": "works",
+     "group_by": [
+      {
+       "column_id": "authorships.countries"
+      }
+     ]
+    },
+    "url": "/works?filter=from_publication_date:2022-01-01,title_and_abstract.search:%22AI alignment%22|%22AI safety%22|%22catastrophic AI risk%22|%22existential risk from artificial intelligence%22|%22frontier model safety%22&group_by=authorships.countries"
+   }
+  }
+ },
+ "source_name": "openalex_t2_frontier_works"
+}

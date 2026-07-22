@@ -1,0 +1,1443 @@
+{
+ "countries": {
+  "AR": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Argentina",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": false,
+      "frontier_risk_language": false,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 1,
+     "tier": "Nascent"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "low",
+     "p1_latest_initiative": {
+      "name": "Milei government announcement of a deregulation-first legal framework to attract AI investment (incl. proposed AI-operated company category); most recent OECD-listed item is Agent MIA public-sector AI assistant (2025)",
+      "source": "https://www.infobae.com/politica/2026/06/04/milei-defendio-en-el-financial-times-el-desarrollo-de-la-ia-sin-la-mano-mortal-de-una-regulacion-prematura/",
+      "year": 2026
+     },
+     "p1_oecd_initiative_count": 20,
+     "tier": "Nascent"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 1,
+     "t3_capped": false,
+     "t3_orgs": 2,
+     "t3_university_groups": 1,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.00817,
+     "t1_ai_works": 943,
+     "t1_total_works": 115452,
+     "tier": "Nascent"
+    }
+   }
+  },
+  "AU": {
+   "attention": {
+    "frontier": {
+     "a1_latest_month_pct": 0.006192592592592593,
+     "a1_trend_ratio": null,
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Australia",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "medium",
+     "p1_latest_initiative": {
+      "name": "National AI Plan (dropped proposed mandatory guardrails in favour of existing-law approach)",
+      "source": "https://montrealethics.ai/ai-policy-corner-from-proposed-mandatory-guardrails-to-the-national-ai-plan-ai-governance-in-australia/",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 51,
+     "tier": "Emerging"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 70,
+     "t3_capped": false,
+     "t3_orgs": 12,
+     "t3_university_groups": 1,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.02375,
+     "t1_ai_works": 14452,
+     "t1_total_works": 608475,
+     "tier": "Established"
+    }
+   }
+  },
+  "BR": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Brazil",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": true,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "medium",
+     "p1_latest_initiative": {
+      "name": "AI for the Good of All: Brazilian Artificial Intelligence Plan (PBIA) and ANPD AI Regulatory Sandbox; comprehensive AI bill PL 2338/2023 passed Senate Dec 2024, still pending in Chamber of Deputies",
+      "source": "https://oecd.ai/en/dashboards/national/brazil",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 20,
+     "tier": "Emerging"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 37,
+     "t3_capped": false,
+     "t3_orgs": 2,
+     "t3_university_groups": 1,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.00928,
+     "t1_ai_works": 7915,
+     "t1_total_works": 852628,
+     "tier": "Nascent"
+    }
+   }
+  },
+  "CA": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "a1_latest_month_pct": 0.00601358024691358,
+     "a1_trend_ratio": null,
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Canada",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "medium",
+     "p1_latest_initiative": {
+      "name": "AI for All: Canada's national AI strategy (launched by PM Carney after AIDA died with prorogation in Jan 2025)",
+      "source": "https://www.pm.gc.ca/en/news/news-releases/2026/06/04/prime-minister-carney-launches-ai-all-canadas-new-national-artificial",
+      "year": 2026
+     },
+     "p1_oecd_initiative_count": 18,
+     "tier": "Emerging"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 224,
+     "t3_capped": false,
+     "t3_orgs": 6,
+     "t3_university_groups": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.02301,
+     "t1_ai_works": 16503,
+     "t1_total_works": 717074,
+     "tier": "Established"
+    }
+   }
+  },
+  "CN": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "China",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": true,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 5,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "State Council 'AI Plus' Action plan plus mandatory AI-generated content labeling measures (in force Sept 2025) and Global AI Governance Action Plan",
+      "source": "https://iapp.org/news/a/china-releases-ai-plus-plan-rolls-out-ai-labeling-law",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 20,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 151,
+     "t3_capped": false,
+     "t3_orgs": 3,
+     "t3_university_groups": 0,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.03361,
+     "t1_ai_works": 158499,
+     "t1_total_works": 4715968,
+     "tier": "Established"
+    }
+   }
+  },
+  "DE": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Germany",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": true,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "KI-MIG (AI Act Implementation Act) federal draft bill designating national supervisory authorities for the EU AI Act",
+      "source": "https://www.gleisslutz.com/en/know-how/federal-government-draft-bill-implement-eu-artificial-intelligence-act",
+      "year": 2026
+     },
+     "p1_oecd_initiative_count": 108,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 159,
+     "t3_capped": false,
+     "t3_orgs": 5,
+     "t3_university_groups": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.02033,
+     "t1_ai_works": 27398,
+     "t1_total_works": 1347465,
+     "tier": "Established"
+    }
+   }
+  },
+  "FR": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "France",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": true,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 5,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "Creation of INESIA (National Institute for AI Evaluation and Security), which published its 2026-2027 roadmap; France also hosted the AI Action Summit (Feb 2025)",
+      "source": "https://www.campusfrance.org/en/actu/creation-d-un-institut-national-pour-l-evaluation-et-la-securite-de-l-ia",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 84,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 84,
+     "t3_capped": false,
+     "t3_orgs": 6,
+     "t3_university_groups": 0,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.02041,
+     "t1_ai_works": 20311,
+     "t1_total_works": 995301,
+     "tier": "Established"
+    }
+   }
+  },
+  "GB": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "United Kingdom",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "AI Opportunities Action Plan (Jan 2025); AI Safety Institute renamed AI Security Institute (Feb 2025); frontier-AI legislation still pending, with an AI Regulation Bill debated in the Lords June 2026",
+      "source": "https://www.gov.uk/government/publications/ai-opportunities-action-plan",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 78,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 403,
+     "t3_capped": true,
+     "t3_orgs": 12,
+     "t3_university_groups": 3,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.02122,
+     "t1_ai_works": 30309,
+     "t1_total_works": 1428003,
+     "tier": "Established"
+    }
+   }
+  },
+  "ID": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Indonesia",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": false,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 2,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "low",
+     "p1_latest_initiative": {
+      "name": "White Paper on the National AI Roadmap (public consultation, with ethical guidelines concept); binding AI regulation (planned Presidential Regulation) deferred to 2026",
+      "source": "https://oecd.ai/en/dashboards/national/indonesia",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 5,
+     "tier": "Nascent"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 31,
+     "t3_capped": false,
+     "t3_orgs": 1,
+     "t3_university_groups": 0,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.01892,
+     "t1_ai_works": 30527,
+     "t1_total_works": 1613498,
+     "tier": "Emerging"
+    }
+   }
+  },
+  "IN": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "a1_latest_month_pct": 0.018295238095238094,
+     "a1_trend_ratio": null,
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "India",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "medium",
+     "p1_latest_initiative": {
+      "name": "India AI Governance Guidelines released by MeitY",
+      "source": "https://babl.ai/india-releases-landmark-ai-governance-guidelines-emphasizing-safety-accountability-and-inclusion/",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 37,
+     "tier": "Emerging"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 116,
+     "t3_capped": false,
+     "t3_orgs": 3,
+     "t3_university_groups": 2,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.03541,
+     "t1_ai_works": 61445,
+     "t1_total_works": 1735173,
+     "tier": "Established"
+    }
+   }
+  },
+  "IT": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": false,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Italy",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": true,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "Law No. 132/2025 - first comprehensive national AI law in the EU (in force Oct 2025), with implementing decrees following",
+      "source": "https://www.clearygottlieb.com/news-and-insights/publication-listing/italy-adopts-the-first-national-ai-law-in-europe-complementing-the-eu-ai-act",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 39,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 53,
+     "t3_capped": false,
+     "t3_orgs": 3,
+     "t3_university_groups": 0,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.0202,
+     "t1_ai_works": 18447,
+     "t1_total_works": 913396,
+     "tier": "Emerging"
+    }
+   }
+  },
+  "JP": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Japan",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": true,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 5,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "First AI Basic Plan adopted (and revised in 2026) under the 2025 AI Promotion Act; AI Guidelines for Business Ver1.2 also issued 2026",
+      "source": "https://oecd.ai/en/dashboards/policy-initiatives/ai-basic-plan",
+      "year": 2026
+     },
+     "p1_oecd_initiative_count": 36,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 86,
+     "t3_capped": false,
+     "t3_orgs": 2,
+     "t3_university_groups": 0,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.00147,
+     "t1_ai_works": 17586,
+     "t1_total_works": 11949822,
+     "tier": "Nascent"
+    }
+   }
+  },
+  "KR": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "South Korea",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": true,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 5,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "AI Basic Act (Framework Act on the Development of AI and Establishment of Trust) entered into force with enforcement decree on 22 January 2026",
+      "source": "https://www.trade.gov/market-intelligence/south-korea-ai-basic-act",
+      "year": 2026
+     },
+     "p1_oecd_initiative_count": 27,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 46,
+     "t3_capped": false,
+     "t3_orgs": 0,
+     "t3_university_groups": 0,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.02617,
+     "t1_ai_works": 12806,
+     "t1_total_works": 489299,
+     "tier": "Established"
+    }
+   }
+  },
+  "MX": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Mexico",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": false,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 2,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "low",
+     "p1_latest_initiative": {
+      "name": "Constitutional reform initiative to give Congress AI-legislation powers plus a wave of federal AI bills (none enacted); AI-related labor/copyright reforms advancing 2026",
+      "source": "https://www.globalpolicywatch.com/2025/03/new-artificial-intelligence-legislation-in-mexico/",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 21,
+     "tier": "Nascent"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 11,
+     "t3_capped": false,
+     "t3_orgs": 1,
+     "t3_university_groups": 0,
+     "tier": "Nascent"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.01366,
+     "t1_ai_works": 3558,
+     "t1_total_works": 260531,
+     "tier": "Emerging"
+    }
+   }
+  },
+  "RU": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Russia",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": false,
+      "frontier_risk_language": false,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 1,
+     "tier": "Nascent"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "medium",
+     "p1_latest_initiative": {
+      "name": "Framework law on AI development and regulation of large foundation models approved by Federation Council (effective Sept 1, 2026 pending signature)",
+      "source": "https://tass.com/politics/2161507",
+      "year": 2026
+     },
+     "p1_oecd_initiative_count": 0,
+     "tier": "Emerging"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 28,
+     "t3_capped": false,
+     "t3_orgs": 2,
+     "t3_university_groups": 0,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.01493,
+     "t1_ai_works": 8687,
+     "t1_total_works": 581907,
+     "tier": "Emerging"
+    }
+   }
+  },
+  "SA": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Saudi Arabia",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": false,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 2,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "Draft Global AI Hub Law (public consultation via Communications, Space and Technology Commission)",
+      "source": "https://dgagroup.com/insight/saudi-arabia-introduces-a-draft-global-ai-hub-law/",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 65,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 2,
+     "t3_capped": false,
+     "t3_orgs": 0,
+     "t3_university_groups": 0,
+     "tier": "Nascent"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.02784,
+     "t1_ai_works": 8469,
+     "t1_total_works": 304226,
+     "tier": "Established"
+    }
+   }
+  },
+  "TR": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": false,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "Türkiye",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": false,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 2,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "medium",
+     "p1_latest_initiative": {
+      "name": "Draft law amending certain laws regarding artificial intelligence submitted to the Grand National Assembly (following the 2024 draft AI bill and AI-generated content proposals)",
+      "source": "https://www.mondaq.com/turkey/new-technology/1723028/draft-law-proposing-amendments-to-certain-laws-regarding-artificial-intelligence-submitted-to-the-turkish-grand-national-assembly",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 39,
+     "tier": "Emerging"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 16,
+     "t3_capped": false,
+     "t3_orgs": 1,
+     "t3_university_groups": 0,
+     "tier": "Nascent"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.01444,
+     "t1_ai_works": 7903,
+     "t1_total_works": 547152,
+     "tier": "Emerging"
+    }
+   }
+  },
+  "US": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "United States",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": true,
+      "national_strategy": true,
+      "safety_institute": true
+     },
+     "p2_score": 4,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "high",
+     "p1_latest_initiative": {
+      "name": "Executive Order 14365 'Ensuring a National Policy Framework for Artificial Intelligence' (state-law preemption push, Dec 2025), following America's AI Action Plan and Genesis Mission EO (2025); further AI EO on cybersecurity/federal oversight in June 2026",
+      "source": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/",
+      "year": 2025
+     },
+     "p1_oecd_initiative_count": 91,
+     "tier": "Established"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 1498,
+     "t3_capped": true,
+     "t3_orgs": 10,
+     "t3_university_groups": 5,
+     "tier": "Established"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.02051,
+     "t1_ai_works": 105955,
+     "t1_total_works": 5164942,
+     "tier": "Established"
+    }
+   }
+  },
+  "ZA": {
+   "attention": {
+    "frontier": {
+     "alignment_article_exists_in_principal_language": true,
+     "insufficient_data": true,
+     "tier": null
+    },
+    "mainstream": {
+     "insufficient_data": true,
+     "tier": null
+    }
+   },
+   "binding_constraint": {
+    "frontier": null,
+    "mainstream": null
+   },
+   "name": "South Africa",
+   "policy": {
+    "frontier": {
+     "insufficient_data": false,
+     "p2_items": {
+      "binding_law": false,
+      "bletchley_or_successor": true,
+      "frontier_risk_language": false,
+      "national_strategy": true,
+      "safety_institute": false
+     },
+     "p2_score": 2,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "insufficient_data": false,
+     "p1_activity_level": "low",
+     "p1_latest_initiative": {
+      "name": "Draft National AI Policy gazetted for public consultation (April 2026), subsequently withdrawn for revision",
+      "source": "https://www.gov.za/sites/default/files/gcis_document/202604/54477gen3880.pdf",
+      "year": 2026
+     },
+     "p1_oecd_initiative_count": 9,
+     "tier": "Nascent"
+    }
+   },
+   "provenance": {
+    "curated": [
+     "data/curated/frontier_checklist.json",
+     "data/curated/field_building.json",
+     "data/curated/policy_activity.json"
+    ],
+    "raw": [
+     "data/raw/2026-07/gdelt_a1.json",
+     "data/raw/2026-07/openalex_t1_ai_works.json",
+     "data/raw/2026-07/openalex_t1_total_works.json",
+     "data/raw/2026-07/openalex_t2_frontier_works.json",
+     "data/raw/2026-07/wikimedia_a3.json"
+    ]
+   },
+   "talent": {
+    "frontier": {
+     "insufficient_data": false,
+     "t2_works": 19,
+     "t3_capped": false,
+     "t3_orgs": 1,
+     "t3_university_groups": 1,
+     "tier": "Emerging"
+    },
+    "mainstream": {
+     "g20_median_share": 0.02033,
+     "insufficient_data": false,
+     "t1_ai_share": 0.00963,
+     "t1_ai_works": 2259,
+     "t1_total_works": 234624,
+     "tier": "Nascent"
+    }
+   }
+  }
+ },
+ "provisional_thresholds": true,
+ "schema_version": 2,
+ "snapshot": "2026-07",
+ "tier_order": [
+  "Nascent",
+  "Emerging",
+  "Established"
+ ]
+}
