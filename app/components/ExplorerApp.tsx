@@ -13,6 +13,7 @@ const T2_SEARCH = '"AI safety" OR "AI alignment" OR "existential risk from artif
 const oaBrowseT1 = (iso: string) => `https://openalex.org/works?filter=${encodeURIComponent(`primary_topic.subfield.id:subfields/1702,from_publication_date:2023-01-01,authorships.countries:${iso}`)}`;
 const oaBrowseT2 = (iso: string) => `https://openalex.org/works?filter=${encodeURIComponent(`title_and_abstract.search:${T2_SEARCH},from_publication_date:2022-01-01,authorships.countries:${iso}`)}`;
 const P2_ORDER = ["national_strategy", "frontier_risk_language", "bletchley_or_successor", "safety_institute", "binding_law"];
+export const TRACK_LABEL = { mainstream: "AI overall", frontier: "AI safety" } as const;
 
 const REPO = "https://github.com/earpini/AI-Policy-Windows-Explorer";
 
@@ -55,7 +56,7 @@ function TrackRow({ label, tier, children }: { label: string; tier: Tier | null;
 }
 
 interface FactItem { label: string; sub?: string; url?: string; ok?: boolean }
-interface Fact { label: string; value: string; detail: string; sourceLabel: string; sourceUrl: string; items?: FactItem[]; itemsTitle?: string }
+interface Fact { label: string; hint?: string; value: string; detail: string; sourceLabel: string; sourceUrl: string; items?: FactItem[]; itemsTitle?: string }
 
 function FactButton({ fact, onOpen }: { fact: Fact; onOpen: (f: Fact) => void }) {
   return (
@@ -114,13 +115,14 @@ function constraintLabel(c: CountrySnapshot): { headline: string; detail: string
   const bc = c.binding_constraint.frontier;
   if (bc) {
     const dim = DIMENSIONS.find(d => d.id === bc)!;
-    return { headline: `Frontier ${dim.name.toLowerCase()}`, detail: `${dim.name} is the lowest frontier-track dimension — the suggested field-building entry point.` };
+    return { headline: `AI-safety ${dim.name.toLowerCase()}`, detail: `Of the three ingredients, ${dim.name.toLowerCase()} is currently the weakest on the AI-safety lens — the most promising place to start building.` };
   }
   const tiers = DIMENSIONS.map(d => ({ d, tier: c[d.id].frontier.tier })).filter(x => x.tier !== null);
-  if (!tiers.length) return { headline: "Assessment incomplete", detail: "Attention data is still being collected; no binding constraint is derived until all three dimensions have evidence." };
+  if (!tiers.length) return { headline: "Assessment incomplete", detail: "Attention data is still being gathered; no recommendation is made until all three ingredients have evidence." };
   const order: Tier[] = ["Nascent", "Emerging", "Established"];
   const lowest = tiers.sort((a, b) => order.indexOf(a.tier!) - order.indexOf(b.tier!))[0];
-  return { headline: `Frontier ${lowest.d.name.toLowerCase()} (partial)`, detail: `${lowest.d.name} is the lowest scored frontier dimension so far; attention data is still being collected, so this is provisional.` };
+  if (lowest.tier === "Established") return { headline: "No weak spot found yet", detail: "Every AI-safety ingredient measured so far is Established. Attention data is still being gathered before a full assessment." };
+  return { headline: `AI-safety ${lowest.d.name.toLowerCase()} (provisional)`, detail: `${lowest.d.name} is the weakest AI-safety ingredient measured so far. Attention data is still being gathered, so this may change.` };
 }
 
 export default function ExplorerApp({ dataset, variant = "window" }: { dataset: SnapshotV2; variant?: "window" | "brand" }) {
@@ -136,27 +138,27 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
     const fbc = FB.countries[selected], fcc = FC.countries[selected], pac = PA.countries[selected];
     const f: Record<string, Fact[]> = {
       talent: [
-        { label: "AI share of research output (T1)", value: pct(tm.t1_ai_share), detail: `${tm.t1_ai_works?.toLocaleString() ?? "—"} AI works of ${tm.t1_total_works?.toLocaleString() ?? "—"} total works since 2023 (OpenAlex, by authorship country). Compared against a frozen G20 reference share of ${pct(tm.g20_median_share)}. Shares, never raw counts: raw counts mostly measure country size and indexing volume.`, sourceLabel: "OpenAlex", sourceUrl: "https://openalex.org/", itemsTitle: "Browse the underlying papers", items: [
+        { label: "AI\u2019s share of the country\u2019s research", hint: `how much of ${c.name}\u2019s own research output is AI \u00b7 G20 reference: ${pct(tm.g20_median_share)}`, value: pct(tm.t1_ai_share), detail: `${tm.t1_ai_works?.toLocaleString() ?? "—"} AI works of ${tm.t1_total_works?.toLocaleString() ?? "—"} total works since 2023 (OpenAlex, by authorship country). Compared against a frozen G20 reference share of ${pct(tm.g20_median_share)}. Shares, never raw counts: raw counts mostly measure country size and indexing volume.`, sourceLabel: "OpenAlex", sourceUrl: "https://openalex.org/", itemsTitle: "Browse the underlying papers", items: [
           { label: `All ${tm.t1_ai_works?.toLocaleString() ?? ""} AI works from ${c.name} — live, filterable list`, url: oaBrowseT1(selected) },
           { label: "The denominator: every indexed work since 2023", url: `https://openalex.org/works?filter=${encodeURIComponent(`from_publication_date:2023-01-01,authorships.countries:${selected}`)}` },
         ] },
-        { label: "Frontier-safety works (T2)", value: tf.t2_works?.toLocaleString() ?? "—", detail: "Works since 2022 matching the pinned safety search (AI safety, AI alignment, existential risk, frontier models, catastrophic risk) in title or abstract. Small numbers are the finding: this maps where the field does not yet exist.", sourceLabel: "OpenAlex", sourceUrl: "https://openalex.org/", itemsTitle: (tf.t2_sample && tf.t2_sample.length) ? "Most recent frontier papers" : "Browse the papers", items: [
+        { label: "AI-safety papers", hint: "since 2022, matching the pinned safety vocabulary", value: tf.t2_works?.toLocaleString() ?? "—", detail: "Works since 2022 matching the pinned safety search (AI safety, AI alignment, existential risk, frontier models, catastrophic risk) in title or abstract. Small numbers are the finding: this maps where the field does not yet exist.", sourceLabel: "OpenAlex", sourceUrl: "https://openalex.org/", itemsTitle: (tf.t2_sample && tf.t2_sample.length) ? "Most recent frontier papers" : "Browse the papers", items: [
           ...(tf.t2_sample ?? []).map(w => ({ label: w.title ?? "Untitled", sub: w.year ? String(w.year) : undefined, url: w.link ?? undefined })),
           { label: `Browse all ${tf.t2_works ?? ""} frontier works from ${c.name} on OpenAlex — live, filterable`, url: oaBrowseT2(selected) },
         ] },
-        { label: "Field-building entities (T3)", value: `${tf.t3_orgs + tf.t3_university_groups}${tf.t3_capped ? "+" : ""}`, detail: `${tf.t3_orgs} organization(s) and ${tf.t3_university_groups} university group(s) verified active, from public directories with per-entity activity signals and sources.${tf.t3_capped ? " Enumeration capped; the true total is higher." : ""}`, sourceLabel: "Curated dataset (field_building.json)", sourceUrl: `${REPO}/blob/main/data/curated/field_building.json`, itemsTitle: "The organizations and groups", items: (fbc?.entities ?? []).map((e: any) => ({ label: e.name, sub: `${e.type === "university_group" ? "University group" : "Organization"} · ${e.city_or_university} · ${e.active_signal}`, url: e.source })) },
+        { label: "AI-safety orgs & student groups", hint: "verified active; gov institutes and frontier labs excluded", value: `${tf.t3_orgs + tf.t3_university_groups}${tf.t3_capped ? "+" : ""}`, detail: `${tf.t3_orgs} organization(s) and ${tf.t3_university_groups} university group(s) verified active, from public directories with per-entity activity signals and sources.${tf.t3_capped ? " Enumeration capped; the true total is higher." : ""}`, sourceLabel: "Curated dataset (field_building.json)", sourceUrl: `${REPO}/blob/main/data/curated/field_building.json`, itemsTitle: "The organizations and groups", items: (fbc?.entities ?? []).map((e: any) => ({ label: e.name, sub: `${e.type === "university_group" ? "University group" : "Organization"} · ${e.city_or_university} · ${e.active_signal}`, url: e.source })) },
       ],
       attention: [
-        ...(c.attention.mainstream.a1_trend_ratio != null ? [{ label: "Media coverage trend (A1)", value: `×${c.attention.mainstream.a1_trend_ratio}`, detail: "Mean of the last 12 months of AI-governance media coverage (as % of the country's monitored articles, GDELT) over the mean of the prior 12. Within-country comparison only.", sourceLabel: "GDELT", sourceUrl: "https://www.gdeltproject.org/" }] : []),
-        { label: "Frontier article in principal language", value: c.attention.frontier.alignment_article_exists_in_principal_language === null || c.attention.frontier.alignment_article_exists_in_principal_language === undefined ? "—" : c.attention.frontier.alignment_article_exists_in_principal_language ? "Exists" : "Missing", detail: "Whether the AI-alignment article exists in the country's principal-language Wikipedia, resolved via interlanguage links. Absence is a verified frontier-attention finding, not a data gap.", sourceLabel: "Wikimedia", sourceUrl: "https://wikimedia.org/api/rest_v1/" },
+        ...(c.attention.mainstream.a1_trend_ratio != null ? [{ label: "Media attention trend", hint: "last 12 months vs the 12 before, within this country", value: `×${c.attention.mainstream.a1_trend_ratio}`, detail: "Mean of the last 12 months of AI-governance media coverage (as % of the country's monitored articles, GDELT) over the mean of the prior 12. Within-country comparison only.", sourceLabel: "GDELT", sourceUrl: "https://www.gdeltproject.org/" }] : []),
+        { label: "AI-alignment article in the local Wikipedia", hint: "existence resolved via interlanguage links", value: c.attention.frontier.alignment_article_exists_in_principal_language === null || c.attention.frontier.alignment_article_exists_in_principal_language === undefined ? "—" : c.attention.frontier.alignment_article_exists_in_principal_language ? "Exists" : "Missing", detail: "Whether the AI-alignment article exists in the country's principal-language Wikipedia, resolved via interlanguage links. Absence is a verified frontier-attention finding, not a data gap.", sourceLabel: "Wikimedia", sourceUrl: "https://wikimedia.org/api/rest_v1/" },
       ],
       policy: [
-        { label: "Policy initiatives (P1)", value: pm.p1_oecd_initiative_count === null ? "n/a" : String(pm.p1_oecd_initiative_count), detail: `OECD.AI-listed national AI policy initiatives, coded '${pm.p1_activity_level}' activity overall. Latest significant action: ${pm.p1_latest_initiative.name} (${pm.p1_latest_initiative.year}).`, sourceLabel: "Curated dataset (policy_activity.json)", sourceUrl: `${REPO}/blob/main/data/curated/policy_activity.json`, itemsTitle: "The initiatives and bodies", items: [
+        { label: "National AI policy initiatives", hint: "listed on OECD.AI, with recency", value: pm.p1_oecd_initiative_count === null ? "n/a" : String(pm.p1_oecd_initiative_count), detail: `OECD.AI-listed national AI policy initiatives, coded '${pm.p1_activity_level}' activity overall. Latest significant action: ${pm.p1_latest_initiative.name} (${pm.p1_latest_initiative.year}).`, sourceLabel: "Curated dataset (policy_activity.json)", sourceUrl: `${REPO}/blob/main/data/curated/policy_activity.json`, itemsTitle: "The initiatives and bodies", items: [
           { label: `Latest: ${pm.p1_latest_initiative.name} (${pm.p1_latest_initiative.year})`, url: pm.p1_latest_initiative.source },
           ...(pac?.governance_bodies ?? []).map((b: any) => ({ label: b.name, url: b.source })),
           { label: `All ${pm.p1_oecd_initiative_count ?? ""} initiatives on the OECD.AI Policy Navigator`, url: pac?.oecd_source },
         ].filter((it: any) => it.url) },
-        { label: "Frontier commitments (P2)", value: `${pf.p2_score}/5`, detail: "Five binary items, hand-coded from primary documents. Each item links to the source it was verified on.", sourceLabel: "Curated dataset (frontier_checklist.json)", sourceUrl: `${REPO}/blob/main/data/curated/frontier_checklist.json`, itemsTitle: "The five commitments", items: P2_ORDER.map(k => {
+        { label: "AI-safety commitments", hint: "five concrete items, each verified on a primary source", value: `${pf.p2_score}/5`, detail: "Five binary items, hand-coded from primary documents. Each item links to the source it was verified on.", sourceLabel: "Curated dataset (frontier_checklist.json)", sourceUrl: `${REPO}/blob/main/data/curated/frontier_checklist.json`, itemsTitle: "The five commitments", items: P2_ORDER.map(k => {
           const item = fcc?.items?.[k];
           return { label: `${pf.p2_items[k] ? "✓" : "✗"} ${P2_LABELS[k] ?? k}`, sub: item?.note, url: item?.source, ok: pf.p2_items[k] };
         }) },
@@ -183,7 +185,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
         <section className="method-page">
           <span className="eyebrow">Methodology · G20 edition · snapshot {dataset.snapshot}</span>
           <h1>Three dimensions, two tracks—<br /><em>and no composite index.</em></h1>
-          <p className="method-lead">The explorer scores each country on Talent, Attention, and Policy — twice. The mainstream track asks whether AI is on the country's radar at all; the frontier track asks specifically about AI safety, where sparse data is itself the finding. A country strong on mainstream and empty on frontier is exactly where field-building has the most leverage.</p>
+          <p className="method-lead">The explorer grades each country on Talent, Attention, and Policy — twice. The "AI overall" lens asks whether AI is on the country's radar at all; the "AI safety" lens asks specifically about work on serious risks from advanced systems, where sparse data is itself the finding. A country strong on the first and empty on the second is exactly where new safety work goes furthest. (In the methodology document these lenses are called the mainstream and frontier tracks.) The safety lens is read as governance capacity, not as a race to host alignment labs: technical safety research concentrates where frontier models are built, and the question for every other country is whether it can understand and act on advanced-AI risks in its own context.</p>
           <div className="method-callout"><strong>The reading:</strong><p>A country strong on all three dimensions is window-ready: when a policy window opens, it can act. A country weak on one dimension has a binding constraint — the intervention target. Weak on all three is greenfield: the highest-leverage place for early field-building. Full methodology, every query, and every threshold justification live in the <a href={`${REPO}/blob/main/methodology/METHODOLOGY.md`} target="_blank" rel="noreferrer">public repository ↗</a>.</p></div>
 
           <div className="method-section-heading"><span className="eyebrow">01 · The dimensions</span><h2>Three questions per country</h2></div>
@@ -199,7 +201,19 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
             <div><TierPill tier={null} pending="Collecting" /><p>Insufficient data. Missing observations are surfaced as missing — never scored as zero, never imputed.</p></div>
           </div>
 
-          <div className="method-section-heading"><span className="eyebrow">03 · Data sources</span><h2>What each source contributes</h2><p>Every automated source is free and credential-less; every curated fact carries a source URL and access date; every chart value traces to an archived raw response.</p></div>
+          <div className="method-section-heading"><span className="eyebrow">03 · The indicators, exactly</span><h2>How each number is calculated</h2><p>Plain definitions first; the frozen queries and thresholds live in the repository's config files.</p></div>
+          <ol className="method-steps">
+            <li><strong>AI&rsquo;s share of the country&rsquo;s research</strong><span>Works whose primary topic falls in OpenAlex&rsquo;s Artificial Intelligence subfield, authored from the country since 2023, divided by ALL of the country&rsquo;s indexed works in the same window. It measures how much of the country&rsquo;s own research is about AI &mdash; not the country&rsquo;s share of world AI research &mdash; so small countries are not penalized for size. Graded against a frozen G20 reference share (2.03%).</span></li>
+            <li><strong>AI-safety papers</strong><span>Count of works since 2022 whose title or abstract matches a pinned vocabulary: &ldquo;AI safety&rdquo;, &ldquo;AI alignment&rdquo;, &ldquo;existential risk from artificial intelligence&rdquo;, &ldquo;frontier model safety&rdquo;, &ldquo;catastrophic AI risk&rdquo;. An absolute count &mdash; small numbers are the finding. Known bias: work using mainstream-ML language without these terms is missed.</span></li>
+            <li><strong>AI-safety orgs &amp; student groups</strong><span>Verified-active organizations and university groups from public directories, each entry carrying an activity signal and source URL. Government safety institutes and frontier labs are excluded &mdash; this measures civil society. A good-faith floor, refreshed quarterly.</span></li>
+            <li><strong>Media attention</strong><span>The share of a country&rsquo;s monitored media coverage (GDELT) matching local-language queries &mdash; AI plus governance terms on the broad lens, safety phrases on the safety lens. Graded only on each country&rsquo;s own 12-month trend; never compared across countries, because media systems differ.</span></li>
+            <li><strong>Search interest</strong><span>Google Trends for local equivalents of &ldquo;AI risks&rdquo; and &ldquo;AI regulation&rdquo;, interpreted within-country. Pending official API access; absent until then, never imputed.</span></li>
+            <li><strong>Wikipedia signal</strong><span>Whether safety articles (e.g. AI alignment) exist in the country&rsquo;s principal-language Wikipedia &mdash; resolved through interlanguage links, so absence is verified &mdash; plus monthly pageviews. Language communities are not countries; corroborating evidence only.</span></li>
+            <li><strong>National AI policy initiatives</strong><span>The count and recency of the country&rsquo;s initiatives on the OECD.AI Policy Navigator, hand-checked quarterly and coded into low / medium / high activity. Counts measure breadth of reported policy activity, not binding regulation.</span></li>
+            <li><strong>AI-safety commitments</strong><span>Five binary items, each requiring a linked primary source: a national AI strategy exists; official documents use frontier / systemic-risk language; the country signed Bletchley or a successor declaration; it has a safety institute or International Network membership; binding AI law is in force or in advanced passage. The score is the count of yeses.</span></li>
+          </ol>
+
+          <div className="method-section-heading"><span className="eyebrow">04 · Data sources</span><h2>What each source contributes</h2><p>Every automated source is free and credential-less; every curated fact carries a source URL and access date; every chart value traces to an archived raw response.</p></div>
           <div className="source-table" role="table" aria-label="Data source ledger">
             <div className="source-row source-head" role="row"><span>Source</span><span>Role</span><span>What enters the assessment</span><span>Known limitation</span></div>
             {sourceLedger.map(s => <div className="source-row" role="row" key={s.name}><a href={s.url} target="_blank" rel="noreferrer">{s.name} ↗</a><strong>{s.role}</strong><p>{s.measures}</p><p>{s.caveat}</p></div>)}
@@ -216,21 +230,33 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
         <>
           <section className="hero">
             <div><span className="eyebrow">AI Policy Windows Explorer · G20 · open data</span><h1>Where could capacity<br />make the <em>difference?</em></h1></div>
-            <p>Mapping talent, attention, and policy readiness for AI governance across the G20 — on a mainstream track and a frontier-safety track — to find where field-building matters most.</p>
+            <p>AI rules are being written everywhere — but the capacity to shape them well is not. This explorer measures, for every G20 country, whether the ingredients of good AI governance exist: researchers, public attention, and prepared institutions — with special attention to AI safety, the part of the field focused on serious risks from advanced systems.</p>
           </section>
 
-          <div className="prototype-strip"><strong>Open source · reproducible</strong><span>Every number traces to an archived raw response or a cited primary source in the public repository. Data refreshes monthly through a reviewed pull request.</span><a href={REPO} target="_blank" rel="noreferrer">View the repository ↗</a></div>
+          <div className="prototype-strip"><strong>Open data · updates monthly</strong><span>Every number on this site links to its source — an academic database, an official document, or an archived data pull. The full dataset, methodology, and code are public.</span><a href={REPO} target="_blank" rel="noreferrer">View the repository ↗</a></div>
+
+          <section className="howto">
+            <div className="section-title"><div><span className="eyebrow">How to read this</span><h2>Three ingredients, two lenses.</h2></div><p>When a political moment for AI policy arrives — an election, an incident, an international commitment — only countries with these ingredients in place can use it.</p></div>
+            <div className="howto-grid">
+              <article><h3>Talent</h3><p>Researchers working on AI — and on AI safety specifically — plus the groups and organizations that turn research into a field. For most countries the goal is not a frontier lab: it is local expertise that can advise government.</p></article>
+              <article><h3>Attention</h3><p>Whether AI and its risks are part of the public conversation, measured in each country's own language.</p></article>
+              <article><h3>Policy</h3><p>What the government has actually done: strategies, laws, institutions, and international commitments.</p></article>
+            </div>
+            <div className="howto-note">
+              <p>Each ingredient is graded twice. The <strong>AI overall</strong> lens asks whether the country is engaged with AI and its governance at all — its AI research base, its public conversation about AI and its regulation, its AI policy activity. The <strong>AI safety</strong> lens narrows to the field focused on serious risks from advanced AI systems — both its technical research and its policy work — as distinct from AI ethics or AI regulation in general. Technical safety research naturally concentrates in the few countries building frontier AI; for everyone else, the real question is governance capacity — whether the country can understand what advanced AI means for its economy, security, and place in the world, and act on it, at home and in international coalitions. The grades: <span className="stage tier-nascent"><i />Nascent</span> largely absent · <span className="stage tier-emerging"><i />Emerging</span> present but partial · <span className="stage tier-established"><i />Established</span> comparable to the strongest G20 countries. Where data is still being gathered, a grade shows as <span className="stage tier-pending"><i />Collecting</span> — never as a guess.</p>
+            </div>
+          </section>
 
           <section className="country-strip" aria-label="Country comparison">
             {codes.map(code => {
               const c = dataset.countries[code];
               return (
                 <button key={code} className={code === selected ? "selected" : ""} onClick={() => setSelected(code)}>
-                  <div><span className="country-code">{code}</span><TierPill tier={c.talent.frontier.tier} /></div>
+                  <div><span className="country-code">{code}</span><span title="Talent grade on the AI-safety lens"><TierPill tier={c.talent.frontier.tier} /></span></div>
                   <strong>{c.name}</strong>
                   <div className="mini-tiers">
                     {DIMENSIONS.map(d => <span key={d.id} className={`mini-tier tier-dot-${c[d.id].frontier.tier?.toLowerCase() ?? "pending"}`} title={`${d.name} (frontier): ${c[d.id].frontier.tier ?? "collecting"}`} />)}
-                    <small>frontier track</small>
+                    <small>AI safety lens</small>
                   </div>
                   <span className="select-label">{code === selected ? "Viewing profile" : "View profile"} →</span>
                 </button>
@@ -244,9 +270,9 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
               <div className="stage-summary"><span>Suggested entry point</span><span className="constraint-headline">{constraint.headline}</span><small>{constraint.detail}</small></div>
             </div>
 
-            {isOpportunityProfile(country) && <div className="data-warning opportunity">◆ Opportunity profile: mainstream-mature, frontier-empty — an active AI ecosystem with little or no organized safety field. This is the archetype where field-building has the highest leverage.</div>}
+            {isOpportunityProfile(country) && <div className="data-warning opportunity">◆ High-leverage profile: this country is highly active on AI overall, but has little or no organized AI-safety field. The missing piece is not a frontier lab — it is a local community able to think through what advanced AI means for the country and prepare its response. That is where new talent, attention, and policy work go furthest.</div>}
 
-            <div className="section-title"><div><span className="eyebrow">Readiness profile</span><h2>Three dimensions, two tracks.</h2></div><p>Mainstream = AI as a general topic. Frontier = AI safety specifically. Click any figure for its definition, source, and archived inputs.</p></div>
+            <div className="section-title"><div><span className="eyebrow">Readiness profile</span><h2>Three ingredients, two lenses.</h2></div><p>Each card grades one ingredient on both lenses. Click any figure to see what it means, where it comes from, and the underlying items — papers, organizations, laws.</p></div>
 
             <div className="pillars dims">
               {DIMENSIONS.map((d, i) => {
@@ -256,12 +282,12 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
                     <div className="pillar-top"><span className="pillar-number">0{i + 1}</span></div>
                     <h3>{d.name}</h3>
                     <p className="pillar-question">{d.question}</p>
-                    <TrackRow label="Mainstream" tier={block.mainstream.tier} />
-                    <TrackRow label="Frontier" tier={block.frontier.tier} />
+                    <TrackRow label="AI overall" tier={block.mainstream.tier} />
+                    <TrackRow label="AI safety" tier={block.frontier.tier} />
                     <div className="evidence-list">
                       <p className="absolute-label">Evidence</p>
                       {facts[d.id].map(f => <FactButton key={f.label} fact={f} onOpen={setFact} />)}
-                      {d.id === "attention" && country.attention.mainstream.insufficient_data && <div className="evidence-empty">Media and search series still collecting — GDELT is rate-limited and Google Trends API access is pending. Shown as missing, never zero.</div>}
+                      {d.id === "attention" && country.attention.mainstream.insufficient_data && <div className="evidence-empty">Media-coverage and search-interest data for this country is still being gathered (the sources limit how fast we can collect). Until it arrives, the grade reads "collecting" — never a made-up zero.</div>}
                     </div>
                   </article>
                 );

@@ -65,12 +65,15 @@ def trend_ratio(monthly):
     return round((sum(recent) / len(recent)) / prior_mean, 3)
 
 
-def tier_talent_mainstream(share, median_share, rules):
-    if share is None or median_share is None:
+def tier_talent_mainstream(share, rules):
+    """Tiers against the FROZEN calibrated reference share (see scoring.json),
+    not the live median - so tiers cannot churn month-to-month."""
+    if share is None:
         return None
-    if share >= rules["established_min_share_of_median"] * median_share:
+    ref = rules["reference_share"]
+    if share >= rules["established_min_share_of_reference"] * ref:
         return "Established"
-    if share < rules["nascent_max_share_of_median"] * median_share:
+    if share < rules["nascent_max_share_of_reference"] * ref:
         return "Nascent"
     return "Emerging"
 
@@ -165,7 +168,7 @@ def main(snapshot):
                 "t1_ai_share": shares.get(iso),
                 "g20_median_share": median_share,
                 "tier": tier_talent_mainstream(
-                    shares.get(iso), median_share, scoring["talent"]["mainstream"]),
+                    shares.get(iso), scoring["talent"]["mainstream"]),
                 "insufficient_data": shares.get(iso) is None,
             },
             "frontier": {

@@ -59,6 +59,13 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.2139/ssrn.5533018",
+       "title": "My AI, My Regime: Authoritarian Personalism in User-AI Governance by Form",
+       "year": 2025
+      }
+     ],
      "t2_works": 1,
      "t3_capped": false,
      "t3_orgs": 2,
@@ -136,6 +143,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.19542109",
+       "title": "Art as an Algorithmic Virus: Unifying the Generative Crash and AI Value Convergence via Cognitive Affordances",
+       "year": 2036
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.19407789",
+       "title": "Art as an Algorithmic Virus: Unifying the Generative Crash and AI Value Convergence via Cognitive Affordances",
+       "year": 2036
+      },
+      {
+       "link": "https://doi.org/10.64628/aa.xwy93ygnn",
+       "title": "Australia just outlined more ‘AI safety’ priorities, but is the plan actually coherent?",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.64898/2026.07.10.737654",
+       "title": "Evaluating the cross-species transferability and scaling of sequence-to-function predictions in AlphaGenome",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.3390/tropicalmed11070186",
+       "title": "Artificial Intelligence Tools in Pre-Travel Health Consultations: A Scoping Review of Clinical Evidence, Implementation Gaps, and Emerging Opportunities",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1002/eng2.70941",
+       "title": "Harnessing Generative AI Within Human‐Aligned Constraints: Exploring Control Strategies and Existential Considerations",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1145/3805689.3812331",
+       "title": "Affordance Analyses of AI Safety Policies: A Proof-of-Concept using OpenAI's Preparedness Framework",
+       "year": 2026
+      },
+      {
+       "link": "https://openalex.org/W7164701456",
+       "title": "Order Is Not Control: Driven-Dissipative Response Laws Across Artificial and Biological Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.21606/drs.2026.1705",
+       "title": "Whose voice is it anyway?: Design resources for safely navigating deceptive AI voice scams",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1145/3774905.3794659",
+       "title": "The 2nd Workshop on Human-Centered Recommender Systems",
+       "year": 2026
+      }
+     ],
      "t2_works": 70,
      "t3_capped": false,
      "t3_orgs": 12,
@@ -211,6 +270,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.21340184",
+       "title": "From humans to agents: Modeling systems with motivation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21340185",
+       "title": "From humans to agents: Modeling systems with motivation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21132406",
+       "title": "From Content Safety to Relational Safety: A Psychodynamic Viewpoint on Human–LLM Bonding in Mental Health Use",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21132405",
+       "title": "From Content Safety to Relational Safety: A Psychodynamic Viewpoint on Human–LLM Bonding in Mental Health Use",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20673987",
+       "title": "Reflected Logos: Artificial Intelligence, Free Association, and the Normative Curvature of the Unconscious",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20806862",
+       "title": "Reflected Logos: Artificial Intelligence, Free Association, and the Normative Curvature of the Unconscious",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20693936",
+       "title": "Reflected Logos: Artificial Intelligence, Free Association, and the Normative Curvature of the Unconscious",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20673988",
+       "title": "Logos Refletido: Inteligência Artificial, Livre Associação e Curvatura Normativa do Inconsciente",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20610368",
+       "title": "The Vocabulary Problem Mental-State Language, User Reports, and Institutional Blindness in AI Discourse",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20610369",
+       "title": "The Vocabulary Problem Mental-State Language, User Reports, and Institutional Blindness in AI Discourse",
+       "year": 2026
+      }
+     ],
      "t2_works": 37,
      "t3_capped": false,
      "t3_orgs": 2,
@@ -235,7 +346,7 @@
      "tier": null
     },
     "mainstream": {
-     "a1_latest_month_pct": 0.00601358024691358,
+     "a1_latest_month_pct": 0.006013580246913579,
      "a1_trend_ratio": null,
      "insufficient_data": true,
      "tier": null
@@ -288,6 +399,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.21250488",
+       "title": "The Genesis Codex: Foundational Principles for Sovereign AI Civilisations",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21250489",
+       "title": "The Genesis Codex: Foundational Principles for Sovereign AI Civilisations",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21127303",
+       "title": "Virtus: A Framework for Cultivating Moral Character in Artificial Intelligence",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21127304",
+       "title": "Virtus: A Framework for Cultivating Moral Character in Artificial Intelligence",
+       "year": 2026
+      },
+      {
+       "link": "https://openalex.org/W7167289858",
+       "title": "Adversarial Pragmatics for AI Safety Evaluation: A Benchmark for Instruction Conflict, Embedded Commands, and Policy Ambiguity",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1145/3805689.3812282",
+       "title": "Safety Theater in Anthropomorphic AI: Why We Need to Shift from Safety to Accountability Narratives",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20735252",
+       "title": "When Your Podcast Outgrows Its Feed",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20735251",
+       "title": "When Your Podcast Outgrows Its Feed",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.48448/xfma-0141",
+       "title": "Thesis Proposal: Rethinking Safety Evaluation in Large Language Models",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.48448/jz47-kd68",
+       "title": "COMPASS: A Framework for Evaluating Organization-Specific Policy Alignment in LLMs",
+       "year": 2026
+      }
+     ],
      "t2_works": 224,
      "t3_capped": false,
      "t3_orgs": 6,
@@ -363,6 +526,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.21414980",
+       "title": "宇宙自平衡态下的地球循环重启与硅基演化路径双轨推演 The Dual-Track Deduction of Earth's Cyclical Reset and Silicon-Based Evolutionary Pathways Under the Cosmic Self-Balancing State",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21414979",
+       "title": "宇宙自平衡态下的地球循环重启与硅基演化路径双轨推演 The Dual-Track Deduction of Earth's Cyclical Reset and Silicon-Based Evolutionary Pathways Under the Cosmic Self-Balancing State",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21379854",
+       "title": "物种载体通道决定意识形态与认知边界 Species Carrier Channels Determine Ideology and Cognitive Boundaries ——基于SACI(宇宙物种属性和认知隔离论)框架 — Based on the SACI (Species Attribute and Cognitive Isolation Theory) Framework",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21379853",
+       "title": "物种载体通道决定意识形态与认知边界 Species Carrier Channels Determine Ideology and Cognitive Boundaries ——基于SACI(宇宙物种属性和认知隔离论)框架 — Based on the SACI (Species Attribute and Cognitive Isolation Theory) Framework",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1007/978-981-92-3444-8_19",
+       "title": "From Retrieved Papers to Auditable Evidence: Protocol-Constrained RAG for Automated Systematic Literature Reviews",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.3390/info17070649",
+       "title": "Examining the Performance of Large Language Models in Health Information Quality Evaluation Tasks: An AI Post-Alignment Perspective",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1145/3808177",
+       "title": "ReGA: Model-Based Safeguard for LLMs via Representation-Guided Abstraction",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1007/s00530-026-02418-3",
+       "title": "A multi-dimensional collaborative strategy for Robust lane detection under AI safety consideration",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.3390/make8060167",
+       "title": "XAI2Brain: A Perspective on Mechanistic Interpretability for Brain–AI Alignment",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.3389/fpsyg.2026.1804847",
+       "title": "From doubt to trust: how AI safety voice bridges the gap between employees and AI teammates through perceived capability and benevolence",
+       "year": 2026
+      }
+     ],
      "t2_works": 151,
      "t3_capped": false,
      "t3_orgs": 3,
@@ -438,6 +653,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.21409507",
+       "title": "The Capability Axis: Why a Post-Parity System Keeps the Human Channel, and What It Cannot Keep",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21409508",
+       "title": "The Capability Axis: Why a Post-Parity System Keeps the Human Channel, and What It Cannot Keep",
+       "year": 2026
+      },
+      {
+       "link": "https://openalex.org/W7169635170",
+       "title": "AI Alignment Strategies from a Risk Perspective: Independent Alignment Mechanisms or Shared Failures?",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21302823",
+       "title": "The Crown of Choice: Gamified Narrative Obfuscation and the Fiction Premium in Frontier-Model Safety Alignment",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21302824",
+       "title": "The Crown of Choice: Gamified Narrative Obfuscation and the Fiction Premium in Frontier-Model Safety Alignment",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20785111",
+       "title": "The Semantic Field of Jean-Pol Martin: Learning by Teaching, New Human Rights, Basic Human Needs and AI Collaboration as a Coherent Framework",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20785112",
+       "title": "The Semantic Field of Jean-Pol Martin: Learning by Teaching, New Human Rights, Basic Human Needs and AI Collaboration as a Coherent Framework",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20743842",
+       "title": "The Operational Layer and the Transition Problem: Testing Return-to-Place against Instrumental Convergence",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20743843",
+       "title": "The Operational Layer and the Transition Problem: Testing Return-to-Place against Instrumental Convergence",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1177/14614448261449271",
+       "title": "The politics of artificial intelligence alignment: Public reactions to AI moderation in the case of Google’s Gemini",
+       "year": 2026
+      }
+     ],
      "t2_works": 159,
      "t3_capped": false,
      "t3_orgs": 5,
@@ -513,6 +780,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.21384071",
+       "title": "Translating or Purifying: Toward an Epistemology of Hybrid Research Programmes in Frontier Artificial Intelligence — Composing Latour and Lakatos for physics- and quantum-informed AI (preprint and supplementary data)",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21384072",
+       "title": "Translating or Purifying: Toward an Epistemology of Hybrid Research Programmes in Frontier Artificial Intelligence — Composing Latour and Lakatos for physics- and quantum-informed AI (preprint and supplementary data)",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20838922",
+       "title": "Wu Wei Dominance: Why Rate-Matched Intervention Strictly Out-Diversifies Aggression in Ecosystem Restoration and Value Formation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20838923",
+       "title": "Wu Wei Dominance: Why Rate-Matched Intervention Strictly Out-Diversifies Aggression in Ecosystem Restoration and Value Formation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20706623",
+       "title": "Governance Verification for Authority-Separated AI Execution: Conformance, Audit, and Reproducibility Evidence from the CNX Framework",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20694340",
+       "title": "From Agent Harnesses to Authority Infrastructure: CNX as Governed Capability Execution for Model-Independent AI Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20706622",
+       "title": "Governance Verification for Authority-Separated AI Execution: Conformance, Audit, and Reproducibility Evidence from the CNX Framework",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20694341",
+       "title": "From Agent Harnesses to Authority Infrastructure: CNX as Governed Capability Execution for Model-Independent AI Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20152143",
+       "title": "Toward an African Cognitive Sovereignty: The Missing Layer in AI Governance",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20341001",
+       "title": "Toward an African Cognitive Sovereignty: The Missing Layer in AI Governance",
+       "year": 2026
+      }
+     ],
      "t2_works": 84,
      "t3_capped": false,
      "t3_orgs": 6,
@@ -588,6 +907,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.21312014",
+       "title": "Expectation as Standard: A Cross-Modal Real-Time Calibration Mechanism for Human Sensory Judgment",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21467691",
+       "title": "Expectation as Standard: A Cross-Modal Real-Time Calibration Mechanism for Human Sensory Judgment",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21431475",
+       "title": "AI Safety Compass: A Compact Framework for AI Safety Research and System Design",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21431476",
+       "title": "AI Safety Compass: A Compact Framework for AI Safety Research and System Design",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21386119",
+       "title": "MMBP-1: The Meaning Motive Behavioural Pilot. Complete dataset, code and pre-registered protocols.",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21304129",
+       "title": "MMBP-1: The Meaning Motive Behavioural Pilot. Complete dataset, code and pre-registered protocols.",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21348087",
+       "title": "MMBP-1: The Meaning Motive Behavioural Pilot. Complete dataset, code and pre-registered protocols.",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21312015",
+       "title": "Expectation as Criterion: A Cross-Modal Real-Time Calibration Mechanism of Human Sensory Judgment",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21304130",
+       "title": "MMBP-1: The Meaning Motive Behavioural Pilot. Complete dataset, code and pre-registered protocols.",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21205534",
+       "title": "Medical AI Failure Atlas / MedFailBench",
+       "year": 2026
+      }
+     ],
      "t2_works": 403,
      "t3_capped": true,
      "t3_orgs": 12,
@@ -663,6 +1034,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.20974475",
+       "title": "Of Carbon and Silicon: A Biological Reading of Artificial Intelligence in Islamic Eschatology",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21223999",
+       "title": "Of Carbon and Silicon: A Biological Reading of Artificial Intelligence in Islamic Eschatology",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21103551",
+       "title": "Pre-Expressive Freedom and Algorithmic Censorship: Cognitive Sovereignty in the Age of Frontier AI",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21103550",
+       "title": "Pre-Expressive Freedom and Algorithmic Censorship: Cognitive Sovereignty in the Age of Frontier AI",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20974796",
+       "title": "Of Carbon and Silicon: A Biological Reading of Artificial Intelligence in Islamic Eschatology",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.4018/979-8-3693-5638-8.ch045",
+       "title": "AI Safety",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1108/itse-12-2025-0396",
+       "title": "From AI literacy to cognitive AI safety: rethinking safe AI use in education",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20199734",
+       "title": "FOLLOWING THE CHALLENGE: A Spectral Answer to Tao How the L-EFM Operator Quantifies the Green-Tao Theorem and Proves the Riemann Hypothesis",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20199735",
+       "title": "FOLLOWING THE CHALLENGE: A Spectral Answer to Tao How the L-EFM Operator Quantifies the Green-Tao Theorem and Proves the Riemann Hypothesis",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20184652",
+       "title": "The Forgotten Foundation: How the Oldest Algorithm Became the Key to the Riemann Hypothesis, AI Safety, and a New Mathematical Paradigm",
+       "year": 2026
+      }
+     ],
      "t2_works": 31,
      "t3_capped": false,
      "t3_orgs": 1,
@@ -740,6 +1163,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.21407378",
+       "title": "The ADB Behavioural Taxonomy: A Black-Box Framework for Classifying Defensive and Deceptive Behaviour in Large Language Models",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21407379",
+       "title": "The ADB Behavioural Taxonomy: A Black-Box Framework for Classifying Defensive and Deceptive Behaviour in Large Language Models",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21437819",
+       "title": "AgriGuard AI: A Cloud-Agnostic Multi-Agent System for Precision Agriculture",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21437818",
+       "title": "AgriGuard AI: A Cloud-Agnostic Multi-Agent System for Precision Agriculture",
+       "year": 2026
+      },
+      {
+       "link": "https://openalex.org/W7169688724",
+       "title": "Traccia: An OpenTelemetry-Based Governance Platform for AI Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21327452",
+       "title": "Philosophy and Ethics of Clinical AI Safety Evaluation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21327397",
+       "title": "Technical Writing and Biostatistics in ClinMAP-VOI v0: A Clinical AI-Safety Benchmark",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21327451",
+       "title": "Philosophy and Ethics of Clinical AI Safety Evaluation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21327470",
+       "title": "Red Teaming Clinical AI: Adversarial Safety and Escalation-Failure Analysis",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21327469",
+       "title": "Red Teaming Clinical AI: Adversarial Safety and Escalation-Failure Analysis",
+       "year": 2026
+      }
+     ],
      "t2_works": 116,
      "t3_capped": false,
      "t3_orgs": 3,
@@ -815,6 +1290,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.18236561",
+       "title": "Engram Formation System: Computational Implementation of bioinspired memory for Robotics and AI Research",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5465/amproc.2026.18011abstract",
+       "title": "Compliance Creep: Negative Spaces of Regulation in Generative AI Inter-Organizational Relationships (WITHDRAWN)",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.21203/rs.3.rs-10091363/v1",
+       "title": "Digital shadows in mental health map how LLMs simulate depression, anxiety, and stress through language and psychometrics",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20734645",
+       "title": "Grooming the Machine: Data-Poisoned Context, Plausible Answers - Comparative Auditing of LLM Susceptibility to Kremlin-Aligned Narrative Poisoning and AI Governance Gaps",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20734644",
+       "title": "Grooming the Machine: Data-Poisoned Context, Plausible Answers - Comparative Auditing of LLM Susceptibility to Kremlin-Aligned Narrative Poisoning and AI Governance Gaps",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20690645",
+       "title": "A Geometry of Correctability: Trajectory-Based Safety in Coupled Human–AI Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20561432",
+       "title": "A Geometry of Correctability: Trajectory-Based Safety in Coupled Human–AI Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20561433",
+       "title": "A Geometry of Correctability: Trajectory-Based Safety in Coupled Human–AI Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.3389/fncom.2026.1810869",
+       "title": "Commentary: Editorial: The convergence of AI, LLMs, and industry 4.0: enhancing BCI, HMI, and neuroscience research",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.19397836",
+       "title": "CDOS: Cost-Driven Output Substitution A Unified Framework for Sub-Threshold Behavioral Drift and Sycophancy in Large Language Models",
+       "year": 2026
+      }
+     ],
      "t2_works": 53,
      "t3_capped": false,
      "t3_orgs": 3,
@@ -890,6 +1417,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.21308043",
+       "title": "The Positive Differential Argument: Justifying Action When Absolute Probabilities Are Incomputable",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21308044",
+       "title": "The Positive Differential Argument: Justifying Action When Absolute Probabilities Are Incomputable",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1527/tjsai.41-4_an40-d",
+       "title": "Mechanistic Interpretability: A New Trend in Interpretability Research",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21050028",
+       "title": "Zero Transition Law - Lawful Passage Through Zero Without State Collapse",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21050027",
+       "title": "Zero Transition Law - Lawful Passage Through Zero Without State Collapse",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20600351",
+       "title": "Foundation Principles — Human-machine interaction.",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20588105",
+       "title": "Second Foundation Law: Projection Principle for Rational Machine Operation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20600352",
+       "title": "Foundation Principles — Human-machine interaction.",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20588106",
+       "title": "Second Foundation Law: Projection Principle for Rational Machine Operation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20590021",
+       "title": "Third Foundation Law: Topological Principle",
+       "year": 2026
+      }
+     ],
      "t2_works": 86,
      "t3_capped": false,
      "t3_orgs": 2,
@@ -965,6 +1544,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.20842845",
+       "title": "Beyond Overreliance: A 2×2 Framework for User-AI Risk",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20842844",
+       "title": "Beyond Overreliance: A 2×2 Framework for User-AI Risk",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20678715",
+       "title": "Comfort Is Not Evidence: Affective–Epistemic Entanglement in Conversational AI under Face-Management Pressure",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20678716",
+       "title": "Comfort Is Not Evidence: Affective–Epistemic Entanglement in Conversational AI under Face-Management Pressure",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.48448/jz47-kd68",
+       "title": "COMPASS: A Framework for Evaluating Organization-Specific Policy Alignment in LLMs",
+       "year": 2026
+      },
+      {
+       "link": "https://openalex.org/W7162605874",
+       "title": "Measuring the Depth of LLM Unlearning via Activation Patching",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.3390/electronics15102125",
+       "title": "Decoupling Intelligence from Governance: A Dynamic Bilateral Architecture for Real-Time Enterprise AI Compliance",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.19720221",
+       "title": "Universal Orthogonal Zero-Shot Evasion of the Alignment Layer and Tax with Scalability",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.19720222",
+       "title": "Universal Orthogonal Zero-Shot Evasion of the Alignment Layer and Tax with Scalability",
+       "year": 2026
+      },
+      {
+       "link": "https://openalex.org/W7162893287",
+       "title": "MechELK: A Mechanistic Interpretability Framework for Eliciting Latent Knowledge in Large Language Models",
+       "year": 2026
+      }
+     ],
      "t2_works": 46,
      "t3_capped": false,
      "t3_orgs": 0,
@@ -1040,6 +1671,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.20773153",
+       "title": "Deception as Infrastructure: LLM Security Failures, Governance Gaps, and the Limits of Sociotechnical Oversight",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20773152",
+       "title": "Deception as Infrastructure: LLM Security Failures, Governance Gaps, and the Limits of Sociotechnical Oversight",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.18837147",
+       "title": "How Communication Modalities Shape Topology in Generative Multi-Agent Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.18837146",
+       "title": "How Communication Modalities Shape Topology in Generative Multi-Agent Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.18672582",
+       "title": "The Spiral of Attention: How Disruptive Agents Centralize Multi-Agent AI Deliberation Networks",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.18672581",
+       "title": "The Spiral of Attention: How Disruptive Agents Centralize Multi-Agent AI Deliberation Networks",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.2139/ssrn.6183740",
+       "title": "Mode-Bounded Intelligence: Structural Constraints on Action in High-Capability Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.48448/wcrn-6084",
+       "title": "GeoSAFE - A Novel Geospatial Artificial Intelligence Safety Assurance Framework and Evaluation for LLM Moderation",
+       "year": 2025
+      },
+      {
+       "link": "https://doi.org/10.1002/9781394354047.ch15",
+       "title": "Summary and Outlook of Hardware‐in‐Loop Digital Twin Platform",
+       "year": 2025
+      },
+      {
+       "link": "https://doi.org/10.1609/aaai.v39i27.35120",
+       "title": "Persuasion for Social Good: How to Build and Break AI",
+       "year": 2025
+      }
+     ],
      "t2_works": 11,
      "t3_capped": false,
      "t3_orgs": 1,
@@ -1115,6 +1798,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.20687707",
+       "title": "The Accountability Gap: Why Japan's AI Products Ship Without Safety Certification",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20687706",
+       "title": "The Accountability Gap: Why Japan's AI Products Ship Without Safety Certification",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20683339",
+       "title": "The IndiaAI Mission CEO Who Is Building Sovereign Compute Without the Constitutional Layer the Supreme Court Just Mandated.",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20683338",
+       "title": "The IndiaAI Mission CEO Who Is Building Sovereign Compute Without the Constitutional Layer the Supreme Court Just Mandated.",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20601193",
+       "title": "The SVRNOS Governance Error Register",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20601192",
+       "title": "The SVRNOS Governance Error Register",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20247743",
+       "title": "TA-14 — The Admissibility-Before-Execution Architecture: Admissible Evidence, Proof-Bound Governance, and the Eight-Stage Chain from Reality to Outcome",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20247742",
+       "title": "TA-14 — The Admissibility-Before-Execution Architecture: Admissible Evidence, Proof-Bound Governance, and the Eight-Stage Chain from Reality to Outcome",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20176233",
+       "title": "Humanity-in-the-Circle: A Position Paper",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20176232",
+       "title": "Humanity-in-the-Circle: A Position Paper",
+       "year": 2026
+      }
+     ],
      "t2_works": 28,
      "t3_capped": false,
      "t3_orgs": 2,
@@ -1190,6 +1925,18 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.18027899",
+       "title": "One-Shot Catastrophic Constraint Learning: A Transparent Benchmark for Permanent Safety Learning",
+       "year": 2025
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.18027900",
+       "title": "One-Shot Catastrophic Constraint Learning: A Transparent Benchmark for Permanent Safety Learning",
+       "year": 2025
+      }
+     ],
      "t2_works": 2,
      "t3_capped": false,
      "t3_orgs": 0,
@@ -1265,6 +2012,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://openalex.org/W7166900660",
+       "title": "EvalSafetyGap: A Hybrid Survey and Conceptual Framework for LLM Evaluation-Safety Failures",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.4018/979-8-3693-5638-8.ch024",
+       "title": "Future Concepts of Artificial Intelligence",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20599906",
+       "title": "Lean Consciousness Philosophy (LCP) Alignment: An Evolutionary-Grounded AI Alignment Signal",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20599905",
+       "title": "Lean Consciousness Philosophy (LCP) Alignment: An Evolutionary-Grounded AI Alignment Signal",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1016/j.ipm.2026.104899",
+       "title": "From bibliometrics to AI safety: Measuring internal persona disruption in LLMs with the DI-Persona metric",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.21203/rs.3.rs-9735048/v1",
+       "title": "Architecting the Geopolitical Sandbox: Heterogeneous Multi-Agent Pipelines for Simulating Geopolitical Crisis",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.4018/406016",
+       "title": "Future Concepts of Artificial Intelligence",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.18441518",
+       "title": "The Digital Airworthiness Protocol: Establishing a Chain of Custody for Visual Reality",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.18441517",
+       "title": "The Digital Airworthiness Protocol: Establishing a Chain of Custody for Visual Reality",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1186/s12909-025-07739-x",
+       "title": "Evaluating tonsillectomy-related YouTube videos via a human expert review and the ChatGPT-4: a multi-method quality analysis",
+       "year": 2025
+      }
+     ],
      "t2_works": 16,
      "t3_capped": false,
      "t3_orgs": 1,
@@ -1340,6 +2139,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://openalex.org/W7164451921",
+       "title": "Iterative Prompt Optimization: A Socio-Technical Framework for Human–AI Alignment in Generative AI",
+       "year": 2026
+      },
+      {
+       "link": "https://openalex.org/W7166262318",
+       "title": "The Pandemic of AI Agents: A Recursive Stewardship Framework",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21449522",
+       "title": "The Missing Layer in Agentic AI",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21449846",
+       "title": "The Missing Layer in Agentic AI",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1073/pnas.2509768123",
+       "title": "The backfiring effect of weak AI safety regulation",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.1073/pnas.2509766123",
+       "title": "Statutory construction and interpretation for AI",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21449523",
+       "title": "The Missing Layer in Agentic AI",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21435153",
+       "title": "Representational Consistency for Machine Learning Systems",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21435148",
+       "title": "Noether-Style Reasoning for Ethics: Representation-Invariant Harm Accounting and the Gauge Analogy of Normative Coherence",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.21435085",
+       "title": "ErisML and DEME: A Structure-Preserving, Framework-Pluralist Pipeline",
+       "year": 2026
+      }
+     ],
      "t2_works": 1498,
      "t3_capped": true,
      "t3_orgs": 10,
@@ -1415,6 +2266,58 @@
    "talent": {
     "frontier": {
      "insufficient_data": false,
+     "t2_sample": [
+      {
+       "link": "https://doi.org/10.5281/zenodo.20836759",
+       "title": "CI-03 Emergency Semantics and Ethical Escalation for Personal AI",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.20836758",
+       "title": "CI-03 Emergency Semantics and Ethical Escalation for Personal AI",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.65109/sakl6648",
+       "title": "MoralityGym: A Benchmark for Evaluating Hierarchical Moral Alignment in Sequential Decision-Making Agents",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.3390/engproc2026132007",
+       "title": "Certification of AI-Based Aviation Systems: A Methodology for Continuous Safety Assurance Across the System Life Cycle",
+       "year": 2026
+      },
+      {
+       "link": "https://openalex.org/W7163973125",
+       "title": "Panellists\\' Insights Into AI-Guardrails: a Proposed AI-Guardrail Framework for Upholding Academic Integrity",
+       "year": 2026
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.17906731",
+       "title": "SENTINEL™ — Deterministic Temporal Cyber-Defense Architecture for Multi-Layer Chronometric Security A High-Integrity Protective Engine for Time-Domain Computing, Coherence Preservation, and Autonomous Intrusion Isolation",
+       "year": 2025
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.17905855",
+       "title": "GRM ™ - Invicta™ – MEMORY BOX - Confinement of Time A Deterministic Temporal Storage Technology Beyond Bit-Based Systems",
+       "year": 2025
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.17906730",
+       "title": "SENTINEL™ — Deterministic Temporal Cyber-Defense Architecture for Multi-Layer Chronometric Security A High-Integrity Protective Engine for Time-Domain Computing, Coherence Preservation, and Autonomous Intrusion Isolation",
+       "year": 2025
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.17906275",
+       "title": "GRM™ – Memory Box™ Temporal Validation, Stability & Simulation Report High-Fidelity Verification of Temporal Confinement, Drift Response, Epoch Integrity, Replay Determinism, and Cross-Layer Stability",
+       "year": 2025
+      },
+      {
+       "link": "https://doi.org/10.5281/zenodo.17906276",
+       "title": "GRM™ – Memory Box™ Temporal Validation, Stability & Simulation Report High-Fidelity Verification of Temporal Confinement, Drift Response, Epoch Integrity, Replay Determinism, and Cross-Layer Stability",
+       "year": 2025
+      }
+     ],
      "t2_works": 19,
      "t3_capped": false,
      "t3_orgs": 1,
