@@ -39,6 +39,7 @@ function TierCell({ tier }: { tier: Tier | null }) {
 }
 
 export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry: (iso: string) => void }) {
+  const [panel, setPanel] = useState<string | null>(null);
   const [track, setTrack] = useState<Track>("frontier");
   const [sortBy, setSortBy] = useState<string>("name");
   const [mode, setMode] = useState<"table" | "charts">("table");
@@ -76,7 +77,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
 
   return (
     <section className="compare-page">
-      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>Grades for each sphere on one lens, and rankings of the numbers behind them. Click any country to view its full profile.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>Grades for each sphere on one lens, and rankings of the numbers behind them. Click any country to open its details in a side panel.</p></div>
       <div className="stat-tiles">
         {tiles.map((t, i) => <div className="stat-tile" key={i}><strong>{t.n}</strong><span>{t.l}</span><small>{t.s}</small></div>)}
       </div>
@@ -103,7 +104,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
         </>}
       </div>
       {mode === "charts" ? (
-        <ChartPanel dataset={dataset} metric={metric ?? METRICS[1]} onCountry={onCountry} view={chartView} />
+        <ChartPanel dataset={dataset} metric={metric ?? METRICS[1]} onCountry={setPanel} view={chartView} />
       ) : (
       <div className="cmp-table-wrap">
         <table className="cmp-table">
@@ -117,7 +118,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
               const v = metric ? metric.get(c) : null;
               return (
                 <tr key={code}>
-                  <td className="cmp-country"><button onClick={() => onCountry(code)}>{c.name} <i>→</i></button></td>
+                  <td className="cmp-country"><button onClick={() => setPanel(code)}>{c.name} <i>→</i></button></td>
                   {DIMS.map(d => <TierCell key={d.id} tier={c[d.id][track].tier} />)}
                   {metric && (
                     <td className="cmp-metric">
@@ -134,8 +135,52 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
         </table>
       </div>
       )}
+      {panel && (
+        <div className="drawer-backdrop" onMouseDown={() => setPanel(null)}>
+          <aside className="drawer cmp-drawer" onMouseDown={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Country details">
+            <CountryDetail dataset={dataset} iso={panel} onCountry={onCountry} onClose={() => setPanel(null)} />
+          </aside>
+        </div>
+      )}
       <p className="cmp-note">Grade colors: <span className="mini-tier tier-dot-nascent" /> Nascent · <span className="mini-tier tier-dot-emerging" /> Emerging · <span className="mini-tier tier-dot-established" /> Established · <span className="mini-tier tier-dot-pending" /> Collecting. Attention grades await complete media and search data and show as Collecting — never guessed.</p>
     </section>
+  );
+}
+
+
+/** Shared country detail card: numbers + evidence links. Used inline on the
+ *  map and as a slide-in panel on Compare. */
+export function CountryDetail({ dataset, iso, onCountry, onClose }: { dataset: SnapshotV2; iso: string; onCountry: (iso: string) => void; onClose: () => void }) {
+  const sel = dataset.countries[iso];
+  const selFB = FBM.countries[iso];
+  const selPA = PAM.countries[iso];
+  if (!sel) return null;
+  return (
+    <>
+      <div className="map-detail-head">
+        <h3>{sel.name}</h3>
+        <button className="map-detail-open" onClick={() => onCountry(iso)}>View full profile →</button>
+        <button className="map-detail-close" onClick={onClose} aria-label="Close">×</button>
+      </div>
+      <div className="map-detail-grid">
+        <div>
+          <p className="absolute-label">The numbers</p>
+          <ul className="map-nums">
+            {METRICS.map(m => { const v = m.get(sel); return <li key={m.key}><span>{m.label}</span><strong>{v === null ? "—" : m.fmt(v)}</strong></li>; })}
+            <li><span>Grades (AI safety lens)</span><strong className="map-grades">{DIMS.map(d => { const t = (sel as any)[d.id].frontier.tier; return <span key={d.id} title={d.name} className={`mini-tier tier-dot-${t?.toLowerCase() ?? "pending"}`} />; })}</strong></li>
+          </ul>
+        </div>
+        <div>
+          <p className="absolute-label">The evidence</p>
+          <ul className="map-links">
+            {(sel.talent.frontier.t2_sample ?? []).filter((w, i, a) => a.findIndex(x => x.title === w.title) === i).slice(0, 3).map((w, i) => <li key={i}>{w.link ? <a href={w.link} target="_blank" rel="noreferrer">{w.title} ↗</a> : <span>{w.title}</span>}<small>AI-safety paper{w.year ? ` · ${w.year}` : ""}</small></li>)}
+            {(selFB?.entities ?? []).slice(0, 3).map((e: any, i: number) => <li key={`o${i}`}><a href={e.source} target="_blank" rel="noreferrer">{e.name} ↗</a><small>{e.type === "university_group" ? "University group" : "Organization"} · {e.city_or_university}</small></li>)}
+            {selPA?.latest_initiative?.source && <li><a href={selPA.latest_initiative.source} target="_blank" rel="noreferrer">{selPA.latest_initiative.name} ↗</a><small>Latest policy move · {selPA.latest_initiative.year}</small></li>}
+            <li><a href={`https://openalex.org/works?filter=${encodeURIComponent(`title_and_abstract.search:"AI safety" OR "AI alignment" OR "existential risk from artificial intelligence" OR "frontier model safety" OR "catastrophic AI risk",from_publication_date:2022-01-01,authorships.countries:${iso}`)}`} target="_blank" rel="noreferrer">Browse {sel.talent.frontier.t2_works === 1 ? "the 1 AI-safety paper" : `all ${sel.talent.frontier.t2_works ?? ""} AI-safety papers`} from this country on OpenAlex ↗</a><small>Live, filterable list</small></li>
+          </ul>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -226,7 +271,7 @@ function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2;
             const bw = r.v && max ? Math.max((r.v / max) * (W - LW - 110 - 16), 2) : 0;
             return (
               <g key={r.code} className="bar-row" onClick={() => onCountry(r.code)}
-                 onMouseMove={(e) => { const el = (e.currentTarget.ownerSVGElement as SVGSVGElement).getBoundingClientRect(); setTip({ text: [r.c.name, `${metric.label}: ${r.v === null ? "no data" : metric.fmt(r.v)}${additive && r.v ? ` · ${((r.v / total) * 100).toFixed(1)}% of G20 total` : ""}`, "Click to view profile"], x: e.clientX - el.left, y: e.clientY - el.top }); }}
+                 onMouseMove={(e) => { const el = (e.currentTarget.ownerSVGElement as SVGSVGElement).getBoundingClientRect(); setTip({ text: [r.c.name, `${metric.label}: ${r.v === null ? "no data" : metric.fmt(r.v)}${additive && r.v ? ` · ${((r.v / total) * 100).toFixed(1)}% of G20 total` : ""}`, "Click for details"], x: e.clientX - el.left, y: e.clientY - el.top }); }}
                  onMouseLeave={() => setTip(null)}>
                 <rect x={0} y={y} width={W} height={RH} fill="transparent" />
                 <text x={LW - 10} y={y + RH / 2 + 4} textAnchor="end" className="bar-label">{r.c.name}</text>
@@ -257,7 +302,7 @@ function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2;
           <text x={14} y={SH / 2} textAnchor="middle" transform={`rotate(-90 14 ${SH / 2})`} className="axis-label">{cfg.yLabel}</text>
           {sc.map(d => (
             <g key={d.code} className="dot-g" onClick={() => onCountry(d.code)}
-               onMouseMove={(e) => { const el = (e.currentTarget.ownerSVGElement as SVGSVGElement).getBoundingClientRect(); setTip({ text: [dataset.countries[d.code].name, `${cfg.xLabel.replace(" \u2192", "")}: ${cfg.xFmt(d.x)}`, `${cfg.yLabel.replace(" \u2192", "")}: ${cfg.yFmt(d.y)}`, "Click to view profile"], x: e.clientX - el.left, y: e.clientY - el.top }); }}
+               onMouseMove={(e) => { const el = (e.currentTarget.ownerSVGElement as SVGSVGElement).getBoundingClientRect(); setTip({ text: [dataset.countries[d.code].name, `${cfg.xLabel.replace(" \u2192", "")}: ${cfg.xFmt(d.x)}`, `${cfg.yLabel.replace(" \u2192", "")}: ${cfg.yFmt(d.y)}`, "Click for details"], x: e.clientX - el.left, y: e.clientY - el.top }); }}
                onMouseLeave={() => setTip(null)}>
               <circle cx={sx(d.x)} cy={sy(d.y)} r={7} fill={d.tier ? TIER_FILL[d.tier] : "#9b968e"} stroke="#fff" strokeWidth={1.5} />
               <text x={sx(d.x) + 10} y={sy(d.y) + 4} className="dot-label">{d.code}</text>
@@ -303,10 +348,6 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
     const t = tierOf(iso);
     return t ? TIER_FILL[t] : "#b8b3ab";
   };
-
-  const sel = selected ? dataset.countries[selected] : null;
-  const selFB = selected ? FBM.countries[selected] : null;
-  const selPA = selected ? PAM.countries[selected] : null;
 
   return (
     <section className="map-page">
@@ -370,31 +411,9 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
         </div>
       )}
 
-      {sel && selected && (
+      {selected && (
         <aside className="map-detail">
-          <div className="map-detail-head">
-            <h3>{sel.name}</h3>
-            <button className="map-detail-open" onClick={() => onCountry(selected)}>View profile →</button>
-            <button className="map-detail-close" onClick={() => setSelected(null)} aria-label="Close">×</button>
-          </div>
-          <div className="map-detail-grid">
-            <div>
-              <p className="absolute-label">The numbers</p>
-              <ul className="map-nums">
-                {METRICS.map(m => { const v = m.get(sel); return <li key={m.key}><span>{m.label}</span><strong>{v === null ? "—" : m.fmt(v)}</strong></li>; })}
-                <li><span>Grades (AI safety lens)</span><strong className="map-grades">{DIMS.map(d => { const t = sel[d.id].frontier.tier; return <span key={d.id} title={d.name} className={`mini-tier tier-dot-${t?.toLowerCase() ?? "pending"}`} />; })}</strong></li>
-              </ul>
-            </div>
-            <div>
-              <p className="absolute-label">The evidence</p>
-              <ul className="map-links">
-                {(sel.talent.frontier.t2_sample ?? []).slice(0, 3).map((w, i) => <li key={i}>{w.link ? <a href={w.link} target="_blank" rel="noreferrer">{w.title} ↗</a> : <span>{w.title}</span>}<small>AI-safety paper{w.year ? ` · ${w.year}` : ""}</small></li>)}
-                {(selFB?.entities ?? []).slice(0, 3).map((e: any, i: number) => <li key={`o${i}`}><a href={e.source} target="_blank" rel="noreferrer">{e.name} ↗</a><small>{e.type === "university_group" ? "University group" : "Organization"} · {e.city_or_university}</small></li>)}
-                {selPA?.latest_initiative?.source && <li><a href={selPA.latest_initiative.source} target="_blank" rel="noreferrer">{selPA.latest_initiative.name} ↗</a><small>Latest policy move · {selPA.latest_initiative.year}</small></li>}
-                <li><a href={`https://openalex.org/works?filter=${encodeURIComponent(`title_and_abstract.search:"AI safety" OR "AI alignment" OR "existential risk from artificial intelligence" OR "frontier model safety" OR "catastrophic AI risk",from_publication_date:2022-01-01,authorships.countries:${selected}`)}`} target="_blank" rel="noreferrer">Browse {sel.talent.frontier.t2_works === 1 ? "the 1 AI-safety paper" : `all ${sel.talent.frontier.t2_works ?? ""} AI-safety papers`} from this country on OpenAlex ↗</a><small>Live, filterable list</small></li>
-              </ul>
-            </div>
-          </div>
+          <CountryDetail dataset={dataset} iso={selected} onCountry={onCountry} onClose={() => setSelected(null)} />
         </aside>
       )}
     </section>

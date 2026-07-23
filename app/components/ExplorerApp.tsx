@@ -229,6 +229,20 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
+  // Selecting a country (from the strip or any other view) scrolls to its
+  // profile — otherwise the selection changes below the fold and looks inert.
+  const [profileNonce, setProfileNonce] = useState(0);
+  const openProfile = (iso: string) => {
+    setSelected(iso);
+    setView("explore");
+    setProfileNonce(n => n + 1);
+  };
+  useEffect(() => {
+    if (!profileNonce) return;
+    requestAnimationFrame(() => {
+      document.querySelector(".profile")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [profileNonce]);
   const country = dataset.countries[selected];
 
   const facts = useMemo(() => {
@@ -278,11 +292,11 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
       </header>
 
       {view === "compare" ? (
-        <CompareView dataset={dataset} onCountry={(iso) => { setSelected(iso); setView("explore"); }} />
+        <CompareView dataset={dataset} onCountry={openProfile} />
       ) : view === "map" ? (
-        <MapView dataset={dataset} onCountry={(iso) => { setSelected(iso); setView("explore"); }} />
+        <MapView dataset={dataset} onCountry={openProfile} />
       ) : view === "act" ? (
-        <WhereToActView dataset={dataset} onCountry={(iso) => { setSelected(iso); setView("explore"); }} />
+        <WhereToActView dataset={dataset} onCountry={openProfile} />
       ) : view === "method" ? (
         <section className="method-page">
           <span className="eyebrow">Methodology · G20 edition · {snapMonth(dataset.snapshot)} data</span>
@@ -362,7 +376,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
             {codes.map(code => {
               const c = dataset.countries[code];
               return (
-                <button key={code} className={code === selected ? "selected" : ""} onClick={() => setSelected(code)}>
+                <button key={code} className={code === selected ? "selected" : ""} onClick={() => openProfile(code)}>
                   <div><span className="country-code">{code}</span><span title="Field grade on the AI-safety lens"><TierPill tier={c.talent.frontier.tier} /></span></div>
                   <strong>{c.name}</strong>
                   <div className="mini-tiers">

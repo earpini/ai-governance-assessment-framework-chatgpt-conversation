@@ -174,3 +174,16 @@
 
 .cmp-table th .th-note { display: block; font-weight: 400; text-transform: none; letter-spacing: normal; font-size: .66rem; color: var(--muted); margin-top: 2px; }
 .map-legend .legend-note { opacity: .75; font-weight: 600; }
+
+/* Scrollable controls and charts on narrow screens */
+.cmp-controls .range-toggle { overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.cmp-controls .range-toggle::-webkit-scrollbar { display: none; }
+.range-toggle button { white-space: nowrap; }
+.chart-block { overflow-x: auto; }
+.chart-block svg { min-width: 720px; }
+/* Country side panel on Compare */
+.drawer { overflow-y: auto; }
+.cmp-drawer .map-detail-grid { grid-template-columns: 1fr; gap: 24px; }
+.cmp-drawer .map-detail-head { padding-right: 40px; }
+.cmp-drawer .map-detail-head h3 { font-size: 1.9rem; }
+.cmp-drawer .map-detail-close { position: absolute; right: 28px; top: 25px; border: 1px solid rgba(128,128,128,0.35); background: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.3rem; cursor: pointer; }
