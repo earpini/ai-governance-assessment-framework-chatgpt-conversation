@@ -25,7 +25,7 @@
 .tier-dot-pending { background: transparent; border: 1.5px dashed #9b968e; }
 
 .constraint-headline { font-weight: 800; font-size: 20px; display: block; }
-.stage-summary small { display: block; max-width: 300px; }
+.stage-summary small { display: block; max-width: 300px; text-transform: none; letter-spacing: normal; font-size: .78rem; line-height: 1.55; color: var(--muted); }
 
 .data-warning.opportunity { border-left: 4px solid #e2a33c; background: rgba(226, 163, 60, 0.10); }
 
@@ -171,3 +171,6 @@
 .fact-hint { display: block; font-size: 11.5px; opacity: 0.55; margin-top: 2px; line-height: 1.35; }
 
 .tick-label { font-size: 11px; fill: #68716b; }
+
+.cmp-table th .th-note { display: block; font-weight: 400; text-transform: none; letter-spacing: normal; font-size: .66rem; color: var(--muted); margin-top: 2px; }
+.map-legend .legend-note { opacity: .75; font-weight: 600; }

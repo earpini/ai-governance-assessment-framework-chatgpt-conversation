@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import world from "world-atlas/countries-110m.json";
+import { snapMonth } from "../format";
 import type { DimensionId, SnapshotV2, Tier, Track } from "../types/snapshot";
 import fieldBuilding from "../../data/curated/field_building.json";
 import policyActivity from "../../data/curated/policy_activity.json";
@@ -75,7 +76,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
 
   return (
     <section className="compare-page">
-      <div className="section-title"><div><span className="eyebrow">Compare · {dataset.snapshot}</span><h2>All countries, side by side.</h2></div><p>Grades for each sphere on one lens, and rankings of the numbers behind them. Click any country to view its full profile.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>Grades for each sphere on one lens, and rankings of the numbers behind them. Click any country to view its full profile.</p></div>
       <div className="stat-tiles">
         {tiles.map((t, i) => <div className="stat-tile" key={i}><strong>{t.n}</strong><span>{t.l}</span><small>{t.s}</small></div>)}
       </div>
@@ -108,7 +109,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
         <table className="cmp-table">
           <thead><tr>
             <th>Country</th>
-            {DIMS.map(d => <th key={d.id}>{d.name}</th>)}
+            {DIMS.map(d => <th key={d.id}>{d.name}{d.id === "attention" && <small className="th-note">data arriving monthly</small>}</th>)}
             {metric && <th className="cmp-metric-head">{metric.label}</th>}
           </tr></thead>
           <tbody>
@@ -263,7 +264,7 @@ function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2;
             </g>
           ))}
         </svg>
-        <div className="map-legend">{TIERS.map(t => <span key={t}><i style={{ background: TIER_FILL[t] }} />{t} ({cfg.tierLabel})</span>)}</div>
+        <div className="map-legend"><span className="legend-note">{cfg.tierLabel.charAt(0).toUpperCase() + cfg.tierLabel.slice(1)}:</span>{TIERS.map(t => <span key={t}><i style={{ background: TIER_FILL[t] }} />{t}</span>)}</div>
       </div>}
       {tip && (
         <div className="map-tip chart-tip" style={{ left: tip.x, top: tip.y }}>
@@ -309,7 +310,7 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
 
   return (
     <section className="map-page">
-      <div className="section-title"><div><span className="eyebrow">Map · {dataset.snapshot}</span><h2>The G20, at a glance.</h2></div><p>Color the map by a grade or by a number. Hover for detail; click a country to see its numbers and the evidence behind them. Gray countries aren't covered yet — the explorer is G20-only for now.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Map · {snapMonth(dataset.snapshot)}</span><h2>The G20, at a glance.</h2></div><p>Color the map by a grade or by a number. Hover for detail; click a country to see its numbers and the evidence behind them. Gray countries aren't covered yet — the explorer is G20-only for now.</p></div>
       <div className="cmp-controls">
         {!metric && <div className="range-toggle" role="tablist" aria-label="Ingredient">
           {DIMS.map(d => <button key={d.id} className={dim === d.id ? "active" : ""} onClick={() => setDim(d.id)}>{d.name}</button>)}
