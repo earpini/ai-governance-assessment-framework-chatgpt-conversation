@@ -17,6 +17,14 @@ export const TRACK_LABEL = { mainstream: "AI governance overall", frontier: "AI 
 
 const REPO = "https://github.com/earpini/AI-Policy-Windows-Explorer";
 
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+/** "2026-07" -> "July 2026" for the header chip */
+function snapMonth(snapshot: string): string {
+  const [y, m] = snapshot.split("-");
+  const name = MONTHS[Number(m) - 1];
+  return name ? `${name} ${y}` : snapshot;
+}
+
 const DIMENSIONS: { id: DimensionId; name: string; short: string; question: string }[] = [
   { id: "talent", name: "The field", short: "field", question: "How mature is the expert field — researchers, organizations, and the groups that turn research into a community?" },
   { id: "attention", name: "The public", short: "public", question: "Has AI governance reached the public conversation, in the local language?" },
@@ -272,7 +280,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
       <header className="site-header">
         {variant === "brand" ? <div className="header-brand"><a className="ea-wordmark" href="https://ettorearpini.com/" aria-label="Ettore Arpini, home">Ettore Arpini<span className="ea-logo-arrow">↗</span></a><span className="header-tool-title">|&nbsp; AI Policy Windows Explorer</span></div> : <button className="brand" onClick={() => setView("explore")}><span>W/</span> WINDOW</button>}
         <nav aria-label="Primary"><button className={view === "explore" ? "active" : ""} onClick={() => setView("explore")}>Explore</button><button className={view === "compare" ? "active" : ""} onClick={() => setView("compare")}>Compare</button><button className={view === "map" ? "active" : ""} onClick={() => setView("map")}>Map</button><button className={view === "act" ? "active" : ""} onClick={() => setView("act")}>Where to act</button><button className={view === "method" ? "active" : ""} onClick={() => setView("method")}>Methodology</button></nav>
-        <div className="status-dot"><i /> Snapshot {dataset.snapshot}{dataset.provisional_thresholds ? " · provisional tiers" : ""}</div>
+        <div className="status-dot"><i /> {snapMonth(dataset.snapshot)} data{dataset.provisional_thresholds ? " · early grades" : ""}</div>
       </header>
 
       {view === "compare" ? (
@@ -330,7 +338,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
 
           <div className="method-notes">
             <div><h3>Reproducibility</h3><p>A monthly GitHub Actions workflow collects, archives raw responses, rebuilds the snapshot deterministically, and opens a pull request. Nothing publishes without human review.</p></div>
-            <div><h3>Honest gaps</h3><p>Attention currently runs on partial data: GDELT throttles aggressively and Google Trends API access is pending. Affected tiers display as collecting, and no binding constraint is derived from incomplete evidence.</p></div>
+            <div><h3>Honest gaps</h3><p>Attention currently runs on partial data: GDELT throttles aggressively and Google Trends API access is pending. Affected grades display as Collecting, and no binding constraint is derived from incomplete evidence.</p></div>
             <div><h3>Known artifacts</h3><p>Research-share denominators are distorted for some countries by bulk indexing (notably Japan); flagged in the scoring configuration with fixes queued rather than silently adjusted.</p></div>
           </div>
           <button className="back-button" onClick={() => setView("explore")}>← Back to country explorer</button>
@@ -364,7 +372,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
                   <div><span className="country-code">{code}</span><span title="Field grade on the AI-safety lens"><TierPill tier={c.talent.frontier.tier} /></span></div>
                   <strong>{c.name}</strong>
                   <div className="mini-tiers">
-                    {DIMENSIONS.map(d => <span key={d.id} className={`mini-tier tier-dot-${c[d.id].frontier.tier?.toLowerCase() ?? "pending"}`} title={`${d.name} (frontier): ${c[d.id].frontier.tier ?? "collecting"}`} />)}
+                    {DIMENSIONS.map(d => <span key={d.id} className={`mini-tier tier-dot-${c[d.id].frontier.tier?.toLowerCase() ?? "pending"}`} title={`${d.name} (frontier): ${c[d.id].frontier.tier ?? "Collecting"}`} />)}
                     <small>AI safety lens</small>
                   </div>
                   <span className="select-label">{code === selected ? "Viewing profile" : "View profile"} →</span>
@@ -396,7 +404,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
                     <div className="evidence-list">
                       <p className="absolute-label">Evidence</p>
                       {facts[d.id].map(f => <FactButton key={f.label} fact={f} onOpen={setFact} />)}
-                      {d.id === "attention" && country.attention.mainstream.insufficient_data && <div className="evidence-empty">Media-coverage and search-interest data for this country is still being gathered (the sources limit how fast we can collect). Until it arrives, the grade reads "collecting" — never a made-up zero.</div>}
+                      {d.id === "attention" && country.attention.mainstream.insufficient_data && <div className="evidence-empty">Media-coverage and search-interest data for this country is still being gathered (the sources limit how fast we can collect). Until it arrives, the grade reads "Collecting" — never a made-up zero.</div>}
                     </div>
                   </article>
                 );

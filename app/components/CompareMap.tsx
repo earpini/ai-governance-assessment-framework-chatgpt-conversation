@@ -33,7 +33,7 @@ const METRICS: Metric[] = [
 ];
 
 function TierCell({ tier }: { tier: Tier | null }) {
-  if (!tier) return <td className="cmp-cell tier-cell-pending"><span className="mini-tier tier-dot-pending" />collecting</td>;
+  if (!tier) return <td className="cmp-cell tier-cell-pending"><span className="mini-tier tier-dot-pending" />Collecting</td>;
   return <td className={`cmp-cell tier-cell-${tier.toLowerCase()}`}><span className={`mini-tier tier-dot-${tier.toLowerCase()}`} />{tier}</td>;
 }
 
@@ -75,7 +75,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
 
   return (
     <section className="compare-page">
-      <div className="section-title"><div><span className="eyebrow">Compare · {dataset.snapshot}</span><h2>All countries, side by side.</h2></div><p>Grades for each sphere on one lens, and rankings of the numbers behind them. Click any country to open its full profile.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Compare · {dataset.snapshot}</span><h2>All countries, side by side.</h2></div><p>Grades for each sphere on one lens, and rankings of the numbers behind them. Click any country to view its full profile.</p></div>
       <div className="stat-tiles">
         {tiles.map((t, i) => <div className="stat-tile" key={i}><strong>{t.n}</strong><span>{t.l}</span><small>{t.s}</small></div>)}
       </div>
@@ -95,7 +95,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
           <label className="cmp-sort">{mode === "charts" ? "Indicator" : "Sort by"}{" "}
             <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
               <option value="name">Country name</option>
-              <option value="readiness">Overall readiness (tier sum)</option>
+              <option value="readiness">Overall readiness</option>
               {METRICS.map(m => <option key={m.key} value={m.key}>{m.label}</option>)}
             </select>
           </label>
@@ -133,7 +133,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
         </table>
       </div>
       )}
-      <p className="cmp-note">Tier colors: <span className="mini-tier tier-dot-nascent" /> Nascent · <span className="mini-tier tier-dot-emerging" /> Emerging · <span className="mini-tier tier-dot-established" /> Established · <span className="mini-tier tier-dot-pending" /> collecting. Attention grades await complete media and search data and show as collecting — never guessed.</p>
+      <p className="cmp-note">Grade colors: <span className="mini-tier tier-dot-nascent" /> Nascent · <span className="mini-tier tier-dot-emerging" /> Emerging · <span className="mini-tier tier-dot-established" /> Established · <span className="mini-tier tier-dot-pending" /> Collecting. Attention grades await complete media and search data and show as Collecting — never guessed.</p>
     </section>
   );
 }
@@ -153,7 +153,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     yLabel: "AI-safety papers (\u221a scale) \u2192",
     x: c => c.talent.mainstream.t1_ai_share ?? 0, y: c => c.talent.frontier.t2_works ?? 0, sqrtY: true,
     xFmt: v => `${(v * 100).toFixed(2)}%`, yFmt: v => v.toLocaleString(),
-    tier: c => c.talent.frontier.tier, tierLabel: "Field grade (AI-safety lens)",
+    tier: c => c.talent.frontier.tier, tierLabel: "field grade, AI-safety lens",
   },
   talent: {
     title: "The field landscape: safety research vs organized community",
@@ -162,7 +162,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     yLabel: "Safety orgs & student groups \u2192",
     x: c => c.talent.frontier.t2_works ?? 0, y: c => c.talent.frontier.t3_orgs + c.talent.frontier.t3_university_groups, sqrtY: false,
     xFmt: v => v.toLocaleString(), yFmt: v => String(v),
-    tier: c => c.talent.frontier.tier, tierLabel: "Field grade (AI-safety lens)",
+    tier: c => c.talent.frontier.tier, tierLabel: "field grade, AI-safety lens",
   },
   policy: {
     title: "The government landscape: AI policy activity vs safety commitments",
@@ -171,7 +171,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     yLabel: "Safety commitments (0\u20135) \u2192",
     x: c => c.policy.mainstream.p1_oecd_initiative_count ?? 0, y: c => c.policy.frontier.p2_score, sqrtY: false,
     xFmt: v => String(v), yFmt: v => `${v}/5`,
-    tier: c => c.policy.frontier.tier, tierLabel: "Government grade (AI-safety lens)",
+    tier: c => c.policy.frontier.tier, tierLabel: "government grade, AI-safety lens",
   },
 };
 
@@ -198,6 +198,22 @@ function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2;
   const yMax = cfg ? Math.max(...sc.map(d => yT(d.y))) * 1.12 : 1;
   const sx = (x: number) => SP.l + (xT(x) / xMax) * (SW - SP.l - SP.r);
   const sy = (y: number) => SH - SP.b - (yT(y) / yMax) * (SH - SP.t - SP.b);
+  // Real-value axis ticks: pick candidates at even positions along the
+  // (possibly sqrt-scaled) axis, round each to a nice number, and place the
+  // tick at the rounded value's own coordinate - labels are always truthful.
+  const niceNum = (v: number) => {
+    if (v <= 0) return 0;
+    const p = Math.pow(10, Math.floor(Math.log10(v)));
+    const m = v / p;
+    return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * p;
+  };
+  const ticksFor = (maxT: number, invT: (t: number) => number, fwdT: (v: number) => number) =>
+    [...new Set([0.25, 0.5, 0.75, 0.95].map(f => niceNum(invT(f * maxT))))]
+      .filter(v => v > 0 && fwdT(v) <= maxT);
+  const xTicks = cfg ? ticksFor(xMax, view === "talent" ? (t => t * t) : (t => t), xT) : [];
+  const yTicks = cfg ? ticksFor(yMax, cfg.sqrtY ? (t => t * t) : (t => t), yT) : [];
+  const tickText = (fmt: (v: number) => string, v: number) =>
+    fmt(v).replace(/\.0+%$/, "%").replace(/(\.\d*?)0+%$/, "$1%");
 
   return (
     <div className="chartpanel">
@@ -209,7 +225,7 @@ function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2;
             const bw = r.v && max ? Math.max((r.v / max) * (W - LW - 110 - 16), 2) : 0;
             return (
               <g key={r.code} className="bar-row" onClick={() => onCountry(r.code)}
-                 onMouseMove={(e) => { const el = (e.currentTarget.ownerSVGElement as SVGSVGElement).getBoundingClientRect(); setTip({ text: [r.c.name, `${metric.label}: ${r.v === null ? "no data" : metric.fmt(r.v)}${additive && r.v ? ` · ${((r.v / total) * 100).toFixed(1)}% of G20 total` : ""}`, "Click for full profile"], x: e.clientX - el.left, y: e.clientY - el.top }); }}
+                 onMouseMove={(e) => { const el = (e.currentTarget.ownerSVGElement as SVGSVGElement).getBoundingClientRect(); setTip({ text: [r.c.name, `${metric.label}: ${r.v === null ? "no data" : metric.fmt(r.v)}${additive && r.v ? ` · ${((r.v / total) * 100).toFixed(1)}% of G20 total` : ""}`, "Click to view profile"], x: e.clientX - el.left, y: e.clientY - el.top }); }}
                  onMouseLeave={() => setTip(null)}>
                 <rect x={0} y={y} width={W} height={RH} fill="transparent" />
                 <text x={LW - 10} y={y + RH / 2 + 4} textAnchor="end" className="bar-label">{r.c.name}</text>
@@ -226,14 +242,21 @@ function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2;
         <h3>{cfg.title}</h3>
         <p className="chart-sub">{cfg.sub}</p>
         <svg viewBox={`0 0 ${SW} ${SH}`} role="img" aria-label={cfg.title}>
-          {[0.25, 0.5, 0.75, 1].map(f => <line key={f} x1={SP.l} x2={SW - SP.r} y1={SH - SP.b - f * (SH - SP.t - SP.b)} y2={SH - SP.b - f * (SH - SP.t - SP.b)} className="gridline" />)}
+          {yTicks.map(v => <g key={`y${v}`}>
+            <line x1={SP.l} x2={SW - SP.r} y1={sy(v)} y2={sy(v)} className="gridline" />
+            <text x={SP.l - 7} y={sy(v) + 3.5} textAnchor="end" className="tick-label">{tickText(cfg.yFmt, v)}</text>
+          </g>)}
+          {xTicks.map(v => <g key={`x${v}`}>
+            <line x1={sx(v)} x2={sx(v)} y1={SH - SP.b} y2={SH - SP.b + 5} className="axisline" />
+            <text x={sx(v)} y={SH - SP.b + 17} textAnchor="middle" className="tick-label">{tickText(cfg.xFmt, v)}</text>
+          </g>)}
           <line x1={SP.l} x2={SW - SP.r} y1={SH - SP.b} y2={SH - SP.b} className="axisline" />
           <line x1={SP.l} x2={SP.l} y1={SP.t} y2={SH - SP.b} className="axisline" />
-          <text x={SW / 2} y={SH - 10} textAnchor="middle" className="axis-label">{cfg.xLabel}</text>
+          <text x={SW / 2} y={SH - 6} textAnchor="middle" className="axis-label">{cfg.xLabel}</text>
           <text x={14} y={SH / 2} textAnchor="middle" transform={`rotate(-90 14 ${SH / 2})`} className="axis-label">{cfg.yLabel}</text>
           {sc.map(d => (
             <g key={d.code} className="dot-g" onClick={() => onCountry(d.code)}
-               onMouseMove={(e) => { const el = (e.currentTarget.ownerSVGElement as SVGSVGElement).getBoundingClientRect(); setTip({ text: [dataset.countries[d.code].name, `${cfg.xLabel.replace(" \u2192", "")}: ${cfg.xFmt(d.x)}`, `${cfg.yLabel.replace(" \u2192", "")}: ${cfg.yFmt(d.y)}`, "Click for full profile"], x: e.clientX - el.left, y: e.clientY - el.top }); }}
+               onMouseMove={(e) => { const el = (e.currentTarget.ownerSVGElement as SVGSVGElement).getBoundingClientRect(); setTip({ text: [dataset.countries[d.code].name, `${cfg.xLabel.replace(" \u2192", "")}: ${cfg.xFmt(d.x)}`, `${cfg.yLabel.replace(" \u2192", "")}: ${cfg.yFmt(d.y)}`, "Click to view profile"], x: e.clientX - el.left, y: e.clientY - el.top }); }}
                onMouseLeave={() => setTip(null)}>
               <circle cx={sx(d.x)} cy={sy(d.y)} r={7} fill={d.tier ? TIER_FILL[d.tier] : "#9b968e"} stroke="#fff" strokeWidth={1.5} />
               <text x={sx(d.x) + 10} y={sy(d.y) + 4} className="dot-label">{d.code}</text>
@@ -286,7 +309,7 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
 
   return (
     <section className="map-page">
-      <div className="section-title"><div><span className="eyebrow">Map · {dataset.snapshot}</span><h2>The G20, at a glance.</h2></div><p>Color the map by a grade or by a number. Hover for detail; click a country to see its numbers and the evidence behind them. Gray countries are outside the current G20 scope.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Map · {dataset.snapshot}</span><h2>The G20, at a glance.</h2></div><p>Color the map by a grade or by a number. Hover for detail; click a country to see its numbers and the evidence behind them. Gray countries aren't covered yet — the explorer is G20-only for now.</p></div>
       <div className="cmp-controls">
         {!metric && <div className="range-toggle" role="tablist" aria-label="Ingredient">
           {DIMS.map(d => <button key={d.id} className={dim === d.id ? "active" : ""} onClick={() => setDim(d.id)}>{d.name}</button>)}
@@ -297,7 +320,7 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
         </div>}
         <label className="cmp-sort">Color by{" "}
           <select value={colorBy} onChange={e => setColorBy(e.target.value)}>
-            <option value="grade">Grade (pick sphere & lens)</option>
+            <option value="grade">Grade (sphere & lens above)</option>
             {METRICS.map(m => <option key={m.key} value={m.key}>{m.label}</option>)}
           </select>
         </label>
@@ -325,7 +348,7 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
               <strong>{c.name}</strong>
               {metric
                 ? <span>{metric.label}: {v === null ? "no data" : metric.fmt(v)}</span>
-                : <span>{DIMS.find(d => d.id === dim)!.name} · {TRACK_LABEL[track]}: {tierOf(hover.iso) ?? "collecting"}</span>}
+                : <span>{DIMS.find(d => d.id === dim)!.name} · {TRACK_LABEL[track]}: {tierOf(hover.iso) ?? "Collecting"}</span>}
               <small>Click to see the evidence</small>
             </div>
           );
@@ -350,7 +373,7 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
         <aside className="map-detail">
           <div className="map-detail-head">
             <h3>{sel.name}</h3>
-            <button className="map-detail-open" onClick={() => onCountry(selected)}>Open full profile →</button>
+            <button className="map-detail-open" onClick={() => onCountry(selected)}>View profile →</button>
             <button className="map-detail-close" onClick={() => setSelected(null)} aria-label="Close">×</button>
           </div>
           <div className="map-detail-grid">
