@@ -1,31 +1,65 @@
 {
-  "description": "Tier rules for the Plures AI Ecosystem Explorer. Tiers: Nascent < Emerging < Established, per dimension and per track. Talent and policy thresholds were calibrated on the first real snapshot (2026-07) and are FROZEN with the justifications below until a versioned methodology revision. Attention rules remain provisional pending sufficient A1 data.",
+  "description": "Stage rules for the Plures AI Ecosystem Explorer. Stages: Nascent < Emerging < Established, per dimension and per track, assigned as a staged capability maturity model (see framework). Talent and policy capability tests were calibrated on the first real snapshot (2026-07) and are FROZEN with the justifications below until a versioned methodology revision. Attention rules remain provisional pending sufficient A1 data.",
   "calibrated": false,
-  "calibration_status": {
-    "talent": "calibrated on snapshot 2026-07 (run monthly-collect #3), frozen",
-    "policy": "calibrated on snapshot 2026-07, frozen (rules are definitional maps of curated codings)",
-    "attention": "PENDING - first GDELT collection returned partial data (13/44 query sets, most empty); rules stay provisional and tiers stay null until at least one full A1 collection"
+  "framework": {
+    "summary": "The grading is grounded in three published frameworks. (1) Stage semantics: the three grades are stages in the sense of the Capability Maturity Model (Paulk et al. 1993) - a stage is reached when its defining capabilities are all present, not when a composite score crosses a line; there is no weighted index anywhere in the pipeline. (2) Dimension structure: the three dimensions operationalize Kingdon's multiple-streams model of policy windows - Attention observes the problem stream (issue salience), Talent the policy stream (the community of specialists who can produce workable proposals), Policy the politics stream (government receptivity and institutional commitment). A policy window can only be used where all three streams are mature, so the least mature dimension is the binding constraint and the suggested entry point. (3) Capacity reading: the dimensions map onto the three policy capacities of Wu, Ramesh & Howlett (2015) - analytical capacity (Talent), political capacity (Attention/legitimacy), operational capacity (Policy/institutions).",
+    "stage_semantics": {
+      "Nascent": "Initial (CMM level-1 analogue): the dimension's defining capabilities are absent.",
+      "Emerging": "Forming (level-2 analogue): some defining capabilities are present, but not all.",
+      "Established": "Consolidated (level-3 analogue): every defining capability is present and comparable to the stronger G20 countries.",
+      "Collecting": "Not a stage: insufficient evidence. Displayed as collecting, never scored as zero, never imputed."
+    },
+    "references": [
+      "Kingdon, J.W. (1984; updated ed. 2011). Agendas, Alternatives, and Public Policies. Little, Brown / Longman.",
+      "Paulk, M.C., Curtis, B., Chrissis, M.B., & Weber, C.V. (1993). Capability Maturity Model, Version 1.1. IEEE Software 10(4), 18-27.",
+      "Wu, X., Ramesh, M., & Howlett, M. (2015). Policy capacity: A conceptual framework for understanding policy competences and capabilities. Policy and Society 34(3-4), 165-171."
+    ]
+  },
+  "entry_point": {
+    "comment": "Formal derivation of the suggested entry point, applied mechanically by build.py per track. Replaces the earlier ad-hoc 'lowest tier, alphabetical on ties' rule. Rationale: in Kingdon's terms the least mature stream is where coupling fails when a window opens; naming it requires it to be unique and evidenced.",
+    "rules": [
+      "R1 (completeness): if any dimension on the track is Collecting, the profile is provisional. A least-mature dimension may still be reported, but it is labelled provisional and no final binding constraint is published.",
+      "R2 (consolidated): if every observed dimension is Established, the profile is consolidated - no binding constraint exists and none is invented.",
+      "R3 (uniqueness): a single entry point is named only when exactly one dimension sits at the lowest observed stage.",
+      "R4 (ties): if two or more dimensions tie at the lowest stage, the profile is balanced at that stage; all tied dimensions are reported and no ranking among them is invented."
+    ]
   },
   "talent": {
     "mainstream": {
-      "comment": "t1_share = AI works / total works, rolling 3y. Compared against a FROZEN reference share rather than the live median, so tiers cannot churn month-to-month from denominator drift.",
+      "comment": "t1_share = AI works / total works, rolling 3y. Single defining capability: AI is at least as large a research priority as in the reference G20 country. Compared against a FROZEN reference share rather than the live median, so stages cannot churn month-to-month from denominator drift.",
       "reference_share": 0.0203,
       "reference_justification": "G20 median share in snapshot 2026-07 (DE=0.02033), nearly identical to the US share (0.02051), making the threshold readable as 'AI occupies at least as large a slice of national research output as it does in the median G20 country / the US'.",
       "established_min_share_of_reference": 1.0,
       "nascent_max_share_of_reference": 0.6,
       "nascent_justification": "0.6x reference (=1.22%) sits in a visible gap in the 2026-07 distribution between ZA (0.96%) and MX (1.37%), separating the low cluster (AR, BR, ZA, JP*) from the middle.",
-      "known_artifact": "JP share (0.15%) is implausible: Japan's total-works denominator is inflated by J-STAGE bulk indexing. JP's mainstream talent tier is unreliable until the collector filters type:article on both numerator and denominator (queued fix). Similar inflation affects ID in the opposite direction (local-journal AI volume)."
+      "known_artifact": "JP share (0.15%) is implausible: Japan's total-works denominator is inflated by J-STAGE bulk indexing. JP's mainstream talent stage is unreliable until the collector filters type:article on both numerator and denominator (queued fix). Similar inflation affects ID in the opposite direction (local-journal AI volume)."
     },
     "frontier": {
-      "comment": "t2 = frontier works since 2022; t3 = curated orgs + university groups. Established requires BOTH research output and organized field-building; a country can be Emerging on either alone (e.g. AR: 1 paper but 3 active groups; CN: 151 papers but 3 orgs).",
-      "established": {"t2_min": 100, "t3_min": 5},
-      "established_justification": "t2>=100 captures the top quartile of the 2026-07 G20 distribution (US 1498, GB 403, CA 224, DE 159, CN 151, IN 116 above; FR 84 below). t3>=5 = a field, not an outpost. Yields Established: US, GB, CA, DE, IN - CN excluded by design (research without civil society is the KR/CN gap the explorer exists to surface).",
-      "nascent": {"t2_max": 20, "t3_max": 1},
-      "nascent_justification": "t2<=20 sits in the distribution gap between ZA (19) and RU (28); t3<=1 means no organized community. Yields Nascent: MX, TR, SA. AR escapes Nascent via its 3 active groups despite 1 paper - correct: field-building exists there ahead of research."
+      "comment": "Staged capability model. t2 = frontier works since 2022; t3 = curated orgs + university groups. Established requires ALL capabilities (research base, organized community, scale); Nascent means NEITHER foundational capability (research base, organized community) is present; anything in between is Emerging. Reproduces the 2026-07 calibration exactly while making each stage a statement about capabilities present.",
+      "capabilities": {
+        "research_base": {
+          "t2_min": 20,
+          "justification": "At least 20 frontier works since 2022 - the cut sits in the distribution gap between ZA (19) and RU (28) in the 2026-07 snapshot, separating incidental papers from a working research base."
+        },
+        "organized_community": {
+          "t3_min": 2,
+          "justification": "At least two verified-active orgs/university groups - a community, not a single outpost. AR (1 paper, 3 groups) correctly escapes Nascent: field-building exists there ahead of research."
+        },
+        "scale": {
+          "t2_min": 100,
+          "t3_min": 5,
+          "justification": "t2>=100 captures the top quartile of the 2026-07 G20 distribution (US 1498, GB 403, CA 224, DE 159, CN 151, IN 116 above; FR 84 below). t3>=5 = a field, not an outpost. CN (151 works, 3 entities) stays Emerging by design - research without civil society is the KR/CN gap the explorer exists to surface."
+        }
+      },
+      "stages": {
+        "Established": "research_base AND organized_community AND scale",
+        "Nascent": "NOT research_base AND NOT organized_community",
+        "Emerging": "otherwise"
+      }
     }
   },
   "attention": {
-    "comment": "Within-country only (GDELT timelinevol is % of the country's monitored coverage). ratio = mean of last 12 monthly values / mean of prior 12. If A1 data is absent the tier is null with insufficient_data=true - missing is never zero. PROVISIONAL: first collection (2026-07) returned 13/44 query sets before the time budget, and most frontier-track non-English queries returned empty timelines - thresholds below are uncalibrated guesses.",
+    "comment": "Within-country only (GDELT timelinevol is % of the country's monitored coverage). ratio = mean of last 12 monthly values / mean of prior 12. If A1 data is absent the stage is null with insufficient_data=true - missing is never zero. PROVISIONAL: first collection (2026-07) returned 13/44 query sets before the time budget, and most frontier-track non-English queries returned empty timelines - thresholds below are uncalibrated guesses.",
     "mainstream": {
       "established_min_ratio": 1.2,
       "nascent_max_ratio": 0.9

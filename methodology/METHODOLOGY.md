@@ -8,9 +8,11 @@ Plures works on a hypothesis: in most countries whose main language is not Engli
 
 That hypothesis borrows directly from Kingdon's policy-windows model: change happens when the problem stream, the policy stream, and the politics stream converge, and someone is standing there ready to couple them. The explorer maps the preconditions for that coupling across three observable dimensions:
 
-1. **Talent** — is anyone in the country's universities and research institutions working on AI, and specifically on AI safety and governance?
-2. **Attention** — has the topic reached the public conversation, in the local language?
-3. **Policy** — is the government aware, and has it done any preparation?
+1. **The field** (internal id: `talent`) — is anyone in the country's universities, research institutions, and civil society working on AI, and specifically on AI safety and governance?
+2. **The public** (internal id: `attention`) — has the topic reached the public conversation, in the local language?
+3. **The government** (internal id: `policy`) — is the state aware, and has it done any preparation?
+
+The tool assesses one thing — the maturity of a country's AI governance ecosystem — in the three spheres where it has to exist: in the expert field, in the public, and in the government. The site displays the sphere names; the internal ids (`talent`, `attention`, `policy`) are frozen in the schema, configs, and snapshots so that renames at the display layer never touch the data contract. Indicator ids (T1–T3, A1–A3, P1–P3) follow the internal names.
 
 The reading is simple. A country strong on all three is *window-ready*: when the moment comes, it can act — or Plures can help accelerate the moment. A country weak on one dimension has a **binding constraint**, and that constraint is the intervention target. A country weak on all three is greenfield: the highest-leverage place for early field-building, and exactly where this explorer should be pointing.
 
@@ -31,7 +33,7 @@ Every dimension is measured twice, on two deliberately separate tracks:
 
 The two tracks are never merged. A country page shows both, side by side.
 
-## Dimension 1: Talent
+## Sphere 1: The field (talent indicators)
 
 *Question answered: is there a pipeline of people who could staff an AI governance ecosystem?*
 
@@ -49,7 +51,7 @@ The two tracks are never merged. A country page shows both, side by side.
 
 OpenAlex is free, keyless, and rate-limited generously (100k calls/day in the polite pool with a `mailto` parameter). No scraping, no credentials, no terms-of-service gray zones.
 
-## Dimension 2: Attention
+## Sphere 2: The public (attention indicators)
 
 *Question answered: has AI governance reached the public conversation, in the language people actually speak?*
 
@@ -65,7 +67,7 @@ OpenAlex is free, keyless, and rate-limited generously (100k calls/day in the po
 
 **A3** is the fully-automated companion: monthly pageviews for a pinned basket of articles — *Artificial intelligence*, *AI safety*, *Existential risk from artificial general intelligence*, *AI alignment*, *Regulation of artificial intelligence*, and their interwiki equivalents — in each country's principal-language Wikipedia. The caveat is structural and stated on every chart: language communities are not countries (pt.wikipedia is Brazil *and* Portugal; es.wikipedia spans a continent), so A3 is labeled *language-community attention* and is corroborating evidence, never the headline. Its virtue is being the one attention source with a free, stable, unauthenticated API — the existence of a frontier-track article in a language at all (does *AI alignment* have an Indonesian article? how old? how big?) is itself a signal.
 
-## Dimension 3: Policy
+## Sphere 3: The government (policy indicators)
 
 *Question answered: is the government aware, and has anyone prepared?*
 
@@ -81,13 +83,32 @@ OpenAlex is free, keyless, and rate-limited generously (100k calls/day in the po
 
 **P3** ingests the annual Oxford Insights Government AI Readiness Index score as displayed context — the general-capacity backdrop against which the frontier signals are read. It is shown, attributed, and never re-scored or blended into our own tiers.
 
-## Scoring: tiers, not numbers
+## Scoring: a staged maturity model, not numbers
 
-Each dimension resolves to one of three published tiers — **Nascent**, **Emerging**, **Established** — via rules committed to `config/scoring/` and applied mechanically by the pipeline. Example shape (thresholds to be calibrated on the first real data pull, then frozen): T-dimension Established requires T1 above the G20 median *and* T2 ≥ 20 works *and* T3 ≥ 3 active groups; Nascent is falling below the floor on two of three. The rules will be wrong in interesting ways at first; they get one calibration pass on real data, a written justification per threshold, and then they freeze until a versioned methodology revision.
+Each dimension resolves to one of three published stages — **Nascent**, **Emerging**, **Established** — via rules committed to `config/v2/scoring.json` and applied mechanically by the pipeline. The grading is grounded in three established frameworks, so that no stage or recommendation rests on an ad-hoc judgment call:
 
-The country profile is the triple, on each track — e.g. Brazil: Talent *Emerging* / Attention *Emerging* / Policy *Established* on the mainstream track; *Nascent* across the board on the frontier track. The explorer surfaces the binding constraint (the lowest tier) as the suggested intervention entry point, and flags the archetypes the Plures hypothesis predicts: **mainstream-mature, frontier-empty** is the core opportunity profile.
+**Stage semantics — capability maturity (Paulk et al., 1993).** The three grades are stages in the sense of the Capability Maturity Model: a stage is reached when its *defining capabilities are all present*, never when a composite score crosses a line. Nascent is the Initial analogue (the defining capabilities are absent), Emerging the Forming analogue (some present, not all), Established the Consolidated analogue (all present, comparable to the stronger G20 countries). Concretely, frontier Talent has three capability tests: a *research base* (≥ 20 frontier works since 2022), an *organized community* (≥ 2 verified-active orgs or university groups), and *scale* (≥ 100 works and ≥ 5 entities). Established requires all three; Nascent means neither foundational capability is present; anything between is Emerging. This is why China (151 works, 3 entities) is Emerging while India (116 works, 5 entities) is Established: research without organized civil society is a capability gap, and surfacing it is the point. Every threshold carries a written justification in `scoring.json`, was calibrated once on the first real snapshot (2026-07), and is frozen until a versioned methodology revision. "Collecting" is not a stage — it marks insufficient evidence, and nothing is derived from it.
+
+**Sphere structure — multiple streams (Kingdon, 1984/2011).** The three spheres operationalize the streams whose coupling opens a policy window: **the public** carries the *problem stream* (issue salience in the country's own media and language), **the field** the *policy stream* (the community of specialists able to produce workable proposals), **the government** the *politics stream* (state receptivity and institutional commitment). A window can only be used where all three streams are mature — so the least mature sphere is where coupling would fail, and therefore the suggested entry point.
+
+**Capacity reading — Wu, Ramesh & Howlett (2015).** The dimensions map onto the three policy capacities: analytical (the field), political (the public/legitimacy), operational (the government/institutions). This is the sense in which the frontier track is read as governance capacity rather than as a race to host alignment labs.
+
+### The entry-point derivation
+
+The suggested entry point is derived per track by four fixed rules (`scoring.json → entry_point`), applied mechanically in `build.py`:
+
+- **R1 (completeness).** If any dimension on the track is Collecting, the profile is provisional. A least-mature dimension may be reported, but it is labelled provisional and no final binding constraint is published.
+- **R2 (consolidated).** If every observed dimension is Established, the profile is consolidated: no binding constraint exists and none is invented.
+- **R3 (uniqueness).** A single entry point is named only when exactly one dimension sits at the lowest observed stage.
+- **R4 (ties).** If two or more dimensions tie at the lowest stage, the profile is balanced at that stage; all tied dimensions are reported, and no ranking among them is invented.
+
+The pipeline publishes the full derivation per country and track in the snapshot (`readiness`: profile, stage floor, focus dimensions, missing dimensions), and the front end only renders it — no grading logic lives in the interface.
+
+The country profile is the triple, on each track — e.g. Brazil on the mainstream track: the field *Nascent* / the public *Collecting* / the government *Emerging*. The explorer flags the archetype the Plures hypothesis predicts: **mainstream-mature, frontier-empty** is the core opportunity profile.
 
 Missing data is displayed as missing, never scored as zero. Every displayed number links to its archived raw observation.
+
+**References.** Kingdon, J.W. (1984; updated ed. 2011). *Agendas, Alternatives, and Public Policies.* Little, Brown / Longman. — Paulk, M.C., Curtis, B., Chrissis, M.B., & Weber, C.V. (1993). Capability Maturity Model, Version 1.1. *IEEE Software* 10(4), 18–27. — Wu, X., Ramesh, M., & Howlett, M. (2015). Policy capacity: A conceptual framework for understanding policy competences and capabilities. *Policy and Society* 34(3–4), 165–171.
 
 ## Reproducibility architecture
 

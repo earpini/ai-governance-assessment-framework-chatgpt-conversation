@@ -10,10 +10,10 @@ import policyActivity from "../../data/curated/policy_activity.json";
 const FBM = fieldBuilding as any, PAM = policyActivity as any;
 
 const TIER_FILL: Record<string, string> = { Established: "#2F6E7B", Emerging: "#E2A33C", Nascent: "#C0512E" };
-const TRACK_LABEL = { mainstream: "AI overall", frontier: "AI safety" } as const;
+const TRACK_LABEL = { mainstream: "AI governance overall", frontier: "AI safety" } as const;
 const TIERS: Tier[] = ["Nascent", "Emerging", "Established"];
 const DIMS: { id: DimensionId; name: string }[] = [
-  { id: "talent", name: "Talent" }, { id: "attention", name: "Attention" }, { id: "policy", name: "Policy" },
+  { id: "talent", name: "The field" }, { id: "attention", name: "The public" }, { id: "policy", name: "The government" },
 ];
 
 // world-atlas uses ISO 3166 numeric ids
@@ -75,7 +75,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
 
   return (
     <section className="compare-page">
-      <div className="section-title"><div><span className="eyebrow">Compare · {dataset.snapshot}</span><h2>All countries, side by side.</h2></div><p>Grades for each ingredient on one lens, and rankings of the numbers behind them. Click any country to open its full profile.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Compare · {dataset.snapshot}</span><h2>All countries, side by side.</h2></div><p>Grades for each sphere on one lens, and rankings of the numbers behind them. Click any country to open its full profile.</p></div>
       <div className="stat-tiles">
         {tiles.map((t, i) => <div className="stat-tile" key={i}><strong>{t.n}</strong><span>{t.l}</span><small>{t.s}</small></div>)}
       </div>
@@ -84,13 +84,13 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
           <button className={mode === "table" ? "active" : ""} onClick={() => setMode("table")}>Table</button>
           <button className={mode === "charts" && chartView === "ranking" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("ranking"); if (!METRICS.find(m => m.key === sortBy)) setSortBy("t2"); }}>Rankings</button>
           <button className={mode === "charts" && chartView === "research" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("research"); }}>Research landscape</button>
-          <button className={mode === "charts" && chartView === "talent" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("talent"); }}>Talent landscape</button>
-          <button className={mode === "charts" && chartView === "policy" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("policy"); }}>Policy landscape</button>
+          <button className={mode === "charts" && chartView === "talent" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("talent"); }}>Field landscape</button>
+          <button className={mode === "charts" && chartView === "policy" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("policy"); }}>Government landscape</button>
         </div>
         {(mode === "table" || chartView === "ranking") && <>
           {mode === "table" && <div className="range-toggle" role="tablist" aria-label="Lens">
             <button className={track === "frontier" ? "active" : ""} onClick={() => setTrack("frontier")}>AI safety lens</button>
-            <button className={track === "mainstream" ? "active" : ""} onClick={() => setTrack("mainstream")}>AI overall lens</button>
+            <button className={track === "mainstream" ? "active" : ""} onClick={() => setTrack("mainstream")}>AI governance overall lens</button>
           </div>}
           <label className="cmp-sort">{mode === "charts" ? "Indicator" : "Sort by"}{" "}
             <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
@@ -147,31 +147,31 @@ type LandscapeCfg = {
 
 const LANDSCAPES: Record<string, LandscapeCfg> = {
   research: {
-    title: "The research landscape: AI overall vs AI safety",
+    title: "The research landscape: AI governance overall vs AI safety",
     sub: "Each dot is a country. Right = AI is a big share of national research. Up = more AI-safety papers. Countries low and to the right are active on AI but missing a safety research field.",
     xLabel: "AI\u2019s share of the country\u2019s research output \u2192",
     yLabel: "AI-safety papers (\u221a scale) \u2192",
     x: c => c.talent.mainstream.t1_ai_share ?? 0, y: c => c.talent.frontier.t2_works ?? 0, sqrtY: true,
     xFmt: v => `${(v * 100).toFixed(2)}%`, yFmt: v => v.toLocaleString(),
-    tier: c => c.talent.frontier.tier, tierLabel: "AI-safety talent grade",
+    tier: c => c.talent.frontier.tier, tierLabel: "Field grade (AI-safety lens)",
   },
   talent: {
-    title: "The talent landscape: safety research vs organized community",
+    title: "The field landscape: safety research vs organized community",
     sub: "Right = AI-safety papers exist. Up = safety organizations and student groups exist. Low-right: researchers without a field around them. High-left: organizers ahead of the research (like Argentina).",
     xLabel: "AI-safety papers since 2022 (\u221a scale) \u2192",
     yLabel: "Safety orgs & student groups \u2192",
     x: c => c.talent.frontier.t2_works ?? 0, y: c => c.talent.frontier.t3_orgs + c.talent.frontier.t3_university_groups, sqrtY: false,
     xFmt: v => v.toLocaleString(), yFmt: v => String(v),
-    tier: c => c.talent.frontier.tier, tierLabel: "AI-safety talent grade",
+    tier: c => c.talent.frontier.tier, tierLabel: "Field grade (AI-safety lens)",
   },
   policy: {
-    title: "The policy landscape: AI policy activity vs safety commitments",
+    title: "The government landscape: AI policy activity vs safety commitments",
     sub: "Right = lots of national AI policy activity. Up = concrete safety commitments (declarations, institutes, risk language, law). Low-right: governments busy with AI that have not yet engaged its serious risks.",
     xLabel: "National AI policy initiatives (OECD.AI) \u2192",
     yLabel: "Safety commitments (0\u20135) \u2192",
     x: c => c.policy.mainstream.p1_oecd_initiative_count ?? 0, y: c => c.policy.frontier.p2_score, sqrtY: false,
     xFmt: v => String(v), yFmt: v => `${v}/5`,
-    tier: c => c.policy.frontier.tier, tierLabel: "AI-safety policy grade",
+    tier: c => c.policy.frontier.tier, tierLabel: "Government grade (AI-safety lens)",
   },
 };
 
@@ -293,11 +293,11 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
         </div>}
         {!metric && <div className="range-toggle" role="tablist" aria-label="Lens">
           <button className={track === "frontier" ? "active" : ""} onClick={() => setTrack("frontier")}>AI safety</button>
-          <button className={track === "mainstream" ? "active" : ""} onClick={() => setTrack("mainstream")}>AI overall</button>
+          <button className={track === "mainstream" ? "active" : ""} onClick={() => setTrack("mainstream")}>AI governance overall</button>
         </div>}
         <label className="cmp-sort">Color by{" "}
           <select value={colorBy} onChange={e => setColorBy(e.target.value)}>
-            <option value="grade">Grade (pick ingredient & lens)</option>
+            <option value="grade">Grade (pick sphere & lens)</option>
             {METRICS.map(m => <option key={m.key} value={m.key}>{m.label}</option>)}
           </select>
         </label>

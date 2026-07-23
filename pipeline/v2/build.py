@@ -79,11 +79,19 @@ def tier_talent_mainstream(share, rules):
 
 
 def tier_talent_frontier(t2, t3_total, rules):
+    """Staged capability model (scoring.json talent.frontier): Established
+    requires ALL capabilities present; Nascent means NEITHER foundational
+    capability (research base, organized community) is present."""
     if t2 is None or t3_total is None:
         return None
-    if t2 >= rules["established"]["t2_min"] and t3_total >= rules["established"]["t3_min"]:
+    caps = rules["capabilities"]
+    research_base = t2 >= caps["research_base"]["t2_min"]
+    organized_community = t3_total >= caps["organized_community"]["t3_min"]
+    scale = (t2 >= caps["scale"]["t2_min"]
+             and t3_total >= caps["scale"]["t3_min"])
+    if research_base and organized_community and scale:
         return "Established"
-    if t2 <= rules["nascent"]["t2_max"] and t3_total <= rules["nascent"]["t3_max"]:
+    if not research_base and not organized_community:
         return "Nascent"
     return "Emerging"
 
@@ -100,16 +108,33 @@ def tier_attention(ratio, rules, negligible=False, article_missing=False):
     return "Emerging"
 
 
-def binding_constraint(tiers_by_dimension):
-    """Lowest-tier dimension; None if any dimension lacks a tier."""
-    ranked = {}
-    for dim, tier in tiers_by_dimension.items():
-        if tier is None:
-            return None
-        ranked[dim] = TIERS.index(tier)
-    low = min(ranked.values())
-    # deterministic order on ties
-    return sorted(d for d, r in ranked.items() if r == low)[0]
+def readiness(tiers_by_dimension):
+    """Formal entry-point derivation (scoring.json entry_point rules R1-R4).
+
+    Kingdon reading: the least mature stream is where coupling fails when a
+    policy window opens - but it is only named when unique and evidenced.
+    R1 any Collecting dimension -> profile is provisional (complete=False).
+    R2 floor Established -> consolidated, no entry point invented.
+    R3 unique least-mature dimension -> single entry point (focus).
+    R4 tie at the floor -> balanced profile, all tied dimensions reported.
+    """
+    observed = {d: t for d, t in tiers_by_dimension.items() if t is not None}
+    missing = sorted(d for d in tiers_by_dimension if d not in observed)
+    if not observed:
+        return {"complete": False, "missing": missing, "stage_floor": None,
+                "focus": [], "profile": "none"}
+    floor_rank = min(TIERS.index(t) for t in observed.values())
+    floor = TIERS[floor_rank]
+    focus = sorted(d for d, t in observed.items()
+                   if TIERS.index(t) == floor_rank)
+    if floor == "Established":
+        profile, focus = "consolidated", []
+    elif len(focus) == 1:
+        profile = "single"
+    else:
+        profile = "balanced"
+    return {"complete": not missing, "missing": missing, "stage_floor": floor,
+            "focus": focus, "profile": profile}
 
 
 def main(snapshot):
@@ -248,11 +273,20 @@ def main(snapshot):
         }
 
         blocks = {"talent": talent, "attention": attention, "policy": policy}
+        rd = {
+            track: readiness({d: blocks[d][track]["tier"] for d in DIMENSIONS})
+            for track in ("mainstream", "frontier")
+        }
         countries[iso] = {
             "name": c["name"],
             **blocks,
+            "readiness": rd,
+            # a binding constraint is only published when the derivation is
+            # complete AND the least-mature dimension is unique (rules R1+R3)
             "binding_constraint": {
-                track: binding_constraint({d: blocks[d][track]["tier"] for d in DIMENSIONS})
+                track: (rd[track]["focus"][0]
+                        if rd[track]["complete"] and rd[track]["profile"] == "single"
+                        else None)
                 for track in ("mainstream", "frontier")
             },
             "provenance": prov,

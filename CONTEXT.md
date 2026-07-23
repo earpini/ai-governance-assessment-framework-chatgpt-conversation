@@ -72,3 +72,15 @@ Three dimensions: **Talent** (T), **Attention** (A), **Policy** (P). Each measur
 ## Working conventions
 
 Provenance on everything (source URL + access date); curated vs automated clearly labeled; caveats stated in-file, not hidden; within-country trends over cross-country levels for attention data; shares over raw counts for research volume; publication only via reviewed PR; thresholds published and frozen after one calibration. Write in Ettore's voice for anything public-facing (he has voice-profile skills in his Claude setup; plain fluent prose, no AI-sounding boilerplate).
+
+## Update 2026-07-23: framework-grounded grading, sphere rename, Where-to-act tab
+
+- **Grading is now framework-grounded** (Ettore flagged the old tiers as unsystematic). Three anchors, documented in `config/v2/scoring.json` (`framework` + `entry_point` blocks), METHODOLOGY.md ("Scoring: a staged maturity model"), and the site's methodology page (#methodology, sections 02–03):
+  - Stage semantics = Capability Maturity Model (Paulk et al. 1993): a stage is reached when its defining capabilities are ALL present. Frontier talent capabilities: research_base (t2≥20), organized_community (t3≥2), scale (t2≥100 & t3≥5). Established = all three; Nascent = neither foundational one. Reproduces the 2026-07 calibration exactly (no tier churn).
+  - Sphere structure = Kingdon multiple streams: public=problem stream, field=policy stream, government=politics stream; least mature sphere = where coupling fails = entry point.
+  - Capacity reading = Wu, Ramesh & Howlett (2015): analytical/political/operational.
+- **Entry point is derived in the pipeline, not the UI** (`build.py readiness()`, rules R1–R4: provisional if any sphere Collecting; consolidated if floor=Established (no invented weakness); single entry point only if unique minimum; ties reported as balanced). Snapshot now carries `readiness` per country/track; `binding_constraint` kept for compat (only set when complete AND unique). Front end just renders it.
+- **Dimensions renamed at the DISPLAY layer only**: The field / The public / The government (internal ids talent/attention/policy FROZEN in schema+configs — do not rename them). Lens labels: "AI governance overall" / "AI safety".
+- **New "Where to act" tab** (#act): interpretation layer computed in the UI from readiness (pipeline stays descriptive, per Ettore). Groups, never ranks: Seed the field (MX SA TR) / Grow & organize (AU BR CN FR IT JP KR) / Build policy capacity (AR RU) / Raise public awareness (empty until A1 data — honest empty state) / Combined push (ID ZA balanced) / Partner don't build (US GB CA DE IN). ◆ = mainstream-mature+frontier-empty. Known gap, deliberately out of scope for now: window timing (elections, bills, summits) — would need a new curated dataset.
+- **Hash routing**: #compare #map #act #methodology are linkable (work in the ettorearpini.com iframe too).
+- Shipped as one commit on top of Ettore's 01c461f.

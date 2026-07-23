@@ -56,6 +56,31 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "policy"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy",
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "balanced",
+     "stage_floor": "Nascent"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -139,6 +164,30 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    }
    },
    "talent": {
     "frontier": {
@@ -266,6 +315,30 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    }
    },
    "talent": {
     "frontier": {
@@ -396,6 +469,28 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -522,6 +617,28 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    }
    },
    "talent": {
     "frontier": {
@@ -650,6 +767,26 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -776,6 +913,28 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    }
    },
    "talent": {
     "frontier": {
@@ -904,6 +1063,26 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -1030,6 +1209,31 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "policy",
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "balanced",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    }
    },
    "talent": {
     "frontier": {
@@ -1160,6 +1364,28 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -1286,6 +1512,30 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    }
    },
    "talent": {
     "frontier": {
@@ -1414,6 +1664,30 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -1540,6 +1814,28 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    }
    },
    "talent": {
     "frontier": {
@@ -1668,6 +1964,30 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -1794,6 +2114,31 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "policy"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy",
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "balanced",
+     "stage_floor": "Emerging"
+    }
    },
    "talent": {
     "frontier": {
@@ -1922,6 +2267,28 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -2008,6 +2375,31 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "single",
+     "stage_floor": "Nascent"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy",
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "balanced",
+     "stage_floor": "Emerging"
+    }
    },
    "talent": {
     "frontier": {
@@ -2136,6 +2528,26 @@
      "data/raw/2026-07/wikimedia_a3.json"
     ]
    },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [],
+     "missing": [
+      "attention"
+     ],
+     "profile": "consolidated",
+     "stage_floor": "Established"
+    }
+   },
    "talent": {
     "frontier": {
      "insufficient_data": false,
@@ -2262,6 +2674,32 @@
      "data/raw/2026-07/openalex_t2_frontier_works.json",
      "data/raw/2026-07/wikimedia_a3.json"
     ]
+   },
+   "readiness": {
+    "frontier": {
+     "complete": false,
+     "focus": [
+      "policy",
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "balanced",
+     "stage_floor": "Emerging"
+    },
+    "mainstream": {
+     "complete": false,
+     "focus": [
+      "policy",
+      "talent"
+     ],
+     "missing": [
+      "attention"
+     ],
+     "profile": "balanced",
+     "stage_floor": "Nascent"
+    }
    },
    "talent": {
     "frontier": {

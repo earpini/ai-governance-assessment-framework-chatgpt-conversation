@@ -46,11 +46,22 @@ export interface PolicyFrontier {
   insufficient_data: boolean;
 }
 
+export interface TrackReadiness {
+  /** true when all three dimensions have a stage (nothing Collecting) */
+  complete: boolean;
+  missing: DimensionId[];
+  stage_floor: Tier | null;
+  /** dimensions at the lowest observed stage (empty when consolidated) */
+  focus: DimensionId[];
+  profile: "single" | "balanced" | "consolidated" | "none";
+}
+
 export interface CountrySnapshot {
   name: string;
   talent: { mainstream: TalentMainstream; frontier: TalentFrontier };
   attention: { mainstream: AttentionTrack; frontier: AttentionTrack };
   policy: { mainstream: PolicyMainstream; frontier: PolicyFrontier };
+  readiness: { mainstream: TrackReadiness; frontier: TrackReadiness };
   binding_constraint: { mainstream: DimensionId | null; frontier: DimensionId | null };
   provenance: { curated: string[]; raw: string[] };
 }
