@@ -66,6 +66,10 @@
 .brand-version .country-strip strong{font-family:var(--ea-font-display);font-size:var(--ea-size-h3);font-weight:var(--ea-weight-heavy);margin-top:var(--ea-space-6)}
 .brand-version .spark{color:var(--ea-slate)}.brand-version .stage{border:0;border-radius:var(--ea-radius-sm);padding:4px 10px;background:var(--ea-clay-soft);color:var(--ea-clay-ink);font-size:var(--ea-size-micro);font-weight:600;letter-spacing:.06em}
 .brand-version .stage-open{background:var(--ea-slate-soft);color:var(--ea-slate-ink)}.brand-version .stage-latent{background:var(--ea-gold-soft);color:var(--ea-gold-ink)}
+.brand-version .stage.tier-nascent{background:var(--ea-clay-soft);color:var(--ea-clay-ink)}.brand-version .stage.tier-nascent i{background:var(--ea-clay)}
+.brand-version .stage.tier-emerging{background:var(--ea-gold-soft);color:var(--ea-gold-ink)}.brand-version .stage.tier-emerging i{background:var(--ea-gold)}
+.brand-version .stage.tier-established{background:var(--ea-slate-soft);color:var(--ea-slate-ink)}.brand-version .stage.tier-established i{background:var(--ea-slate)}
+.brand-version .stage.tier-pending{background:rgba(108,103,96,.10);color:var(--ea-gray)}.brand-version .stage.tier-pending i{background:var(--ea-gray)}
 
 .brand-version .profile{max-width:var(--ea-container);margin:0 auto;padding:var(--ea-space-11) var(--ea-gutter) 0}.brand-version .profile-heading{border-color:var(--ea-ink);padding-bottom:var(--ea-space-6)}
 .brand-version .profile-heading h2{font-family:var(--ea-font-display);font-size:clamp(40px,7vw,var(--ea-size-h1));font-weight:var(--ea-weight-heavy);letter-spacing:var(--ea-tracking-hero)}
