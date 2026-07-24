@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import world from "world-atlas/countries-110m.json";
@@ -8,7 +8,17 @@ import { snapMonth } from "../format";
 import type { DimensionId, SnapshotV2, Tier, Track } from "../types/snapshot";
 import fieldBuilding from "../../data/curated/field_building.json";
 import policyActivity from "../../data/curated/policy_activity.json";
-const FBM = fieldBuilding as any, PAM = policyActivity as any;
+import frontierChecklist from "../../data/curated/frontier_checklist.json";
+const FBM = fieldBuilding as any, PAM = policyActivity as any, FCM = frontierChecklist as any;
+
+const P2_ORDER = ["national_strategy", "frontier_risk_language", "bletchley_or_successor", "safety_institute", "binding_law"];
+const P2_LABELS: Record<string, string> = {
+  national_strategy: "National AI strategy exists",
+  frontier_risk_language: "Frontier / systemic-risk language in official documents",
+  bletchley_or_successor: "Signed Bletchley or successor declaration",
+  safety_institute: "AI safety institute or International Network membership",
+  binding_law: "Binding AI law in force or advanced passage",
+};
 
 const TIER_FILL: Record<string, string> = { Established: "#2F6E7B", Emerging: "#E2A33C", Nascent: "#C0512E" };
 const TRACK_LABEL = { mainstream: "AI governance overall", frontier: "AI safety" } as const;
@@ -30,6 +40,7 @@ const METRICS: Metric[] = [
   { key: "t2", label: "AI-safety papers (since 2022)", fmt: v => v.toLocaleString(), get: c => c.talent.frontier.t2_works },
   { key: "t3", label: "AI-safety orgs & student groups", fmt: v => String(v), get: c => c.talent.frontier.t3_orgs + c.talent.frontier.t3_university_groups },
   { key: "p1", label: "National AI policy initiatives", fmt: v => String(v), get: c => c.policy.mainstream.p1_oecd_initiative_count },
+  { key: "t2i", label: "AI-safety share of the country\u2019s AI research", fmt: v => `${(v * 100).toFixed(2)}%`, get: c => (c.talent.frontier.t2_works != null && c.talent.mainstream.t1_ai_works) ? c.talent.frontier.t2_works / c.talent.mainstream.t1_ai_works : null },
   { key: "p2", label: "AI-safety commitments (0–5)", fmt: v => `${v}/5`, get: c => c.policy.frontier.p2_score },
 ];
 
@@ -41,9 +52,10 @@ function TierCell({ tier }: { tier: Tier | null }) {
 export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry: (iso: string) => void }) {
   const [panel, setPanel] = useState<string | null>(null);
   const [track, setTrack] = useState<Track>("frontier");
-  const [sortBy, setSortBy] = useState<string>("name");
-  const [mode, setMode] = useState<"table" | "charts">("table");
-  const [chartView, setChartView] = useState<"ranking" | "research" | "talent" | "policy">("ranking");
+  const [rankBy, setRankBy] = useState<string>("t2");
+  const [land, setLand] = useState<"research" | "intensity" | "talent" | "policy">("research");
+  const [tblSort, setTblSort] = useState<{ col: "name" | DimensionId; dir: 1 | -1 }>({ col: "name", dir: 1 });
+  const [activeSec, setActiveSec] = useState("cmp-table");
   const codes = Object.keys(dataset.countries);
 
   // Headline numbers (MIT-style stat tiles)
@@ -62,79 +74,123 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
     ];
   }, [dataset]);
 
-  const metric = METRICS.find(m => m.key === sortBy);
+  // Computed section headlines — numbers recompute per snapshot, so they can't go stale
+  const estCounts = useMemo(() => {
+    const cs = codes.map(c => dataset.countries[c]);
+    const est = (d: DimensionId) => cs.filter(c => (c as any)[d][track].tier === "Established").length;
+    return { field: est("talent"), gov: est("policy") };
+  }, [dataset, track]);
+
+  const rankMetric = METRICS.find(m => m.key === rankBy) ?? METRICS[1];
+  const rankHeadline = useMemo(() => {
+    const vals = codes.map(c => ({ c: dataset.countries[c], v: rankMetric.get(dataset.countries[c]) ?? 0 }))
+      .sort((a, b) => b.v - a.v);
+    const stripped = rankMetric.label.replace(/\s*\(.*\)$/, "");
+    // decapitalize for mid-sentence use, but never break the "AI" acronym
+    const short = stripped.startsWith("AI") ? stripped : stripped.charAt(0).toLowerCase() + stripped.slice(1);
+    if (["t2", "t3", "p1"].includes(rankMetric.key)) {
+      const total = vals.reduce((s, x) => s + x.v, 0);
+      const top3 = vals.slice(0, 3).reduce((s, x) => s + x.v, 0);
+      return total ? `${Math.round((top3 / total) * 100)}% of the G20\u2019s ${short} come from three countries.` : "The rankings.";
+    }
+    return vals[0] ? `${vals[0].c.name} leads the G20 on ${short}.` : "The rankings.";
+  }, [dataset, rankBy]);
+
   const rows = useMemo(() => {
     const r = codes.map(code => ({ code, c: dataset.countries[code] }));
-    if (metric) r.sort((a, b) => (metric.get(b.c) ?? -1) - (metric.get(a.c) ?? -1));
-    else if (sortBy === "readiness") {
-      const rank = (c: any) => DIMS.reduce((s, d) => s + (c[d.id][track].tier ? TIERS.indexOf(c[d.id][track].tier) + 1 : 0), 0);
-      r.sort((a, b) => rank(b.c) - rank(a.c));
-    } else r.sort((a, b) => a.c.name.localeCompare(b.c.name));
+    if (tblSort.col === "name") r.sort((a, b) => a.c.name.localeCompare(b.c.name) * tblSort.dir);
+    else {
+      const rk = (c: any) => { const t = c[tblSort.col][track].tier; return t ? TIERS.indexOf(t) : -1; };
+      r.sort((a, b) => (rk(a.c) - rk(b.c)) * tblSort.dir || a.c.name.localeCompare(b.c.name));
+    }
     return r;
-  }, [dataset, sortBy, track]);
+  }, [dataset, tblSort, track]);
 
-  const maxMetric = metric ? Math.max(...rows.map(r => metric.get(r.c) ?? 0)) : 0;
+  // Scrollspy for the sticky section nav
+  useEffect(() => {
+    const ids = ["cmp-table", "cmp-rankings", "cmp-landscape"];
+    const obs = new IntersectionObserver(entries => {
+      for (const e of entries) if (e.isIntersecting) setActiveSec((e.target as HTMLElement).id);
+    }, { rootMargin: "-130px 0px -55% 0px" });
+    ids.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+    return () => obs.disconnect();
+  }, []);
+  const jump = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  const sortTh = (col: "name" | DimensionId, label: React.ReactNode, note?: React.ReactNode) => (
+    <th key={String(col)} aria-sort={tblSort.col === col ? (tblSort.dir === 1 ? "ascending" : "descending") : undefined}>
+      <button className="th-sort" onClick={() => setTblSort(s => s.col === col ? { col, dir: -s.dir as 1 | -1 } : { col, dir: col === "name" ? 1 : -1 })}>
+        {label}{tblSort.col === col ? (tblSort.dir === 1 ? " \u2191" : " \u2193") : ""}
+      </button>
+      {note}
+    </th>
+  );
 
   return (
     <section className="compare-page">
-      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>Grades for each sphere on one lens, and rankings of the numbers behind them. Click any country to open its details in a side panel.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>Three views, one scroll: the grades, the rankings behind them, and the landscape of gaps. Click any country, bar, or dot to open its details in a side panel.</p></div>
       <div className="stat-tiles">
         {tiles.map((t, i) => <div className="stat-tile" key={i}><strong>{t.n}</strong><span>{t.l}</span><small>{t.s}</small></div>)}
       </div>
-      <div className="cmp-controls">
-        <div className="range-toggle" role="tablist" aria-label="View">
-          <button className={mode === "table" ? "active" : ""} onClick={() => setMode("table")}>Table</button>
-          <button className={mode === "charts" && chartView === "ranking" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("ranking"); if (!METRICS.find(m => m.key === sortBy)) setSortBy("t2"); }}>Rankings</button>
-          <button className={mode === "charts" && chartView === "research" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("research"); }}>Research landscape</button>
-          <button className={mode === "charts" && chartView === "talent" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("talent"); }}>Field landscape</button>
-          <button className={mode === "charts" && chartView === "policy" ? "active" : ""} onClick={() => { setMode("charts"); setChartView("policy"); }}>Government landscape</button>
-        </div>
-        {(mode === "table" || chartView === "ranking") && <>
-          {mode === "table" && <div className="range-toggle" role="tablist" aria-label="Lens">
+
+      <nav className="cmp-subnav" aria-label="Compare sections">
+        {([["cmp-table", "01 · The grades"], ["cmp-rankings", "02 · The rankings"], ["cmp-landscape", "03 · The landscape"]] as const).map(([id, label]) => (
+          <button key={id} className={activeSec === id ? "active" : ""} aria-current={activeSec === id || undefined} onClick={() => jump(id)}>{label}</button>
+        ))}
+      </nav>
+
+      <div className="cmp-section" id="cmp-table">
+        <div className="section-title"><div><span className="eyebrow">01 · The grades</span><h2>Who has the ingredients in place?</h2><p className="section-answer">{estCounts.field} of 19 are Established in the field — {estCounts.gov} in government, on the {TRACK_LABEL[track]} lens.</p></div><p>Every sphere, every country, one lens at a time. Click a column header to sort, or a country for its details.</p></div>
+        <div className="cmp-controls">
+          <div className="range-toggle" role="tablist" aria-label="Lens">
             <button className={track === "frontier" ? "active" : ""} onClick={() => setTrack("frontier")}>AI safety lens</button>
             <button className={track === "mainstream" ? "active" : ""} onClick={() => setTrack("mainstream")}>AI governance overall lens</button>
-          </div>}
-          <label className="cmp-sort">{mode === "charts" ? "Indicator" : "Sort by"}{" "}
-            <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
-              <option value="name">Country name</option>
-              <option value="readiness">Overall readiness</option>
+          </div>
+        </div>
+        <div className="cmp-table-wrap">
+          <table className="cmp-table">
+            <thead><tr>
+              {sortTh("name", "Country")}
+              {DIMS.map(d => sortTh(d.id, d.name, d.id === "attention" ? <small className="th-note">data arriving monthly</small> : undefined))}
+            </tr></thead>
+            <tbody>
+              {rows.map(({ code, c }) => (
+                <tr key={code}>
+                  <td className="cmp-country"><button onClick={() => setPanel(code)}>{c.name} <i>→</i></button></td>
+                  {DIMS.map(d => <TierCell key={d.id} tier={(c as any)[d.id][track].tier} />)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="cmp-note">Grade colors: <span className="mini-tier tier-dot-nascent" /> Nascent · <span className="mini-tier tier-dot-emerging" /> Emerging · <span className="mini-tier tier-dot-established" /> Established · <span className="mini-tier tier-dot-pending" /> Collecting. Attention grades await complete media and search data and show as Collecting — never guessed.</p>
+      </div>
+
+      <div className="cmp-section" id="cmp-rankings">
+        <div className="section-title"><div><span className="eyebrow">02 · The rankings</span><h2>Where does the work concentrate?</h2><p className="section-answer">{rankHeadline}</p></div><p>The raw numbers behind the grades, one indicator at a time. Hover a bar for each country's share of the G20 total.</p></div>
+        <div className="cmp-controls">
+          <label className="cmp-sort">Indicator{" "}
+            <select value={rankBy} onChange={e => setRankBy(e.target.value)}>
               {METRICS.map(m => <option key={m.key} value={m.key}>{m.label}</option>)}
             </select>
           </label>
-        </>}
+        </div>
+        <ChartPanel dataset={dataset} metric={rankMetric} onCountry={setPanel} view="ranking" />
       </div>
-      {mode === "charts" ? (
-        <ChartPanel dataset={dataset} metric={metric ?? METRICS[1]} onCountry={setPanel} view={chartView} />
-      ) : (
-      <div className="cmp-table-wrap">
-        <table className="cmp-table">
-          <thead><tr>
-            <th>Country</th>
-            {DIMS.map(d => <th key={d.id}>{d.name}{d.id === "attention" && <small className="th-note">data arriving monthly</small>}</th>)}
-            {metric && <th className="cmp-metric-head">{metric.label}</th>}
-          </tr></thead>
-          <tbody>
-            {rows.map(({ code, c }) => {
-              const v = metric ? metric.get(c) : null;
-              return (
-                <tr key={code}>
-                  <td className="cmp-country"><button onClick={() => setPanel(code)}>{c.name} <i>→</i></button></td>
-                  {DIMS.map(d => <TierCell key={d.id} tier={c[d.id][track].tier} />)}
-                  {metric && (
-                    <td className="cmp-metric">
-                      <div className="cmp-metric-inner">
-                        <span className="cmp-val">{v === null || v === undefined ? "—" : metric.fmt(v)}</span>
-                        <span className="cmp-bar-track"><span className="cmp-bar" style={{ width: `${v && maxMetric ? Math.max((v / maxMetric) * 100, 1.5) : 0}%` }} /></span>
-                      </div>
-                    </td>
-                  )}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+
+      <div className="cmp-section" id="cmp-landscape">
+        <div className="section-title"><div><span className="eyebrow">03 · The landscape</span><h2>{LANDSCAPES[land].question}</h2><p className="section-answer">{LANDSCAPES[land].answer}</p></div><p>Two indicators at a time, every country on one canvas. Click any dot for details.</p></div>
+        <div className="cmp-controls">
+          <div className="range-toggle" role="tablist" aria-label="Landscape">
+            <button className={land === "research" ? "active" : ""} onClick={() => setLand("research")}>Research</button>
+            <button className={land === "intensity" ? "active" : ""} onClick={() => setLand("intensity")}>Safety intensity</button>
+            <button className={land === "talent" ? "active" : ""} onClick={() => setLand("talent")}>The field</button>
+            <button className={land === "policy" ? "active" : ""} onClick={() => setLand("policy")}>The government</button>
+          </div>
+        </div>
+        <ChartPanel dataset={dataset} metric={rankMetric} onCountry={setPanel} view={land} />
       </div>
-      )}
+
       {panel && (
         <div className="drawer-backdrop" onMouseDown={() => setPanel(null)}>
           <aside className="drawer cmp-drawer" onMouseDown={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Country details">
@@ -142,19 +198,24 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
           </aside>
         </div>
       )}
-      <p className="cmp-note">Grade colors: <span className="mini-tier tier-dot-nascent" /> Nascent · <span className="mini-tier tier-dot-emerging" /> Emerging · <span className="mini-tier tier-dot-established" /> Established · <span className="mini-tier tier-dot-pending" /> Collecting. Attention grades await complete media and search data and show as Collecting — never guessed.</p>
     </section>
   );
 }
 
-
-/** Shared country detail card: numbers + evidence links. Used inline on the
- *  map and as a slide-in panel on Compare. */
+/** Shared country detail card: evidence grouped by indicator, each group
+ *  expandable with the underlying items and sources. Used inline on the map
+ *  and as a slide-in panel on Compare. */
 export function CountryDetail({ dataset, iso, onCountry, onClose }: { dataset: SnapshotV2; iso: string; onCountry: (iso: string) => void; onClose: () => void }) {
   const sel = dataset.countries[iso];
   const selFB = FBM.countries[iso];
   const selPA = PAM.countries[iso];
+  const selFC = FCM.countries[iso];
   if (!sel) return null;
+  const tm = sel.talent.mainstream, tf = sel.talent.frontier, pm = sel.policy.mainstream, pf = sel.policy.frontier;
+  const t3 = tf.t3_orgs + tf.t3_university_groups;
+  const samples = (tf.t2_sample ?? []).filter((w, i, a) => a.findIndex(x => x.title === w.title) === i).slice(0, 3);
+  const oaT2 = `https://openalex.org/works?filter=${encodeURIComponent(`title_and_abstract.search:"AI safety" OR "AI alignment" OR "existential risk from artificial intelligence" OR "frontier model safety" OR "catastrophic AI risk",from_publication_date:2022-01-01,authorships.countries:${iso}`)}`;
+  const oaT1 = `https://openalex.org/works?filter=${encodeURIComponent(`primary_topic.subfield.id:subfields/1702,from_publication_date:2023-01-01,authorships.countries:${iso}`)}`;
   return (
     <>
       <div className="map-detail-head">
@@ -162,23 +223,66 @@ export function CountryDetail({ dataset, iso, onCountry, onClose }: { dataset: S
         <button className="map-detail-open" onClick={() => onCountry(iso)}>View full profile →</button>
         <button className="map-detail-close" onClick={onClose} aria-label="Close">×</button>
       </div>
-      <div className="map-detail-grid">
-        <div>
-          <p className="absolute-label">The numbers</p>
-          <ul className="map-nums">
-            {METRICS.map(m => { const v = m.get(sel); return <li key={m.key}><span>{m.label}</span><strong>{v === null ? "—" : m.fmt(v)}</strong></li>; })}
-            <li><span>Grades (AI safety lens)</span><strong className="map-grades">{DIMS.map(d => { const t = (sel as any)[d.id].frontier.tier; return <span key={d.id} title={d.name} className={`mini-tier tier-dot-${t?.toLowerCase() ?? "pending"}`} />; })}</strong></li>
+      <div className="detail-grades"><span>Grades, AI-safety lens:</span>{DIMS.map(d => { const t = (sel as any)[d.id].frontier.tier; return <span key={d.id} className="detail-grade"><i className={`mini-tier tier-dot-${t?.toLowerCase() ?? "pending"}`} />{d.name.replace("The ", "")}: {t ?? "Collecting"}</span>; })}</div>
+      <div className="detail-groups">
+
+        <details className="detail-group" open>
+          <summary><span>AI-safety commitments</span><strong>{pf.p2_score}/5</strong></summary>
+          <p className="dg-note">Five binary items, hand-coded from primary documents — the score counts the yeses. Each item links to the source it was verified on.</p>
+          <ul className="p2-list">
+            {P2_ORDER.map(k => {
+              const yes = pf.p2_items[k];
+              const item = selFC?.items?.[k];
+              return (
+                <li key={k} className={yes ? "p2-yes" : "p2-no"}>
+                  <span className="p2-mark">{yes ? "✓" : "✗"}</span>
+                  <span className="p2-body">
+                    {item?.source ? <a href={item.source} target="_blank" rel="noreferrer">{P2_LABELS[k]} ↗</a> : P2_LABELS[k]}
+                    {item?.note && <small>{item.note}</small>}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
-        </div>
-        <div>
-          <p className="absolute-label">The evidence</p>
+        </details>
+
+        <details className="detail-group" open>
+          <summary><span>AI-safety papers since 2022</span><strong>{tf.t2_works?.toLocaleString() ?? "—"}</strong></summary>
+          <p className="dg-note">Works matching the pinned safety vocabulary (AI safety, alignment, existential risk, frontier model safety, catastrophic risk).</p>
           <ul className="map-links">
-            {(sel.talent.frontier.t2_sample ?? []).filter((w, i, a) => a.findIndex(x => x.title === w.title) === i).slice(0, 3).map((w, i) => <li key={i}>{w.link ? <a href={w.link} target="_blank" rel="noreferrer">{w.title} ↗</a> : <span>{w.title}</span>}<small>AI-safety paper{w.year ? ` · ${w.year}` : ""}</small></li>)}
-            {(selFB?.entities ?? []).slice(0, 3).map((e: any, i: number) => <li key={`o${i}`}><a href={e.source} target="_blank" rel="noreferrer">{e.name} ↗</a><small>{e.type === "university_group" ? "University group" : "Organization"} · {e.city_or_university}</small></li>)}
-            {selPA?.latest_initiative?.source && <li><a href={selPA.latest_initiative.source} target="_blank" rel="noreferrer">{selPA.latest_initiative.name} ↗</a><small>Latest policy move · {selPA.latest_initiative.year}</small></li>}
-            <li><a href={`https://openalex.org/works?filter=${encodeURIComponent(`title_and_abstract.search:"AI safety" OR "AI alignment" OR "existential risk from artificial intelligence" OR "frontier model safety" OR "catastrophic AI risk",from_publication_date:2022-01-01,authorships.countries:${iso}`)}`} target="_blank" rel="noreferrer">Browse {sel.talent.frontier.t2_works === 1 ? "the 1 AI-safety paper" : `all ${sel.talent.frontier.t2_works ?? ""} AI-safety papers`} from this country on OpenAlex ↗</a><small>Live, filterable list</small></li>
+            {samples.map((w, i) => <li key={i}>{w.link ? <a href={w.link} target="_blank" rel="noreferrer">{w.title} ↗</a> : <span>{w.title}</span>}<small>{w.year ? `Published ${w.year}` : "Recent paper"}</small></li>)}
+            <li><a href={oaT2} target="_blank" rel="noreferrer">Browse {tf.t2_works === 1 ? "the 1 paper" : `all ${tf.t2_works ?? ""} papers`} on OpenAlex ↗</a><small>Live, filterable list</small></li>
           </ul>
-        </div>
+        </details>
+
+        <details className="detail-group" open>
+          <summary><span>AI-safety orgs & student groups</span><strong>{t3}{tf.t3_capped ? "+" : ""}</strong></summary>
+          <p className="dg-note">Verified-active organizations and university groups; government institutes and frontier labs excluded.</p>
+          {(selFB?.entities?.length ?? 0) > 0 ? (
+            <ul className="map-links">
+              {(selFB.entities as any[]).map((e, i) => <li key={i}><a href={e.source} target="_blank" rel="noreferrer">{e.name} ↗</a><small>{e.type === "university_group" ? "University group" : "Organization"} · {e.city_or_university}</small></li>)}
+            </ul>
+          ) : <p className="dg-empty">None found — that absence is the finding, not a data gap.</p>}
+        </details>
+
+        <details className="detail-group">
+          <summary><span>National AI policy initiatives</span><strong>{pm.p1_oecd_initiative_count ?? "n/a"}</strong></summary>
+          <p className="dg-note">Initiatives listed on the OECD.AI Policy Navigator, coded ‘{pm.p1_activity_level}’ activity overall.</p>
+          <ul className="map-links">
+            {selPA?.latest_initiative?.source && <li><a href={selPA.latest_initiative.source} target="_blank" rel="noreferrer">{selPA.latest_initiative.name} ↗</a><small>Latest significant move · {selPA.latest_initiative.year}</small></li>}
+            {(selPA?.governance_bodies ?? []).map((b: any, i: number) => <li key={i}><a href={b.source} target="_blank" rel="noreferrer">{b.name} ↗</a><small>Governance body</small></li>)}
+            {selPA?.oecd_source && <li><a href={selPA.oecd_source} target="_blank" rel="noreferrer">All initiatives on the OECD.AI Navigator ↗</a><small>External database</small></li>}
+          </ul>
+        </details>
+
+        <details className="detail-group">
+          <summary><span>AI’s share of the country’s research</span><strong>{tm.t1_ai_share != null ? `${(tm.t1_ai_share * 100).toFixed(2)}%` : "—"}</strong></summary>
+          <p className="dg-note">{tm.t1_ai_works?.toLocaleString() ?? "—"} AI works of {tm.t1_total_works?.toLocaleString() ?? "—"} total works since 2023 — all AI research, not just safety or governance.</p>
+          <ul className="map-links">
+            <li><a href={oaT1} target="_blank" rel="noreferrer">Browse the AI works on OpenAlex ↗</a><small>Live, filterable list</small></li>
+          </ul>
+        </details>
+
       </div>
     </>
   );
@@ -189,39 +293,66 @@ type LandscapeCfg = {
   x: (c: any) => number; y: (c: any) => number; sqrtY: boolean;
   xFmt: (v: number) => string; yFmt: (v: number) => string;
   tier: (c: any) => Tier | null; tierLabel: string;
+  /** quadrant labels, split at the G20 medians; br is the gap/opportunity quadrant */
+  quads: { tl: string; tr: string; bl: string; br: string };
+  /** section headline (question form) and answer line, swapped per landscape */
+  question: string; answer: string;
 };
 
 const LANDSCAPES: Record<string, LandscapeCfg> = {
   research: {
-    title: "The research landscape: AI governance overall vs AI safety",
-    sub: "Each dot is a country. Right = AI is a big share of national research. Up = more AI-safety papers. Countries low and to the right are active on AI but missing a safety research field.",
-    xLabel: "AI\u2019s share of the country\u2019s research output \u2192",
+    title: "The research landscape: all AI vs AI safety",
+    question: "Who is busy with AI, but missing the safety side?",
+    answer: "Start at the lower-right: a big AI research base, few safety papers.",
+    sub: "Each dot is a country. Right = AI of any kind — methods, applications, everything — is a big share of national research. Up = more AI-safety papers. Low and to the right: deep in AI, not yet engaging its safety.",
+    xLabel: "All AI research as a share of the country’s output \u2192",
     yLabel: "AI-safety papers (\u221a scale) \u2192",
     x: c => c.talent.mainstream.t1_ai_share ?? 0, y: c => c.talent.frontier.t2_works ?? 0, sqrtY: true,
     xFmt: v => `${(v * 100).toFixed(2)}%`, yFmt: v => v.toLocaleString(),
     tier: c => c.talent.frontier.tier, tierLabel: "field grade, AI-safety lens",
+    quads: { tl: "Safety-leaning", tr: "Deep in both", bl: "Early on both", br: "AI without safety" },
+  },
+  intensity: {
+    title: "Safety intensity: AI focus vs the safety share of that AI work",
+    question: "Whose AI research engages its own safety?",
+    answer: "Lower-right: deep in AI, and almost none of that work touches safety.",
+    sub: "Right = AI of any kind is a big slice of the country\u2019s total research. Up = a big slice of that AI research engages safety. Low-right: deep in AI, and almost none of it touches safety.",
+    xLabel: "All AI research as a share of the country’s output →",
+    yLabel: "AI safety as a share of the country’s AI research (√ scale) →",
+    x: c => c.talent.mainstream.t1_ai_share ?? 0,
+    y: c => (c.talent.frontier.t2_works != null && c.talent.mainstream.t1_ai_works) ? c.talent.frontier.t2_works / c.talent.mainstream.t1_ai_works : 0,
+    sqrtY: true,
+    xFmt: v => `${(v * 100).toFixed(2)}%`, yFmt: v => `${(v * 100).toFixed(2)}%`,
+    tier: c => c.talent.frontier.tier, tierLabel: "field grade, AI-safety lens",
+    quads: { tl: "Safety-leaning", tr: "Deep in both", bl: "Early on both", br: "AI without safety" },
   },
   talent: {
     title: "The field landscape: safety research vs organized community",
+    question: "Where is research missing a community — and vice versa?",
+    answer: "Lower-right: papers without organized groups. Upper-left: organizers ahead of the research.",
     sub: "Right = AI-safety papers exist. Up = safety organizations and student groups exist. Low-right: researchers without a field around them. High-left: organizers ahead of the research (like Argentina).",
     xLabel: "AI-safety papers since 2022 (\u221a scale) \u2192",
     yLabel: "Safety orgs & student groups \u2192",
     x: c => c.talent.frontier.t2_works ?? 0, y: c => c.talent.frontier.t3_orgs + c.talent.frontier.t3_university_groups, sqrtY: false,
     xFmt: v => v.toLocaleString(), yFmt: v => String(v),
     tier: c => c.talent.frontier.tier, tierLabel: "field grade, AI-safety lens",
+    quads: { tl: "Organizers ahead of research", tr: "Field and community", bl: "Not yet started", br: "Research without community" },
   },
   policy: {
     title: "The government landscape: AI policy activity vs safety commitments",
+    question: "Which governments are busy with AI but uncommitted on safety?",
+    answer: "Lower-right: plenty of AI policy activity, few concrete safety commitments.",
     sub: "Right = lots of national AI policy activity. Up = concrete safety commitments (declarations, institutes, risk language, law). Low-right: governments busy with AI that have not yet engaged its serious risks.",
     xLabel: "National AI policy initiatives (OECD.AI) \u2192",
     yLabel: "Safety commitments (0\u20135) \u2192",
     x: c => c.policy.mainstream.p1_oecd_initiative_count ?? 0, y: c => c.policy.frontier.p2_score, sqrtY: false,
     xFmt: v => String(v), yFmt: v => `${v}/5`,
     tier: c => c.policy.frontier.tier, tierLabel: "government grade, AI-safety lens",
+    quads: { tl: "Committed, little activity", tr: "Engaged and committed", bl: "Not yet engaged", br: "Busy, not committed" },
   },
 };
 
-function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2; metric: Metric; onCountry: (iso: string) => void; view: "ranking" | "research" | "talent" | "policy" }) {
+function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2; metric: Metric; onCountry: (iso: string) => void; view: "ranking" | "research" | "intensity" | "talent" | "policy" }) {
   const [tip, setTip] = useState<{ text: string[]; x: number; y: number } | null>(null);
   const rows = Object.keys(dataset.countries)
     .map(code => ({ code, c: dataset.countries[code], v: metric.get(dataset.countries[code]) }))
@@ -298,6 +429,22 @@ function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2;
           </g>)}
           <line x1={SP.l} x2={SW - SP.r} y1={SH - SP.b} y2={SH - SP.b} className="axisline" />
           <line x1={SP.l} x2={SP.l} y1={SP.t} y2={SH - SP.b} className="axisline" />
+          {(() => {
+            const med = (a: number[]) => { const v = [...a].sort((p, q) => p - q); return v.length % 2 ? v[(v.length - 1) / 2] : (v[v.length / 2 - 1] + v[v.length / 2]) / 2; };
+            const mxv = med(sc.map(d => d.x)), myv = med(sc.map(d => d.y));
+            const X = sx(mxv), Y = sy(myv);
+            return (
+              <g className="quads">
+                <rect x={X} y={Y} width={SW - SP.r - X} height={SH - SP.b - Y} className="quad-fill" />
+                <line x1={X} x2={X} y1={SP.t} y2={SH - SP.b} className="quad-line" />
+                <line x1={SP.l} x2={SW - SP.r} y1={Y} y2={Y} className="quad-line" />
+                <text x={SP.l + 10} y={SP.t + 16} className="quad-label">{cfg.quads.tl}</text>
+                <text x={SW - SP.r - 10} y={SP.t + 16} textAnchor="end" className="quad-label">{cfg.quads.tr}</text>
+                <text x={SP.l + 10} y={SH - SP.b - 10} className="quad-label">{cfg.quads.bl}</text>
+                <text x={SW - SP.r - 10} y={SH - SP.b - 10} textAnchor="end" className="quad-label hot">{cfg.quads.br}</text>
+              </g>
+            );
+          })()}
           <text x={SW / 2} y={SH - 6} textAnchor="middle" className="axis-label">{cfg.xLabel}</text>
           <text x={14} y={SH / 2} textAnchor="middle" transform={`rotate(-90 14 ${SH / 2})`} className="axis-label">{cfg.yLabel}</text>
           {sc.map(d => (
