@@ -5,7 +5,7 @@ import type { CountrySnapshot, DimensionId, SnapshotV2, Tier } from "../types/sn
 import fieldBuilding from "../../data/curated/field_building.json";
 import frontierChecklist from "../../data/curated/frontier_checklist.json";
 import policyActivity from "../../data/curated/policy_activity.json";
-import { CompareView, MapView } from "./CompareMap";
+import { CompareView, MapView, QuadGlyph, landscapePositions } from "./CompareMap";
 import { snapMonth } from "../format";
 
 const FB = fieldBuilding as any, FC = frontierChecklist as any, PA = policyActivity as any;
@@ -199,6 +199,12 @@ function WhereToActView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
                     <div><span className="country-code">{iso}</span><TierPill tier={c.readiness.frontier.stage_floor} pending="Collecting" /></div>
                     <strong>{c.name}{isOpportunityProfile(c) ? " ◆" : ""}</strong>
                     <small>{evidence(iso)}</small>
+                    {(() => {
+                      const hot = landscapePositions(dataset, iso).filter(pn => pn.hot);
+                      return hot.length > 0 && (
+                        <small className="act-hot">{hot.map(pn => <span key={pn.key}><QuadGlyph quad={pn.quad} hot /> {pn.name}: {pn.label}</span>)}</small>
+                      );
+                    })()}
                     <span className="select-label">View profile →</span>
                   </button>
                 );
@@ -288,7 +294,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
       <header className="site-header">
         {variant === "brand" ? <div className="header-brand"><a className="ea-wordmark" href="https://ettorearpini.com/" aria-label="Ettore Arpini, home">Ettore Arpini<span className="ea-logo-arrow">↗</span></a><span className="header-tool-title">|&nbsp; AI Policy Windows Explorer</span></div> : <button className="brand" onClick={() => setView("explore")}><span>W/</span> WINDOW</button>}
         <nav aria-label="Primary"><button className={view === "explore" ? "active" : ""} onClick={() => setView("explore")}>Explore</button><button className={view === "compare" ? "active" : ""} onClick={() => setView("compare")}>Compare</button><button className={view === "map" ? "active" : ""} onClick={() => setView("map")}>Map</button><button className={view === "act" ? "active" : ""} onClick={() => setView("act")}>Where to act</button><button className={view === "method" ? "active" : ""} onClick={() => setView("method")}>Methodology</button></nav>
-        <div className="status-dot"><i /> {snapMonth(dataset.snapshot)} data{dataset.provisional_thresholds ? " · early grades" : ""}</div>
+        <div className="status-dot"><i /> {snapMonth(dataset.snapshot)} data{dataset.provisional_thresholds ? " · early maturity assessment" : ""}</div>
       </header>
 
       {view === "compare" ? (
@@ -346,7 +352,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
 
           <div className="method-notes">
             <div><h3>Reproducibility</h3><p>A monthly GitHub Actions workflow collects, archives raw responses, rebuilds the snapshot deterministically, and opens a pull request. Nothing publishes without human review.</p></div>
-            <div><h3>Honest gaps</h3><p>Attention currently runs on partial data: GDELT throttles aggressively and Google Trends API access is pending. Affected grades display as Collecting, and no binding constraint is derived from incomplete evidence.</p></div>
+            <div><h3>Honest gaps</h3><p>Attention currently runs on partial data: GDELT throttles aggressively and Google Trends API access is pending. Affected stages display as Collecting, and no binding constraint is derived from incomplete evidence.</p></div>
             <div><h3>Known artifacts</h3><p>Research-share denominators are distorted for some countries by bulk indexing (notably Japan); flagged in the scoring configuration with fixes queued rather than silently adjusted.</p></div>
           </div>
           <button className="back-button" onClick={() => setView("explore")}>← Back to country explorer</button>
@@ -368,7 +374,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
               <article><h3>The government</h3><p>What the state has actually done: strategies, laws, institutions, and international commitments.</p></article>
             </div>
             <div className="howto-note">
-              <p>Each sphere is graded twice. The <strong>AI governance overall</strong> lens asks whether the country is engaged with AI and its governance at all — its AI research base, its public conversation about AI and its regulation, its AI policy activity. The <strong>AI safety</strong> lens narrows to the field focused on serious risks from advanced AI systems — both its technical research and its policy work — as distinct from AI ethics or AI regulation in general. Technical safety research naturally concentrates in the few countries building frontier AI; for everyone else, the real question is governance capacity — whether the country can understand what advanced AI means for its economy, security, and place in the world, and act on it, at home and in international coalitions. The grades: <span className="stage tier-nascent"><i />Nascent</span> largely absent · <span className="stage tier-emerging"><i />Emerging</span> present but partial · <span className="stage tier-established"><i />Established</span> comparable to the strongest G20 countries. Where data is still being gathered, a grade shows as <span className="stage tier-pending"><i />Collecting</span> — never as a guess.</p>
+              <p>Each sphere’s maturity is assessed twice. The <strong>AI governance overall</strong> lens asks whether the country is engaged with AI and its governance at all — its AI research base, its public conversation about AI and its regulation, its AI policy activity. The <strong>AI safety</strong> lens narrows to the field focused on serious risks from advanced AI systems — both its technical research and its policy work — as distinct from AI ethics or AI regulation in general. Technical safety research naturally concentrates in the few countries building frontier AI; for everyone else, the real question is governance capacity — whether the country can understand what advanced AI means for its economy, security, and place in the world, and act on it, at home and in international coalitions. The maturity stages: <span className="stage tier-nascent"><i />Nascent</span> largely absent · <span className="stage tier-emerging"><i />Emerging</span> present but partial · <span className="stage tier-established"><i />Established</span> comparable to the strongest G20 countries. Where data is still being gathered, a stage shows as <span className="stage tier-pending"><i />Collecting</span> — never as a guess.</p>
             </div>
           </section>
 
@@ -377,7 +383,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
               const c = dataset.countries[code];
               return (
                 <button key={code} className={code === selected ? "selected" : ""} onClick={() => openProfile(code)}>
-                  <div><span className="country-code">{code}</span><span title="Field grade on the AI-safety lens"><TierPill tier={c.talent.frontier.tier} /></span></div>
+                  <div><span className="country-code">{code}</span><span title="Field maturity on the AI-safety lens"><TierPill tier={c.talent.frontier.tier} /></span></div>
                   <strong>{c.name}</strong>
                   <div className="mini-tiers">
                     {DIMENSIONS.map(d => <span key={d.id} className={`mini-tier tier-dot-${c[d.id].frontier.tier?.toLowerCase() ?? "pending"}`} title={`${d.name} (frontier): ${c[d.id].frontier.tier ?? "Collecting"}`} />)}
@@ -397,7 +403,7 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
 
             {isOpportunityProfile(country) && <div className="data-warning opportunity">◆ High-leverage profile: this country is highly active on AI governance overall, but has little or no organized AI-safety field. The missing piece is not a frontier lab — it is a local community able to think through what advanced AI means for the country and prepare its response. That is where fieldbuilding, public awareness, and policy work go furthest.</div>}
 
-            <div className="section-title"><div><span className="eyebrow">Readiness profile</span><h2>Three spheres, two lenses.</h2></div><p>Each card grades one sphere on both lenses. Click any figure to see what it means, where it comes from, and the underlying items — papers, organizations, laws.</p></div>
+            <div className="section-title"><div><span className="eyebrow">Readiness profile</span><h2>Three spheres, two lenses.</h2></div><p>Each card shows one sphere’s maturity on both lenses. Click any figure to see what it means, where it comes from, and the underlying items — papers, organizations, laws.</p></div>
 
             <div className="pillars dims">
               {DIMENSIONS.map((d, i) => {

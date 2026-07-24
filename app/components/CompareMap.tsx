@@ -128,19 +128,19 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
 
   return (
     <section className="compare-page">
-      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>Three views, one scroll: the grades, the rankings behind them, and the landscape of gaps. Click any country, bar, or dot to open its details in a side panel.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>Three views, one scroll: the maturity assessment, the rankings behind it, and the landscape of gaps. Click any country, bar, or dot to open its details in a side panel.</p></div>
       <div className="stat-tiles">
         {tiles.map((t, i) => <div className="stat-tile" key={i}><strong>{t.n}</strong><span>{t.l}</span><small>{t.s}</small></div>)}
       </div>
 
       <nav className="cmp-subnav" aria-label="Compare sections">
-        {([["cmp-table", "01 · The grades"], ["cmp-rankings", "02 · The rankings"], ["cmp-landscape", "03 · The landscape"]] as const).map(([id, label]) => (
+        {([["cmp-table", "01 · The maturity"], ["cmp-rankings", "02 · The rankings"], ["cmp-landscape", "03 · The landscape"]] as const).map(([id, label]) => (
           <button key={id} className={activeSec === id ? "active" : ""} aria-current={activeSec === id || undefined} onClick={() => jump(id)}>{label}</button>
         ))}
       </nav>
 
       <div className="cmp-section" id="cmp-table">
-        <div className="section-title"><div><span className="eyebrow">01 · The grades</span><h2>Who has the ingredients in place?</h2><p className="section-answer">{estCounts.field} of 19 are Established in the field — {estCounts.gov} in government, on the {TRACK_LABEL[track]} lens.</p></div><p>Every sphere, every country, one lens at a time. Click a column header to sort, or a country for its details.</p></div>
+        <div className="section-title"><div><span className="eyebrow">01 · The maturity</span><h2>Who has the ingredients in place?</h2><p className="section-answer">{estCounts.field} of 19 are Established in the field — {estCounts.gov} in government, on the {TRACK_LABEL[track]} lens.</p></div><p>Every sphere, every country, one lens at a time. Click a column header to sort, or a country for its details.</p></div>
         <div className="cmp-controls">
           <div className="range-toggle" role="tablist" aria-label="Lens">
             <button className={track === "frontier" ? "active" : ""} onClick={() => setTrack("frontier")}>AI safety lens</button>
@@ -163,11 +163,11 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
             </tbody>
           </table>
         </div>
-        <p className="cmp-note">Grade colors: <span className="mini-tier tier-dot-nascent" /> Nascent · <span className="mini-tier tier-dot-emerging" /> Emerging · <span className="mini-tier tier-dot-established" /> Established · <span className="mini-tier tier-dot-pending" /> Collecting. Attention grades await complete media and search data and show as Collecting — never guessed.</p>
+        <p className="cmp-note">Maturity stages: <span className="mini-tier tier-dot-nascent" /> Nascent · <span className="mini-tier tier-dot-emerging" /> Emerging · <span className="mini-tier tier-dot-established" /> Established · <span className="mini-tier tier-dot-pending" /> Collecting. The public’s stage awaits complete media and search data and shows as Collecting — never guessed.</p>
       </div>
 
       <div className="cmp-section" id="cmp-rankings">
-        <div className="section-title"><div><span className="eyebrow">02 · The rankings</span><h2>Where does the work concentrate?</h2><p className="section-answer">{rankHeadline}</p></div><p>The raw numbers behind the grades, one indicator at a time. Hover a bar for each country's share of the G20 total.</p></div>
+        <div className="section-title"><div><span className="eyebrow">02 · The rankings</span><h2>Where does the work concentrate?</h2><p className="section-answer">{rankHeadline}</p></div><p>The raw numbers behind the assessment, one indicator at a time. Hover a bar for each country's share of the G20 total.</p></div>
         <div className="cmp-controls">
           <label className="cmp-sort">Indicator{" "}
             <select value={rankBy} onChange={e => setRankBy(e.target.value)}>
@@ -223,8 +223,18 @@ export function CountryDetail({ dataset, iso, onCountry, onClose }: { dataset: S
         <button className="map-detail-open" onClick={() => onCountry(iso)}>View full profile →</button>
         <button className="map-detail-close" onClick={onClose} aria-label="Close">×</button>
       </div>
-      <div className="detail-grades"><span>Grades, AI-safety lens:</span>{DIMS.map(d => { const t = (sel as any)[d.id].frontier.tier; return <span key={d.id} className="detail-grade"><i className={`mini-tier tier-dot-${t?.toLowerCase() ?? "pending"}`} />{d.name.replace("The ", "")}: {t ?? "Collecting"}</span>; })}</div>
+      <div className="detail-grades"><span>Maturity, AI-safety lens:</span>{DIMS.map(d => { const t = (sel as any)[d.id].frontier.tier; return <span key={d.id} className="detail-grade"><i className={`mini-tier tier-dot-${t?.toLowerCase() ?? "pending"}`} />{d.name.replace("The ", "")}: {t ?? "Collecting"}</span>; })}</div>
       <div className="detail-groups">
+
+        <details className="detail-group" open>
+          <summary><span>Position in the landscapes</span><strong className="qp-count">4 charts</strong></summary>
+          <p className="dg-note">Which quadrant this country occupies in each Compare landscape, split at the G20 medians. The tinted quadrant is the gap.</p>
+          <ul className="quad-pos-list">
+            {landscapePositions(dataset, iso).map(pn => (
+              <li key={pn.key}><QuadGlyph quad={pn.quad} hot={pn.hot} /><span className="qp-name">{pn.name}</span><strong className={pn.hot ? "qp-hot" : ""}>{pn.label}</strong></li>
+            ))}
+          </ul>
+        </details>
 
         <details className="detail-group" open>
           <summary><span>AI-safety commitments</span><strong>{pf.p2_score}/5</strong></summary>
@@ -309,7 +319,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     yLabel: "AI-safety papers (\u221a scale) \u2192",
     x: c => c.talent.mainstream.t1_ai_share ?? 0, y: c => c.talent.frontier.t2_works ?? 0, sqrtY: true,
     xFmt: v => `${(v * 100).toFixed(2)}%`, yFmt: v => v.toLocaleString(),
-    tier: c => c.talent.frontier.tier, tierLabel: "field grade, AI-safety lens",
+    tier: c => c.talent.frontier.tier, tierLabel: "field maturity, AI-safety lens",
     quads: { tl: "Safety-leaning", tr: "Deep in both", bl: "Early on both", br: "AI without safety" },
   },
   intensity: {
@@ -323,7 +333,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     y: c => (c.talent.frontier.t2_works != null && c.talent.mainstream.t1_ai_works) ? c.talent.frontier.t2_works / c.talent.mainstream.t1_ai_works : 0,
     sqrtY: true,
     xFmt: v => `${(v * 100).toFixed(2)}%`, yFmt: v => `${(v * 100).toFixed(2)}%`,
-    tier: c => c.talent.frontier.tier, tierLabel: "field grade, AI-safety lens",
+    tier: c => c.talent.frontier.tier, tierLabel: "field maturity, AI-safety lens",
     quads: { tl: "Safety-leaning", tr: "Deep in both", bl: "Early on both", br: "AI without safety" },
   },
   talent: {
@@ -335,7 +345,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     yLabel: "Safety orgs & student groups \u2192",
     x: c => c.talent.frontier.t2_works ?? 0, y: c => c.talent.frontier.t3_orgs + c.talent.frontier.t3_university_groups, sqrtY: false,
     xFmt: v => v.toLocaleString(), yFmt: v => String(v),
-    tier: c => c.talent.frontier.tier, tierLabel: "field grade, AI-safety lens",
+    tier: c => c.talent.frontier.tier, tierLabel: "field maturity, AI-safety lens",
     quads: { tl: "Organizers ahead of research", tr: "Field and community", bl: "Not yet started", br: "Research without community" },
   },
   policy: {
@@ -347,10 +357,40 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     yLabel: "Safety commitments (0\u20135) \u2192",
     x: c => c.policy.mainstream.p1_oecd_initiative_count ?? 0, y: c => c.policy.frontier.p2_score, sqrtY: false,
     xFmt: v => String(v), yFmt: v => `${v}/5`,
-    tier: c => c.policy.frontier.tier, tierLabel: "government grade, AI-safety lens",
+    tier: c => c.policy.frontier.tier, tierLabel: "government maturity, AI-safety lens",
     quads: { tl: "Committed, little activity", tr: "Engaged and committed", bl: "Not yet engaged", br: "Busy, not committed" },
   },
 };
+
+const LAND_NAMES: Record<string, string> = { research: "Research", intensity: "Safety intensity", talent: "The field", policy: "The government" };
+const medianOf = (a: number[]) => { const v = [...a].sort((p, q) => p - q); return v.length % 2 ? v[(v.length - 1) / 2] : (v[v.length / 2 - 1] + v[v.length / 2]) / 2; };
+
+/** Which quadrant a country occupies in each landscape, split at the G20 medians. */
+export function landscapePositions(dataset: SnapshotV2, iso: string) {
+  const codes = Object.keys(dataset.countries);
+  const c = dataset.countries[iso];
+  return Object.entries(LANDSCAPES).map(([key, cfg]) => {
+    const mx = medianOf(codes.map(k => cfg.x(dataset.countries[k])));
+    const my = medianOf(codes.map(k => cfg.y(dataset.countries[k])));
+    const right = cfg.x(c) >= mx, top = cfg.y(c) >= my;
+    const quad = (top ? (right ? "tr" : "tl") : (right ? "br" : "bl")) as "tl" | "tr" | "bl" | "br";
+    return { key, name: LAND_NAMES[key], quad, label: cfg.quads[quad], hot: quad === "br" };
+  });
+}
+
+/** Tiny 2x2 glyph marking a quadrant; hot = the gap quadrant. */
+export function QuadGlyph({ quad, hot = false }: { quad: "tl" | "tr" | "bl" | "br"; hot?: boolean }) {
+  const pos: Record<string, [number, number]> = { tl: [1, 1], tr: [7, 1], bl: [1, 7], br: [7, 7] };
+  const [x, y] = pos[quad];
+  return (
+    <svg width="13" height="13" viewBox="0 0 13 13" className="quad-glyph" aria-hidden="true">
+      <rect x="0.5" y="0.5" width="12" height="12" fill="none" stroke="#b9bbb2" strokeWidth="1" />
+      <line x1="6.5" y1="0.5" x2="6.5" y2="12.5" stroke="#b9bbb2" strokeWidth="1" />
+      <line x1="0.5" y1="6.5" x2="12.5" y2="6.5" stroke="#b9bbb2" strokeWidth="1" />
+      <rect x={x} y={y} width="5" height="5" fill={hot ? "#C0512E" : "#2F6E7B"} />
+    </svg>
+  );
+}
 
 function ChartPanel({ dataset, metric, onCountry, view }: { dataset: SnapshotV2; metric: Metric; onCountry: (iso: string) => void; view: "ranking" | "research" | "intensity" | "talent" | "policy" }) {
   const [tip, setTip] = useState<{ text: string[]; x: number; y: number } | null>(null);
@@ -498,7 +538,7 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
 
   return (
     <section className="map-page">
-      <div className="section-title"><div><span className="eyebrow">Map · {snapMonth(dataset.snapshot)}</span><h2>The G20, at a glance.</h2></div><p>Color the map by a grade or by a number. Hover for detail; click a country to see its numbers and the evidence behind them. Gray countries aren't covered yet — the explorer is G20-only for now.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Map · {snapMonth(dataset.snapshot)}</span><h2>The G20, at a glance.</h2></div><p>Color the map by maturity or by a number. Hover for detail; click a country to see its numbers and the evidence behind them. Gray countries aren't covered yet — the explorer is G20-only for now.</p></div>
       <div className="cmp-controls">
         {!metric && <div className="range-toggle" role="tablist" aria-label="Ingredient">
           {DIMS.map(d => <button key={d.id} className={dim === d.id ? "active" : ""} onClick={() => setDim(d.id)}>{d.name}</button>)}
@@ -509,13 +549,13 @@ export function MapView({ dataset, onCountry }: { dataset: SnapshotV2; onCountry
         </div>}
         <label className="cmp-sort">Color by{" "}
           <select value={colorBy} onChange={e => setColorBy(e.target.value)}>
-            <option value="grade">Grade (sphere & lens above)</option>
+            <option value="grade">Maturity (sphere & lens above)</option>
             {METRICS.map(m => <option key={m.key} value={m.key}>{m.label}</option>)}
           </select>
         </label>
       </div>
       <div className="map-wrap" onMouseLeave={() => setHover(null)}>
-        <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={metric ? `World map: ${metric.label}` : `World map: ${dim} grade, ${TRACK_LABEL[track]} lens`}>
+        <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={metric ? `World map: ${metric.label}` : `World map: ${dim} maturity, ${TRACK_LABEL[track]} lens`}>
           {countriesGeo.features.map((f: any) => {
             const iso = NUM_ISO[f.id];
             const fill = iso ? fillOf(iso) : "#eceae5";

@@ -236,3 +236,12 @@
 .map-detail .detail-groups { columns: 2; column-gap: 34px; }
 .map-detail .detail-group { break-inside: avoid; }
 @media (max-width: 760px) { .map-detail .detail-groups { columns: 1; } }
+/* Landscape-position evidence */
+.quad-pos-list { list-style: none; margin: 0; padding: 0; }
+.quad-pos-list li { display: flex; align-items: center; gap: 9px; padding: 6px 0; border-top: 1px dashed rgba(128,128,128,0.2); font-size: .76rem; }
+.qp-name { color: #68716b; flex: 0 0 108px; }
+.qp-hot { color: #a23f1f; }
+.qp-count { font-size: .72rem !important; font-weight: 400 !important; color: #9b968e; }
+.quad-glyph { flex: 0 0 auto; }
+.act-hot { display: flex; flex-direction: column; gap: 3px; color: #a23f1f; font-size: .72rem; }
+.act-hot span { display: inline-flex; align-items: center; gap: 6px; }
