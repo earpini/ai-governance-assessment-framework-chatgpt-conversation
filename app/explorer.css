@@ -245,3 +245,18 @@
 .quad-glyph { flex: 0 0 auto; }
 .act-hot { display: flex; flex-direction: column; gap: 3px; color: #a23f1f; font-size: .72rem; }
 .act-hot span { display: inline-flex; align-items: center; gap: 6px; }
+/* Compare 01: country explore grid + chart sub-heads */
+.cmp-country-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-block: 1px solid rgba(128,128,128,0.4); }
+.cmp-country-grid button { display: flex; flex-direction: column; gap: 7px; align-items: flex-start; padding: 16px 15px 13px; border: 0; border-right: 1px solid rgba(128,128,128,0.18); border-bottom: 1px solid rgba(128,128,128,0.18); background: none; text-align: left; cursor: pointer; font: inherit; min-width: 0; }
+.cmp-country-grid button:nth-child(5n) { border-right: 0; }
+.cmp-country-grid button:hover { background: rgba(0,0,0,0.035); }
+.cmp-country-grid button strong { font-family: var(--font-serif), serif; font-weight: 500; font-size: 1.2rem; letter-spacing: -.01em; }
+.cmp-country-grid .cc-top { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.cmp-country-grid .mini-row { display: inline-flex; gap: 4px; }
+.cmp-country-grid .select-label { opacity: 0; transition: opacity .15s; }
+.cmp-country-grid button:hover .select-label, .cmp-country-grid button:focus-visible .select-label { opacity: 1; }
+.chart-subhead { margin: 46px 0 14px; }
+.chart-subhead h3 { font-family: var(--font-serif), serif; font-size: 1.95rem; font-weight: 500; letter-spacing: -.02em; margin: 0; }
+.chart-subhead .section-answer { font-size: 1.05rem; margin-top: 10px; }
+@media (max-width: 900px) { .cmp-country-grid { grid-template-columns: repeat(3, 1fr); } .cmp-country-grid button:nth-child(5n) { border-right: 1px solid rgba(128,128,128,0.18); } .cmp-country-grid button:nth-child(3n) { border-right: 0; } }
+@media (max-width: 620px) { .cmp-country-grid { grid-template-columns: repeat(2, 1fr); } .cmp-country-grid button:nth-child(3n) { border-right: 1px solid rgba(128,128,128,0.18); } .cmp-country-grid button:nth-child(2n) { border-right: 0; } .cmp-country-grid .select-label { opacity: 1; } }

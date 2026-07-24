@@ -108,7 +108,7 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
 
   // Scrollspy for the sticky section nav
   useEffect(() => {
-    const ids = ["cmp-table", "cmp-rankings", "cmp-landscape"];
+    const ids = ["cmp-table", "cmp-landscape", "cmp-rankings"];
     const obs = new IntersectionObserver(entries => {
       for (const e of entries) if (e.isIntersecting) setActiveSec((e.target as HTMLElement).id);
     }, { rootMargin: "-130px 0px -55% 0px" });
@@ -128,19 +128,19 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
 
   return (
     <section className="compare-page">
-      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>Three views, one scroll: the maturity assessment, the rankings behind it, and the landscape of gaps. Click any country, bar, or dot to open its details in a side panel.</p></div>
+      <div className="section-title"><div><span className="eyebrow">Compare · {snapMonth(dataset.snapshot)}</span><h2>All countries, side by side.</h2></div><p>One scroll, increasingly granular: the maturity assessment, then the landscapes behind it, then country-by-country rankings for every indicator. Click any country, dot, or bar to open its details in a side panel.</p></div>
       <div className="stat-tiles">
         {tiles.map((t, i) => <div className="stat-tile" key={i}><strong>{t.n}</strong><span>{t.l}</span><small>{t.s}</small></div>)}
       </div>
 
       <nav className="cmp-subnav" aria-label="Compare sections">
-        {([["cmp-table", "01 · The maturity"], ["cmp-rankings", "02 · The rankings"], ["cmp-landscape", "03 · The landscape"]] as const).map(([id, label]) => (
+        {([["cmp-table", "01 · Maturity assessment"], ["cmp-landscape", "02 · The landscapes"], ["cmp-rankings", "03 · The rankings"]] as const).map(([id, label]) => (
           <button key={id} className={activeSec === id ? "active" : ""} aria-current={activeSec === id || undefined} onClick={() => jump(id)}>{label}</button>
         ))}
       </nav>
 
       <div className="cmp-section" id="cmp-table">
-        <div className="section-title"><div><span className="eyebrow">01 · The maturity</span><h2>Who has the ingredients in place?</h2><p className="section-answer">{estCounts.field} of 19 are Established in the field — {estCounts.gov} in government, on the {TRACK_LABEL[track]} lens.</p></div><p>Every sphere, every country, one lens at a time. Click a column header to sort, or a country for its details.</p></div>
+        <div className="section-title"><div><span className="eyebrow">01 · Maturity assessment</span><h2>Who has the ingredients in place?</h2><p className="section-answer">{estCounts.field} of 19 are Established in the field — {estCounts.gov} in government, on the {TRACK_LABEL[track]} lens.</p></div><p>Every sphere, every country, one lens at a time. Click a column header to sort, or a country for its details.</p></div>
         <div className="cmp-controls">
           <div className="range-toggle" role="tablist" aria-label="Lens">
             <button className={track === "frontier" ? "active" : ""} onClick={() => setTrack("frontier")}>AI safety lens</button>
@@ -166,20 +166,8 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
         <p className="cmp-note">Maturity stages: <span className="mini-tier tier-dot-nascent" /> Nascent · <span className="mini-tier tier-dot-emerging" /> Emerging · <span className="mini-tier tier-dot-established" /> Established · <span className="mini-tier tier-dot-pending" /> Collecting. The public’s stage awaits complete media and search data and shows as Collecting — never guessed.</p>
       </div>
 
-      <div className="cmp-section" id="cmp-rankings">
-        <div className="section-title"><div><span className="eyebrow">02 · The rankings</span><h2>Where does the work concentrate?</h2><p className="section-answer">{rankHeadline}</p></div><p>The raw numbers behind the assessment, one indicator at a time. Hover a bar for each country's share of the G20 total.</p></div>
-        <div className="cmp-controls">
-          <label className="cmp-sort">Indicator{" "}
-            <select value={rankBy} onChange={e => setRankBy(e.target.value)}>
-              {METRICS.map(m => <option key={m.key} value={m.key}>{m.label}</option>)}
-            </select>
-          </label>
-        </div>
-        <ChartPanel dataset={dataset} metric={rankMetric} onCountry={setPanel} view="ranking" />
-      </div>
-
       <div className="cmp-section" id="cmp-landscape">
-        <div className="section-title"><div><span className="eyebrow">03 · The landscape</span><h2>{LANDSCAPES[land].question}</h2><p className="section-answer">{LANDSCAPES[land].answer}</p></div><p>Two indicators at a time, every country on one canvas. Click any dot for details.</p></div>
+        <div className="section-title"><div><span className="eyebrow">02 · The landscapes</span><h2>{LANDSCAPES[land].question}</h2><p className="section-answer">{LANDSCAPES[land].answer}</p></div><p>Two indicators on one canvas, every country placed in a quadrant split at the G20 medians. The tinted quadrant is the gap. Click any dot for details.</p></div>
         <div className="cmp-controls">
           <div className="range-toggle" role="tablist" aria-label="Landscape">
             <button className={land === "research" ? "active" : ""} onClick={() => setLand("research")}>Research</button>
@@ -189,6 +177,18 @@ export function CompareView({ dataset, onCountry }: { dataset: SnapshotV2; onCou
           </div>
         </div>
         <ChartPanel dataset={dataset} metric={rankMetric} onCountry={setPanel} view={land} />
+      </div>
+
+      <div className="cmp-section" id="cmp-rankings">
+        <div className="section-title"><div><span className="eyebrow">03 · The rankings</span><h2>Where does the work concentrate?</h2><p className="section-answer">{rankHeadline}</p></div><p>The most granular view: the raw numbers, one indicator at a time. Hover a bar for each country's share of the G20 total.</p></div>
+        <div className="cmp-controls">
+          <label className="cmp-sort">Indicator{" "}
+            <select value={rankBy} onChange={e => setRankBy(e.target.value)}>
+              {METRICS.map(m => <option key={m.key} value={m.key}>{m.label}</option>)}
+            </select>
+          </label>
+        </div>
+        <ChartPanel dataset={dataset} metric={rankMetric} onCountry={setPanel} view="ranking" />
       </div>
 
       {panel && (
