@@ -320,7 +320,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     x: c => c.talent.mainstream.t1_ai_share ?? 0, y: c => c.talent.frontier.t2_works ?? 0, sqrtY: true,
     xFmt: v => `${(v * 100).toFixed(2)}%`, yFmt: v => v.toLocaleString(),
     tier: c => c.talent.frontier.tier, tierLabel: "field maturity, AI-safety lens",
-    quads: { tl: "Safety-leaning", tr: "Deep in both", bl: "Early on both", br: "AI without safety" },
+    quads: { tl: "Safety ahead of AI focus", tr: "Strong in both AI and AI safety", bl: "Early in both AI and safety", br: "AI without safety" },
   },
   intensity: {
     title: "Safety intensity: AI focus vs the safety share of that AI work",
@@ -334,7 +334,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     sqrtY: true,
     xFmt: v => `${(v * 100).toFixed(2)}%`, yFmt: v => `${(v * 100).toFixed(2)}%`,
     tier: c => c.talent.frontier.tier, tierLabel: "field maturity, AI-safety lens",
-    quads: { tl: "Safety-leaning", tr: "Deep in both", bl: "Early on both", br: "AI without safety" },
+    quads: { tl: "Safety-minded, less AI-heavy", tr: "Deep in AI, engaged in safety", bl: "Early in both AI and safety", br: "AI without safety" },
   },
   talent: {
     title: "The field landscape: safety research vs organized community",
@@ -346,7 +346,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     x: c => c.talent.frontier.t2_works ?? 0, y: c => c.talent.frontier.t3_orgs + c.talent.frontier.t3_university_groups, sqrtY: false,
     xFmt: v => v.toLocaleString(), yFmt: v => String(v),
     tier: c => c.talent.frontier.tier, tierLabel: "field maturity, AI-safety lens",
-    quads: { tl: "Organizers ahead of research", tr: "Field and community", bl: "Not yet started", br: "Research without community" },
+    quads: { tl: "Organizers ahead of research", tr: "Research and organized community", bl: "Underdeveloped field", br: "Research without community" },
   },
   policy: {
     title: "The government landscape: AI policy activity vs safety commitments",
@@ -358,7 +358,7 @@ const LANDSCAPES: Record<string, LandscapeCfg> = {
     x: c => c.policy.mainstream.p1_oecd_initiative_count ?? 0, y: c => c.policy.frontier.p2_score, sqrtY: false,
     xFmt: v => String(v), yFmt: v => `${v}/5`,
     tier: c => c.policy.frontier.tier, tierLabel: "government maturity, AI-safety lens",
-    quads: { tl: "Committed, little activity", tr: "Engaged and committed", bl: "Not yet engaged", br: "Busy, not committed" },
+    quads: { tl: "Safety-committed, few initiatives", tr: "Active and committed to safety", bl: "Little AI policy yet", br: "Active on AI, uncommitted on safety" },
   },
 };
 

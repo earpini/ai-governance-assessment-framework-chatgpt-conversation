@@ -424,6 +424,20 @@ export default function ExplorerApp({ dataset, variant = "window" }: { dataset: 
                 );
               })}
             </div>
+
+            <div className="profile-landscapes">
+              <div className="section-title"><div><span className="eyebrow">Landscape positions</span><h2>Where {country.name} sits in the charts.</h2></div><p>Each Compare landscape places every country in a quadrant, split at the G20 medians. The clay quadrant is the gap. Click one to open the charts.</p></div>
+              <div className="pl-grid">
+                {landscapePositions(dataset, selected).map(pn => (
+                  <button key={pn.key} className="pl-cell" onClick={() => { setView("compare"); setTimeout(() => document.getElementById("cmp-landscape")?.scrollIntoView({ behavior: "smooth", block: "start" }), 80); }}>
+                    <QuadGlyph quad={pn.quad} hot={pn.hot} />
+                    <span className="pl-name">{pn.name}</span>
+                    <strong className={pn.hot ? "qp-hot" : ""}>{pn.label}</strong>
+                    <span className="select-label">View chart →</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </section>
         </>
       )}
